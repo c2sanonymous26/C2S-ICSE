@@ -8,18 +8,16 @@ The dependency files `.python-version`, `pyproject.toml`, and `uv.lock` are plac
 
 ### `source_code/`
 
-This directory is the runnable source-code package of $\mathrm{C}^2\mathrm{S}$. It contains the scenario inputs and the implementation of the main pipeline:
+This directory is the runnable source-code package of $\mathrm{C}^2\mathrm{S}$. It contains:
 
-- constraint invention, including intent and semantics generation and template synthesis;
-- parameter instantiation;
-- constraint extraction;
-- constraint checking;
-- auxiliary scripts for semantic checking, duplicate checking, perturbation generation, and result analysis;
-- the $\mathrm{AR+}$ baseline implementation.
+- the implementation of $\mathrm{C}^2\mathrm{S}$, including intent and semantics generation, constraint-template synthesis, and parameter instantiation;
+- the $\mathrm{AR+}$ baseline implementation;
+- auxiliary modules and scripts, including constraint extraction, constraint checking, and perturbation generation;
+- inputs for the taxi-management scenario.
 
 The source-code package is intended for users who want to run $\mathrm{C}^2\mathrm{S}$ on the provided taxi scenario or inspect the implementation details. Runtime directories such as `outputs/`, `constraints/`, and `evaluation/` are created inside `source_code/` when commands are executed.
 
-To run the source code, first enter this directory and follow `source_code/README.md`.
+To run the source code, first enter this directory and follow [`source_code/README.md`](source_code/README.md).
 
 ### `evaluation_results/`
 
@@ -33,7 +31,7 @@ This directory contains the released experimental artifacts used for the paper e
 
 This package is intended for users who want to inspect the reported results or verify the result-generation scripts without rerunning the full synthesis pipeline. The full source-code pipeline is provided separately under `source_code/`.
 
-To rerun the evaluation scripts, first enter this directory and follow `evaluation_results/README.md`.
+To rerun the evaluation scripts, first enter this directory and follow [`evaluation_results/README.md`](evaluation_results/README.md).
 
 ### `supplementary_materials/`
 
@@ -45,7 +43,7 @@ This directory contains additional materials that support the methodology and ev
 
 These materials are intended for readers who want to inspect the prompts, understand the unit-validation rule set, or review how the human evaluation was conducted.
 
-See `supplementary_materials/README.md` for details.
+See [`supplementary_materials/README.md`](supplementary_materials/README.md) for details.
 
 ## Requirements
 
