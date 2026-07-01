@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles (v1.carid != v2.carid), and their timestamps are within a certain time window (|v1.timestamp - v2.timestamp| <= T), and the distance between their GPS locations (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is within a certain distance (d <= D), then the absolute difference between their speeds (|v1.speed - v2.speed|) does not exceed a certain bound (S).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

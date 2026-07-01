@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts of the same vehicle separated by five grpid steps should keep both direction-change rate and speed-change rate within reasonable ranges.",
+    "goal": "Detect same-vehicle contexts whose multi-step turning and speed dynamics are implausible.",
+    "design_rationale": "Even across a five-step gap, both heading-change rate and speed-change rate should remain realistic."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 5 greater than that of v2, then the direction-change rate between v1 and v2, computed from direction difference and time difference, should lie within a certain reasonable range, and the speed-change rate between v1 and v2, computed from speed difference and time difference, should also lie within a certain reasonable range."
+}

@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "scenario": "taxi",
+    "constraint_dir": "constraints/taxi_RQ1&2_5/C2S",
+    "check_dir": "outputs/check/taxi_RQ1&2_5/C2S",
+    "perturbation_data_name": "5000_pp_0.01/04b399b6",
+    "pure_perturbation_incs_count": 231,
+    "uses_perturbation_data_incs_directly": true
+  },
+  "overall_results": {
+    "involved_constraint_count": 11,
+    "incs": 231,
+    "AUPRC": 0.742955,
+    "actual_perturbation_count": 39,
+    "suspicious_count": 119
+  },
+  "per_constraint_results": {
+    "constraint_10": {
+      "incs": 11,
+      "AUPRC": 0.237823,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 18
+    },
+    "constraint_11": {
+      "incs": 21,
+      "AUPRC": 0.594575,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 33
+    },
+    "constraint_19": {
+      "incs": 10,
+      "AUPRC": 0.214205,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 17
+    },
+    "constraint_24": {
+      "incs": 30,
+      "AUPRC": 0.27748,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 23
+    },
+    "constraint_26": {
+      "incs": 20,
+      "AUPRC": 0.572347,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 31
+    },
+    "constraint_27": {
+      "incs": 34,
+      "AUPRC": 1.0,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 51
+    },
+    "constraint_30": {
+      "incs": 34,
+      "AUPRC": 1.0,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 51
+    },
+    "constraint_33": {
+      "incs": 11,
+      "AUPRC": 0.648249,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 11
+    },
+    "constraint_34": {
+      "incs": 17,
+      "AUPRC": 1.0,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 17
+    },
+    "constraint_6": {
+      "incs": 1,
+      "AUPRC": 0.032585,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 2
+    },
+    "constraint_7": {
+      "incs": 42,
+      "AUPRC": 0.26355,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 29
+    }
+  }
+}

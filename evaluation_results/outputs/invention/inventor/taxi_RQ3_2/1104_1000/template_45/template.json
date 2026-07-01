@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose coordinate-change rate to v1 remains reasonable.",
+    "goal": "Detect unusually high-speed contexts whose local coordinate evolution is implausible.",
+    "design_rationale": "If a vehicle is moving very fast, the coordinate change from the previous step should still imply a plausible spatial rate over time."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the coordinate-change rate between v1 and v2 computed from coordinate differences and timestamp difference should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate-change rate between v1 and v2 computed from coordinate differences and timestamp difference should lie within a certain reasonable range.",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) ÷ (v1.timestamp - v2.timestamp) >= NTHRESHOLD2 && sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD3",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 should lie within a certain reasonable range.",
+      "implementation": "v1.timestamp - v2.timestamp >= NTHRESHOLD4 && v1.timestamp - v2.timestamp <= NTHRESHOLD5",
+      "restrictions": []
+    }
+  ]
+}

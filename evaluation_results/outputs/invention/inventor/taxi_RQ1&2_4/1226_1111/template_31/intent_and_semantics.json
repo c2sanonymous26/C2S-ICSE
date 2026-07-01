@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a timestamp value that is non-negative and does not exceed a reasonable upper bound.",
+    "goal": "Detect contexts with a timestamp that is negative or exceeds the plausible maximum epoch value.",
+    "design_rationale": "Timestamps represent Unix epoch time and must be non-negative; a negative value or an excessively large value indicates a data encoding error."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be non-negative and should not exceed a certain reasonable upper bound."
+}

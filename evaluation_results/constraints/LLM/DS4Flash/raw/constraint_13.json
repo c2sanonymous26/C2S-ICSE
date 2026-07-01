@@ -1,0 +1,68 @@
+{
+  "constraint_id": 13,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 67.64754104614258
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The GPS location of each context is within the city boundary.",
+      "goal": "Detect contexts with GPS coordinates that fall outside the valid city area, indicating sensor errors or data corruption.",
+      "design_rationale": "Taxis operate within a defined city area, so any context with a location outside the city boundary is physically invalid and must be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the GPS location (latitude and longitude) recorded in v1 is within the city boundary.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "v1's GPS location (latitude and longitude) is within the city boundary",
+        "implementation": "v1.latitude >= NTHRESHOLD1 && v1.latitude <= NTHRESHOLD2 && v1.longitude >= NTHRESHOLD3 && v1.longitude <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 22.542
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 22.764
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 113.814
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 114.34
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The GPS location of each context is within the city boundary.",
+      "goal": "Detect contexts with GPS coordinates that fall outside the valid city area, indicating sensor errors or data corruption.",
+      "design_rationale": "Taxis operate within a defined city area, so any context with a location outside the city boundary is physically invalid and must be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the GPS location (latitude and longitude) recorded in v1 is within the city boundary.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "v1's GPS location (latitude and longitude) is within the city boundary",
+        "implementation": "(v1.latitude >= 22.542) && ((v1.latitude <= 22.764) && ((v1.longitude >= 113.814) && (v1.longitude <= 114.34)))",
+        "restrictions": []
+      }
+    ]
+  }
+}

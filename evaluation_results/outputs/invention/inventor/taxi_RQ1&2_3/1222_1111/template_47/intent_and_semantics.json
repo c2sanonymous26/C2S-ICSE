@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show high speed and the middle context shows low speed, the total time span should be significantly greater than the time from the first to the middle context.",
+    "goal": "Detect three consecutive contexts where the timing of a transient speed dip is inconsistent with a normal sampling pattern.",
+    "design_rationale": "In a speed-dip pattern (high-low-high), the middle low-speed sample should occupy a small fraction of the total time interval; a disproportionately large time gap between the first and middle records suggests the pattern is a data artifact rather than a real speed dip."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the timestamp difference between v1 and v3 should be significantly greater than the timestamp difference between v1 and v2."
+}

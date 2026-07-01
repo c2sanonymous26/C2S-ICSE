@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether a high-speed vehicle has sufficient braking capability relative to its previous record.",
+    "goal": "Identify high-speed records for which the implied deceleration from the previous same-vehicle record is not large enough.",
+    "design_rationale": "When a vehicle is moving at a very high speed, there should exist a previous adjacent record showing adequate deceleration capacity; otherwise the motion pattern may be unrealistic."
+  },
+  "semantics": "For any vehicle record v1, if the speed of v1 is significantly higher than some threshold, then there exists another vehicle record v2 such that v2 belongs to the same vehicle and the grpid of v2 is smaller than that of v1 by 1, and the ratio of the speed difference between v1 and v2 to their timestamp difference (i.e., deceleration) must be significantly greater than some lower bound (i.e., the vehicle should have sufficient braking capability when in a high-speed state)."
+}

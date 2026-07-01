@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should have a direction value within the standard angular range.",
+    "goal": "Detect contexts with invalid direction values.",
+    "design_rationale": "Direction is represented as an angle and should stay within the standard interval from 0 to 360 degrees."
+  },
+  "semantics": "For any context v1, the direction value of v1 should be between 0 degrees and 360 degrees.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The direction value of v1 is between 0 degrees and 360 degrees.",
+      "implementation": "v1.direction >= 0 && v1.direction <= 360",
+      "restrictions": []
+    }
+  ]
+}

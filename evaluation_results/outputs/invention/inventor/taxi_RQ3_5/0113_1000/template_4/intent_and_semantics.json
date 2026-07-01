@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a grpid value no smaller than 1.",
+    "goal": "Detect contexts with invalid grpid values.",
+    "design_rationale": "The group identifier is expected to start from a positive sequence index."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be greater than or equal to 1."
+}

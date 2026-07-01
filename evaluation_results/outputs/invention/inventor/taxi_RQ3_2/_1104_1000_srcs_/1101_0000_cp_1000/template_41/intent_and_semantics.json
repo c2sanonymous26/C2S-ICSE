@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are three grpid steps apart and close in time should have a reasonable distance between them.",
+    "goal": "Detect implausible spatial transitions across short-range within-vehicle sequence gaps of three steps.",
+    "design_rationale": "Even across a three-step sequence gap, observations that remain close in time should still imply a realistic spatial separation."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 3 greater than that of v2, then, when the time difference between v1 and v2 is smaller than a certain value, the distance between v1 and v2 should lie within a certain reasonable range."
+}

@@ -1,0 +1,61 @@
+{
+  "intent": {
+    "content": "When a vehicle transitions from stopped to moving between two consecutive contexts, the coordinate displacement should be small and the direction should remain consistent.",
+    "goal": "Detect consecutive contexts where a vehicle starts moving from rest but shows an implausibly large coordinate displacement or direction change.",
+    "design_rationale": "A vehicle just starting to move from rest should stay near its previous position and maintain the same heading; violations in either dimension indicate GPS or sensor errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed changes from zero to non-zero, then the coordinate differences between v1 and v2 should be within a certain smaller reasonable range, and v2's direction should be the same as v1's direction.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies (bfunc4(v1, v2) and bfunc5(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1's speed changes from zero to non-zero",
+      "implementation": "v1.speed == 0 && v2.speed > 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinate differences between v1 and v2 are within a certain smaller reasonable range",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2's direction is the same as v1's direction",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

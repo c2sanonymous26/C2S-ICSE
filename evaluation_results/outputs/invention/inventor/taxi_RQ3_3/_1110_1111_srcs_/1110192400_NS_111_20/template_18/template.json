@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "A stopping transition from non-zero speed to zero speed should keep the one-step spatial displacement within a reasonable parking distance threshold.",
+    "goal": "Detect stopping one-step transitions whose spatial movement is implausibly large.",
+    "design_rationale": "When a vehicle comes to a stop, the immediately following one-step displacement should remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is non-zero while the speed of v2 is zero, then the coordinate distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable parking distance threshold.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is equal to the grpid value of v2 minus 1.",
+      "implementation": "v1.grpid == v2.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed of v1 is non-zero while the speed of v2 is zero.",
+      "implementation": "v1.speed != 0 && v2.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable parking distance threshold.",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

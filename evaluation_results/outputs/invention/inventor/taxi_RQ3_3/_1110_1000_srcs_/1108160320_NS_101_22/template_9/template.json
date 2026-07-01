@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Near-synchronous contexts from different vehicles should keep the combined magnitude of spatial distance and average speed within a reasonable proximity bound.",
+    "goal": "Detect cross-vehicle context pairs whose joint spatial separation and speed level are implausible.",
+    "design_rationale": "Closely timed observations from different vehicles should not jointly imply an unrealistic proximity-distance condition under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the product of the coordinate distance between them computed using the haversine formula and their average speed should not exceed a certain reasonable upper bound on proximity distance.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The product of the coordinate distance between v1 and v2 computed using the haversine formula and their average speed does not exceed a certain reasonable upper bound on proximity distance.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) × ((v1.speed + v2.speed) ÷ 2) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

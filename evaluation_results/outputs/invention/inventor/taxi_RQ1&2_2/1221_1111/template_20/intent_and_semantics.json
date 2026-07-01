@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS-implied average speed between same-vehicle contexts that are close in time does not exceed a reasonable upper bound.",
+    "goal": "Detect same-vehicle context pairs that are close in time but show an implausibly high GPS-implied average speed.",
+    "design_rationale": "A vehicle cannot move faster than a physically plausible maximum speed; an excessively high GPS-implied speed indicates a GPS positioning error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the ratio of the haversine GPS distance to the timestamp difference must be below a certain reasonable speed upper bound."
+}

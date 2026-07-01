@@ -1,0 +1,51 @@
+========================== 0116_1111/template_48 (5000_11_solve) instantiation starts ===========================
+- scenario: taxi
+- template: 0116_1111/template_48
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0036199092864990234 seconds
+Constructed ctx data in 4.0531158447265625e-05 seconds
+Loaded data field types in 0.0005669593811035156 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(-(-v1_speed + v3_speed)/(-v1_timestamp + v3_timestamp) + (v1_speed - v2_speed)/(v1_timestamp - v2_timestamp)) → range [2.1077448513460184e-12, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [2.1077448513460184e-12, inf]
+Approximate computed ranges for 2 threshold symbols in 1.31 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(-(-v1_speed + v3_speed)/(-v1_timestamp + v3_timestamp) + (v1_speed - v2_speed)/(v1_timestamp - v2_timestamp)) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD2': [-inf, inf]
+Theoretical computed ranges for 1 threshold symbols in 0.53 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 250.0), '_N_THRESHOLD_2': (2.1077448513460184e-12, inf)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0018413066864013672 seconds
+Set solve data in 0.0012676715850830078 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 1, 1): ('bfunc_1_c1', 'exists_2')
+Found Eformulas in 0.0012254714965820312 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 576770.
+Solving process timeout in 3600.0 seconds
+************************************************ Solving process completes *************************************************
+========================= 0116_1111/template_48 (5000_11_solve) instantiation completes =========================
+Total instantiation time: 3602.07 seconds

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should stay within a bounded spatial distance.",
+    "goal": "Detect cross-vehicle context pairs that are implausibly far apart despite being close in time under this rule.",
+    "design_rationale": "This rule constrains spatial proximity for observations from different vehicles that occur at nearly the same time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the distance between their positions computed from the coordinates should not exceed a certain value."
+}

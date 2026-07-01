@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep the coordinate-derived displacement speed to the previous context within a bound.",
+    "goal": "Detect high-speed contexts whose coordinate-derived movement to the previous context is implausibly fast.",
+    "design_rationale": "Even for high-speed movement, the displacement speed inferred from consecutive coordinates should remain within a realistic limit."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the ratio between the distance between the coordinates of v1 and those of its previous context v2 computed using the haversine formula and the timestamp difference between v1 and v2, that is, the displacement speed, should not exceed a certain upper bound."
+}

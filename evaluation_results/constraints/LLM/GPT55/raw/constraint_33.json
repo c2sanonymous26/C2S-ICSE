@@ -1,0 +1,158 @@
+{
+  "constraint_id": 33,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 221.5388150215149
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Consecutive contexts of a fast-moving taxi should be sampled within a sufficiently short time interval.",
+      "goal": "Detect undersampled high-speed taxi trajectories where consecutive records are too far apart in time to support reliable route planning, dispatching, and motion analysis.",
+      "design_rationale": "When a taxi is moving quickly, long gaps between consecutive driving-state reports make its intermediate position and behavior uncertain. SmartCity services depend on timely updates for fast-moving vehicles, so consecutive contexts involving sufficiently high speed should have a stricter maximum timestamp gap than ordinary low-speed or stopped movement."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, and the speed recorded in v1 or v2 is sufficiently high, then the timestamp difference between v2 and v1 is within a sufficiently short high-speed sampling interval.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and (bfunc4(v1) or bfunc5(v2))) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The speed recorded in v1 is sufficiently high.",
+        "implementation": "v1.speed >= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v2"
+        ],
+        "semantics": "The speed recorded in v2 is sufficiently high.",
+        "implementation": "v2.speed >= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is within a sufficiently short high-speed sampling interval.",
+        "implementation": "v2.timestamp - v1.timestamp <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 70.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 21.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Consecutive contexts of a fast-moving taxi should be sampled within a sufficiently short time interval.",
+      "goal": "Detect undersampled high-speed taxi trajectories where consecutive records are too far apart in time to support reliable route planning, dispatching, and motion analysis.",
+      "design_rationale": "When a taxi is moving quickly, long gaps between consecutive driving-state reports make its intermediate position and behavior uncertain. SmartCity services depend on timely updates for fast-moving vehicles, so consecutive contexts involving sufficiently high speed should have a stricter maximum timestamp gap than ordinary low-speed or stopped movement."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, and the speed recorded in v1 or v2 is sufficiently high, then the timestamp difference between v2 and v1 is within a sufficiently short high-speed sampling interval.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and (bfunc4(v1) or bfunc5(v2))) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The speed recorded in v1 is sufficiently high.",
+        "implementation": "v1.speed >= 70.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v2"
+        ],
+        "semantics": "The speed recorded in v2 is sufficiently high.",
+        "implementation": "v2.speed >= 70.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is within a sufficiently short high-speed sampling interval.",
+        "implementation": "(v2.timestamp - v1.timestamp) <= 21.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

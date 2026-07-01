@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The speed of each context is within a physically plausible range.",
+    "goal": "Detect contexts with an implausibly low or high speed value.",
+    "design_rationale": "Vehicle speed is bounded by physical limits; values outside the plausible range indicate a speed sensor error or data corruption."
+  },
+  "semantics": "For any context v1, the speed value of v1 is within a certain reasonable range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show significantly low speed, the coordinate displacement should be small.",
+    "goal": "Detect consecutive contexts where a large coordinate displacement occurs while both records indicate low speed.",
+    "design_rationale": "A slow-moving vehicle cannot cover a large distance between consecutive samples; a large coordinate displacement combined with low speed indicates inconsistent data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly lower than a certain threshold, then the coordinate differences between v1 and v2 should be within a certain smaller reasonable range."
+}

@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is less than neg(sub(cos(v1.timestamp), sqrt(17846.543))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is less than neg(sub(cos(v1.timestamp), sqrt(17846.543)))",
+      "implementation": "var_bindings['v1']['longitude'] < (-(cos(var_bindings['v1']['timestamp']) - sqrt(abs(17846543/1000))))"
+    }
+  ]
+}

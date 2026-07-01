@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are within a sufficiently small time difference, then the geographic distance between the GPS locations recorded in v1 and v2 is not unrealistically small.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <not>
+          <bfunc id="3"/>
+        </not>
+      </implies>
+    </forall>
+  </forall>
+</formula>

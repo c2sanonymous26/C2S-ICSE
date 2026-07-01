@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show significantly low speed, the timestamp difference between them should be small.",
+    "goal": "Detect consecutive contexts where a long time gap occurs while both records indicate low speed.",
+    "design_rationale": "A slow-moving vehicle should not have a large time gap between consecutive samples; a large timestamp difference at low speed suggests missing data or a recording error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly lower than a certain threshold, then the timestamp difference between v1 and v2 should be within a certain smaller reasonable range."
+}

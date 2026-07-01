@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should remain consistent with reasonable bounds on both travel speed and acceleration.",
+    "goal": "Detect consecutive trajectory segments that violate physical limits on movement speed or acceleration.",
+    "design_rationale": "A plausible vehicle trajectory should satisfy both a realistic displacement-over-time limit and a realistic rate of speed change."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed, and the ratio between the absolute difference in speed between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for acceleration."
+}

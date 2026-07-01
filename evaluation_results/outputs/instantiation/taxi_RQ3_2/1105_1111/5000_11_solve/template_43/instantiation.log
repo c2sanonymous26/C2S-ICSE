@@ -1,0 +1,44 @@
+============================================================ 1105_1111/template_43 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1105_1111/template_43
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0031664371490478516 seconds
+Constructed ctx data in 3.8623809814453125e-05 seconds
+Loaded data field types in 0.0005614757537841797 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs((v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) - (v2_speed - v3_speed)/(v2_timestamp - v3_timestamp)) → range [1.951048185728945e-12, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [1.951048185728945e-12, inf]
+Approximate computed ranges for 1 threshold symbols in 1.33 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs((v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) - (v2_speed - v3_speed)/(v2_timestamp - v3_timestamp)) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.52 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (1.951048185728945e-12, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0017194747924804688 seconds
+Set solve data in 0.0012862682342529297 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0006077289581298828 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 2696523.
+Solving process timeout in 3600.0 seconds
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1105_1111/template_43 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 3602.07 seconds

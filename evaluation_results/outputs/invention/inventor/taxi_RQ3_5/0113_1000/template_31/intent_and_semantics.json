@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle context with a bounded heading-change rate.",
+    "goal": "Detect high-speed contexts whose heading changes too sharply relative to elapsed time.",
+    "design_rationale": "A realistic high-speed transition should not exhibit an excessive rate of direction change from the previous context."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the ratio between the absolute direction difference of v1 and v2 and the timestamp difference of v1 and v2 does not exceed a certain upper bound."
+}

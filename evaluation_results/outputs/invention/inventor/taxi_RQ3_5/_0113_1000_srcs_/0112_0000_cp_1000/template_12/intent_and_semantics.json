@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep a bounded heading difference.",
+    "goal": "Detect adjacent same-vehicle contexts whose heading difference is implausibly large.",
+    "design_rationale": "A realistic local transition should not involve an excessive heading jump between adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute direction difference between v1 and v2 should not exceed a certain reasonable range."
+}

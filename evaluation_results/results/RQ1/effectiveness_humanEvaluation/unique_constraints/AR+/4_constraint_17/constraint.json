@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.speed is greater than neg(cos(log(v1.longitude))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.speed is greater than neg(cos(log(v1.longitude)))",
+      "implementation": "var_bindings['v1']['speed'] > (-cos((0 if abs(var_bindings['v1']['longitude']) < 1/1000 else log(abs(var_bindings['v1']['longitude'])))))"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "ge",
+  "target_col": "speed_1",
+  "status": "success_simple_constraint",
+  "assertion": "add(mul(max(sub(add(latitude_2, timestamp_2), min(speed_2, timestamp_2)), abs(add(speed_2, timestamp_1))), div(neg(log(longitude_1)), sqrt(log(timestamp_2)))), mul(log(div(sqrt(longitude_1), log(speed_2))), abs(sqrt(mul(longitude_1, longitude_1)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.55843472480774,
+  "asrtm_time": 7.951019048690796,
+  "predm_time": 0.5925841331481934,
+  "asrt_info": {
+    "fitness": 0.0033,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

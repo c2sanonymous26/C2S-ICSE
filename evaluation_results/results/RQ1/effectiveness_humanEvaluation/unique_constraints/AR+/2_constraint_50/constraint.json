@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to different vehicles (different carid values), v1.direction is greater than or equal to div(neg(19353.533), add(add(v1.speed, log(v2.timestamp)), sub(sub(v1.timestamp, v1.latitude), sqrt(v1.longitude)))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles (they have different carid values)",
+      "implementation": "var_bindings['v1']['carid'] != var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1.direction is greater than or equal to div(neg(19353.533), add(add(v1.speed, log(v2.timestamp)), sub(sub(v1.timestamp, v1.latitude), sqrt(v1.longitude))))",
+      "implementation": "var_bindings['v1']['direction'] >= (1 if -1/1000 <= (((var_bindings['v1']['speed'] + (0 if abs(var_bindings['v2']['timestamp']) < 1/1000 else log(abs(var_bindings['v2']['timestamp'])))) + ((var_bindings['v1']['timestamp'] - var_bindings['v1']['latitude']) - sqrt(abs(var_bindings['v1']['longitude']))))) <= 1/1000 else ((-19353533/1000)) / (((var_bindings['v1']['speed'] + (0 if abs(var_bindings['v2']['timestamp']) < 1/1000 else log(abs(var_bindings['v2']['timestamp'])))) + ((var_bindings['v1']['timestamp'] - var_bindings['v1']['latitude']) - sqrt(abs(var_bindings['v1']['longitude']))))))"
+    }
+  ]
+}

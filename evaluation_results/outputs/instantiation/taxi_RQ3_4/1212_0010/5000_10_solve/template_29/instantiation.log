@@ -1,0 +1,33 @@
+============================================================ 1212_0010/template_29 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1212_0010/template_29
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002376079559326172 seconds
+Constructed ctx data in 5.626678466796875e-05 seconds
+Loaded data field types in 0.000827789306640625 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0014464855194091797 seconds
+Set solve data in 0.0008859634399414062 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005955696105957031 seconds
+Constructed main constraint in 1873.2682271003723 seconds
+Constructed symbol domain constraints in 11.782794713973999 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 11
+        - (>=, _N_THRESHOLD_2): 137855
+    - symbol domains:
+        - _N_THRESHOLD_1: 12
+        - _N_THRESHOLD_2: 137856
+Solving iteration 1:
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 1481598.
+Solving process timeout in 3600.0 seconds
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1212_0010/template_29 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 3600.18 seconds

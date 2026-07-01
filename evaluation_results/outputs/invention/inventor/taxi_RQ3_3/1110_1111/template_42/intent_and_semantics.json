@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A start-up transition from zero speed to non-zero speed should happen within a reasonable one-step time threshold.",
+    "goal": "Detect start-up one-step transitions whose temporal gap is implausibly large.",
+    "design_rationale": "When a vehicle starts moving from rest, the elapsed time to the next one-step context should remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is zero while the speed of v2 is non-zero, then the timestamp difference between v1 and v2 should not exceed a certain reasonable start-up time threshold."
+}

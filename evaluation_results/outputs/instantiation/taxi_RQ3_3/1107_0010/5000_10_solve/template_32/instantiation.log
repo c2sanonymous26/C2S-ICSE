@@ -1,0 +1,38 @@
+================================== 1107_0010/template_32 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_32
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0027551651000976562 seconds
+Constructed ctx data in 4.0531158447265625e-05 seconds
+Loaded data field types in 0.0005300045013427734 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0018367767333984375 seconds
+Set solve data in 0.0008618831634521484 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005919933319091797 seconds
+Constructed main constraint in 58.649312019348145 seconds
+Constructed symbol domain constraints in 0.2799348831176758 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3610
+    - symbol domains:
+        - _N_THRESHOLD_1: 3611
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(3318114719557157, 36028797018963968)}
+        - solved in 0.5340166091918945 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.093259334564209 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0824086666107178 seconds
+1107_0010/template_32 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_32 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 61.69 seconds

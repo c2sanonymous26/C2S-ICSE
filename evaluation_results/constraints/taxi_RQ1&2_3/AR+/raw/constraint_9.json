@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "add(timestamp_1, sqrt(timestamp_1))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 535.9011018276215,
+  "asrtm_time": 488.15909361839294,
+  "predm_time": 46.60953450202942,
+  "asrt_info": {
+    "fitness": 0.00040027711628041075,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

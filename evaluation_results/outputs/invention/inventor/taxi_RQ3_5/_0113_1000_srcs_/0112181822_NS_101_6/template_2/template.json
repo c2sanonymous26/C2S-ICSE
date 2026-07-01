@@ -1,0 +1,53 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at similar times should stay consistent with both the major road direction and a bounded speed difference under this rule.",
+    "goal": "Detect temporally nearby cross-vehicle contexts that are inconsistent in both geometric alignment and speed.",
+    "design_rationale": "A plausible pair under this rule should not simultaneously violate road-direction alignment and a reasonable speed difference bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the angle between the direction of the line connecting their positions and the direction of major city roads should not exceed a certain reasonable range, and the absolute speed difference of v1 and v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The angle between the direction of the line connecting the positions of v1 and v2 and the direction of major city roads does not exceed a certain reasonable range.",
+      "implementation": "abs(degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude)) - v1.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute speed difference of v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

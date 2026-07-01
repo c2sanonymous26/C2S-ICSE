@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "gt",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "add(max(-56888.107, -25871.755), max(min(longitude, latitude), mul(neg(-41147.911), 29409.390)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 26.316596269607544,
+  "asrtm_time": 26.23638415336609,
+  "predm_time": 0.07492518424987793,
+  "asrt_info": {
+    "fitness": 0.0019071570957259994,
+    "was_early_stopped": false,
+    "generations_completed": 3
+  }
+}

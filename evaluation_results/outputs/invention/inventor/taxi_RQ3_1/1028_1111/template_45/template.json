@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Each context should admit at least one nearby context from a different vehicle within the same time period.",
+    "goal": "Detect isolated contexts that fail to satisfy a required cross-vehicle spatiotemporal proximity condition.",
+    "design_rationale": "In dense urban trajectories, a context may be expected to have some nearby cross-vehicle companion within the same time segment rather than being completely isolated."
+  },
+  "semantics": "For any context v1, there exists a context v2 such that v1 and v2 belong to different vehicles, lie within the same time period, and the distance between v1 and v2 does not exceed a certain value.",
+  "structure": "forall v1 in dataset (exists v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same time period.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 5"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The distance between v1 and v2 does not exceed a certain value.",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

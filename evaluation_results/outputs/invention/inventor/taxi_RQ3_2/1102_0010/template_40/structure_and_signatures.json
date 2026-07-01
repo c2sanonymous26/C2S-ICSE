@@ -1,0 +1,20 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) implies exists v2 in dataset (bfunc2(v1, v2)))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is zero."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid of v2 differs from that of v1 by 1, and the longitude and latitude values of v1 are the same as those of v2."
+    }
+  ]
+}

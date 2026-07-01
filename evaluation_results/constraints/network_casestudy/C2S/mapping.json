@@ -1,0 +1,3452 @@
+{
+  "metadata": {
+    "total_templates": 93,
+    "total_extracted_constraints": 77,
+    "total_time_seconds": 61431.38,
+    "avg_time_seconds": 660.55,
+    "naming_scheme": {
+      "xml": "constraint_{constraint_id}.xml",
+      "py": "bfuncs_{constraint_id}.py"
+    },
+    "detailed_status_breakdown": {
+      "solve_no_solution": {
+        "count": 11,
+        "percentage": 11.83,
+        "total_time_seconds": 17054.55,
+        "avg_time_seconds": 1550.41
+      },
+      "solve_success": {
+        "count": 52,
+        "percentage": 55.91,
+        "total_time_seconds": 33592.21,
+        "avg_time_seconds": 646.0
+      },
+      "validate_invalid": {
+        "count": 5,
+        "percentage": 5.38,
+        "total_time_seconds": 1210.01,
+        "avg_time_seconds": 242.0
+      },
+      "validate_success": {
+        "count": 25,
+        "percentage": 26.88,
+        "total_time_seconds": 9574.62,
+        "avg_time_seconds": 382.98
+      }
+    }
+  },
+  "constraints": [
+    {
+      "constraint_id": 1,
+      "original_name": "template_1",
+      "original_path": "36206_11_validate/template_1",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.91,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.894,
+          "total_time_seconds": 7.898
+        }
+      },
+      "structure_features": {
+        "height": 13,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_1.xml",
+        "py": "bfuncs_1.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_1/constraint.xml",
+        "py": "36206_11_validate/template_1/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 2,
+      "original_name": "template_2",
+      "original_path": "36206_11_validate/template_2",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 8.26,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.012,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.008,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 8.244,
+          "total_time_seconds": 8.252
+        }
+      },
+      "structure_features": {
+        "height": 31,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 3,
+      "original_name": "template_3",
+      "original_path": "36206_11_solve/template_3",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 10.51,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.24,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 9.455,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.163,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 10.265
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_3.xml",
+        "py": "bfuncs_3.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_3/constraint.xml",
+        "py": "36206_11_solve/template_3/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 4,
+      "original_name": "template_4",
+      "original_path": "36206_11_solve/template_4",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 119.64,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.27,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 40.622,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 19.718,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 119.36
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_4.xml",
+        "py": "bfuncs_4.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_4/constraint.xml",
+        "py": "36206_11_solve/template_4/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 5,
+      "original_name": "template_5",
+      "original_path": "36206_11_solve/template_5",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 18.26,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 0.86,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "constructed_main_constraint_time_seconds": 16.418,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.176,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 17.394
+        }
+      },
+      "structure_features": {
+        "height": 13,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_5.xml",
+        "py": "bfuncs_5.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_5/constraint.xml",
+        "py": "36206_11_solve/template_5/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 6,
+      "original_name": "template_6",
+      "original_path": "36206_11_validate/template_6",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 7.97,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.955,
+          "total_time_seconds": 7.958
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 7,
+      "original_name": "template_7",
+      "original_path": "36206_11_solve/template_7",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 14.99,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.66,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 13.564,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.161,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 14.325
+        }
+      },
+      "structure_features": {
+        "height": 7,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 6,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_7.xml",
+        "py": "bfuncs_7.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_7/constraint.xml",
+        "py": "36206_11_solve/template_7/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 8,
+      "original_name": "template_8",
+      "original_path": "36206_11_validate/template_8",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 9.21,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.02,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.015,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 9.172,
+          "total_time_seconds": 9.187
+        }
+      },
+      "structure_features": {
+        "height": 34,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_8.xml",
+        "py": "bfuncs_8.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_8/constraint.xml",
+        "py": "36206_11_validate/template_8/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 9,
+      "original_name": "template_9",
+      "original_path": "36206_11_solve/template_9",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 8.78,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.26,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 8.391,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.005,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 8.51
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_9.xml",
+        "py": "bfuncs_9.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_9/constraint.xml",
+        "py": "36206_11_solve/template_9/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 10,
+      "original_name": "template_10",
+      "original_path": "36206_11_solve/template_10",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 10.29,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.31,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 9.837,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.003,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 9.973
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_10.xml",
+        "py": "bfuncs_10.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_10/constraint.xml",
+        "py": "36206_11_solve/template_10/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 11,
+      "original_name": "template_11",
+      "original_path": "36206_11_validate/template_11",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 8.03,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 8.017,
+          "total_time_seconds": 8.02
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_11.xml",
+        "py": "bfuncs_11.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_11/constraint.xml",
+        "py": "36206_11_validate/template_11/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 12,
+      "original_name": "template_12",
+      "original_path": "36206_11_solve/template_12",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 12.86,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.24,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 12.526,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.003,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.611
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_12.xml",
+        "py": "bfuncs_12.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_12/constraint.xml",
+        "py": "36206_11_solve/template_12/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 13,
+      "original_name": "template_13",
+      "original_path": "36206_11_solve/template_13",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 19.82,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.3,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 12.114,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 1.621,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 19.515
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_13.xml",
+        "py": "bfuncs_13.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_13/constraint.xml",
+        "py": "36206_11_solve/template_13/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 14,
+      "original_name": "template_14",
+      "original_path": "36206_11_validate/template_14",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.9,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.888,
+          "total_time_seconds": 7.889
+        }
+      },
+      "structure_features": {
+        "height": 4,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_14.xml",
+        "py": "bfuncs_14.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_14/constraint.xml",
+        "py": "36206_11_validate/template_14/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 15,
+      "original_name": "template_15",
+      "original_path": "36206_11_solve/template_15",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 13.54,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.01,
+        "computing_basic_ranges_time_seconds": 0.43,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 13.01,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.003,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 13.098
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_15.xml",
+        "py": "bfuncs_15.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_15/constraint.xml",
+        "py": "36206_11_solve/template_15/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 16,
+      "original_name": "template_16",
+      "original_path": "36206_11_validate/template_16",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.94,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.926,
+          "total_time_seconds": 7.927
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_16.xml",
+        "py": "bfuncs_16.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_16/constraint.xml",
+        "py": "36206_11_validate/template_16/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 17,
+      "original_name": "template_17",
+      "original_path": "36206_11_solve/template_17",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 85.25,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "computing_basic_ranges_time_seconds": 1.4,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.006,
+          "constructed_main_constraint_time_seconds": 40.081,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 10.635,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 83.837
+        }
+      },
+      "structure_features": {
+        "height": 16,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_17.xml",
+        "py": "bfuncs_17.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_17/constraint.xml",
+        "py": "36206_11_solve/template_17/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 18,
+      "original_name": "template_18",
+      "original_path": "36206_11_solve/template_18",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 57.8,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.3,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 25.731,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 7.352,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 57.49
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_18.xml",
+        "py": "bfuncs_18.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_18/constraint.xml",
+        "py": "36206_11_solve/template_18/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 19,
+      "original_name": "template_19",
+      "original_path": "36206_11_validate/template_19",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.97,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.96,
+          "total_time_seconds": 7.965
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_19.xml",
+        "py": "bfuncs_19.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_19/constraint.xml",
+        "py": "36206_11_validate/template_19/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 20,
+      "original_name": "template_20",
+      "original_path": "36206_11_validate/template_20",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.88,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.877,
+          "total_time_seconds": 7.878
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_20.xml",
+        "py": "bfuncs_20.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_20/constraint.xml",
+        "py": "36206_11_validate/template_20/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 21,
+      "original_name": "template_21",
+      "original_path": "36206_11_solve/template_21",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 14.18,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 2.02,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "constructed_main_constraint_time_seconds": 12.05,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.148
+        }
+      },
+      "structure_features": {
+        "height": 2,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_21.xml",
+        "py": "bfuncs_21.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_21/constraint.xml",
+        "py": "36206_11_solve/template_21/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 22,
+      "original_name": "template_22",
+      "original_path": "36206_11_solve/template_22",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 54.19,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.27,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 26.403,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 6.073,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 53.912
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_22.xml",
+        "py": "bfuncs_22.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_22/constraint.xml",
+        "py": "36206_11_solve/template_22/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 23,
+      "original_name": "template_23",
+      "original_path": "36206_11_solve/template_23",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 13.79,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "computing_basic_ranges_time_seconds": 0.95,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "constructed_main_constraint_time_seconds": 11.354,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.31,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.832
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_23.xml",
+        "py": "bfuncs_23.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_23/constraint.xml",
+        "py": "36206_11_solve/template_23/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 24,
+      "original_name": "template_24",
+      "original_path": "36206_11_solve/template_24",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 8.97,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.22,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 8.638,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.003,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 8.743
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_24.xml",
+        "py": "bfuncs_24.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_24/constraint.xml",
+        "py": "36206_11_solve/template_24/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 25,
+      "original_name": "template_25",
+      "original_path": "36206_11_solve/template_25",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 12.35,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.26,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 11.171,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.183,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.08
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_25.xml",
+        "py": "bfuncs_25.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_25/constraint.xml",
+        "py": "36206_11_solve/template_25/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 26,
+      "original_name": "template_26",
+      "original_path": "36206_11_solve/template_26",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 11.04,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.26,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 10.105,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.13,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 10.775
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_26.xml",
+        "py": "bfuncs_26.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_26/constraint.xml",
+        "py": "36206_11_solve/template_26/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 27,
+      "original_name": "template_27",
+      "original_path": "36206_11_validate/template_27",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 8.1,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 8.095,
+          "total_time_seconds": 8.098
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_27.xml",
+        "py": "bfuncs_27.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_27/constraint.xml",
+        "py": "36206_11_validate/template_27/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 28,
+      "original_name": "template_28",
+      "original_path": "36206_11_validate/template_28",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.86,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.849,
+          "total_time_seconds": 7.852
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_28.xml",
+        "py": "bfuncs_28.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_28/constraint.xml",
+        "py": "36206_11_validate/template_28/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 29,
+      "original_name": "template_29",
+      "original_path": "36206_11_solve/template_29",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 15.12,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.24,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 14.762,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.007,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 14.874
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_29.xml",
+        "py": "bfuncs_29.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_29/constraint.xml",
+        "py": "36206_11_solve/template_29/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 30,
+      "original_name": "template_30",
+      "original_path": "36206_11_validate/template_30",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 7.92,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 7.917,
+          "total_time_seconds": 7.918
+        }
+      },
+      "structure_features": {
+        "height": 2,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_30.xml",
+        "py": "bfuncs_30.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_30/constraint.xml",
+        "py": "36206_11_validate/template_30/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 31,
+      "original_name": "template_31",
+      "original_path": "36206_11_solve/template_31",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 12.84,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.006,
+        "computing_basic_ranges_time_seconds": 0.18,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 12.562,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.005,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.655
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_31.xml",
+        "py": "bfuncs_31.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_31/constraint.xml",
+        "py": "36206_11_solve/template_31/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 32,
+      "original_name": "template_32",
+      "original_path": "36206_11_solve/template_32",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 13.76,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 1.35,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 12.322,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.405
+        }
+      },
+      "structure_features": {
+        "height": 2,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_32.xml",
+        "py": "bfuncs_32.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_32/constraint.xml",
+        "py": "36206_11_solve/template_32/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 33,
+      "original_name": "template_33",
+      "original_path": "36206_11_solve/template_33",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 16.77,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.01,
+        "computing_basic_ranges_time_seconds": 1.49,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.008,
+          "constructed_main_constraint_time_seconds": 15.254,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 15.27
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 34,
+      "original_name": "template_34",
+      "original_path": "36206_11_solve/template_34",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 831.84,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.39,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 831.42,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 831.442
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_34.xml",
+        "py": "bfuncs_34.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_34/constraint.xml",
+        "py": "36206_11_solve/template_34/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 35,
+      "original_name": "template_35",
+      "original_path": "36206_11_solve/template_35",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 811.85,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 1.14,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "constructed_main_constraint_time_seconds": 810.676,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 810.702
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_35.xml",
+        "py": "bfuncs_35.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_35/constraint.xml",
+        "py": "36206_11_solve/template_35/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 36,
+      "original_name": "template_36",
+      "original_path": "36206_11_solve/template_36",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 872.41,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 51.79,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 820.6,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 820.613
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 37,
+      "original_name": "template_37",
+      "original_path": "36206_11_solve/template_37",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 966.68,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 51.34,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 914.717,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 915.332
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_37.xml",
+        "py": "bfuncs_37.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_37/constraint.xml",
+        "py": "36206_11_solve/template_37/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 38,
+      "original_name": "template_38",
+      "original_path": "36206_11_solve/template_38",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 824.78,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.33,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "constructed_main_constraint_time_seconds": 824.416,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 824.441
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_38.xml",
+        "py": "bfuncs_38.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_38/constraint.xml",
+        "py": "36206_11_solve/template_38/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 39,
+      "original_name": "template_39",
+      "original_path": "36206_11_solve/template_39",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 847.67,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 0.42,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 847.213,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 847.24
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_39.xml",
+        "py": "bfuncs_39.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_39/constraint.xml",
+        "py": "36206_11_solve/template_39/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 40,
+      "original_name": "template_40",
+      "original_path": "36206_11_solve/template_40",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 961.76,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 0.47,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 961.196,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.008,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 961.277
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_40.xml",
+        "py": "bfuncs_40.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_40/constraint.xml",
+        "py": "36206_11_solve/template_40/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 41,
+      "original_name": "template_41",
+      "original_path": "36206_11_validate/template_41",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 213.69,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 213.683,
+          "total_time_seconds": 213.685
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_41.xml",
+        "py": "bfuncs_41.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_41/constraint.xml",
+        "py": "36206_11_validate/template_41/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 42,
+      "original_name": "template_42",
+      "original_path": "36206_11_validate/template_42",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 1931.15,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.02,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.015,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 1931.115,
+          "total_time_seconds": 1931.13
+        }
+      },
+      "structure_features": {
+        "height": 20,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_42.xml",
+        "py": "bfuncs_42.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_42/constraint.xml",
+        "py": "36206_11_validate/template_42/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 43,
+      "original_name": "template_43",
+      "original_path": "36206_11_solve/template_43",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 888.8,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.032,
+        "computing_basic_ranges_time_seconds": 14.69,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.127,
+          "constructed_main_constraint_time_seconds": 873.921,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 874.074
+        }
+      },
+      "structure_features": {
+        "height": 72,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_43.xml",
+        "py": "bfuncs_43.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_43/constraint.xml",
+        "py": "36206_11_solve/template_43/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 44,
+      "original_name": "template_44",
+      "original_path": "36206_11_validate/template_44",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 332.34,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.003,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 332.33,
+          "total_time_seconds": 332.333
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_44.xml",
+        "py": "bfuncs_44.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_44/constraint.xml",
+        "py": "36206_11_validate/template_44/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 45,
+      "original_name": "template_45",
+      "original_path": "36206_11_solve/template_45",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 857.92,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 29.29,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 828.527,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.012,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 828.627
+        }
+      },
+      "structure_features": {
+        "height": 15,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_45.xml",
+        "py": "bfuncs_45.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_45/constraint.xml",
+        "py": "36206_11_solve/template_45/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 46,
+      "original_name": "template_46",
+      "original_path": "36206_11_solve/template_46",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 826.54,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 0.37,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 826.139,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 826.164
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_46.xml",
+        "py": "bfuncs_46.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_46/constraint.xml",
+        "py": "36206_11_solve/template_46/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 47,
+      "original_name": "template_47",
+      "original_path": "36206_11_validate/template_47",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 334.51,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 334.5,
+          "total_time_seconds": 334.504
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_47.xml",
+        "py": "bfuncs_47.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_47/constraint.xml",
+        "py": "36206_11_validate/template_47/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 48,
+      "original_name": "template_48",
+      "original_path": "36206_11_solve/template_48",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 892.29,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.012,
+        "computing_basic_ranges_time_seconds": 2.08,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.01,
+          "constructed_main_constraint_time_seconds": 890.179,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 890.197
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 49,
+      "original_name": "template_49",
+      "original_path": "36206_11_solve/template_49",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 856.53,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "computing_basic_ranges_time_seconds": 32.06,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 824.435,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 824.464
+        }
+      },
+      "structure_features": {
+        "height": 15,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_49.xml",
+        "py": "bfuncs_49.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_49/constraint.xml",
+        "py": "36206_11_solve/template_49/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 50,
+      "original_name": "template_50",
+      "original_path": "36206_11_solve/template_50",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 762.63,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.57,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 762.028,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 762.055
+        }
+      },
+      "structure_features": {
+        "height": 22,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_50.xml",
+        "py": "bfuncs_50.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_50/constraint.xml",
+        "py": "36206_11_solve/template_50/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 51,
+      "original_name": "template_51",
+      "original_path": "36206_11_validate/template_51",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 992.49,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.013,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.009,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 992.47,
+          "total_time_seconds": 992.478
+        }
+      },
+      "structure_features": {
+        "height": 17,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_51.xml",
+        "py": "bfuncs_51.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_51/constraint.xml",
+        "py": "36206_11_validate/template_51/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 52,
+      "original_name": "template_52",
+      "original_path": "36206_11_solve/template_52",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 859.01,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.4,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 858.572,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.004,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 858.607
+        }
+      },
+      "structure_features": {
+        "height": 9,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_52.xml",
+        "py": "bfuncs_52.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_52/constraint.xml",
+        "py": "36206_11_solve/template_52/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 53,
+      "original_name": "template_53",
+      "original_path": "36206_11_solve/template_53",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 881.56,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.5,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 881.032,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 881.058
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_53.xml",
+        "py": "bfuncs_53.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_53/constraint.xml",
+        "py": "36206_11_solve/template_53/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 54,
+      "original_name": "template_54",
+      "original_path": "36206_11_solve/template_54",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 892.64,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "computing_basic_ranges_time_seconds": 51.71,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 840.908,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 840.92
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 55,
+      "original_name": "template_55",
+      "original_path": "36206_11_solve/template_55",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 880.23,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.008,
+        "computing_basic_ranges_time_seconds": 29.15,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 850.457,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 851.075
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_55.xml",
+        "py": "bfuncs_55.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_55/constraint.xml",
+        "py": "36206_11_solve/template_55/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 56,
+      "original_name": "template_56",
+      "original_path": "36206_11_solve/template_56",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 860.48,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.43,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 860.018,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.001,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 860.045
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_56.xml",
+        "py": "bfuncs_56.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_56/constraint.xml",
+        "py": "36206_11_solve/template_56/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 57,
+      "original_name": "template_57",
+      "original_path": "36206_11_validate/template_57",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 334.11,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.009,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 334.095,
+          "total_time_seconds": 334.099
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_57.xml",
+        "py": "bfuncs_57.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_57/constraint.xml",
+        "py": "36206_11_validate/template_57/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 58,
+      "original_name": "template_58",
+      "original_path": "36206_11_solve/template_58",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 2155.11,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 0.8,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "constructed_main_constraint_time_seconds": 2154.246,
+          "constructed_ve_constraints_time_seconds": 0.002,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.005,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2154.299
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_58.xml",
+        "py": "bfuncs_58.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_58/constraint.xml",
+        "py": "36206_11_solve/template_58/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 59,
+      "original_name": "template_59",
+      "original_path": "36206_11_solve/template_59",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 2038.85,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.149,
+        "computing_basic_ranges_time_seconds": 55.7,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.049,
+          "constructed_main_constraint_time_seconds": 1982.861,
+          "constructed_ve_constraints_time_seconds": 0.007,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.007,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 1983.003
+        }
+      },
+      "structure_features": {
+        "height": 15,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_59.xml",
+        "py": "bfuncs_59.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_59/constraint.xml",
+        "py": "36206_11_solve/template_59/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 60,
+      "original_name": "template_60",
+      "original_path": "36206_11_validate/template_60",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 598.18,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.098,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.389,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 597.69,
+          "total_time_seconds": 598.079
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 61,
+      "original_name": "template_61",
+      "original_path": "36206_11_solve/template_61",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 2074.52,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.032,
+        "computing_basic_ranges_time_seconds": 6.35,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.039,
+          "constructed_main_constraint_time_seconds": 2068.035,
+          "constructed_ve_constraints_time_seconds": 0.005,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.004,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2068.135
+        }
+      },
+      "structure_features": {
+        "height": 23,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_61.xml",
+        "py": "bfuncs_61.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_61/constraint.xml",
+        "py": "36206_11_solve/template_61/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 62,
+      "original_name": "template_62",
+      "original_path": "36206_11_solve/template_62",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 2162.02,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 1.04,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "constructed_main_constraint_time_seconds": 2160.797,
+          "constructed_ve_constraints_time_seconds": 0.026,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.016,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2160.967
+        }
+      },
+      "structure_features": {
+        "height": 11,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_62.xml",
+        "py": "bfuncs_62.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_62/constraint.xml",
+        "py": "36206_11_solve/template_62/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 63,
+      "original_name": "template_63",
+      "original_path": "36206_11_validate/template_63",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 621.19,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.016,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.009,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 621.169,
+          "total_time_seconds": 621.179
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_63.xml",
+        "py": "bfuncs_63.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_63/constraint.xml",
+        "py": "36206_11_validate/template_63/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 64,
+      "original_name": "template_64",
+      "original_path": "36206_11_solve/template_64",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2007.54,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.022,
+        "computing_basic_ranges_time_seconds": 2.11,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.028,
+          "constructed_main_constraint_time_seconds": 2005.364,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2005.405
+        }
+      },
+      "structure_features": {
+        "height": 16,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 65,
+      "original_name": "template_65",
+      "original_path": "36206_11_solve/template_65",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2041.56,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.019,
+        "computing_basic_ranges_time_seconds": 32.32,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.016,
+          "constructed_main_constraint_time_seconds": 2009.192,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2009.222
+        }
+      },
+      "structure_features": {
+        "height": 15,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 66,
+      "original_name": "template_66",
+      "original_path": "36206_11_solve/template_66",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 2104.78,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.017,
+        "computing_basic_ranges_time_seconds": 34.23,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.016,
+          "constructed_main_constraint_time_seconds": 2069.577,
+          "constructed_ve_constraints_time_seconds": 0.003,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2070.535
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_66.xml",
+        "py": "bfuncs_66.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_66/constraint.xml",
+        "py": "36206_11_solve/template_66/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 67,
+      "original_name": "template_67",
+      "original_path": "36206_11_validate/template_67",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 1099.95,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.02,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.019,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 1099.907,
+          "total_time_seconds": 1099.926
+        }
+      },
+      "structure_features": {
+        "height": 14,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_67.xml",
+        "py": "bfuncs_67.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_67/constraint.xml",
+        "py": "36206_11_validate/template_67/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 68,
+      "original_name": "template_68",
+      "original_path": "36206_11_solve/template_68",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2175.4,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.04,
+        "computing_basic_ranges_time_seconds": 6.33,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.04,
+          "constructed_main_constraint_time_seconds": 2168.978,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2169.032
+        }
+      },
+      "structure_features": {
+        "height": 20,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 69,
+      "original_name": "template_69",
+      "original_path": "36206_11_validate/template_69",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 597.15,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.019,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.008,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 597.119,
+          "total_time_seconds": 597.127
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_69.xml",
+        "py": "bfuncs_69.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_69/constraint.xml",
+        "py": "36206_11_validate/template_69/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 70,
+      "original_name": "template_70",
+      "original_path": "36206_11_solve/template_70",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2027.65,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.027,
+        "computing_basic_ranges_time_seconds": 5.34,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.028,
+          "constructed_main_constraint_time_seconds": 2022.24,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2022.282
+        }
+      },
+      "structure_features": {
+        "height": 16,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 71,
+      "original_name": "template_71",
+      "original_path": "36206_11_solve/template_71",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 1872.4,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.114,
+        "computing_basic_ranges_time_seconds": 36.7,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.16,
+          "constructed_main_constraint_time_seconds": 1835.207,
+          "constructed_ve_constraints_time_seconds": 0.016,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.011,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 1835.584
+        }
+      },
+      "structure_features": {
+        "height": 79,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_71.xml",
+        "py": "bfuncs_71.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_71/constraint.xml",
+        "py": "36206_11_solve/template_71/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 72,
+      "original_name": "template_72",
+      "original_path": "36206_11_validate/template_72",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 474.83,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.02,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.006,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 474.808,
+          "total_time_seconds": 474.814
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_72.xml",
+        "py": "bfuncs_72.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_72/constraint.xml",
+        "py": "36206_11_validate/template_72/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 73,
+      "original_name": "template_73",
+      "original_path": "36206_11_validate/template_73",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 2478.64,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.022,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.02,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 2478.601,
+          "total_time_seconds": 2478.621
+        }
+      },
+      "structure_features": {
+        "height": 17,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_73.xml",
+        "py": "bfuncs_73.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_73/constraint.xml",
+        "py": "36206_11_validate/template_73/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 74,
+      "original_name": "template_74",
+      "original_path": "36206_11_solve/template_74",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2049.01,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.025,
+        "computing_basic_ranges_time_seconds": 32.26,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.024,
+          "constructed_main_constraint_time_seconds": 2016.682,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2016.72
+        }
+      },
+      "structure_features": {
+        "height": 13,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 75,
+      "original_name": "template_75",
+      "original_path": "36206_11_validate/template_75",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 573.58,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.095,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.048,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 573.44,
+          "total_time_seconds": 573.488
+        }
+      },
+      "structure_features": {
+        "height": 9,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 76,
+      "original_name": "template_76",
+      "original_path": "36206_11_solve/template_76",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2022.81,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.019,
+        "computing_basic_ranges_time_seconds": 1.07,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.014,
+          "constructed_main_constraint_time_seconds": 2021.689,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2021.717
+        }
+      },
+      "structure_features": {
+        "height": 10,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 77,
+      "original_name": "template_77",
+      "original_path": "36206_11_solve/template_77",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 2145.01,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.042,
+        "computing_basic_ranges_time_seconds": 41.86,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.05,
+          "constructed_main_constraint_time_seconds": 2093.373,
+          "constructed_ve_constraints_time_seconds": 0.721,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 2.085,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2103.113
+        }
+      },
+      "structure_features": {
+        "height": 21,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 3,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_77.xml",
+        "py": "bfuncs_77.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_77/constraint.xml",
+        "py": "36206_11_solve/template_77/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 78,
+      "original_name": "template_78",
+      "original_path": "36206_11_solve/template_78",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 2043.96,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.016,
+        "computing_basic_ranges_time_seconds": 1.08,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.013,
+          "constructed_main_constraint_time_seconds": 2042.763,
+          "constructed_ve_constraints_time_seconds": 0.005,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.007,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2042.863
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_78.xml",
+        "py": "bfuncs_78.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_78/constraint.xml",
+        "py": "36206_11_solve/template_78/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 79,
+      "original_name": "template_79",
+      "original_path": "36206_11_solve/template_79",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 2056.48,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.017,
+        "computing_basic_ranges_time_seconds": 33.52,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.015,
+          "constructed_main_constraint_time_seconds": 2022.91,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2022.939
+        }
+      },
+      "structure_features": {
+        "height": 13,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 80,
+      "original_name": "template_80",
+      "original_path": "36206_11_solve/template_80",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 2224.96,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.049,
+        "computing_basic_ranges_time_seconds": 45.54,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.038,
+          "constructed_main_constraint_time_seconds": 2179.28,
+          "constructed_ve_constraints_time_seconds": 0.005,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.006,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 2179.367
+        }
+      },
+      "structure_features": {
+        "height": 15,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_80.xml",
+        "py": "bfuncs_80.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_80/constraint.xml",
+        "py": "36206_11_solve/template_80/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 81,
+      "original_name": "template_81",
+      "original_path": "36206_11_solve/template_81",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 83.68,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.012,
+        "computing_basic_ranges_time_seconds": 0.54,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.006,
+          "constructed_main_constraint_time_seconds": 34.473,
+          "constructed_ve_constraints_time_seconds": 11.688,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 11.964,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 83.131
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_81.xml",
+        "py": "bfuncs_81.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_81/constraint.xml",
+        "py": "36206_11_solve/template_81/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 82,
+      "original_name": "template_82",
+      "original_path": "36206_11_validate/template_82",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 20.86,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.013,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.007,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 20.839,
+          "total_time_seconds": 20.845
+        }
+      },
+      "structure_features": {
+        "height": 4,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_82.xml",
+        "py": "bfuncs_82.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_82/constraint.xml",
+        "py": "36206_11_validate/template_82/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 83,
+      "original_name": "template_83",
+      "original_path": "36206_11_validate/template_83",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 20.93,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.01,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.006,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 20.915,
+          "total_time_seconds": 20.921
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_83.xml",
+        "py": "bfuncs_83.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_83/constraint.xml",
+        "py": "36206_11_validate/template_83/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 84,
+      "original_name": "template_84",
+      "original_path": "36206_11_validate/template_84",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 21.3,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.013,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.006,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 21.283,
+          "total_time_seconds": 21.289
+        }
+      },
+      "structure_features": {
+        "height": 4,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_84.xml",
+        "py": "bfuncs_84.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_84/constraint.xml",
+        "py": "36206_11_validate/template_84/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 85,
+      "original_name": "template_85",
+      "original_path": "36206_11_solve/template_85",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 63.06,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 0.55,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 34.066,
+          "constructed_ve_constraints_time_seconds": 7.678,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 6.465,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 62.502
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_85.xml",
+        "py": "bfuncs_85.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_85/constraint.xml",
+        "py": "36206_11_solve/template_85/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 86,
+      "original_name": "template_86",
+      "original_path": "36206_11_solve/template_86",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 624.59,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.017,
+        "computing_basic_ranges_time_seconds": 2.96,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.014,
+          "constructed_main_constraint_time_seconds": 131.658,
+          "constructed_ve_constraints_time_seconds": 42.443,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 148.349,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 621.617
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_86.xml",
+        "py": "bfuncs_86.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_86/constraint.xml",
+        "py": "36206_11_solve/template_86/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 87,
+      "original_name": "template_87",
+      "original_path": "36206_11_solve/template_87",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 82.29,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.012,
+        "computing_basic_ranges_time_seconds": 0.54,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 32.459,
+          "constructed_ve_constraints_time_seconds": 11.885,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 12.275,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 81.737
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_87.xml",
+        "py": "bfuncs_87.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_87/constraint.xml",
+        "py": "36206_11_solve/template_87/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 88,
+      "original_name": "template_88",
+      "original_path": "36206_11_solve/template_88",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 29.89,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.013,
+        "computing_basic_ranges_time_seconds": 0.74,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 25.943,
+          "constructed_ve_constraints_time_seconds": 0.643,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.422,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 29.132
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 3,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_88.xml",
+        "py": "bfuncs_88.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_88/constraint.xml",
+        "py": "36206_11_solve/template_88/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 89,
+      "original_name": "template_89",
+      "original_path": "36206_11_solve/template_89",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 64.78,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.013,
+        "computing_basic_ranges_time_seconds": 0.51,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.005,
+          "constructed_main_constraint_time_seconds": 30.308,
+          "constructed_ve_constraints_time_seconds": 8.966,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 8.083,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 64.256
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_89.xml",
+        "py": "bfuncs_89.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_89/constraint.xml",
+        "py": "36206_11_solve/template_89/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 90,
+      "original_name": "template_90",
+      "original_path": "36206_11_validate/template_90",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 20.75,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.014,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.009,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 20.727,
+          "total_time_seconds": 20.737
+        }
+      },
+      "structure_features": {
+        "height": 9,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_90.xml",
+        "py": "bfuncs_90.py"
+      },
+      "original_files": {
+        "xml": "36206_11_validate/template_90/constraint.xml",
+        "py": "36206_11_validate/template_90/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 91,
+      "original_name": "template_91",
+      "original_path": "36206_11_solve/template_91",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 88.97,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.011,
+        "computing_basic_ranges_time_seconds": 0.49,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 32.472,
+          "constructed_ve_constraints_time_seconds": 13.01,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 14.09,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 88.471
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_91.xml",
+        "py": "bfuncs_91.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_91/constraint.xml",
+        "py": "36206_11_solve/template_91/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 92,
+      "original_name": "template_92",
+      "original_path": "36206_11_validate/template_92",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 22.02,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.016,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.011,
+          "individual_times_count": 3,
+          "individual_times_sum_seconds": 21.994,
+          "total_time_seconds": 22.005
+        }
+      },
+      "structure_features": {
+        "height": 12,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 93,
+      "original_name": "template_93",
+      "original_path": "36206_11_solve/template_93",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 287.08,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.007,
+        "computing_basic_ranges_time_seconds": 0.28,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 15.05,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 6.118,
+          "solved_avg_time_seconds": 88.517,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 286.794
+        }
+      },
+      "structure_features": {
+        "height": 0,
+        "quantifier_count": 0,
+        "quantifier_nesting_layers": 0,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_93.xml",
+        "py": "bfuncs_93.py"
+      },
+      "original_files": {
+        "xml": "36206_11_solve/template_93/constraint.xml",
+        "py": "36206_11_solve/template_93/bfuncs.py"
+      }
+    }
+  ]
+}

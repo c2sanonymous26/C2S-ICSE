@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have the same coordinates as the next one-step context of the same vehicle.",
+    "goal": "Detect zero-speed contexts whose subsequent same-vehicle context implies unexpected movement.",
+    "design_rationale": "If the current context records zero speed, the immediately following one-step context should preserve the same location under this stopping rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the coordinates of v1 should be identical to those of the next context v2 from the same vehicle whose grpid value is 1 greater than that of v1."
+}

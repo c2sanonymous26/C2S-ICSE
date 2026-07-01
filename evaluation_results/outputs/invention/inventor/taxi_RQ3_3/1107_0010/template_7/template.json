@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should exhibit a reasonable local change rate in both speed and direction.",
+    "goal": "Detect contexts whose local motion evolution is implausible.",
+    "design_rationale": "A valid trajectory point should not imply abnormal simultaneous change rates in speed and heading."
+  },
+  "semantics": "For any context v1, the rates of change in the speed value and direction value of v1 should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The rates of change in the speed value and direction value of v1 lie within a certain reasonable range.",
+      "implementation": "abs(v1.speed - 0) <= 120 && abs(v1.direction - 0) <= 360",
+      "restrictions": []
+    }
+  ]
+}

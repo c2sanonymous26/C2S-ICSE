@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is stationary, the speed in the immediately following context should not exceed a reasonable initial acceleration threshold.",
+    "goal": "Detect contexts where a vehicle starts from rest and the immediately following record shows an implausibly high speed.",
+    "design_rationale": "A vehicle just beginning to move from a standstill is constrained by acceleration limits; a very high speed in the directly subsequent record indicates erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v1 is the immediately preceding context of v2, and v1's speed is zero, then v2's speed should not exceed a certain reasonable initial acceleration threshold."
+}

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold, then v2's speed should not be significantly lower than the average of v1 and v3's speeds.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <forall var="v3" in="ctx1">
+        <implies>
+          <and>
+            <and>
+              <bfunc id="1"/>
+              <bfunc id="2"/>
+            </and>
+            <bfunc id="3"/>
+          </and>
+          <not>
+            <bfunc id="4"/>
+          </not>
+        </implies>
+      </forall>
+    </forall>
+  </forall>
+</formula>

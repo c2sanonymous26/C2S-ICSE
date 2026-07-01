@@ -1,0 +1,38 @@
+============================================================ 1102_0010/template_7 (5000_10_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1102_0010/template_7
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0026903152465820312 seconds
+Constructed ctx data in 3.910064697265625e-05 seconds
+Loaded data field types in 0.0005292892456054688 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0018002986907958984 seconds
+Set solve data in 0.000873565673828125 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005741119384765625 seconds
+Constructed main constraint in 58.79784893989563 seconds
+Constructed symbol domain constraints in 0.27787065505981445 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3610
+    - symbol domains:
+        - _N_THRESHOLD_1: 3611
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(3318114719557157, 36028797018963968)}
+        - solved in 0.5363914966583252 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.0881731510162354 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0887811183929443 seconds
+1102_0010/template_7 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1102_0010/template_7 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 61.84 seconds

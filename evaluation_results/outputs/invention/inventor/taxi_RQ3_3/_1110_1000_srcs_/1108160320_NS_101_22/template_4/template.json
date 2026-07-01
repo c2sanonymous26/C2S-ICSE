@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Near-synchronous contexts from different vehicles should keep the joint magnitude of speed difference and heading difference within a reasonable range.",
+    "goal": "Detect cross-vehicle context pairs whose combined speed discrepancy and direction discrepancy are implausible.",
+    "design_rationale": "Closely timed observations from different vehicles should not simultaneously diverge too strongly in both speed and direction under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the product of the absolute speed difference between them and the absolute difference between their direction angles should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The product of the absolute speed difference between v1 and v2 and the absolute difference between their direction angles does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.speed - v2.speed) × abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

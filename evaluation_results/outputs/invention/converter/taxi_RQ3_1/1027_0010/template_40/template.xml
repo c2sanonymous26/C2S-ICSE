@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, the timestamp value of v1 should be positively correlated with its grpid value.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <bfunc id="1"/>
+  </forall>
+</formula>

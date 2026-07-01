@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Contexts of the same vehicle separated by two grpid steps should keep a reasonable direction-change rate.",
+    "goal": "Detect same-vehicle contexts whose two-step direction-change rate is implausible.",
+    "design_rationale": "Even across a two-step gap, the direction change over elapsed time should remain within a realistic range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 2 greater than that of v2, then the direction-change rate between v1 and v2, computed from direction difference and time difference, should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is 2 greater than that of v2.",
+      "implementation": "v1.grpid == v2.grpid + 2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The direction-change rate between v1 and v2, computed from direction difference and time difference, should lie within a certain reasonable range.",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

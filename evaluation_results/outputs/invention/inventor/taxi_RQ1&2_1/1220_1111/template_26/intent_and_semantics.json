@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The product of spatial separation and average speed between two contexts from different vehicles that are close in time is bounded.",
+    "goal": "Detect joint anomalies where records from different vehicles at the same time show both large spatial separation and high speed.",
+    "design_rationale": "Records from different vehicles at the same time that are far apart and moving fast are unlikely to be consistent with normal city traffic patterns."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute time difference within a certain range), then the product of their haversine GPS distance and their average speed does not exceed a certain reasonable range."
+}

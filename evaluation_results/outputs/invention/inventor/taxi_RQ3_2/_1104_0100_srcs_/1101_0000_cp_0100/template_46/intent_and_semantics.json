@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should be sufficiently separated in geographic distance or in direction.",
+    "goal": "Detect near-synchronous different-vehicle pairs that remain too similar in both spatial position and travel direction.",
+    "design_rationale": "If two observations belong to different vehicles, at least one strong distinction should be visible in space or direction when their timestamps are close."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then their geographic distance (computed from coordinates) should be significantly greater than a certain minimum value, or the absolute difference in their travel directions should be significantly greater than a certain minimum value."
+}

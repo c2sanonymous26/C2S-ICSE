@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle keep absolute heading change within an upper bound.",
+    "goal": "Identify adjacent same-vehicle records whose direction difference is too large.",
+    "design_rationale": "The absolute heading change between consecutive records of the same vehicle should remain within a reasonable upper bound to reflect stable movement."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the absolute value of the difference between the direction of v1 and the direction of v2 does not exceed some upper bound (i.e., the vehicle's direction change should not be too drastic)."
+}

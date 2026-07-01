@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should remain within reasonable bounds for both travel speed and turning rate.",
+    "goal": "Detect adjacent trajectory segments that violate physical limits on movement speed or angular speed.",
+    "design_rationale": "A plausible vehicle transition should satisfy both a bounded displacement-over-time speed and a bounded rate of direction change."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed, and the ratio between the absolute difference in direction angle between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for angular speed."
+}

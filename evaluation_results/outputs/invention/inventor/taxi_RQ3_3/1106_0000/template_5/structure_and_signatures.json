@@ -1,0 +1,12 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The rates of change in the speed value and direction value of v1 lie within a certain reasonable range."
+    }
+  ]
+}

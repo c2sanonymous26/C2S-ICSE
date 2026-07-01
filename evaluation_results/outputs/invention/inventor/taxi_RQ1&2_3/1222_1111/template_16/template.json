@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "When a vehicle is already travelling at a significantly high speed, the direction change in the next context should be small.",
+    "goal": "Detect consecutive contexts where a large direction change occurs while the vehicle is at high speed.",
+    "design_rationale": "A high-speed vehicle cannot make a sharp turn; a large directional change combined with a high prior speed is physically implausible."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then the absolute direction difference between v2 and v1 should be within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute direction difference between v2 and v1 is within a certain reasonable range",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

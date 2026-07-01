@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose coordinate-change rate to v1 remains reasonable.",
+    "goal": "Detect unusually high-speed contexts whose local coordinate evolution is implausible.",
+    "design_rationale": "If a vehicle is moving very fast, the coordinate change from the previous step should still imply a plausible spatial rate over time."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the coordinate-change rate between v1 and v2 computed from coordinate differences and timestamp difference should lie within a certain reasonable range."
+}

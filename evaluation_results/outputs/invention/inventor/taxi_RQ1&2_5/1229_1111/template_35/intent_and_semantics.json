@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether each record has a valid group identifier value.",
+    "goal": "Identify records whose grpid value is smaller than the valid minimum.",
+    "design_rationale": "The group identifier should start from 1 or above; lower values indicate invalid sequencing metadata."
+  },
+  "semantics": "For any vehicle record v1, the grpid value of v1 is greater than or equal to 1."
+}

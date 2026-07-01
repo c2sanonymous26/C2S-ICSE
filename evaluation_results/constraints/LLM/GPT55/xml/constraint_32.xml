@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed recorded in v1 is sufficiently high and there exists a context from a different vehicle whose timestamp is within the same short time period as v1, then there exists a context v2 such that v1 and v2 belong to different vehicles, their timestamps are within the same short time period, their GPS locations are within a certain traffic-neighborhood distance, and the absolute normalized difference between their recorded directions does not exceed a certain angular bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <and>
+        <bfunc id="1"/>
+        <exists var="v3" in="ctx1">
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </exists>
+      </and>
+      <exists var="v2" in="ctx1">
+        <and>
+          <and>
+            <and>
+              <bfunc id="2"/>
+              <bfunc id="3"/>
+            </and>
+            <bfunc id="4"/>
+          </and>
+          <bfunc id="5"/>
+        </and>
+      </exists>
+    </implies>
+  </forall>
+</formula>

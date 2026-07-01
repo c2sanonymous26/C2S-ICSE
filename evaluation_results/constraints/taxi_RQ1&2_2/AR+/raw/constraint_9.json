@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "lt",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "mul(add(cos(cos(sin(longitude))), max(abs(add(latitude, 47225.525)), max(cos(21518.318), cos(longitude)))), add(sin(log(mul(42094.010, latitude))), abs(sub(max(56641.424, latitude), max(latitude, 2615.879)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.679957389831543,
+  "asrtm_time": 0.6197783946990967,
+  "predm_time": 0.058310747146606445,
+  "asrt_info": {
+    "fitness": 0.003,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the deceleration to the next consecutive context is bounded.",
+    "goal": "Detect high-speed contexts followed by an implausibly rapid deceleration.",
+    "design_rationale": "A vehicle traveling at high speed cannot decelerate instantaneously beyond physical braking limits; an excessively large deceleration rate indicates a speed sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the ratio of the absolute speed difference between v1 and v2 to their timestamp difference (i.e., deceleration) does not exceed a certain reasonable upper bound."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at significantly high speed, there should exist a preceding context of the same vehicle with a small direction difference and a close timestamp.",
+    "goal": "Detect high-speed contexts with no plausible preceding context showing a consistent direction and a close timestamp.",
+    "design_rationale": "A vehicle travelling at high speed cannot have made a sharp turn or experienced a large time gap since its previous record; the absence of such a preceding context indicates an erroneous high-speed record."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists another context v2 such that v2 is the previous context of v1 within the same vehicle, the absolute direction difference between v1 and v2 does not exceed a certain reasonable range, and the absolute timestamp difference between v1 and v2 does not exceed a certain upper bound."
+}

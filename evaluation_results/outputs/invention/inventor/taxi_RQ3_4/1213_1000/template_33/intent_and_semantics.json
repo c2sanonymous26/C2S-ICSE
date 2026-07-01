@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Three nearby, near-synchronous contexts from different vehicles should not imply an excessive change rate in the directions of their connecting lines.",
+    "goal": "Detect cross-vehicle context triples whose local spatial geometry changes too abruptly.",
+    "design_rationale": "For nearby observations that are close in time, the geometry formed by their connecting lines should evolve smoothly rather than show an implausible angular-rate jump."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the rate of change of the angle between the direction of the line connecting v1 and v2 and the direction of the line connecting v2 and v3 should not exceed a certain reasonable upper bound."
+}

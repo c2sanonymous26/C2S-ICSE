@@ -1,0 +1,43 @@
+========================== 0116_1111/template_31 (5000_11_solve) instantiation starts ==========================
+- scenario: taxi
+- template: 0116_1111/template_31
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0017027854919433594 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005700588226318359 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_timestamp - v2_timestamp → range [-998824340.5656576, 999766909.9280252]
+        - final range for threshold symbol 'NTHRESHOLD1': [-998824340.5656576, 999766909.9280252]
+Approximate computed ranges for 1 threshold symbols in 0.10 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_timestamp - v2_timestamp → range [-1000000000.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [-1000000000.0, 1000000000.0]
+Theoretical computed ranges for 1 threshold symbols in 0.07 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-1000000000.0, 1000000000.0)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0014896392822265625 seconds
+Set solve data in 0.0008704662322998047 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005612373352050781 seconds
+Main Constraint is always False or True
+Constructed main constraint in 1.4061095714569092 seconds
+0116_1111/template_31 (5000_11_solve) has 0 valid models
+************************************************ Solving process completes *************************************************
+======================== 0116_1111/template_31 (5000_11_solve) instantiation completes =========================
+Total instantiation time: 1.62 seconds

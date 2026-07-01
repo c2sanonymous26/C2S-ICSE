@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "The timestamp of each context should increase consistently with its grpid.",
+    "goal": "Detect timestamp values that are inconsistent with the within-context order.",
+    "design_rationale": "If grpid represents local sequence order, then larger group indices should correspond to later timestamps rather than contradict them."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be positively correlated with its grpid value.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The timestamp value of v1 is positively correlated with its grpid value.",
+      "implementation": "v1.timestamp > 0 && v1.grpid > 0 && (v1.timestamp - 0) ÷ (v1.grpid - 0) > 0",
+      "restrictions": []
+    }
+  ]
+}

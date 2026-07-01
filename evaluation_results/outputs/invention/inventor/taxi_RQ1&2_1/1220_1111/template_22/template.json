@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The product of the GPS displacement and average speed between consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect physically implausible combinations of large displacement and high average speed between consecutive records.",
+    "design_rationale": "The product of displacement and average speed between consecutive records provides a composite measure; excessively large values indicate GPS jumps or speed errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the product of the haversine GPS displacement between v1 and v2 and their average speed does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the haversine GPS displacement between v1 and v2 and their average speed does not exceed a certain reasonable range",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) × ((v1.speed + v2.speed) ÷ 2) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

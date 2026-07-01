@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v1.timestamp is less than or equal to sub(mul(v2.timestamp, v1.longitude), sin(v2.timestamp)).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1.timestamp is less than or equal to sub(mul(v2.timestamp, v1.longitude), sin(v2.timestamp))",
+      "implementation": "var_bindings['v1']['timestamp'] <= ((var_bindings['v2']['timestamp'] * var_bindings['v1']['longitude']) - sin(var_bindings['v2']['timestamp']))"
+    }
+  ]
+}

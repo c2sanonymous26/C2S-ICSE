@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a high speed, the GPS-implied average speed between it and its consecutive context is consistent with the reported speed.",
+    "goal": "Detect GPS displacement inconsistencies in high-speed contexts.",
+    "design_rationale": "At high speed, the GPS displacement between consecutive records should be proportional to the reported speed; large deviations indicate GPS errors in high-speed segments."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then the ratio of the haversine GPS displacement to the timestamp difference between v1 and v2 does not exceed a certain reasonable multiple of v1's speed."
+}

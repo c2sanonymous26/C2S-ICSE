@@ -1,0 +1,198 @@
+2025-12-16 15:59:32,785 - INFO - ======================================================================
+2025-12-16 15:59:32,785 - INFO - Starting run 15/50
+2025-12-16 15:59:32,785 - INFO - Mode: carid_join, Comparison: eq
+2025-12-16 15:59:32,785 - INFO - **********************************************************************
+2025-12-16 15:59:32,791 - INFO - Starting to create carid-based data pairing, original data shape: (5042, 7)
+2025-12-16 15:59:33,348 - INFO - carid join completed, new data shape: (200942, 14)
+2025-12-16 15:59:33,349 - INFO - Processed 140 carid groups, generated 200942 pairs
+2025-12-16 15:59:33,357 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 15:59:33,357 - INFO - Assertion mining DataFrame shape: (200942, 10)
+2025-12-16 15:59:33,369 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 15:59:33,369 - INFO - Precondition mining DataFrame shape: (200942, 14)
+2025-12-16 15:59:33,370 - INFO - **********************************************************************
+2025-12-16 15:59:33,370 - INFO - **********************************************************************
+2025-12-16 15:59:33,370 - INFO - Target field: speed_2 (selected from 10 candidates)
+2025-12-16 15:59:33,370 - INFO - **********************************************************************
+2025-12-16 15:59:33,370 - INFO - Timeout: 3600 seconds
+2025-12-16 15:59:33,370 - INFO - **********************************************************************
+2025-12-16 15:59:33,370 - INFO - Starting assertion mining...
+2025-12-16 15:59:33,372 - INFO - Target: speed_2 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 15:59:33,372 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-16 15:59:33,372 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-16 15:59:40,910 - INFO - Batch 0 training completed, current best fitness: 0.649593011
+2025-12-16 15:59:40,910 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-16 15:59:53,026 - INFO - Batch 1 training completed, current best fitness: 0.631802144
+2025-12-16 15:59:53,026 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-16 16:00:07,065 - INFO - Batch 2 training completed, current best fitness: 0.631902144
+2025-12-16 16:00:07,065 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 16:00:07,065 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-16 16:00:20,600 - INFO - Batch 3 training completed, current best fitness: 0.631802144
+2025-12-16 16:00:20,600 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 16:00:20,600 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-16 16:00:34,151 - INFO - Batch 4 training completed, current best fitness: 0.632002143
+2025-12-16 16:00:34,151 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-16 16:00:34,151 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-16 16:00:47,998 - INFO - Batch 5 training completed, current best fitness: 0.632002143
+2025-12-16 16:00:47,998 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-16 16:00:47,998 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-16 16:01:02,051 - INFO - Batch 6 training completed, current best fitness: 0.631702144
+2025-12-16 16:01:02,051 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-16 16:01:15,473 - INFO - Batch 7 training completed, current best fitness: 0.631502144
+2025-12-16 16:01:15,473 - INFO - Starting batch 8 training, will train to generation 8
+2025-12-16 16:01:28,943 - INFO - Batch 8 training completed, current best fitness: 0.631302145
+2025-12-16 16:01:28,943 - INFO - Starting batch 9 training, will train to generation 9
+2025-12-16 16:01:42,230 - INFO - Batch 9 training completed, current best fitness: 0.631302145
+2025-12-16 16:01:42,230 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 16:01:42,230 - INFO - Starting batch 10 training, will train to generation 10
+2025-12-16 16:01:55,461 - INFO - Batch 10 training completed, current best fitness: 0.631302145
+2025-12-16 16:01:55,461 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 16:01:55,461 - INFO - Starting batch 11 training, will train to generation 11
+2025-12-16 16:02:08,791 - INFO - Batch 11 training completed, current best fitness: 0.631302145
+2025-12-16 16:02:08,791 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-16 16:02:08,791 - INFO - Starting batch 12 training, will train to generation 12
+2025-12-16 16:02:22,431 - INFO - Batch 12 training completed, current best fitness: 0.628790981
+2025-12-16 16:02:22,431 - INFO - Starting batch 13 training, will train to generation 13
+2025-12-16 16:02:35,706 - INFO - Batch 13 training completed, current best fitness: 0.628790980
+2025-12-16 16:02:35,706 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 16:02:35,706 - INFO - Starting batch 14 training, will train to generation 14
+2025-12-16 16:02:49,059 - INFO - Batch 14 training completed, current best fitness: 0.613364575
+2025-12-16 16:02:49,059 - INFO - Starting batch 15 training, will train to generation 15
+2025-12-16 16:03:02,411 - INFO - Batch 15 training completed, current best fitness: 0.613364573
+2025-12-16 16:03:02,411 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 16:03:02,411 - INFO - Starting batch 16 training, will train to generation 16
+2025-12-16 16:03:15,810 - INFO - Batch 16 training completed, current best fitness: 0.613364573
+2025-12-16 16:03:15,810 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 16:03:15,810 - INFO - Starting batch 17 training, will train to generation 17
+2025-12-16 16:03:29,362 - INFO - Batch 17 training completed, current best fitness: 0.613364573
+2025-12-16 16:03:29,362 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-16 16:03:29,362 - INFO - Starting batch 18 training, will train to generation 18
+2025-12-16 16:03:42,844 - INFO - Batch 18 training completed, current best fitness: 0.613364573
+2025-12-16 16:03:42,845 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-16 16:03:42,845 - INFO - Starting batch 19 training, will train to generation 19
+2025-12-16 16:03:56,481 - INFO - Batch 19 training completed, current best fitness: 0.613364573
+2025-12-16 16:03:56,481 - INFO - Current fitness not improved, consecutive no improvement count: 5
+2025-12-16 16:03:56,481 - INFO - Starting batch 20 training, will train to generation 20
+2025-12-16 16:04:10,012 - INFO - Batch 20 training completed, current best fitness: 0.613364573
+2025-12-16 16:04:10,012 - INFO - Current fitness not improved, consecutive no improvement count: 6
+2025-12-16 16:04:10,012 - INFO - Starting batch 21 training, will train to generation 21
+2025-12-16 16:04:23,625 - INFO - Batch 21 training completed, current best fitness: 0.613364573
+2025-12-16 16:04:23,625 - INFO - Current fitness not improved, consecutive no improvement count: 7
+2025-12-16 16:04:23,626 - INFO - Starting batch 22 training, will train to generation 22
+2025-12-16 16:04:37,505 - INFO - Batch 22 training completed, current best fitness: 0.613364573
+2025-12-16 16:04:37,505 - INFO - Current fitness not improved, consecutive no improvement count: 8
+2025-12-16 16:04:37,505 - INFO - Starting batch 23 training, will train to generation 23
+2025-12-16 16:04:51,079 - INFO - Batch 23 training completed, current best fitness: 0.613364573
+2025-12-16 16:04:51,079 - INFO - Current fitness not improved, consecutive no improvement count: 9
+2025-12-16 16:04:51,079 - INFO - Starting batch 24 training, will train to generation 24
+2025-12-16 16:05:04,573 - INFO - Batch 24 training completed, current best fitness: 0.613364573
+2025-12-16 16:05:04,573 - INFO - Current fitness not improved, consecutive no improvement count: 10
+2025-12-16 16:05:04,573 - INFO - Starting batch 25 training, will train to generation 25
+2025-12-16 16:05:18,202 - INFO - Batch 25 training completed, current best fitness: 0.606356928
+2025-12-16 16:05:18,202 - INFO - Starting batch 26 training, will train to generation 26
+2025-12-16 16:05:31,756 - INFO - Batch 26 training completed, current best fitness: 0.606356928
+2025-12-16 16:05:31,757 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 16:05:31,757 - INFO - Starting batch 27 training, will train to generation 27
+2025-12-16 16:05:45,582 - INFO - Batch 27 training completed, current best fitness: 0.606356928
+2025-12-16 16:05:45,583 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 16:05:45,583 - INFO - Starting batch 28 training, will train to generation 28
+2025-12-16 16:05:59,474 - INFO - Batch 28 training completed, current best fitness: 0.606356928
+2025-12-16 16:05:59,474 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-16 16:05:59,474 - INFO - Starting batch 29 training, will train to generation 29
+2025-12-16 16:06:13,065 - INFO - Batch 29 training completed, current best fitness: 0.606356928
+2025-12-16 16:06:13,065 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-16 16:06:13,065 - INFO - Starting batch 30 training, will train to generation 30
+2025-12-16 16:06:26,824 - INFO - Batch 30 training completed, current best fitness: 0.606356928
+2025-12-16 16:06:26,824 - INFO - Current fitness not improved, consecutive no improvement count: 5
+2025-12-16 16:06:26,824 - INFO - Starting batch 31 training, will train to generation 31
+2025-12-16 16:06:40,549 - INFO - Batch 31 training completed, current best fitness: 0.606356928
+2025-12-16 16:06:40,549 - INFO - Current fitness not improved, consecutive no improvement count: 6
+2025-12-16 16:06:40,549 - INFO - Starting batch 32 training, will train to generation 32
+2025-12-16 16:06:53,911 - INFO - Batch 32 training completed, current best fitness: 0.606356928
+2025-12-16 16:06:53,911 - INFO - Current fitness not improved, consecutive no improvement count: 7
+2025-12-16 16:06:53,911 - INFO - Starting batch 33 training, will train to generation 33
+2025-12-16 16:07:07,690 - INFO - Batch 33 training completed, current best fitness: 0.606356928
+2025-12-16 16:07:07,690 - INFO - Current fitness not improved, consecutive no improvement count: 8
+2025-12-16 16:07:07,691 - INFO - Starting batch 34 training, will train to generation 34
+2025-12-16 16:07:21,094 - INFO - Batch 34 training completed, current best fitness: 0.606356928
+2025-12-16 16:07:21,095 - INFO - Current fitness not improved, consecutive no improvement count: 9
+2025-12-16 16:07:21,095 - INFO - Starting batch 35 training, will train to generation 35
+2025-12-16 16:07:34,723 - INFO - Batch 35 training completed, current best fitness: 0.606356928
+2025-12-16 16:07:34,723 - INFO - Current fitness not improved, consecutive no improvement count: 10
+2025-12-16 16:07:34,723 - INFO - Starting batch 36 training, will train to generation 36
+2025-12-16 16:07:48,355 - INFO - Batch 36 training completed, current best fitness: 0.606356928
+2025-12-16 16:07:48,356 - INFO - Current fitness not improved, consecutive no improvement count: 11
+2025-12-16 16:07:48,356 - INFO - Starting batch 37 training, will train to generation 37
+2025-12-16 16:08:01,796 - INFO - Batch 37 training completed, current best fitness: 0.606356928
+2025-12-16 16:08:01,796 - INFO - Current fitness not improved, consecutive no improvement count: 12
+2025-12-16 16:08:01,796 - INFO - Starting batch 38 training, will train to generation 38
+2025-12-16 16:08:15,570 - INFO - Batch 38 training completed, current best fitness: 0.606356928
+2025-12-16 16:08:15,571 - INFO - Current fitness not improved, consecutive no improvement count: 13
+2025-12-16 16:08:15,571 - INFO - Starting batch 39 training, will train to generation 39
+2025-12-16 16:08:29,138 - INFO - Batch 39 training completed, current best fitness: 0.606356928
+2025-12-16 16:08:29,138 - INFO - Current fitness not improved, consecutive no improvement count: 14
+2025-12-16 16:08:29,138 - INFO - Starting batch 40 training, will train to generation 40
+2025-12-16 16:08:42,927 - INFO - Batch 40 training completed, current best fitness: 0.606356928
+2025-12-16 16:08:42,927 - INFO - Current fitness not improved, consecutive no improvement count: 15
+2025-12-16 16:08:42,927 - INFO - Starting batch 41 training, will train to generation 41
+2025-12-16 16:08:56,418 - INFO - Batch 41 training completed, current best fitness: 0.606356928
+2025-12-16 16:08:56,418 - INFO - Current fitness not improved, consecutive no improvement count: 16
+2025-12-16 16:08:56,418 - INFO - Starting batch 42 training, will train to generation 42
+2025-12-16 16:09:09,861 - INFO - Batch 42 training completed, current best fitness: 0.606356928
+2025-12-16 16:09:09,862 - INFO - Current fitness not improved, consecutive no improvement count: 17
+2025-12-16 16:09:09,862 - INFO - Starting batch 43 training, will train to generation 43
+2025-12-16 16:09:23,422 - INFO - Batch 43 training completed, current best fitness: 0.606356928
+2025-12-16 16:09:23,423 - INFO - Current fitness not improved, consecutive no improvement count: 18
+2025-12-16 16:09:23,423 - INFO - Starting batch 44 training, will train to generation 44
+2025-12-16 16:09:37,053 - INFO - Batch 44 training completed, current best fitness: 0.606356928
+2025-12-16 16:09:37,053 - INFO - Current fitness not improved, consecutive no improvement count: 19
+2025-12-16 16:09:37,053 - INFO - Starting batch 45 training, will train to generation 45
+2025-12-16 16:09:50,456 - INFO - Batch 45 training completed, current best fitness: 0.606356928
+2025-12-16 16:09:50,456 - INFO - Current fitness not improved, consecutive no improvement count: 20
+2025-12-16 16:09:50,456 - INFO - Early stopping triggered: 20 consecutive batches without improvement
+2025-12-16 16:09:50,456 - INFO - Target 'speed_2' constraint discovery stopped early
+2025-12-16 16:09:50,456 - INFO - Generations completed: 46
+2025-12-16 16:09:50,460 - INFO - Assertion mining completed, assertion: div(sin(cos(55240.939)), timestamp_1) (fitness: 0.606356928)
+2025-12-16 16:09:50,460 - INFO - **********************************************************************
+2025-12-16 16:09:50,460 - INFO - **********************************************************************
+2025-12-16 16:09:50,460 - INFO - Starting assertion validation...
+2025-12-16 16:09:50,467 - INFO - Assertion: div(sin(cos(55240.939)), timestamp_1), Comparison: eq
+2025-12-16 16:09:50,478 - INFO - Assertion validation completed, fit rate: 0.4398 (88366/200942)
+2025-12-16 16:09:50,478 - INFO - **********************************************************************
+2025-12-16 16:09:50,478 - INFO - **********************************************************************
+2025-12-16 16:09:50,479 - INFO - Starting precondition mining...
+2025-12-16 16:09:50,479 - INFO - Starting to prepare data for precondition mining phase
+2025-12-16 16:09:50,505 - INFO - Binning 10 assertion mining fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 16:09:50,513 - INFO - timestamp_1 bin_edges: [1.30219380e+09 1.30219398e+09 1.30219416e+09 1.30219434e+09
+ 1.30219452e+09 1.30219470e+09 1.30219488e+09 1.30219506e+09
+ 1.30219524e+09 1.30219542e+09 1.30219560e+09]
+2025-12-16 16:09:50,550 - INFO - timestamp_2 bin_edges: [1.30219380e+09 1.30219398e+09 1.30219416e+09 1.30219434e+09
+ 1.30219452e+09 1.30219470e+09 1.30219488e+09 1.30219506e+09
+ 1.30219524e+09 1.30219542e+09 1.30219560e+09]
+2025-12-16 16:09:50,586 - INFO - speed_1 bin_edges: [  0.   11.4  22.8  34.2  45.6  57.   68.4  79.8  91.2 102.6 114. ]
+2025-12-16 16:09:50,627 - INFO - speed_2 bin_edges: [  0.   11.4  22.8  34.2  45.6  57.   68.4  79.8  91.2 102.6 114. ]
+2025-12-16 16:09:50,672 - INFO - latitude_1 bin_edges: [22.50502  22.530943 22.556866 22.582789 22.608712 22.634635 22.660558
+ 22.686481 22.712404 22.738327 22.76425 ]
+2025-12-16 16:09:50,721 - INFO - latitude_2 bin_edges: [22.50502  22.530943 22.556866 22.582789 22.608712 22.634635 22.660558
+ 22.686481 22.712404 22.738327 22.76425 ]
+2025-12-16 16:09:50,774 - INFO - longitude_1 bin_edges: [113.79545 113.88129 113.96713 114.05297 114.13881 114.22465 114.31049
+ 114.39633 114.48217 114.56801 114.65385]
+2025-12-16 16:09:50,830 - INFO - longitude_2 bin_edges: [113.79545 113.88129 113.96713 114.05297 114.13881 114.22465 114.31049
+ 114.39633 114.48217 114.56801 114.65385]
+2025-12-16 16:09:50,892 - INFO - direction_1 bin_edges: [  0.   31.5  63.   94.5 126.  157.5 189.  220.5 252.  283.5 315. ]
+2025-12-16 16:09:50,958 - INFO - direction_2 bin_edges: [  0.   31.5  63.   94.5 126.  157.5 189.  220.5 252.  283.5 315. ]
+2025-12-16 16:09:51,021 - INFO - Empty DataFrame
+Columns: [carid_1, carid_2, grpid_1, grpid_2, fit, timestamp_1_bin_1302193800.000000000_1302193979.900000095, timestamp_1_bin_1302193979.900000095_1302194159.799999952, timestamp_1_bin_1302194159.799999952_1302194339.700000048, timestamp_1_bin_1302194339.700000048_1302194519.599999905, timestamp_1_bin_1302194519.599999905_1302194699.500000000, timestamp_1_bin_1302194699.500000000_1302194879.400000095, timestamp_1_bin_1302194879.400000095_1302195059.299999952, timestamp_1_bin_1302195059.299999952_1302195239.200000048, timestamp_1_bin_1302195239.200000048_1302195419.099999905, timestamp_1_bin_1302195419.099999905_1302195599.000000000, timestamp_2_bin_1302193800.000000000_1302193979.900000095, timestamp_2_bin_1302193979.900000095_1302194159.799999952, timestamp_2_bin_1302194159.799999952_1302194339.700000048, timestamp_2_bin_1302194339.700000048_1302194519.599999905, timestamp_2_bin_1302194519.599999905_1302194699.500000000, timestamp_2_bin_1302194699.500000000_1302194879.400000095, timestamp_2_bin_1302194879.400000095_1302195059.299999952, timestamp_2_bin_1302195059.299999952_1302195239.200000048, timestamp_2_bin_1302195239.200000048_1302195419.099999905, timestamp_2_bin_1302195419.099999905_1302195599.000000000, speed_1_bin_0.000000000_11.400000000, speed_1_bin_11.400000000_22.800000000, speed_1_bin_22.800000000_34.200000000, speed_1_bin_34.200000000_45.600000000, speed_1_bin_45.600000000_57.000000000, speed_1_bin_57.000000000_68.400000000, speed_1_bin_68.400000000_79.800000000, speed_1_bin_79.800000000_91.200000000, speed_1_bin_91.200000000_102.600000000, speed_1_bin_102.600000000_114.000000000, speed_2_bin_0.000000000_11.400000000, speed_2_bin_11.400000000_22.800000000, speed_2_bin_22.800000000_34.200000000, speed_2_bin_34.200000000_45.600000000, speed_2_bin_45.600000000_57.000000000, speed_2_bin_57.000000000_68.400000000, speed_2_bin_68.400000000_79.800000000, speed_2_bin_79.800000000_91.200000000, speed_2_bin_91.200000000_102.600000000, speed_2_bin_102.600000000_114.000000000, latitude_1_bin_22.505020000_22.530943000, latitude_1_bin_22.530943000_22.556866000, latitude_1_bin_22.556866000_22.582789000, latitude_1_bin_22.582789000_22.608712000, latitude_1_bin_22.608712000_22.634635000, latitude_1_bin_22.634635000_22.660558000, latitude_1_bin_22.660558000_22.686481000, latitude_1_bin_22.686481000_22.712404000, latitude_1_bin_22.712404000_22.738327000, latitude_1_bin_22.738327000_22.764250000, latitude_2_bin_22.505020000_22.530943000, latitude_2_bin_22.530943000_22.556866000, latitude_2_bin_22.556866000_22.582789000, latitude_2_bin_22.582789000_22.608712000, latitude_2_bin_22.608712000_22.634635000, latitude_2_bin_22.634635000_22.660558000, latitude_2_bin_22.660558000_22.686481000, latitude_2_bin_22.686481000_22.712404000, latitude_2_bin_22.712404000_22.738327000, latitude_2_bin_22.738327000_22.764250000, longitude_1_bin_113.795450000_113.881290000, longitude_1_bin_113.881290000_113.967130000, longitude_1_bin_113.967130000_114.052970000, longitude_1_bin_114.052970000_114.138810000, longitude_1_bin_114.138810000_114.224650000, longitude_1_bin_114.224650000_114.310490000, longitude_1_bin_114.310490000_114.396330000, longitude_1_bin_114.396330000_114.482170000, longitude_1_bin_114.482170000_114.568010000, longitude_1_bin_114.568010000_114.653850000, longitude_2_bin_113.795450000_113.881290000, longitude_2_bin_113.881290000_113.967130000, longitude_2_bin_113.967130000_114.052970000, longitude_2_bin_114.052970000_114.138810000, longitude_2_bin_114.138810000_114.224650000, longitude_2_bin_114.224650000_114.310490000, longitude_2_bin_114.310490000_114.396330000, longitude_2_bin_114.396330000_114.482170000, longitude_2_bin_114.482170000_114.568010000, longitude_2_bin_114.568010000_114.653850000, direction_1_bin_0.000000000_31.500000000, direction_1_bin_31.500000000_63.000000000, direction_1_bin_63.000000000_94.500000000, direction_1_bin_94.500000000_126.000000000, direction_1_bin_126.000000000_157.500000000, direction_1_bin_157.500000000_189.000000000, direction_1_bin_189.000000000_220.500000000, direction_1_bin_220.500000000_252.000000000, direction_1_bin_252.000000000_283.500000000, direction_1_bin_283.500000000_315.000000000, direction_2_bin_0.000000000_31.500000000, direction_2_bin_31.500000000_63.000000000, direction_2_bin_63.000000000_94.500000000, direction_2_bin_94.500000000_126.000000000, direction_2_bin_126.000000000_157.500000000, ...]
+Index: []
+2025-12-16 16:09:51,079 - INFO - Direct one-hot encoding completed, number of features: 105
+2025-12-16 16:09:51,080 - INFO - Empty DataFrame
+Columns: [grpid_eq, grpid_lt, grpid_gt, fit_0, fit_1, timestamp_1_bin_1302193800.000000000_1302193979.900000095, timestamp_1_bin_1302193979.900000095_1302194159.799999952, timestamp_1_bin_1302194159.799999952_1302194339.700000048, timestamp_1_bin_1302194339.700000048_1302194519.599999905, timestamp_1_bin_1302194519.599999905_1302194699.500000000, timestamp_1_bin_1302194699.500000000_1302194879.400000095, timestamp_1_bin_1302194879.400000095_1302195059.299999952, timestamp_1_bin_1302195059.299999952_1302195239.200000048, timestamp_1_bin_1302195239.200000048_1302195419.099999905, timestamp_1_bin_1302195419.099999905_1302195599.000000000, timestamp_2_bin_1302193800.000000000_1302193979.900000095, timestamp_2_bin_1302193979.900000095_1302194159.799999952, timestamp_2_bin_1302194159.799999952_1302194339.700000048, timestamp_2_bin_1302194339.700000048_1302194519.599999905, timestamp_2_bin_1302194519.599999905_1302194699.500000000, timestamp_2_bin_1302194699.500000000_1302194879.400000095, timestamp_2_bin_1302194879.400000095_1302195059.299999952, timestamp_2_bin_1302195059.299999952_1302195239.200000048, timestamp_2_bin_1302195239.200000048_1302195419.099999905, timestamp_2_bin_1302195419.099999905_1302195599.000000000, speed_1_bin_0.000000000_11.400000000, speed_1_bin_11.400000000_22.800000000, speed_1_bin_22.800000000_34.200000000, speed_1_bin_34.200000000_45.600000000, speed_1_bin_45.600000000_57.000000000, speed_1_bin_57.000000000_68.400000000, speed_1_bin_68.400000000_79.800000000, speed_1_bin_79.800000000_91.200000000, speed_1_bin_91.200000000_102.600000000, speed_1_bin_102.600000000_114.000000000, speed_2_bin_0.000000000_11.400000000, speed_2_bin_11.400000000_22.800000000, speed_2_bin_22.800000000_34.200000000, speed_2_bin_34.200000000_45.600000000, speed_2_bin_45.600000000_57.000000000, speed_2_bin_57.000000000_68.400000000, speed_2_bin_68.400000000_79.800000000, speed_2_bin_79.800000000_91.200000000, speed_2_bin_91.200000000_102.600000000, speed_2_bin_102.600000000_114.000000000, latitude_1_bin_22.505020000_22.530943000, latitude_1_bin_22.530943000_22.556866000, latitude_1_bin_22.556866000_22.582789000, latitude_1_bin_22.582789000_22.608712000, latitude_1_bin_22.608712000_22.634635000, latitude_1_bin_22.634635000_22.660558000, latitude_1_bin_22.660558000_22.686481000, latitude_1_bin_22.686481000_22.712404000, latitude_1_bin_22.712404000_22.738327000, latitude_1_bin_22.738327000_22.764250000, latitude_2_bin_22.505020000_22.530943000, latitude_2_bin_22.530943000_22.556866000, latitude_2_bin_22.556866000_22.582789000, latitude_2_bin_22.582789000_22.608712000, latitude_2_bin_22.608712000_22.634635000, latitude_2_bin_22.634635000_22.660558000, latitude_2_bin_22.660558000_22.686481000, latitude_2_bin_22.686481000_22.712404000, latitude_2_bin_22.712404000_22.738327000, latitude_2_bin_22.738327000_22.764250000, longitude_1_bin_113.795450000_113.881290000, longitude_1_bin_113.881290000_113.967130000, longitude_1_bin_113.967130000_114.052970000, longitude_1_bin_114.052970000_114.138810000, longitude_1_bin_114.138810000_114.224650000, longitude_1_bin_114.224650000_114.310490000, longitude_1_bin_114.310490000_114.396330000, longitude_1_bin_114.396330000_114.482170000, longitude_1_bin_114.482170000_114.568010000, longitude_1_bin_114.568010000_114.653850000, longitude_2_bin_113.795450000_113.881290000, longitude_2_bin_113.881290000_113.967130000, longitude_2_bin_113.967130000_114.052970000, longitude_2_bin_114.052970000_114.138810000, longitude_2_bin_114.138810000_114.224650000, longitude_2_bin_114.224650000_114.310490000, longitude_2_bin_114.310490000_114.396330000, longitude_2_bin_114.396330000_114.482170000, longitude_2_bin_114.482170000_114.568010000, longitude_2_bin_114.568010000_114.653850000, direction_1_bin_0.000000000_31.500000000, direction_1_bin_31.500000000_63.000000000, direction_1_bin_63.000000000_94.500000000, direction_1_bin_94.500000000_126.000000000, direction_1_bin_126.000000000_157.500000000, direction_1_bin_157.500000000_189.000000000, direction_1_bin_189.000000000_220.500000000, direction_1_bin_220.500000000_252.000000000, direction_1_bin_252.000000000_283.500000000, direction_1_bin_283.500000000_315.000000000, direction_2_bin_0.000000000_31.500000000, direction_2_bin_31.500000000_63.000000000, direction_2_bin_63.000000000_94.500000000, direction_2_bin_94.500000000_126.000000000, direction_2_bin_126.000000000_157.500000000, ...]
+Index: []
+2025-12-16 16:09:51,080 - INFO - Precondition mining phase data preparation completed, shape: (200942, 105)
+2025-12-16 16:09:51,096 - INFO - Starting association rule mining
+2025-12-16 16:10:59,373 - INFO - Found 242 frequent itemsets (support>=0.1)
+2025-12-16 16:10:59,378 - INFO - Generated 158 association rules (confidence>=0.8)
+2025-12-16 16:10:59,378 - INFO - Filtered 28 rules with fit_1 as consequent
+2025-12-16 16:10:59,382 - INFO - Precondition mining completed, precondition: speed_2_bin_0.000000000_11.400000000 AND longitude_1_bin_113.967130000_114.052970000 AND speed_1_bin_0.000000000_11.400000000 (rule fit_rate: 0.9908)
+2025-12-16 16:10:59,382 - INFO - **********************************************************************
+2025-12-16 16:10:59,384 - WARNING - Run 15 failed to generate constraint
+2025-12-16 16:10:59,385 - INFO - ======================================================================

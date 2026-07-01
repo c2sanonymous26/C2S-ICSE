@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, the recorded rates of change in speed and direction associated with v1 should lie within a reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <bfunc id="1"/>
+        <bfunc id="2"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

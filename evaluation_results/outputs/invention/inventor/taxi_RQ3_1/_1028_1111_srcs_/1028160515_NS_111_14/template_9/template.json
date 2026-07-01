@@ -1,0 +1,31 @@
+{
+  "intent": {
+    "content": "Each context should imply jointly reasonable rates of change in both speed and direction.",
+    "goal": "Detect contexts whose consecutive-motion dynamics indicate implausible variation in speed or heading.",
+    "design_rationale": "Vehicle motion should evolve smoothly enough that both speed-change rate and direction-change rate remain within realistic dynamic bounds."
+  },
+  "semantics": "For any context v1, the recorded rates of change in speed and direction associated with v1 should lie within a reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) implies bfunc2(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle and are consecutive contexts.",
+      "implementation": "v1.carid == v2.carid && v1.grpid + 1 == v2.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The rate of speed change between v1 and v2 lies within a reasonable range, and the rate of direction change between v1 and v2 also lies within a reasonable range.",
+      "implementation": "abs(v2.speed - v1.speed) <= NTHRESHOLD1 && min(abs(v2.direction - v1.direction), 360 - abs(v2.direction - v1.direction)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

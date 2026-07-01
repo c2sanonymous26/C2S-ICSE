@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS displacement between two consecutive contexts of the same vehicle exceeds a minimum lower bound.",
+    "goal": "Detect consecutive contexts with an implausibly small GPS displacement.",
+    "design_rationale": "A moving vehicle should cover at least a minimum GPS distance between consecutive samples; an implausibly small displacement suggests the vehicle was stationary or there is a GPS error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, their haversine GPS distance must be greater than a certain reasonable minimum lower bound."
+}

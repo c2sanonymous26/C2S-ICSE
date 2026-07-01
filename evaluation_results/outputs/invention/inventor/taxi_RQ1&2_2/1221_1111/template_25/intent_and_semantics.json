@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the heading change to the next consecutive context is bounded or the next context also has zero speed.",
+    "goal": "Detect stationary contexts followed by either an implausible heading change while still stationary or an invalid transition.",
+    "design_rationale": "A stationary vehicle's heading should remain stable; a large heading change while the vehicle is still stationary suggests a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute heading difference between v1 and the next consecutive context v2 does not exceed a certain reasonable range, or v2 also has zero speed."
+}

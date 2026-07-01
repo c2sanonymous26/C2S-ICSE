@@ -1,0 +1,102 @@
+{
+  "constraint_id": 37,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 104.95542812347412
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Distinct taxis should not occupy the same physical location at the same time.",
+      "goal": "Detect contexts indicating an impossible or highly unlikely co-location of two different taxis, which may reveal GPS duplication, identifier mix-ups, or sensor/reporting errors.",
+      "design_rationale": "In the SmartCity taxi monitoring scenario, different vehicles can be near each other in traffic but cannot physically share an indistinguishably close position at nearly the same timestamp. A pair of contexts from different taxis that are simultaneous and unrealistically close should therefore be treated as anomalous."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are within a sufficiently small time difference, then the geographic distance between the GPS locations recorded in v1 and v2 is not unrealistically small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (not bfunc3(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamps of v1 and v2 are within a sufficiently small time difference",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is unrealistically small for two different taxis",
+        "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 5e-09
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Distinct taxis should not occupy the same physical location at the same time.",
+      "goal": "Detect contexts indicating an impossible or highly unlikely co-location of two different taxis, which may reveal GPS duplication, identifier mix-ups, or sensor/reporting errors.",
+      "design_rationale": "In the SmartCity taxi monitoring scenario, different vehicles can be near each other in traffic but cannot physically share an indistinguishably close position at nearly the same timestamp. A pair of contexts from different taxis that are simultaneous and unrealistically close should therefore be treated as anomalous."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are within a sufficiently small time difference, then the geographic distance between the GPS locations recorded in v1 and v2 is not unrealistically small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (not bfunc3(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamps of v1 and v2 are within a sufficiently small time difference",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is unrealistically small for two different taxis",
+        "implementation": "(pow(abs((v1.latitude - v2.latitude)), 2) + pow(abs((v1.longitude - v2.longitude)), 2)) <= 5e-09",
+        "restrictions": []
+      }
+    ]
+  }
+}

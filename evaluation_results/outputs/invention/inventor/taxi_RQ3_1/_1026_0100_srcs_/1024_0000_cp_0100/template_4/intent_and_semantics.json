@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a timestamp no earlier than a reasonable minimum.",
+    "goal": "Detect contexts with implausibly early timestamp values.",
+    "design_rationale": "Taxi data should be generated within a valid operational time range, so a timestamp below the reasonable lower bound indicates faulty or corrupted time information."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum timestamp."
+}

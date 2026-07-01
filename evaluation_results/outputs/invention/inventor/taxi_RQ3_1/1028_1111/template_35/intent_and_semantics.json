@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two consecutive contexts of the same vehicle should advance in time by a positive but bounded interval.",
+    "goal": "Detect adjacent same-vehicle contexts whose timestamp gap is non-positive or implausibly large.",
+    "design_rationale": "Consecutive observations should move forward in time and stay within a realistic sampling interval rather than exhibiting zero, negative, or excessive temporal gaps."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must be greater than 0 and smaller than a certain reasonable maximum time interval."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should not have an excessively large angle between their speed-change directions.",
+    "goal": "Detect cross-vehicle context pairs whose local motion-change directions are implausibly inconsistent.",
+    "design_rationale": "When two observations are close in time and space, their motion-change directions should remain reasonably compatible under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their speed-change directions computed from direction and speed should not exceed a certain value."
+}

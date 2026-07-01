@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, there should be a reasonable relationship between the timestamp value and the grpid value of v1, meaning that a record with a larger grpid value should also have a larger timestamp value.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

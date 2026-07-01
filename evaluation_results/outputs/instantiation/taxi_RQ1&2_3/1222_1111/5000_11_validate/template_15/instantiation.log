@@ -1,0 +1,25 @@
+========================================================== 1222_1111/template_15 (5000_11_validate) instantiation starts ==========================================================
+- scenario: taxi
+- template: 1222_1111/template_15
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0011317729949951172 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0005490779876708984 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+***************************************************************************** Validating process starts *****************************************************************************
+Parsed template in 0.0010845661163330078 seconds
+Set validate data in 0.00047397613525390625 seconds
+    - validate data num info: {'ctx1': 5042}
+Get possible links size in 0.000736236572265625 seconds
+    - possible links size: 5042
+Validation results:
+    - no violation
+    - validated in 0.38988494873046875 seconds
+1222_1111/template_15 (5000_11_validate) is valid
+**************************************************************************** Validating process completes ***************************************************************************
+========================================================= 1222_1111/template_15 (5000_11_validate) instantiation completes ========================================================
+Total instantiation time: 0.42 seconds

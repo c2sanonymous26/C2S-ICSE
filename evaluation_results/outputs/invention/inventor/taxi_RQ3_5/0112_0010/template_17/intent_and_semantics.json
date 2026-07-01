@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-change direction consistent with the change in recorded direction.",
+    "goal": "Detect adjacent same-vehicle contexts whose coordinate-change direction is inconsistent with their direction difference.",
+    "design_rationale": "A realistic adjacent transition should show consistency between geometric direction change and the reported heading change."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the direction difference of v1 and v2 should not exceed a certain reasonable range."
+}

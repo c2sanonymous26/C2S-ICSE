@@ -1,0 +1,23 @@
+{
+  "mode": "carid_join",
+  "cmp": "le",
+  "target_col": "direction_2",
+  "status": "success_with_preconditions",
+  "assertion": "div(log(sqrt(sqrt(longitude_1))), timestamp_1)",
+  "precondition": "frozenset({'direction_2_bin_0.000000000_31.500000000'})",
+  "rule_fit_rate": 1.0,
+  "overall_time": 624.2113988399506,
+  "asrtm_time": 551.5195095539093,
+  "predm_time": 72.6709156036377,
+  "asrt_info": {
+    "fitness": 0.8433396512100969,
+    "was_early_stopped": true,
+    "generations_completed": 40
+  },
+  "pred_info": {
+    "rule_confidence": 1.0,
+    "rule_support": 0.15797593335390311,
+    "precondition_length": "1",
+    "description": "direction_2_bin_0.000000000_31.500000000"
+  }
+}

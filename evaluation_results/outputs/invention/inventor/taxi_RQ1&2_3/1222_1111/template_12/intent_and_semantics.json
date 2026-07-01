@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a speed value within a reasonable range.",
+    "goal": "Detect contexts with a speed value outside the physically plausible range for a taxi.",
+    "design_rationale": "A taxi's speed is bounded from below by zero (or a small minimum) and above by the maximum possible road speed; values outside this range indicate sensor malfunction or data corruption."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be within a certain reasonable range."
+}

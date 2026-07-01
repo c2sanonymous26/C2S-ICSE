@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle has zero speed and remains stopped across multiple consecutive contexts, the Haversine displacement between those contexts should be negligibly small.",
+    "goal": "Detect a run of consecutive stationary contexts where the coordinates drift non-trivially.",
+    "design_rationale": "A vehicle that is continuously stopped should not show any meaningful coordinate changes; any Haversine displacement beyond a negligible threshold across consecutive zero-speed records indicates persistent GPS noise."
+  },
+  "semantics": "For any context v1, if v1's speed is zero and there exists a sustained sequence of contexts with zero speed (i.e., the next two consecutive contexts v2 and v3 also exist), then the Haversine displacement between these consecutive zero-speed contexts should not exceed a negligibly small range."
+}

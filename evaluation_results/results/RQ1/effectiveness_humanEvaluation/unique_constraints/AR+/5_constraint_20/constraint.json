@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is less than or equal to add(sqrt(sqrt(log(v1.timestamp))), log(neg(v1.timestamp))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is less than or equal to add(sqrt(sqrt(log(v1.timestamp))), log(neg(v1.timestamp)))",
+      "implementation": "var_bindings['v1']['latitude'] <= (sqrt(abs(sqrt(abs((0 if abs(var_bindings['v1']['timestamp']) < 1/1000 else log(abs(var_bindings['v1']['timestamp']))))))) + (0 if abs((-var_bindings['v1']['timestamp'])) < 1/1000 else log(abs((-var_bindings['v1']['timestamp'])))))"
+    }
+  ]
+}

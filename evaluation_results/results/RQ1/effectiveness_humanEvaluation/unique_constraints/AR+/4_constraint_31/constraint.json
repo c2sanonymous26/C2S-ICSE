@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is greater than or equal to sin(sub(v1.timestamp, v1.speed)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is greater than or equal to sin(sub(v1.timestamp, v1.speed))",
+      "implementation": "var_bindings['v1']['latitude'] >= sin((var_bindings['v1']['timestamp'] - var_bindings['v1']['speed']))"
+    }
+  ]
+}

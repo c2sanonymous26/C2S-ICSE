@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The time gap between two consecutive contexts of the same vehicle is above a minimum threshold.",
+    "goal": "Detect consecutive contexts with an implausibly small time gap.",
+    "design_rationale": "GPS devices record data at a minimum sampling interval; consecutive records with an implausibly small timestamp difference suggest duplicate or incorrectly ordered records."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, their timestamp difference must be greater than a certain reasonable minimum time interval."
+}

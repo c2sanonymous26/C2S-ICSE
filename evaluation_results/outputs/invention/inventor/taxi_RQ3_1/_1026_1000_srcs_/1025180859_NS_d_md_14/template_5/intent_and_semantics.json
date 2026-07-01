@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should remain directionally consistent with the previous context.",
+    "goal": "Detect high-speed contexts whose heading changes too sharply relative to the previous observation.",
+    "design_rationale": "At high speed, an abrupt direction change is less plausible, so consecutive headings should remain within a bounded change range."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angle of v1 and that of the previous context v2 of v1 should not exceed a certain reasonable upper bound for angle change."
+}

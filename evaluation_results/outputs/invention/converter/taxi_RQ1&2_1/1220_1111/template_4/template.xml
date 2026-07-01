@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, the rate of change of speed and direction between v1 and its next consecutive context v2 is within a reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <exists var="v2" in="ctx1">
+      <implies>
+        <bfunc id="1"/>
+        <bfunc id="2"/>
+      </implies>
+    </exists>
+  </forall>
+</formula>

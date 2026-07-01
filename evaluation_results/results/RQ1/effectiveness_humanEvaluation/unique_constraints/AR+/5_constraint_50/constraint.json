@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is greater than or equal to neg(min(abs(add(sqrt(v1.direction), cos(neg(v1.direction)))), div(mul(add(-12824.157, min(-7019.369, v1.speed)), sub(max(62640.522, v1.longitude), sin(v1.latitude))), neg(sub(cos(-21835.810), sin(sin(10613.504))))))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is greater than or equal to neg(min(abs(add(sqrt(v1.direction), cos(neg(v1.direction)))), div(mul(add(-12824.157, min(-7019.369, v1.speed)), sub(max(62640.522, v1.longitude), sin(v1.latitude))), neg(sub(cos(-21835.810), sin(sin(10613.504)))))))",
+      "implementation": "var_bindings['v1']['timestamp'] >= (-min(abs((sqrt(abs(var_bindings['v1']['direction'])) + cos((-var_bindings['v1']['direction'])))), (1 if -1/1000 <= ((-(cos(-2183581/100) - sin(sin(1326688/125))))) <= 1/1000 else (((-12824157/1000 + min(-7019369/1000, var_bindings['v1']['speed'])) * (max(31320261/500, var_bindings['v1']['longitude']) - sin(var_bindings['v1']['latitude'])))) / ((-(cos(-2183581/100) - sin(sin(1326688/125))))))))"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle keep absolute speed change within an upper bound.",
+    "goal": "Identify adjacent same-vehicle records whose speed difference is too large.",
+    "design_rationale": "The absolute speed change between consecutive records of the same vehicle should remain within a reasonable upper bound to reflect stable motion."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the absolute value of the difference between the speed of v1 and the speed of v2 does not exceed some upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the grpid of v1 is greater than that of v2 by 1",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute value of the difference between the speed of v1 and the speed of v2 does not exceed some upper bound",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid != v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2"
+    },
+    {
+      "id": "bfunc4",
+      "implementation": "sqrt(pow(v2.latitude - v3.latitude, 2) + pow(v2.longitude - v3.longitude, 2)) <= NTHRESHOLD3"
+    },
+    {
+      "id": "bfunc5",
+      "implementation": "sqrt(pow(v1.latitude - v3.latitude, 2) + pow(v1.longitude - v3.longitude, 2)) <= NTHRESHOLD4"
+    }
+  ],
+  "reason": null
+}

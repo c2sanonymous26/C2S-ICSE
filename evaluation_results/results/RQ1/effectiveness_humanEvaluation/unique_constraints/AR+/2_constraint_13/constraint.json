@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is less than or equal to add(mul(mul(-34115.753, abs(42127.481)), sub(cos(v1.speed), v1.latitude)), abs(log(tan(v1.longitude)))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is less than or equal to add(mul(mul(-34115.753, abs(42127.481)), sub(cos(v1.speed), v1.latitude)), abs(log(tan(v1.longitude))))",
+      "implementation": "var_bindings['v1']['timestamp'] <= (((-34115753/1000 * abs(42127481/1000)) * (cos(var_bindings['v1']['speed']) - var_bindings['v1']['latitude'])) + abs((0 if abs(tan(var_bindings['v1']['longitude'])) < 1/1000 else log(abs(tan(var_bindings['v1']['longitude']))))))"
+    }
+  ]
+}

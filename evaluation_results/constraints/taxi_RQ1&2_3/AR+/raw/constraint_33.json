@@ -1,0 +1,23 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "speed",
+  "status": "success_with_preconditions",
+  "assertion": "div(tan(cos(cos(-15127.919))), timestamp)",
+  "precondition": "frozenset({'direction_bin_0.000000000_15.750000000', 'speed_bin_0.000000000_5.700000000'})",
+  "rule_fit_rate": 0.9952399841332804,
+  "overall_time": 582.2796013355255,
+  "asrtm_time": 582.0457067489624,
+  "predm_time": 0.22953152656555176,
+  "asrt_info": {
+    "fitness": 0.550796244848002,
+    "was_early_stopped": true,
+    "generations_completed": 40
+  },
+  "pred_info": {
+    "rule_confidence": 0.9553903345724907,
+    "rule_support": 0.10194367314557715,
+    "precondition_length": "2",
+    "description": "direction_bin_0.000000000_15.750000000 AND speed_bin_0.000000000_5.700000000"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Non-adjacent contexts of the same vehicle should keep the coordinate-derived average speed and the speed-field-derived average speed reasonably consistent.",
+    "goal": "Detect non-adjacent same-vehicle context pairs whose motion inferred from coordinates is inconsistent with their recorded speed values.",
+    "design_rationale": "The average speed estimated from displacement and time should stay close to the average speed implied by the recorded speed fields over a non-adjacent interval."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid difference is greater than 1, that is, they are non-adjacent contexts, then the absolute difference between the average speed computed from the coordinate distance and time difference of v1 and v2 and the average speed computed directly from the speed fields of v1 and v2 should not exceed a certain reasonable range."
+}

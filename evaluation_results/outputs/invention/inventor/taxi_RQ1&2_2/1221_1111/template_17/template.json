@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the next consecutive context either also has zero speed or exhibits a bounded acceleration.",
+    "goal": "Detect stationary contexts followed by an implausibly rapid acceleration.",
+    "design_rationale": "A stationary vehicle cannot instantly jump to high speed; if it starts moving, the acceleration must be within physical limits."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then there exists a context v2 such that v2 is the next consecutive context after v1 (same vehicle), and either v2's speed is also zero or the acceleration from v1 to v2 does not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and (bfunc3(v1, v2) or bfunc4(v1, v2)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next consecutive context after v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed of v2 is zero",
+      "implementation": "v2.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the acceleration from v1 to v2 (speed change divided by timestamp difference) does not exceed a certain reasonable upper bound",
+      "implementation": "(v2.speed - v1.speed) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

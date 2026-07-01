@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time and both have very low speeds are also spatially close.",
+    "goal": "Detect spatial outliers among low-speed records from different vehicles at the same time.",
+    "design_rationale": "Vehicles with very low speeds at the same time are likely in similar traffic conditions; large spatial separation between such records suggests GPS errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, and both their speeds are significantly below a certain threshold, then their haversine GPS distance does not exceed a certain reasonable spatial range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is within a certain reasonable time range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "both v1 and v2 have speeds significantly below a certain threshold",
+      "implementation": "v1.speed < NTHRESHOLD2 && v2.speed < NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the haversine GPS distance between v1 and v2 does not exceed a certain reasonable spatial range",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

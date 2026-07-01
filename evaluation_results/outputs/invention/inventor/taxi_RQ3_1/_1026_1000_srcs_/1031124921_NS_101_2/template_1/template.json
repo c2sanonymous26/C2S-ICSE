@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "Adjacent same-vehicle contexts with opposite-quadrant headings should imply a much lower average movement speed than the larger reported instantaneous speed.",
+    "goal": "Detect consecutive contexts whose opposite-direction relationship is inconsistent with the average speed implied by their displacement and elapsed time.",
+    "design_rationale": "If consecutive headings point into opposite quadrants, the net movement between the two contexts should be relatively limited compared with the larger instantaneous speed, otherwise the transition is implausible."
+  },
+  "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in opposite quadrants (such as 0-90° and 180-270°), then the ratio between the haversine distance computed from v1 and v2 and their timestamp difference, namely their average speed, must be significantly lower than the larger of the instantaneous speeds of v1 and v2.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two consecutive contexts.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The travel directions of v1 and v2 lie in opposite quadrants.",
+      "implementation": "((v1.direction >= 0 && v1.direction < 90 && v2.direction >= 180 && v2.direction < 270) || (v1.direction >= 90 && v1.direction < 180 && v2.direction >= 270 && v2.direction < 360) || (v1.direction >= 180 && v1.direction < 270 && v2.direction >= 0 && v2.direction < 90) || (v1.direction >= 270 && v1.direction < 360 && v2.direction >= 90 && v2.direction < 180))",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the haversine distance computed from v1 and v2 and their timestamp difference is significantly lower than the larger of the instantaneous speeds of v1 and v2.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ (abs(v2.timestamp - v1.timestamp) ÷ (60 × 60)) < max(v1.speed, v2.speed) × NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

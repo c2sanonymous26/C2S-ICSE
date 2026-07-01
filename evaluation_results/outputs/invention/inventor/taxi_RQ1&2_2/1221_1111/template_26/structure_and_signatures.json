@@ -1,0 +1,36 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and (bfunc3(v1, v2) or bfunc4(v1, v2)))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is zero and its heading is non-zero"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the next consecutive context after v1"
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed of v2 is zero"
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the heading of v2 is the same as the heading of v1"
+    }
+  ]
+}

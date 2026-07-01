@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is already travelling at a significantly high speed, its speed in the next context should not exceed the current speed.",
+    "goal": "Detect consecutive contexts where the speed increases further from an already high level, which is implausible.",
+    "design_rationale": "A vehicle travelling at high speed is expected to decelerate or maintain speed, not continue accelerating; a speed increase from an already high baseline indicates sensor noise or data error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then v2's speed should be less than or equal to v1's speed."
+}

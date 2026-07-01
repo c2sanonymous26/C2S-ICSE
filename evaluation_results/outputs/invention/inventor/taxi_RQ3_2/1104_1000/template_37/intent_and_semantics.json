@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have a previous same-vehicle one-step context whose speed is also zero.",
+    "goal": "Detect isolated zero-speed contexts that are inconsistent with the immediately previous context of the same vehicle.",
+    "design_rationale": "If a vehicle is stopped at one local step, the preceding one-step context should often reflect the same stopped state under this rule design."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the speed of v2 is also zero."
+}

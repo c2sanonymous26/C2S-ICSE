@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The odometer-implied travel distance between same-vehicle contexts that are close in time is consistent with the GPS-implied haversine distance.",
+    "goal": "Detect same-vehicle context pairs that are close in time but show inconsistency between the odometer-implied distance and the GPS-measured distance.",
+    "design_rationale": "The product of average speed and elapsed time should approximate the GPS-measured distance; large discrepancies indicate either a speed sensor error or a GPS positioning error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the absolute difference between the product of their average instantaneous speed and timestamp difference and their haversine GPS distance does not exceed a certain reasonable range."
+}

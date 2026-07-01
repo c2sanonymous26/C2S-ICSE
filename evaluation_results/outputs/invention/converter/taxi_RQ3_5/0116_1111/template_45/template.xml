@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the absolute difference between their direction-change rates, computed from their respective surrounding records, should not exceed a certain reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <exists var="v3" in="ctx1">
+          <exists var="v4" in="ctx1">
+            <exists var="v5" in="ctx1">
+              <exists var="v6" in="ctx1">
+                <and>
+                  <bfunc id="3"/>
+                  <and>
+                    <bfunc id="4"/>
+                    <bfunc id="5"/>
+                  </and>
+                </and>
+              </exists>
+            </exists>
+          </exists>
+        </exists>
+      </implies>
+    </forall>
+  </forall>
+</formula>

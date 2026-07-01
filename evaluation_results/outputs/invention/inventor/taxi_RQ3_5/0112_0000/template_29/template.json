@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-change direction close to the average recorded direction.",
+    "goal": "Detect adjacent same-vehicle contexts whose geometric movement direction is inconsistent with the average reported heading.",
+    "design_rationale": "For a locally consistent transition, the direction implied by coordinate change should align with the average of the two recorded directions."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the average of the directions of v1 and v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the coordinate-change direction of v1 and v2 and the average of the directions of v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude))) - degrees((v1.direction + v2.direction) ÷ 2)) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

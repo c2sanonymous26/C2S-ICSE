@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The local sequence identifier should increase consistently with time.",
+    "goal": "Detect ordering information that contradicts temporal progression within a vehicle trajectory.",
+    "design_rationale": "If grpid represents within-vehicle progression, larger grpid values should correspond to later timestamps rather than break temporal order."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be positively correlated with its timestamp value, meaning that records with larger grpid values should also have larger timestamp values.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are records of the same vehicle, that is, v1.carid == v2.carid.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is smaller than that of v2.",
+      "implementation": "v1.grpid < v2.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp value of v1 is smaller than that of v2.",
+      "implementation": "v1.timestamp < v2.timestamp",
+      "restrictions": []
+    }
+  ]
+}

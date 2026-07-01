@@ -1,0 +1,17 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid != v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "(sqrt(pow(sin(radians((v2.latitude - v1.latitude) × 0.5)), 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × pow(sin(radians((v2.longitude - v1.longitude) × 0.5)), 2)) × 2 × 6371) ÷ (abs(v1.timestamp - v2.timestamp) ÷ 3600) <= NTHRESHOLD2"
+    }
+  ],
+  "reason": null
+}

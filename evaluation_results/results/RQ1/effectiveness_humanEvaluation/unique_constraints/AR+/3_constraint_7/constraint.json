@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is less than log(sub(cos(sin(sin(v1.longitude))), abs(abs(mul(v1.timestamp, 11803.291))))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is less than log(sub(cos(sin(sin(v1.longitude))), abs(abs(mul(v1.timestamp, 11803.291)))))",
+      "implementation": "var_bindings['v1']['latitude'] < (0 if abs((cos(sin(sin(var_bindings['v1']['longitude']))) - abs(abs((var_bindings['v1']['timestamp'] * 11803291/1000))))) < 1/1000 else log(abs((cos(sin(sin(var_bindings['v1']['longitude']))) - abs(abs((var_bindings['v1']['timestamp'] * 11803291/1000)))))))"
+    }
+  ]
+}

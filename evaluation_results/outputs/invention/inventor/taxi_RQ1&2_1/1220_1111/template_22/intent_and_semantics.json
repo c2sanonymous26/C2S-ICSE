@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The product of the GPS displacement and average speed between consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect physically implausible combinations of large displacement and high average speed between consecutive records.",
+    "design_rationale": "The product of displacement and average speed between consecutive records provides a composite measure; excessively large values indicate GPS jumps or speed errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the product of the haversine GPS displacement between v1 and v2 and their average speed does not exceed a certain reasonable range."
+}

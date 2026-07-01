@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts that are two grpid steps apart should still satisfy a relaxed upper bound on coordinate-derived speed.",
+    "goal": "Detect short-range skipped-step transitions whose implied movement speed is too large even under a doubled speed allowance.",
+    "design_rationale": "When comparing contexts two steps apart, the implied speed may be looser than the one-step case, but it should still remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the difference between their grpid values is 2, then the ratio between the coordinate distance between v1 and v2 computed using the haversine distance and their timestamp difference should not exceed twice a certain reasonable upper bound on speed."
+}

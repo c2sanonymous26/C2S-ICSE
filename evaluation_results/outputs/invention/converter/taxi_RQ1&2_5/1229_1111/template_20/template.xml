@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their latitude-longitude distance and the cosine value of their direction difference must be significantly greater than some lower bound (i.e., the position change of the two vehicles within a nearby time interval should maintain reasonable consistency with direction change).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

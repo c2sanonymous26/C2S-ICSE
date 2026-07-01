@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a low speed, the heading change between it and its consecutive context is bounded.",
+    "goal": "Detect implausible heading changes in low-speed contexts.",
+    "design_rationale": "At low speed, significant heading changes are less likely; large heading differences between consecutive records in the low-speed regime indicate sensor noise."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and the speed of v1 is below a certain threshold, then the absolute heading difference between v1 and v2 does not exceed a certain reasonable range."
+}

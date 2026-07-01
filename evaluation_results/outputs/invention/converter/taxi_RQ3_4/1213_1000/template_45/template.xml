@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the sign of the ratio between the absolute speed difference and the timestamp difference of v1 and v2, that is, the acceleration-like quantity, should be consistent with the sign of their direction difference.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v2.latitude is less than sqrt(abs(mul(neg(tan(v1.latitude)), add(add(v2.timestamp, v1.latitude), add(v1.timestamp, v2.timestamp))))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.latitude is less than sqrt(abs(mul(neg(tan(v1.latitude)), add(add(v2.timestamp, v1.latitude), add(v1.timestamp, v2.timestamp)))))",
+      "implementation": "var_bindings['v2']['latitude'] < sqrt(abs(abs(((-tan(var_bindings['v1']['latitude'])) * ((var_bindings['v2']['timestamp'] + var_bindings['v1']['latitude']) + (var_bindings['v1']['timestamp'] + var_bindings['v2']['timestamp']))))))"
+    }
+  ]
+}

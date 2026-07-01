@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS-implied average speed between same-vehicle contexts that are close in time is consistent with the average of their reported speeds.",
+    "goal": "Detect same-vehicle context pairs that are close in time but show a large discrepancy between GPS-implied and reported average speed.",
+    "design_rationale": "The haversine GPS distance divided by elapsed time should match the average reported speed; significant discrepancies indicate inconsistency between GPS and speed sensors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the absolute difference between the GPS-implied average speed (haversine distance divided by timestamp difference) and the average of their reported speeds does not exceed a certain reasonable range."
+}

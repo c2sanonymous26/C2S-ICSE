@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "total_time": 57.49562907218933,
+  "reimagine_rollback_count": 0,
+  "reimagine_attempts": [
+    {
+      "attempt_number": 1,
+      "result": "success",
+      "duplicate_with": null,
+      "time_cost": 57.495208978652954,
+      "semantics": {
+        "time_cost": 10.528717041015625,
+        "semantic_duplicate_count": 1,
+        "llm_call_count": 2
+      },
+      "rewrites": [
+        {
+          "attempt_number": 1,
+          "result": "success",
+          "time_cost": 46.73200511932373,
+          "sas_stats": {
+            "time_cost": 6.420289754867554,
+            "syntax_error_count": 0,
+            "semantic_error_count": 0,
+            "llm_call_count": 1
+          },
+          "impl_stats": {
+            "time_cost": 40.3116819858551,
+            "syntax_error_count": 1,
+            "consistency_error_count": 0,
+            "unit_error_count": 1,
+            "llm_call_count": 3
+          }
+        }
+      ]
+    }
+  ]
+}

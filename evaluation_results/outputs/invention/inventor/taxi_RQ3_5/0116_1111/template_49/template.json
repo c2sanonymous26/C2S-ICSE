@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "Same-vehicle contexts separated by one intermediate context should keep their implied speed within a reasonable range.",
+    "goal": "Detect skip-one same-vehicle contexts whose displacement-over-time ratio is implausibly low or high.",
+    "design_rationale": "Even with one intervening context, the implied speed between the two endpoints should remain within realistic bounds."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and there is exactly one context between them, then the ratio between the coordinate difference of v1 and v2, computed using the haversine distance, and their timestamp difference must not be lower than a certain reasonable minimum speed and must not exceed a certain reasonable upper bound on speed.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two contexts of that vehicle with exactly one context in between.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the coordinate difference of v1 and v2 computed using the haversine distance and their timestamp difference must not be lower than a certain reasonable minimum speed.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v2.timestamp - v1.timestamp) ÷ (60 × 60)) >= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the coordinate difference of v1 and v2 computed using the haversine distance and their timestamp difference must not exceed a certain reasonable upper bound on speed.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v2.timestamp - v1.timestamp) ÷ (60 × 60)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is less than abs(sqrt(mul(min(abs(v1.longitude), log(v1.longitude)), abs(abs(v1.longitude))))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is less than abs(sqrt(mul(min(abs(v1.longitude), log(v1.longitude)), abs(abs(v1.longitude)))))",
+      "implementation": "var_bindings['v1']['latitude'] < abs(sqrt(abs((min(abs(var_bindings['v1']['longitude']), (0 if abs(var_bindings['v1']['longitude']) < 1/1000 else log(abs(var_bindings['v1']['longitude'])))) * abs(abs(var_bindings['v1']['longitude']))))))"
+    }
+  ]
+}

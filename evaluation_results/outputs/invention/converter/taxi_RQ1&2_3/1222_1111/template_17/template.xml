@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, then the direction change trend from v1 to v2 (increasing/decreasing) should be consistent with the direction change trend from v2 to v3, unless a significant speed change occurs.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <forall var="v3" in="ctx1">
+        <implies>
+          <and>
+            <and>
+              <bfunc id="1"/>
+              <bfunc id="2"/>
+            </and>
+            <bfunc id="3"/>
+          </and>
+          <or>
+            <bfunc id="4"/>
+            <bfunc id="5"/>
+          </or>
+        </implies>
+      </forall>
+    </forall>
+  </forall>
+</formula>

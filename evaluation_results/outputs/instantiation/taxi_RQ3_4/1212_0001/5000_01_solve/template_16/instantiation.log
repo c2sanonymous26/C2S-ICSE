@@ -1,0 +1,39 @@
+============================================================ 1212_0001/template_16 (5000_01_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1212_0001/template_16
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0021233558654785156 seconds
+Constructed ctx data in 4.076957702636719e-05 seconds
+Loaded data field types in 0.0005407333374023438 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0018482208251953125 seconds
+Set solve data in 0.0008831024169921875 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0006029605865478516 seconds
+Constructed main constraint in 59.10061836242676 seconds
+Constructed VE constraints in 1.1444091796875e-05 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2798377521486027, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0012438297271728516 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2807173614508235, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0010433197021484375 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2802775567997131, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0009057521820068359 seconds
+1212_0001/template_16 (5000_01_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1212_0001/template_16 (5000_01_solve) instantiation completes ==========================================================
+Total instantiation time: 59.15 seconds

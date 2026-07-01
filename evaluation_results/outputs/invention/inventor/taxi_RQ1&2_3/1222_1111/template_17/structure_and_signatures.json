@@ -1,0 +1,50 @@
+{
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies (bfunc4(v1, v2, v3) or bfunc5(v1, v2, v3)))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, v3 belong to the same vehicle"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, v3 are three consecutive contexts"
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the direction change trend from v1 to v2 (increasing or decreasing)"
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the direction change trend from v2 to v3 is consistent with the direction change trend from v1 to v2"
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "a significant speed change occurs between v1 and v2"
+    }
+  ]
+}

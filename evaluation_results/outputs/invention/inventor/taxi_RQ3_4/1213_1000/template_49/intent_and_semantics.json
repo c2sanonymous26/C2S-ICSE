@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle context whose coordinate-change direction stays close to the recorded direction of the current context.",
+    "goal": "Detect high-speed contexts whose coordinate-derived motion direction is inconsistent with the recorded heading.",
+    "design_rationale": "At high speed, the direction implied by the coordinate change from the previous context should remain compatible with the current recorded heading."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, is the previous context of v1, and the absolute difference between the direction of the coordinate change of v1 and v2 computed from the coordinates and the direction value of v1 does not exceed a certain value."
+}

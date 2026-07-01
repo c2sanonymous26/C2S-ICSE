@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The time gap between two consecutive contexts of the same vehicle does not exceed a reasonable upper bound.",
+    "goal": "Detect consecutive contexts with an implausibly large time gap.",
+    "design_rationale": "GPS devices record data at regular intervals; an excessively large time gap between consecutive records suggests data loss or device failure."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, their timestamp difference does not exceed a certain reasonable upper bound."
+}

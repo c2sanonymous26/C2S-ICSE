@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should differ by exactly one grpid step.",
+    "goal": "Detect local sequence inconsistencies in the grpid field.",
+    "design_rationale": "If two contexts are adjacent in the same vehicle trajectory, their sequence identifiers should progress by exactly one."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the difference between their grpid values should be exactly 1."
+}

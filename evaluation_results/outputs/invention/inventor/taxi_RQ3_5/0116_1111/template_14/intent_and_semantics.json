@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should keep the same direction as its previous context.",
+    "goal": "Detect stopped contexts whose recorded direction changes unexpectedly from the previous context.",
+    "design_rationale": "If the vehicle is stationary, its recorded direction should remain unchanged relative to the previous context under this rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction of v1 and that of its previous context v2 should be zero."
+}

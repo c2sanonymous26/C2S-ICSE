@@ -1,0 +1,21 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid != v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2"
+    },
+    {
+      "id": "bfunc4",
+      "implementation": "abs(degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude)) - degrees(atan2(v1.speed - v2.speed, 1.0))) <= NTHRESHOLD3"
+    }
+  ],
+  "reason": null
+}

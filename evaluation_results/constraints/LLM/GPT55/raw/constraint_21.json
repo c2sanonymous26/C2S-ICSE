@@ -1,0 +1,73 @@
+{
+  "constraint_id": 21,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 3,
+    "generation_seconds": 60.20472192764282
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Every non-initial context of a taxi has an immediate predecessor context in the same taxi sequence.",
+      "goal": "Detect missing records or discontinuities in the per-taxi context sequence when a later grpid is observed without the immediately preceding grpid for the same vehicle.",
+      "design_rationale": "The grpid field is intended to be continuous within each taxi. If a context is not the first observed record for that taxi, then the preceding sequence number should also appear; otherwise, the sequence may contain data loss, ingestion gaps, or corruption."
+    },
+    "semantics": "For any context v1, if there exists a context v0 such that v0 belongs to the same vehicle as v1 and the grpid of v0 is smaller than the grpid of v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid of v2 immediately precedes the grpid of v1.",
+    "structure": "forall v1 in dataset ((exists v0 in dataset (bfunc1(v0, v1))) implies (exists v2 in dataset (bfunc2(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v0",
+          "v1"
+        ],
+        "semantics": "v0 belongs to the same vehicle as v1 and the grpid of v0 is smaller than the grpid of v1.",
+        "implementation": "v0.carid == v1.carid && v0.grpid < v1.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 belongs to the same vehicle as v1 and the grpid of v2 immediately precedes the grpid of v1.",
+        "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": []
+  },
+  "constraint": {
+    "intent": {
+      "content": "Every non-initial context of a taxi has an immediate predecessor context in the same taxi sequence.",
+      "goal": "Detect missing records or discontinuities in the per-taxi context sequence when a later grpid is observed without the immediately preceding grpid for the same vehicle.",
+      "design_rationale": "The grpid field is intended to be continuous within each taxi. If a context is not the first observed record for that taxi, then the preceding sequence number should also appear; otherwise, the sequence may contain data loss, ingestion gaps, or corruption."
+    },
+    "semantics": "For any context v1, if there exists a context v0 such that v0 belongs to the same vehicle as v1 and the grpid of v0 is smaller than the grpid of v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid of v2 immediately precedes the grpid of v1.",
+    "structure": "forall v1 in dataset ((exists v0 in dataset (bfunc1(v0, v1))) implies (exists v2 in dataset (bfunc2(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v0",
+          "v1"
+        ],
+        "semantics": "v0 belongs to the same vehicle as v1 and the grpid of v0 is smaller than the grpid of v1.",
+        "implementation": "(v0.carid == v1.carid) && (v0.grpid < v1.grpid)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 belongs to the same vehicle as v1 and the grpid of v2 immediately precedes the grpid of v1.",
+        "implementation": "(v2.carid == v1.carid) && (v2.grpid == (v1.grpid - 1))",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "gt",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "min(log(sqrt(abs(add(neg(speed), mul(-11189.766, 2442.834))))), cos(direction))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.6314198970794678,
+  "asrtm_time": 1.570789098739624,
+  "predm_time": 0.0587618350982666,
+  "asrt_info": {
+    "fitness": 0.0012000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

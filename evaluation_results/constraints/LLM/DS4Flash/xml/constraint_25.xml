@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, then the absolute difference between the direction recorded in v1 and the bearing angle calculated from v1's GPS location (v1.latitude, v1.longitude) to v2's GPS location (v2.latitude, v2.longitude) does not exceed a certain bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

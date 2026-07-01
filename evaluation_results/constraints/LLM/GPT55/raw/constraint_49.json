@@ -1,0 +1,122 @@
+{
+  "constraint_id": 49,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 135.38261604309082
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The time elapsed per record step for contexts of the same taxi remains within an expected sampling interval range.",
+      "goal": "Detect abnormal reporting cadence, such as delayed uploads, duplicated timing, or inconsistent collector sampling behavior across records of the same taxi.",
+      "design_rationale": "Taxi collectors are expected to emit driving-state contexts at a reasonably regular rate. Even when comparing non-consecutive records of the same taxi, the timestamp difference should be consistent with the difference in their per-taxi sequence numbers; an unusually large or small elapsed time per sequence step suggests collector malfunction, buffering delay, or timestamp anomalies."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 occurs after v1 in time, and the group sequence number of v2 is larger than the group sequence number of v1, then the timestamp difference between v2 and v1 divided by the group sequence-number difference is within a certain expected sampling interval range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 occurs after v1 in time",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the group sequence number of v2 is larger than the group sequence number of v1",
+        "implementation": "v2.grpid > v1.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp difference between v2 and v1 divided by the group sequence-number difference is within a certain expected sampling interval range",
+        "implementation": "(v2.timestamp - v1.timestamp) ÷ (v2.grpid - v1.grpid) >= NTHRESHOLD1 && (v2.timestamp - v1.timestamp) ÷ (v2.grpid - v1.grpid) <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 180.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The time elapsed per record step for contexts of the same taxi remains within an expected sampling interval range.",
+      "goal": "Detect abnormal reporting cadence, such as delayed uploads, duplicated timing, or inconsistent collector sampling behavior across records of the same taxi.",
+      "design_rationale": "Taxi collectors are expected to emit driving-state contexts at a reasonably regular rate. Even when comparing non-consecutive records of the same taxi, the timestamp difference should be consistent with the difference in their per-taxi sequence numbers; an unusually large or small elapsed time per sequence step suggests collector malfunction, buffering delay, or timestamp anomalies."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 occurs after v1 in time, and the group sequence number of v2 is larger than the group sequence number of v1, then the timestamp difference between v2 and v1 divided by the group sequence-number difference is within a certain expected sampling interval range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 occurs after v1 in time",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the group sequence number of v2 is larger than the group sequence number of v1",
+        "implementation": "v2.grpid > v1.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp difference between v2 and v1 divided by the group sequence-number difference is within a certain expected sampling interval range",
+        "implementation": "(((v2.timestamp - v1.timestamp) ÷ (v2.grpid - v1.grpid)) >= 1.0) && (((v2.timestamp - v1.timestamp) ÷ (v2.grpid - v1.grpid)) <= 180.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep its heading consistent with the direction implied by its coordinate change from the previous context.",
+    "goal": "Detect high-speed contexts whose movement direction conflicts with their recorded heading.",
+    "design_rationale": "When speed is high, the direction inferred from the previous transition should remain close to the recorded heading."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction of the coordinate change of v1 computed from its previous context v2 and the direction of v1 should not exceed a certain reasonable range."
+}

@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.speed is greater than div(sin(cos(-51789.908)), v1.timestamp).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.speed is greater than div(sin(cos(-51789.908)), v1.timestamp)",
+      "implementation": "var_bindings['v1']['speed'] > (1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (sin(cos(-12947477/250))) / (var_bindings['v1']['timestamp']))"
+    }
+  ]
+}

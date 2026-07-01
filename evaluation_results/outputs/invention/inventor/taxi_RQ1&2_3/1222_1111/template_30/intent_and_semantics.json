@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show high speed, the GPS-derived displacement bearing should be consistent with the average of the reported directions.",
+    "goal": "Detect high-speed consecutive contexts where the GPS-derived bearing and the average reported direction are mutually inconsistent.",
+    "design_rationale": "At high speed, the direction field should closely match the actual movement direction derived from coordinates; a large discrepancy at high speed indicates erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly higher than a certain threshold, then the displacement bearing derived from the coordinate differences of v1 and v2 should be close to the average of the directions of v1 and v2 within a certain reasonable range."
+}

@@ -1,0 +1,122 @@
+{
+  "constraint_id": 15,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 83.65874719619751
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The speed of a taxi should not change too abruptly between two consecutive records that are close in time.",
+      "goal": "Detect implausible acceleration or deceleration between consecutive driving states of the same taxi, which may indicate sensor glitches, timestamp issues, or corrupted speed readings.",
+      "design_rationale": "Taxi motion is physically continuous, so over a sufficiently short time interval the instantaneous speed of the same vehicle should not jump by an excessive amount. Bounding short-term speed change helps identify anomalies even when the locations or directions alone do not appear obviously invalid."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, and the time difference from v1 to v2 is sufficiently small and positive, then the absolute difference between the speeds recorded in v1 and v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the speeds recorded in v1 and v2 is within a certain range",
+        "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 13.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 25.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The speed of a taxi should not change too abruptly between two consecutive records that are close in time.",
+      "goal": "Detect implausible acceleration or deceleration between consecutive driving states of the same taxi, which may indicate sensor glitches, timestamp issues, or corrupted speed readings.",
+      "design_rationale": "Taxi motion is physically continuous, so over a sufficiently short time interval the instantaneous speed of the same vehicle should not jump by an excessive amount. Bounding short-term speed change helps identify anomalies even when the locations or directions alone do not appear obviously invalid."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, and the time difference from v1 to v2 is sufficiently small and positive, then the absolute difference between the speeds recorded in v1 and v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 13.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the speeds recorded in v1 and v2 is within a certain range",
+        "implementation": "abs((v1.speed - v2.speed)) <= 25.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

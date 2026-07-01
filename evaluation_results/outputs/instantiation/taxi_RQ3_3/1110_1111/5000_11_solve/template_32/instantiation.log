@@ -1,0 +1,61 @@
+============================================================ 1110_1111/template_32 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1110_1111/template_32
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0015540122985839844 seconds
+Constructed ctx data in 3.2901763916015625e-05 seconds
+Loaded data field types in 0.0005204677581787109 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)/(-v1_timestamp + v2_timestamp) → range [-2093183052.1014209, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [-2093183052.1014209, inf]
+Approximate computed ranges for 1 threshold symbols in 0.88 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_speed - v2_speed) when the argument is not real or imaginary.
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_speed - v2_speed)/(-v1_timestamp + v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.11 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-2093183052.1014209, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0013680458068847656 seconds
+Set solve data in 0.0008935928344726562 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005888938903808594 seconds
+Constructed main constraint in 56.102457761764526 seconds
+Constructed VE constraints in 0.0010159015655517578 seconds
+Constructed symbol domain constraints in 0.10118913650512695 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 1302
+    - symbol domains:
+        - _N_THRESHOLD_1: 1303
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(7226706379746433, 4503599627370496)}
+        - objective value: 4 out of 4
+        - solved in 0.0960073471069336 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.1900942325592041 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.19153141975402832 seconds
+1110_1111/template_32 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1110_1111/template_32 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 57.73 seconds

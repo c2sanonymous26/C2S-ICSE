@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Same-vehicle contexts separated by one intermediate context should keep their implied speed within a reasonable range.",
+    "goal": "Detect skip-one same-vehicle contexts whose displacement-over-time ratio is implausibly low or high.",
+    "design_rationale": "Even with one intervening context, the implied speed between the two endpoints should remain within realistic bounds."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and there is exactly one context between them, then the ratio between the coordinate difference of v1 and v2, computed using the haversine distance, and their timestamp difference must not be lower than a certain reasonable minimum speed and must not exceed a certain reasonable upper bound on speed."
+}

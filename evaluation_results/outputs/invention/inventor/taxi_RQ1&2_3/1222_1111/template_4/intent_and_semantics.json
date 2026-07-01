@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The direction change between two consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect consecutive contexts with an implausibly large direction change.",
+    "design_rationale": "A vehicle's heading cannot change arbitrarily between consecutive samples; an excessively large direction difference indicates a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the absolute direction difference between v1 and v2 should be within a certain reasonable range."
+}

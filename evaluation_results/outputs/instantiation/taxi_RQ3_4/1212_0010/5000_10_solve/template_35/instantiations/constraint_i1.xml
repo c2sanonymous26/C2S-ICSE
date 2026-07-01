@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1_c1"/>
+            <bfunc id="2_c1"/>
+          </and>
+          <bfunc id="3_c1"/>
+        </and>
+        <or>
+          <bfunc id="4_c1"/>
+          <bfunc id="4_c2"/>
+        </or>
+      </implies>
+    </forall>
+  </forall>
+</formula>

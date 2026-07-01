@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time are also spatially close.",
+    "goal": "Detect spatial outliers among records that occur at the same time but are implausibly far apart.",
+    "design_rationale": "In a city taxi fleet, all vehicles operate within the city area; records from the same time period that are implausibly far apart suggest GPS errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then their GPS distance does not exceed a certain reasonable spatial range."
+}

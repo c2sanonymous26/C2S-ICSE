@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts two grpid steps apart should keep their distance within a reasonable range when their time gap is small.",
+    "goal": "Detect two-step same-vehicle context pairs whose spatial separation is implausible under a small time gap.",
+    "design_rationale": "For a valid two-step local transition, a small elapsed time should not correspond to an excessive travel distance."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 2 greater than that of v2, then when the time difference between v1 and v2 is smaller than a certain value, the distance between v1 and v2 should lie within a certain reasonable range."
+}

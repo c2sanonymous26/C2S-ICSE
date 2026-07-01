@@ -1,0 +1,46 @@
+============================================================ 1102_0010/template_33 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1102_0010/template_33
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0049419403076171875 seconds
+Constructed ctx data in 3.504753112792969e-05 seconds
+Loaded data field types in 0.0004949569702148438 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.002895355224609375 seconds
+Set solve data in 0.0008947849273681641 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005955696105957031 seconds
+Constructed main constraint in 69.5972740650177 seconds
+Constructed symbol domain constraints in 0.56805419921875 seconds
+    - symbol inequalities:
+        - (<=, _N_THRESHOLD_1): 74
+        - (>=, _N_THRESHOLD_2): 74
+        - (<=, _N_THRESHOLD_3): 3549
+        - (>=, _N_THRESHOLD_4): 3549
+    - symbol domains:
+        - _N_THRESHOLD_1: 75
+        - _N_THRESHOLD_2: 75
+        - _N_THRESHOLD_3: 3550
+        - _N_THRESHOLD_4: 3550
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_4': Fraction(7819059006572957, 2251799813685248), '_N_THRESHOLD_1': Fraction(120000001, 1000000), '_N_THRESHOLD_2': Fraction(120, 1), '_N_THRESHOLD_3': Fraction(6318370565561275, 144115188075855872)}
+        - solved in 1.1903259754180908 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_4': Fraction(7819059006572957, 2251799813685248), '_N_THRESHOLD_1': Fraction(3, 1), '_N_THRESHOLD_2': Fraction(2, 1), '_N_THRESHOLD_3': Fraction(6318370565561275, 144115188075855872)}
+        - solved in 1.186706304550171 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_4': Fraction(3186751059495035, 72057594037927936), '_N_THRESHOLD_1': Fraction(72, 1), '_N_THRESHOLD_2': Fraction(999999, 1000000), '_N_THRESHOLD_3': Fraction(1352574608157675, 1125899906842624)}
+        - solved in 1.1921570301055908 seconds
+1102_0010/template_33 (5000_10_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1102_0010/template_33 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 73.81 seconds

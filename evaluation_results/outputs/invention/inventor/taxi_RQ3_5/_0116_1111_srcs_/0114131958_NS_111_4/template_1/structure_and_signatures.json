@@ -1,0 +1,36 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle."
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v2 is 2 smaller than that of v1."
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed-change rate between v1 and v2, computed from speed difference and time difference, should lie within a certain reasonable range."
+    }
+  ]
+}

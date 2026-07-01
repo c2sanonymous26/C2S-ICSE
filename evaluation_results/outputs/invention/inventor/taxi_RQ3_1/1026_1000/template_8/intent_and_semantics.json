@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should not have an implausibly large speed jump.",
+    "goal": "Detect abrupt speed changes between adjacent contexts of the same vehicle.",
+    "design_rationale": "Adjacent trajectory contexts for the same vehicle should show reasonably smooth speed evolution rather than extreme discontinuities."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in speed between v1 and v2 should not exceed a certain reasonable upper bound for speed change."
+}

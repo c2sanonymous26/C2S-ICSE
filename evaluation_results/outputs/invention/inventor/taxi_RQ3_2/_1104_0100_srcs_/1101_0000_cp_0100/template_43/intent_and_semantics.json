@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should differ sufficiently in travel direction under this rule.",
+    "goal": "Detect different-vehicle pairs whose direction difference is suspiciously small.",
+    "design_rationale": "This rule treats near-synchronous observations from different vehicles as requiring a sufficiently large directional distinction."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the absolute difference in their travel directions should be significantly greater than a certain minimum value."
+}

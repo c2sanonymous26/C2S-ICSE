@@ -1,0 +1,102 @@
+{
+  "constraint_id": 43,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 151.7346270084381
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The haversine distance between consecutive contexts of the same taxi does not exceed a certain maximum distance.",
+      "goal": "Detect GPS jumps or data corruption that would imply an impossibly large displacement between consecutive records.",
+      "design_rationale": "Even if the speed readings are within normal range, the displacement between two consecutive GPS points of the same taxi should not exceed a physically plausible maximum, considering the maximum possible speed and the maximum expected time interval between reports. This helps catch outliers that are not captured by speed checks alone."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi and are consecutive records of that taxi, then the haversine distance between the GPS locations of v1 and v2 does not exceed a certain maximum distance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that taxi (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations of v1 and v2 does not exceed a certain maximum distance",
+        "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 2.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The haversine distance between consecutive contexts of the same taxi does not exceed a certain maximum distance.",
+      "goal": "Detect GPS jumps or data corruption that would imply an impossibly large displacement between consecutive records.",
+      "design_rationale": "Even if the speed readings are within normal range, the displacement between two consecutive GPS points of the same taxi should not exceed a physically plausible maximum, considering the maximum possible speed and the maximum expected time interval between reports. This helps catch outliers that are not captured by speed checks alone."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi and are consecutive records of that taxi, then the haversine distance between the GPS locations of v1 and v2 does not exceed a certain maximum distance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that taxi (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations of v1 and v2 does not exceed a certain maximum distance",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 2.0",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 10
+  }
+}

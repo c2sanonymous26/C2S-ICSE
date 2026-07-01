@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should not have excessively large coordinate jumps.",
+    "goal": "Detect abrupt geographic jumps between adjacent contexts of one vehicle.",
+    "design_rationale": "Two adjacent contexts in the same trajectory should stay spatially close enough to avoid implausible coordinate discontinuities."
+  },
+  "semantics": "For any two adjacent contexts v1 and v2 from the same vehicle, the absolute differences in longitude and latitude between v1 and v2 should not exceed a certain range."
+}

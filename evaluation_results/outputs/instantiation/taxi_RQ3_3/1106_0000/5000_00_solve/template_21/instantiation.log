@@ -1,0 +1,24 @@
+============================================================ 1106_0000/template_21 (5000_00_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1106_0000/template_21
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0022115707397460938 seconds
+Constructed ctx data in 4.100799560546875e-05 seconds
+Loaded data field types in 0.0005371570587158203 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0017817020416259766 seconds
+Set solve data in 0.0008699893951416016 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005619525909423828 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 2788998.
+Solving process timeout in 3600.0 seconds
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1106_0000/template_21 (5000_00_solve) instantiation completes ==========================================================
+Total instantiation time: 3600.65 seconds

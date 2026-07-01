@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "direction_1",
+  "status": "success_simple_constraint",
+  "assertion": "min(sub(timestamp_1, log(speed_1)), timestamp_1)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 522.0639173984528,
+  "asrtm_time": 474.5210483074188,
+  "predm_time": 46.254207611083984,
+  "asrt_info": {
+    "fitness": 0.0006000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

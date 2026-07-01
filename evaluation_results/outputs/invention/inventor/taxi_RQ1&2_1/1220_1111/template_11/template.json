@@ -1,0 +1,53 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time are also spatially close.",
+    "goal": "Detect spatial outliers among records that occur at the same time but are implausibly far apart.",
+    "design_rationale": "In a city taxi fleet, all vehicles operate within the city area; records from the same time period that are implausibly far apart suggest GPS errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then their GPS distance does not exceed a certain reasonable spatial range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is within a certain reasonable time range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute latitude difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.latitude - v2.latitude) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute longitude difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.longitude - v2.longitude) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

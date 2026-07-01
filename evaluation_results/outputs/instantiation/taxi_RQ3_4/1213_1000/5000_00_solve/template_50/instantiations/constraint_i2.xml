@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<formula>
+  <forall var="v1" in="ctx1">
+    <exists var="v2" in="ctx1">
+      <implies>
+        <bfunc id="1_c1"/>
+        <bfunc id="2_c1"/>
+      </implies>
+    </exists>
+  </forall>
+</formula>

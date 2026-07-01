@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should have a timestamp above a reasonable minimum bound.",
+    "goal": "Detect contexts with invalidly early timestamp values.",
+    "design_rationale": "Timestamps should not fall below the minimum valid temporal range expected by the dataset."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum value.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The timestamp value of v1 is greater than or equal to a certain reasonable minimum value.",
+      "implementation": "v1.timestamp >= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

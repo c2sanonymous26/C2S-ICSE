@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable heading difference from its previous context.",
+    "goal": "Detect high-speed contexts whose heading changes too abruptly from the previous context.",
+    "design_rationale": "Even at high speed, the local heading change to the previous context should remain within a realistic bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction of v1 and that of its previous context v2 should not exceed a certain reasonable range."
+}

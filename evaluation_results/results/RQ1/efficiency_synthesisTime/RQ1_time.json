@@ -1,0 +1,82 @@
+{
+  "average": {
+    "experiment": "average",
+    "AR+": {
+      "time_cost_per_run_hours": 13.98,
+      "level_a_or_b_constraints": 20,
+      "time_cost_per_level_a_or_b_constraint_hours": 3.5
+    },
+    "C2S": {
+      "time_cost_per_run_hours": 8.11,
+      "level_a_or_b_constraints": 147,
+      "time_cost_per_level_a_or_b_constraint_hours": 0.28
+    }
+  },
+  "experiments": [
+    {
+      "experiment": "1",
+      "AR+": {
+        "total_time_hours": 19.68,
+        "level_a_or_b_constraints": 5,
+        "time_cost_per_level_a_or_b_constraint_hours": 3.94
+      },
+      "C2S": {
+        "total_time_hours": 12.76,
+        "level_a_or_b_constraints": 31,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.41
+      }
+    },
+    {
+      "experiment": "2",
+      "AR+": {
+        "total_time_hours": 8.63,
+        "level_a_or_b_constraints": 0,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.0
+      },
+      "C2S": {
+        "total_time_hours": 5.46,
+        "level_a_or_b_constraints": 34,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.16
+      }
+    },
+    {
+      "experiment": "3",
+      "AR+": {
+        "total_time_hours": 14.35,
+        "level_a_or_b_constraints": 8,
+        "time_cost_per_level_a_or_b_constraint_hours": 1.79
+      },
+      "C2S": {
+        "total_time_hours": 7.64,
+        "level_a_or_b_constraints": 36,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.21
+      }
+    },
+    {
+      "experiment": "4",
+      "AR+": {
+        "total_time_hours": 6.82,
+        "level_a_or_b_constraints": 1,
+        "time_cost_per_level_a_or_b_constraint_hours": 6.82
+      },
+      "C2S": {
+        "total_time_hours": 6.95,
+        "level_a_or_b_constraints": 29,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.24
+      }
+    },
+    {
+      "experiment": "5",
+      "AR+": {
+        "total_time_hours": 20.44,
+        "level_a_or_b_constraints": 6,
+        "time_cost_per_level_a_or_b_constraint_hours": 3.41
+      },
+      "C2S": {
+        "total_time_hours": 7.75,
+        "level_a_or_b_constraints": 17,
+        "time_cost_per_level_a_or_b_constraint_hours": 0.46
+      }
+    }
+  ]
+}

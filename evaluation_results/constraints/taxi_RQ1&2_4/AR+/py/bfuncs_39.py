@@ -1,0 +1,5 @@
+from math import *
+from typing import Any
+
+def bfunc_1_c1(var_bindings: dict[str, dict[str, Any]]) -> bool:
+    return var_bindings['v1']['latitude'] > (min((-var_bindings['v2']['direction']), min(var_bindings['v1']['timestamp'], var_bindings['v2']['direction'])) - tan((646244/125 * -14272503/250)))

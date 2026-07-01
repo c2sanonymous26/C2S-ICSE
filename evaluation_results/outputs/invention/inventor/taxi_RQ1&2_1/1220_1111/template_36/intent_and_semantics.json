@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a high speed, the angular velocity between it and its consecutive context is bounded.",
+    "goal": "Detect physically impossible heading change rates in high-speed contexts.",
+    "design_rationale": "At high speed, the angular velocity is more tightly bounded by vehicle dynamics; excessive heading change rates at high speed indicate GPS or sensor errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then the ratio of the absolute heading difference to the timestamp difference between v1 and v2 does not exceed a certain reasonable angular velocity upper bound."
+}

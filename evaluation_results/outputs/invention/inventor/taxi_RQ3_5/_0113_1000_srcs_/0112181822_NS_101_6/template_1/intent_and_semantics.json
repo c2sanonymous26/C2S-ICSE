@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should keep a bounded direction difference from the next context.",
+    "goal": "Detect stopped contexts whose heading changes implausibly relative to the next context.",
+    "design_rationale": "When the vehicle is stationary, the heading should not change excessively in the immediate next transition."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction of v1 and that of its next context v2 should not exceed a certain reasonable range."
+}

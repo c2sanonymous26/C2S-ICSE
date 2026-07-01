@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a grpid value that is non-negative and does not exceed a reasonable upper bound.",
+    "goal": "Detect contexts with a grpid that is negative or exceeds the maximum plausible sequence index.",
+    "design_rationale": "The grpid field is a sequential index within a vehicle's trip; a negative value or an excessively large value indicates an invalid record index."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be non-negative and should not exceed a certain reasonable upper bound."
+}

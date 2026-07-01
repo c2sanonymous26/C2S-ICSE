@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose acceleration to v1 remains reasonable.",
+    "goal": "Detect high-speed contexts that require an implausible local acceleration.",
+    "design_rationale": "The transition into a very fast context should still respect a physically plausible acceleration profile."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists another context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the acceleration between v1 and v2 computed from speed and timestamps should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The acceleration between v1 and v2 computed from speed and timestamps should lie within a certain reasonable range.",
+      "implementation": "abs((v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "ge",
+  "target_col": "speed_1",
+  "status": "success_simple_constraint",
+  "assertion": "div(sin(40890.352), neg(timestamp_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 422.0061571598053,
+  "asrtm_time": 421.36050033569336,
+  "predm_time": 0.6280746459960938,
+  "asrt_info": {
+    "fitness": 0.040713705190545485,
+    "was_early_stopped": true,
+    "generations_completed": 31
+  }
+}

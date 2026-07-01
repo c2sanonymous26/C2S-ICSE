@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the combined heading difference and average speed within a reasonable turning-radius bound.",
+    "goal": "Detect adjacent contexts whose joint turning geometry is implausible.",
+    "design_rationale": "A valid local trajectory should preserve a realistic relationship between speed and turning sharpness across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the absolute difference in travel direction of v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable upper bound on turning radius."
+}

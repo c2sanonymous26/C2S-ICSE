@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should not imply an excessive position-change rate.",
+    "goal": "Detect adjacent contexts whose coordinate evolution is implausibly fast.",
+    "design_rationale": "A valid local trajectory should not exhibit an excessive rate of position change across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the position-change rate computed from the coordinate differences and timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

@@ -1,0 +1,53 @@
+{
+  "intent": {
+    "content": "A sustained zero-speed segment should keep its heading variation within a small stationary tolerance.",
+    "goal": "Detect prolonged stationary segments whose direction angles fluctuate too much across consecutive contexts.",
+    "design_rationale": "When a vehicle remains still across multiple observations, its heading changes should stay limited and reflect only small stationary noise."
+  },
+  "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the direction-angle variation among these contexts should not exceed a certain reasonable stationary error range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold.",
+      "implementation": "v1.speed == 0 && v1.timestamp - v2.timestamp <= NTHRESHOLD1 && v1.timestamp - v3.timestamp <= NTHRESHOLD1",
+      "restrictions": [
+        "300 <= NTHRESHOLD1 <= 1800"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid && v2.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v2",
+        "v3"
+      ],
+      "semantics": "v3 is the previous context of v2.",
+      "implementation": "v3.grpid == v2.grpid - 1 && v3.carid == v2.carid && v3.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The direction-angle variation among v1, v2, and v3 does not exceed a certain reasonable stationary error range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2 && abs(v2.direction - v3.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

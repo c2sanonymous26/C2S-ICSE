@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "lt",
+  "target_col": "speed_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(abs(timestamp_1), abs(timestamp_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 531.2548871040344,
+  "asrtm_time": 483.63120579719543,
+  "predm_time": 46.59454822540283,
+  "asrt_info": {
+    "fitness": 0.0005,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

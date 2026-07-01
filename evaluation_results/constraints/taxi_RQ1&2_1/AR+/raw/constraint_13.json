@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "latitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "add(cos(49981.560), latitude_1)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 533.9160742759705,
+  "asrtm_time": 485.5223410129547,
+  "predm_time": 47.130072832107544,
+  "asrt_info": {
+    "fitness": 0.0012451111300901012,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

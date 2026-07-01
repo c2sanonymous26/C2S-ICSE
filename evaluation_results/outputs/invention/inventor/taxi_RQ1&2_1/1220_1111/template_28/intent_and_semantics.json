@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The speed of a consecutive context is not drastically lower than the speed of the previous context.",
+    "goal": "Detect implausible sudden speed drops between consecutive records of the same vehicle.",
+    "design_rationale": "A vehicle cannot instantaneously decelerate to a fraction of its previous speed; abrupt drops in speed between consecutive records indicate erroneous measurements."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of v2's speed to v1's speed is not less than a certain reasonable lower bound."
+}

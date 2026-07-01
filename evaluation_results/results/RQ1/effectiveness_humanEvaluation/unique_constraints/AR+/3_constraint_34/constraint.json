@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is greater than add(max(-56888.107, -25871.755), max(min(v1.longitude, v1.latitude), mul(neg(-41147.911), 29409.390))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is greater than add(max(-56888.107, -25871.755), max(min(v1.longitude, v1.latitude), mul(neg(-41147.911), 29409.390)))",
+      "implementation": "var_bindings['v1']['timestamp'] > (max(-56888107/1000, -5174351/200) + max(min(var_bindings['v1']['longitude'], var_bindings['v1']['latitude']), ((--41147911/1000) * 2940939/100)))"
+    }
+  ]
+}

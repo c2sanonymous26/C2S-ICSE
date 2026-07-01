@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are temporally and spatially close should have a small product of speed difference and direction difference.",
+    "goal": "Detect spatially and temporally proximate contexts from different vehicles with jointly implausible speed and direction discrepancies.",
+    "design_rationale": "Vehicles sharing the same location at the same time should exhibit similar motion characteristics; a large combined discrepancy in both speed and direction between nearby vehicles suggests that at least one record contains erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, and their timestamps are close (absolute difference does not exceed a certain value), and their positions are close (based on coordinate calculation), then the product of the absolute speed difference and the absolute direction difference should not exceed a certain reasonable range."
+}

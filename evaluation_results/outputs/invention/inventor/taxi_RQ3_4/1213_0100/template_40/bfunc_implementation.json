@@ -1,0 +1,12 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.speed > 50"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.direction - 180) < 30"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a non-negative timestamp value.",
+    "goal": "Detect contexts with a negative timestamp, which is physically impossible.",
+    "design_rationale": "Timestamps represent Unix epoch time and must be non-negative; a negative value indicates a data encoding error."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to 0."
+}

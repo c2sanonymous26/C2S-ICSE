@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable relationship between its displacement to the previous context and its current speed.",
+    "goal": "Detect high-speed contexts whose recent displacement is inconsistent with the current speed.",
+    "design_rationale": "At high speed, the recent position change should stay compatible with the current speed magnitude."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold and there exists a context v2 such that v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1, then the ratio between the position change of v1 and v2, computed from coordinates, and the speed of v1 should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the position change of v1 and v2 computed from coordinates and the speed of v1 lies within a certain reasonable range.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ v1.speed <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle should keep a bounded timestamp difference.",
+    "goal": "Detect same-vehicle contexts whose one-step elapsed time is implausibly large.",
+    "design_rationale": "A realistic one-step transition should not take longer than a reasonable amount of time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the difference between the timestamp values of v1 and v2 should not exceed a certain reasonable range."
+}

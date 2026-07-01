@@ -1,0 +1,19 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) and bfunc2(v1))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed value of v1 is non-negative"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed value of v1 does not exceed a certain reasonable upper bound"
+    }
+  ]
+}

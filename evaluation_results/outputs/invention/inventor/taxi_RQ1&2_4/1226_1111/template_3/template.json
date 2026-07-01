@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "When a vehicle is stationary, the coordinates in the next context should be the same.",
+    "goal": "Detect stationary contexts followed by a record with different coordinates.",
+    "design_rationale": "A vehicle with speed zero does not move; any coordinate change in the subsequent record indicates a GPS positioning error."
+  },
+  "semantics": "For any context v1, if v1's speed is zero, then the coordinates of the next context v2 should be the same as those of v1.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinates of v1 and v2 are the same",
+      "implementation": "v1.latitude == v2.latitude && v1.longitude == v2.longitude",
+      "restrictions": []
+    }
+  ]
+}

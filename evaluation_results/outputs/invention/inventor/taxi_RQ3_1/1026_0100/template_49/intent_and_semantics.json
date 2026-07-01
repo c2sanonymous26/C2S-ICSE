@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts of the same vehicle separated by one intermediate group should still imply a plausible average movement speed.",
+    "goal": "Detect two-step transitions whose displacement-over-time ratio is implausibly high even after relaxing the threshold for a grpid gap of 2.",
+    "design_rationale": "When two contexts are two group steps apart, the allowed movement bound can be relaxed to twice the single-step speed upper bound while still enforcing physically plausible vehicle motion."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the difference between the grpid values of v1 and v2 equals 2, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed twice a certain reasonable upper bound for speed."
+}

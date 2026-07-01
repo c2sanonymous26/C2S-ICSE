@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A stationary context should not exhibit a large heading change relative to its previous context.",
+    "goal": "Detect zero-speed contexts whose direction changes implausibly from the previous observation.",
+    "design_rationale": "When a vehicle is stationary, its heading should remain relatively stable between consecutive contexts."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is zero, then the absolute difference between the direction value of v1 and the direction value of the previous context v2 should not exceed a certain upper bound."
+}

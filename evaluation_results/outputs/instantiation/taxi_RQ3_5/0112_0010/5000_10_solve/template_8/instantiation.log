@@ -1,0 +1,44 @@
+=============================== 0112_0010/template_8 (5000_10_solve) instantiation starts ===============================
+- scenario: taxi
+- template: 0112_0010/template_8
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.003591299057006836 seconds
+Constructed ctx data in 6.461143493652344e-05 seconds
+Loaded data field types in 0.0009334087371826172 seconds
+************************************************** Preparation completes ***************************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0018193721771240234 seconds
+Set solve data in 0.0008921623229980469 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005736351013183594 seconds
+Constructed main constraint in 1254.9395377635956 seconds
+Constructed symbol domain constraints in 0.021871089935302734 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 301
+        - (>=, _N_THRESHOLD_2): 1
+        - (>=, _N_THRESHOLD_3): 2
+    - symbol domains:
+        - _N_THRESHOLD_1: 301
+        - _N_THRESHOLD_2: 1
+        - _N_THRESHOLD_3: 3
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(300, 1), '_N_THRESHOLD_3': Fraction(360, 1), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 0.014780521392822266 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(299, 1), '_N_THRESHOLD_3': Fraction(360, 1), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 0.014882564544677734 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(298, 1), '_N_THRESHOLD_3': Fraction(360, 1), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 0.01491689682006836 seconds
+0112_0010/template_8 (5000_10_solve) has 3 valid models
+************************************************ Solving process completes *************************************************
+============================= 0112_0010/template_8 (5000_10_solve) instantiation completes ==============================
+Total instantiation time: 1255.06 seconds

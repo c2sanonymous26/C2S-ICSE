@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the direction recorded in v1 is within a certain range of due east, the direction recorded in v2 is within a certain range of due east, and at least one of the speeds recorded in v1 and v2 is sufficiently large, then the absolute difference between the latitudes recorded in v1 and v2 is within a certain small range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <and>
+              <and>
+                <bfunc id="1"/>
+                <bfunc id="2"/>
+              </and>
+              <bfunc id="3"/>
+            </and>
+            <bfunc id="4"/>
+          </and>
+          <bfunc id="5"/>
+        </and>
+        <bfunc id="6"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

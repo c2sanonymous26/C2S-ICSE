@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Detect whether position change and heading change remain reasonably aligned for two different vehicles observed at nearby times.",
+    "goal": "Identify different-vehicle pairs whose spatial separation is not sufficiently consistent with their heading difference within a short time interval.",
+    "design_rationale": "When two vehicles are observed close in time, the product of spatial distance and the cosine of heading difference should stay above a reasonable lower bound to reflect coherent positional and directional consistency."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their latitude-longitude distance and the cosine value of their direction difference must be significantly greater than some lower bound (i.e., the position change of the two vehicles within a nearby time interval should maintain reasonable consistency with direction change).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the latitude-longitude distance between v1 and v2 and the cosine value of their direction difference is significantly greater than some lower bound",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) × cos(radians(abs(v1.direction - v2.direction))) > NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Near-synchronous contexts of the same vehicle should not have an excessively large speed difference.",
+    "goal": "Detect within-vehicle context pairs whose speed discrepancy is implausible over a short time span.",
+    "design_rationale": "A vehicle should not show an abrupt unreasonable speed gap across closely timed contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the speed difference between them should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 120"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed difference between v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

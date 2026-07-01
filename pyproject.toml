@@ -1,0 +1,30 @@
+[project]
+name = "C2S"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10.12,<3.11"
+dependencies = [
+    "agno>=1.2.16",
+    "category-encoders>=2.8.1",
+    "gplearn>=0.4.2",
+    "httpx[socks]>=0.28.1",
+    "jinja2>=3.1.6",
+    "lark>=1.2.2",
+    "lxml>=5.3.2",
+    "matplotlib>=3.10.3",
+    "mlxtend>=0.23.4",
+    "numpy>=2.2.5",
+    "openai>=1.72.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "pint>=0.24.4",
+    "rich>=14.0.0",
+    "scikit-learn>=1.6.1",
+    "sentence-transformers>=4.1.0",
+    "snakeviz>=2.2.2",
+    "sympy>=1.13.3",
+    "tomli>=2.2.1",
+    "torch>=2.7.0",
+    "z3-solver>=4.14.1.0",
+]

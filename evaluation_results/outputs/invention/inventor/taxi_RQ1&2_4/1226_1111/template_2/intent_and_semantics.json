@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is stationary, the direction change to the next context should be small.",
+    "goal": "Detect stationary contexts where the direction to the next record changes implausibly.",
+    "design_rationale": "A stationary vehicle does not change its heading; a large direction difference between a stopped context and the following one indicates a sensor error."
+  },
+  "semantics": "For any context v1, if v1's speed is zero, then the absolute direction difference between v1 and the next context v2 should not exceed a certain reasonable range."
+}

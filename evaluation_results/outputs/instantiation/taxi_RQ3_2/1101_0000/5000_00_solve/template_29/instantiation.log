@@ -1,0 +1,35 @@
+============================================================ 1101_0000/template_29 (5000_00_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1101_0000/template_29
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002642393112182617 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0005269050598144531 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.00182342529296875 seconds
+Set solve data in 0.0008730888366699219 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005545616149902344 seconds
+Constructed main constraint in 58.39509916305542 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(6708688910580761, 17592186044416)}
+        - solved in 0.0011487007141113281 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(6726281096625177, 17592186044416)}
+        - solved in 0.0011646747589111328 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(6717485003602969, 17592186044416)}
+        - solved in 0.0007219314575195312 seconds
+1101_0000/template_29 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1101_0000/template_29 (5000_00_solve) instantiation completes ==========================================================
+Total instantiation time: 58.44 seconds

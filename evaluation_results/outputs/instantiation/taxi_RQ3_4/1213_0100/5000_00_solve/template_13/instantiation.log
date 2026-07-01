@@ -1,0 +1,35 @@
+================================== 1213_0100/template_13 (5000_00_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1213_0100/template_13
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0029571056365966797 seconds
+Constructed ctx data in 4.029273986816406e-05 seconds
+Loaded data field types in 0.0005297660827636719 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0019199848175048828 seconds
+Set solve data in 0.0008590221405029297 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005657672882080078 seconds
+Constructed main constraint in 58.75725698471069 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(7953972068061725, 70368744177664)}
+        - solved in 0.0011026859283447266 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8024340812239389, 70368744177664)}
+        - solved in 0.0008063316345214844 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(7989156440150557, 70368744177664)}
+        - solved in 0.0007262229919433594 seconds
+1213_0100/template_13 (5000_00_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1213_0100/template_13 (5000_00_solve) instantiation completes =================================
+Total instantiation time: 58.80 seconds

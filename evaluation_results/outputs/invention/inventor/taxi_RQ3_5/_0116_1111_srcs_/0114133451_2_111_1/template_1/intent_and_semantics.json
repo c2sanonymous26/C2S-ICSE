@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable direction-change rate to the previous same-vehicle context.",
+    "goal": "Detect high-speed contexts whose local direction-change rate is implausible.",
+    "design_rationale": "At high speed, the direction change over elapsed time to the previous context should remain within a realistic range."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold and there exists a context v2 such that v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1, then the direction-change rate between v1 and v2, computed from direction difference and time difference, should lie within a certain reasonable range."
+}

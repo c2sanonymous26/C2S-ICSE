@@ -1,0 +1,146 @@
+{
+  "constraint_id": 41,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 93.42340898513794
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi that changes little in position between two consecutive short-interval contexts should not show a large increase in recorded speed in the later context.",
+      "goal": "Detect inconsistent transitions where the GPS movement suggests the taxi remained nearly in place but the reported speed suddenly rises, indicating a possible speed-sensor or timestamp anomaly.",
+      "design_rationale": "In SmartCity taxi traces, a vehicle cannot plausibly exhibit only a very small geographic displacement over a short consecutive interval while simultaneously jumping to a much higher speed in the later record. Using displacement together with consecutive same-vehicle records targets behavioral inconsistency rather than generic data validation."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, and the geographic displacement between the locations in v1 and v2 is within a certain small range, then the speed recorded in v2 is not sufficiently larger than the speed recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies (not bfunc5(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic displacement between the locations in v1 and v2 is within a certain small range",
+        "implementation": "pow(abs(v2.latitude - v1.latitude), 2) + pow(abs(v2.longitude - v1.longitude), 2) <= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently larger than the speed recorded in v1",
+        "implementation": "v2.speed - v1.speed >= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 30.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 1e-07
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 15.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi that changes little in position between two consecutive short-interval contexts should not show a large increase in recorded speed in the later context.",
+      "goal": "Detect inconsistent transitions where the GPS movement suggests the taxi remained nearly in place but the reported speed suddenly rises, indicating a possible speed-sensor or timestamp anomaly.",
+      "design_rationale": "In SmartCity taxi traces, a vehicle cannot plausibly exhibit only a very small geographic displacement over a short consecutive interval while simultaneously jumping to a much higher speed in the later record. Using displacement together with consecutive same-vehicle records targets behavioral inconsistency rather than generic data validation."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, and the geographic displacement between the locations in v1 and v2 is within a certain small range, then the speed recorded in v2 is not sufficiently larger than the speed recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies (not bfunc5(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 30.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic displacement between the locations in v1 and v2 is within a certain small range",
+        "implementation": "(pow(abs((v2.latitude - v1.latitude)), 2) + pow(abs((v2.longitude - v1.longitude)), 2)) <= 1e-07",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently larger than the speed recorded in v1",
+        "implementation": "(v2.speed - v1.speed) >= 15.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

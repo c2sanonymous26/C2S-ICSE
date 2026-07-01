@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A sustained zero-speed segment should remain geographically stable across consecutive contexts.",
+    "goal": "Detect prolonged stationary segments whose positions drift beyond a reasonable stationary tolerance.",
+    "design_rationale": "If a vehicle remains stopped across multiple consecutive observations, the accumulated location variation should stay small and reflect only stationary noise."
+  },
+  "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the geographic variation among these contexts, computed using the haversine formula, should not exceed a certain reasonable stationary error range."
+}

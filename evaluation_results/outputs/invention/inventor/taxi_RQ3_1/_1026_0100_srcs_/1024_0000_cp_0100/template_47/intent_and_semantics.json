@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "High-speed contexts should remain consistent with a reasonable upper bound on turning rate relative to the previous context.",
+    "goal": "Detect high-speed contexts whose direction changes too abruptly compared with the previous context.",
+    "design_rationale": "At high speed, extremely rapid heading changes are physically implausible, so an excessive turn-rate estimate suggests erroneous trajectory data or synchronization issues."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio between the absolute difference in direction angle between v1 and the previous context v2 of v1 and the timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

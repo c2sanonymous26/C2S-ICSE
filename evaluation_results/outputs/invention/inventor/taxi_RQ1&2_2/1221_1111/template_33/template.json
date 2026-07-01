@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the heading change from the previous consecutive context is bounded.",
+    "goal": "Detect stationary contexts that show an implausible heading change from the previous context.",
+    "design_rationale": "A vehicle that is stationary should have a heading consistent with the previous record; a large heading change upon becoming stationary suggests a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, the absolute heading difference between v1 and the previous consecutive context v2 does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous consecutive context of v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute heading difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

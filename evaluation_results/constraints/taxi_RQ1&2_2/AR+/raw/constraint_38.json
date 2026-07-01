@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "gt",
+  "target_col": "latitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "cos(log(sub(longitude_2, direction_2)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 225.29513835906982,
+  "asrtm_time": 223.79703640937805,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0005,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

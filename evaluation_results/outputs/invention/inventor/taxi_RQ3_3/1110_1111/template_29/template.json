@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts with a small time gap should not imply an excessive acceleration.",
+    "goal": "Detect short-gap same-vehicle context pairs whose speed changes too abruptly.",
+    "design_rationale": "Within a short time interval, a realistic vehicle trajectory should not exhibit an implausibly large acceleration."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the time difference between them is smaller than a certain threshold, then the ratio between the speed difference of v1 and v2 and the timestamp difference between them should not exceed a certain reasonable upper bound on acceleration.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The time difference between v1 and v2 is smaller than a certain threshold.",
+      "implementation": "v1.timestamp - v2.timestamp >= NTHRESHOLD1 && v1.timestamp - v2.timestamp <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute speed difference of v1 and v2 and the timestamp difference between them does not exceed a certain reasonable upper bound on acceleration.",
+      "implementation": "abs(v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Three consecutive contexts of the same vehicle should have consistent acceleration estimates across adjacent pairs.",
+    "goal": "Detect implausible acceleration discontinuities across two consecutive local transitions.",
+    "design_rationale": "A smooth short subsequence should not exhibit a sharp disagreement between consecutive acceleration estimates."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle, the grpid value of v1 is 1 greater than that of v2, and the grpid value of v2 is 1 greater than that of v3, then the absolute difference between the acceleration computed from v1 and v2 and the acceleration computed from v2 and v3 should lie within a certain reasonable range."
+}

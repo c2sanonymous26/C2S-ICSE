@@ -1,0 +1,35 @@
+============================================================ 1110_1000/template_22 (5000_00_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1110_1000/template_22
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002900838851928711 seconds
+Constructed ctx data in 3.933906555175781e-05 seconds
+Loaded data field types in 0.0005285739898681641 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0019295215606689453 seconds
+Set solve data in 0.0008704662322998047 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.000568389892578125 seconds
+Constructed main constraint in 65.69278407096863 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(114, 1), '_N_THRESHOLD_2': Fraction(-4182341086312003, 35184372088832)}
+        - solved in 0.0013408660888671875 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(229, 2), '_N_THRESHOLD_2': Fraction(-4164748900267587, 35184372088832)}
+        - solved in 0.0010356903076171875 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(457, 4), '_N_THRESHOLD_2': Fraction(-4191137179334211, 35184372088832)}
+        - solved in 0.0009465217590332031 seconds
+1110_1000/template_22 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1110_1000/template_22 (5000_00_solve) instantiation completes ==========================================================
+Total instantiation time: 65.74 seconds

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed within a very short time remain sufficiently far apart in position.",
+    "goal": "Identify different-vehicle pairs that appear implausibly close to each other within a very short time interval.",
+    "design_rationale": "If two records belong to different vehicles and occur almost simultaneously, their spatial distance should stay above a reasonable lower bound; otherwise the observation is suspicious."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then their latitude-longitude distance is significantly greater than some value (i.e., two vehicles should not be able to appear at extremely close positions within a very short time)."
+}

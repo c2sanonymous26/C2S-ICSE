@@ -1,0 +1,1808 @@
+{
+  "metadata": {
+    "scenario": "taxi",
+    "source_dir": "outputs/instantiation/taxi_RQ1&2_2/1221_1111",
+    "output_dir": "constraints/taxi_RQ1&2_2/C2S",
+    "method_dir_name": "C2S",
+    "config": "1111",
+    "total_templates": 47,
+    "total_extracted_constraints": 34,
+    "total_time_seconds": 17544.33,
+    "avg_time_seconds": 373.28,
+    "naming_scheme": {
+      "xml": "constraint_{constraint_id}.xml",
+      "py": "bfuncs_{constraint_id}.py",
+      "id_source": "source_template_id"
+    },
+    "detailed_status_breakdown": {
+      "solve_no_solution": {
+        "count": 8,
+        "percentage": 17.02,
+        "total_time_seconds": 455.25,
+        "avg_time_seconds": 56.91
+      },
+      "solve_success": {
+        "count": 31,
+        "percentage": 65.96,
+        "total_time_seconds": 2655.14,
+        "avg_time_seconds": 85.65
+      },
+      "solve_timeout": {
+        "count": 4,
+        "percentage": 8.51,
+        "total_time_seconds": 14415.86,
+        "avg_time_seconds": 3603.96
+      },
+      "validate_invalid": {
+        "count": 1,
+        "percentage": 2.13,
+        "total_time_seconds": 8.75,
+        "avg_time_seconds": 8.75
+      },
+      "validate_success": {
+        "count": 3,
+        "percentage": 6.38,
+        "total_time_seconds": 9.33,
+        "avg_time_seconds": 3.11
+      }
+    }
+  },
+  "constraints": [
+    {
+      "constraint_id": 1,
+      "source_template_id": 1,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_1",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 72.74,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 11.35,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 58.407,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.28,
+          "solved_avg_time_seconds": 0.899,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 61.39
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_1.xml",
+        "py": "bfuncs_1.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_1/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_1/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 2,
+      "source_template_id": 2,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_2",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 75.44,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 1.77,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 62.879,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.623,
+          "solved_avg_time_seconds": 3.387,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 73.667
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_2.xml",
+        "py": "bfuncs_2.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_2/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_2/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 3,
+      "source_template_id": 3,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_3",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 61.98,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.3,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 61.636,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.016,
+          "solved_avg_time_seconds": 0.008,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 61.682
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_3.xml",
+        "py": "bfuncs_3.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_3/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_3/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 4,
+      "source_template_id": 4,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_4",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 59.27,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.47,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 58.711,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.029,
+          "solved_avg_time_seconds": 0.017,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 58.796
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_4.xml",
+        "py": "bfuncs_4.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_4/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_4/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 5,
+      "source_template_id": 5,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_5",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 58.56,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.64,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 57.871,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.016,
+          "solved_avg_time_seconds": 0.008,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 57.914
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_5.xml",
+        "py": "bfuncs_5.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_5/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_5/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 6,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_6",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 1.42,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.94,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 0.47,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 0.474
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 7,
+      "source_template_id": 7,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_7",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 99.34,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 31.66,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 58.549,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.489,
+          "solved_avg_time_seconds": 2.876,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 67.671
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_7.xml",
+        "py": "bfuncs_7.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_7/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_7/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 8,
+      "source_template_id": 8,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_8",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 58.9,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.9,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 57.691,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.065,
+          "solved_avg_time_seconds": 0.079,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 57.996
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_8.xml",
+        "py": "bfuncs_8.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_8/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_8/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 9,
+      "source_template_id": 9,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_9",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 206.88,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 1.2,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 121.295,
+          "constructed_ve_constraints_time_seconds": 9.182,
+          "constructed_symbol_domain_constraints_time_seconds": 1.172,
+          "solved_avg_time_seconds": 24.672,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 205.671
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_9.xml",
+        "py": "bfuncs_9.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_9/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_9/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 10,
+      "source_template_id": 10,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_10",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 9.28,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.3,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 8.808,
+          "constructed_ve_constraints_time_seconds": 0.077,
+          "constructed_symbol_domain_constraints_time_seconds": 0.019,
+          "solved_avg_time_seconds": 0.024,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 8.982
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_10.xml",
+        "py": "bfuncs_10.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_10/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_10/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 11,
+      "source_template_id": 11,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_11",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 121.33,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.79,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 94.783,
+          "constructed_ve_constraints_time_seconds": 8.871,
+          "constructed_symbol_domain_constraints_time_seconds": 0.044,
+          "solved_avg_time_seconds": 5.613,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 120.542
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_11.xml",
+        "py": "bfuncs_11.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_11/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_11/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 12,
+      "source_template_id": 12,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_12",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 83.08,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.63,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 76.086,
+          "constructed_ve_constraints_time_seconds": 2.365,
+          "constructed_symbol_domain_constraints_time_seconds": 0.035,
+          "solved_avg_time_seconds": 1.32,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 82.45
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_12.xml",
+        "py": "bfuncs_12.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_12/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_12/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 13,
+      "source_template_id": 13,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_13",
+      "status": "solve_success",
+      "instantiation_count": 2,
+      "total_time_seconds": 4.56,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.99,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 3.484,
+          "constructed_ve_constraints_time_seconds": 0.014,
+          "constructed_symbol_domain_constraints_time_seconds": 0.022,
+          "solved_avg_time_seconds": 0.015,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3.567
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_13.xml",
+        "py": "bfuncs_13.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_13/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_13/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 14,
+      "source_template_id": 14,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_14",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 849.69,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 30.99,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 173.629,
+          "constructed_ve_constraints_time_seconds": 8.906,
+          "constructed_symbol_domain_constraints_time_seconds": 3.135,
+          "solved_avg_time_seconds": 211.006,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 818.692
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_14.xml",
+        "py": "bfuncs_14.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_14/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_14/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 15,
+      "source_template_id": 15,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_15",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 56.68,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 0.49,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 56.104,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.029,
+          "solved_avg_time_seconds": 0.017,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 56.189
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_15.xml",
+        "py": "bfuncs_15.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_15/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_15/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 16,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_16",
+      "status": "solve_timeout",
+      "instantiation_count": 0,
+      "total_time_seconds": 3611.42,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 11.42,
+        "solving": {
+          "is_timeout": true,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 0.0,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3600.0,
+          "timeout_time_seconds": 3600.0
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 17,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_17",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 10.6,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "computing_basic_ranges_time_seconds": 1.04,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 9.552,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 9.555
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 18,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_18",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 132.2,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "computing_basic_ranges_time_seconds": 1.4,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 120.589,
+          "constructed_ve_constraints_time_seconds": 8.282,
+          "constructed_symbol_domain_constraints_time_seconds": 1.919,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 130.793
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 19,
+      "source_template_id": 19,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_19",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 15.55,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 11.38,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 4.061,
+          "constructed_ve_constraints_time_seconds": 0.014,
+          "constructed_symbol_domain_constraints_time_seconds": 0.031,
+          "solved_avg_time_seconds": 0.017,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 4.161
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_19.xml",
+        "py": "bfuncs_19.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_19/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_19/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 20,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_20",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 134.91,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 1.86,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 120.842,
+          "constructed_ve_constraints_time_seconds": 8.281,
+          "constructed_symbol_domain_constraints_time_seconds": 3.921,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 133.048
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 21,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_21",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 7.5,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "computing_basic_ranges_time_seconds": 0.31,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 7.185,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 7.189
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 22,
+      "source_template_id": 22,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_22",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 95.43,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 26.03,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 60.146,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.532,
+          "solved_avg_time_seconds": 2.905,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 69.399
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_22.xml",
+        "py": "bfuncs_22.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_22/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_22/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 23,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_23",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 159.0,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 27.18,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 120.11,
+          "constructed_ve_constraints_time_seconds": 8.19,
+          "constructed_symbol_domain_constraints_time_seconds": 3.515,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 131.819
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 24,
+      "source_template_id": 24,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_24",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 122.94,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.61,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 96.01,
+          "constructed_ve_constraints_time_seconds": 8.911,
+          "constructed_symbol_domain_constraints_time_seconds": 0.065,
+          "solved_avg_time_seconds": 5.779,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 122.328
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_24.xml",
+        "py": "bfuncs_24.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_24/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_24/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 25,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_25",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 7.84,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.27,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 7.564,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 7.567
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 26,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_26",
+      "status": "validate_invalid",
+      "instantiation_count": 0,
+      "total_time_seconds": 8.75,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "individual_times_count": 3,
+          "total_time_seconds": 8.745,
+          "individual_times_sum_seconds": 8.744
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 27,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_27",
+      "status": "solve_timeout",
+      "instantiation_count": 0,
+      "total_time_seconds": 3601.21,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 1.21,
+        "solving": {
+          "is_timeout": true,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 0.0,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3600.0,
+          "timeout_time_seconds": 3600.0
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 28,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_28",
+      "status": "solve_timeout",
+      "instantiation_count": 0,
+      "total_time_seconds": 3601.88,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 1.88,
+        "solving": {
+          "is_timeout": true,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 0.0,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3600.0,
+          "timeout_time_seconds": 3600.0
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 29,
+      "source_template_id": 29,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_29",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 10.71,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "computing_basic_ranges_time_seconds": 1.08,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 9.248,
+          "constructed_ve_constraints_time_seconds": 0.075,
+          "constructed_symbol_domain_constraints_time_seconds": 0.042,
+          "solved_avg_time_seconds": 0.084,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 9.623
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_29.xml",
+        "py": "bfuncs_29.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_29/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_29/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 30,
+      "source_template_id": 30,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_30",
+      "status": "solve_success",
+      "instantiation_count": 3,
+      "total_time_seconds": 4.58,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.98,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 3.524,
+          "constructed_ve_constraints_time_seconds": 0.013,
+          "constructed_symbol_domain_constraints_time_seconds": 0.019,
+          "solved_avg_time_seconds": 0.012,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3.596
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_30.xml",
+        "py": "bfuncs_30.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_30/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_30/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 31,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_31",
+      "status": "solve_timeout",
+      "instantiation_count": 0,
+      "total_time_seconds": 3601.33,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 1.33,
+        "solving": {
+          "is_timeout": true,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 0.0,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 3600.0,
+          "timeout_time_seconds": 3600.0
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 2,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 32,
+      "source_template_id": 32,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_32",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 24.27,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.005,
+        "computing_basic_ranges_time_seconds": 11.56,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.004,
+          "constructed_main_constraint_time_seconds": 12.249,
+          "constructed_ve_constraints_time_seconds": 0.076,
+          "constructed_symbol_domain_constraints_time_seconds": 0.061,
+          "solved_avg_time_seconds": 0.105,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 12.706
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 3,
+        "has_multiple_solutions": true
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_32.xml",
+        "py": "bfuncs_32.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_32/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_32/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": null,
+      "source_template_id": 33,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_33",
+      "status": "solve_no_solution",
+      "instantiation_count": 0,
+      "total_time_seconds": 1.78,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.31,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 1.464,
+          "constructed_ve_constraints_time_seconds": 0.0,
+          "constructed_symbol_domain_constraints_time_seconds": 0.0,
+          "solved_avg_time_seconds": 0.0,
+          "solved_count": 0,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 1.467
+        }
+      },
+      "structure_features": {
+        "height": 6,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": true
+      },
+      "extracted": false
+    },
+    {
+      "constraint_id": 34,
+      "source_template_id": 34,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_34",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 94.48,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 26.67,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 58.519,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.524,
+          "solved_avg_time_seconds": 2.919,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 67.804
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_34.xml",
+        "py": "bfuncs_34.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_34/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_34/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 35,
+      "source_template_id": 35,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_35",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 59.89,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.25,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 59.593,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.023,
+          "solved_avg_time_seconds": 0.005,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 59.634
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_35.xml",
+        "py": "bfuncs_35.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_35/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_35/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 36,
+      "source_template_id": 36,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_36",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 76.66,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 1.78,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 64.138,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.624,
+          "solved_avg_time_seconds": 3.369,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 74.874
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_36.xml",
+        "py": "bfuncs_36.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_36/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_36/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 37,
+      "source_template_id": 37,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_37",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 59.75,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.27,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 59.468,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.003,
+          "solved_avg_time_seconds": 0.002,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 59.482
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_37.xml",
+        "py": "bfuncs_37.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_37/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_37/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 38,
+      "source_template_id": 38,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_38",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 58.97,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.29,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 58.649,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.008,
+          "solved_avg_time_seconds": 0.004,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 58.673
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_38.xml",
+        "py": "bfuncs_38.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_38/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_38/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 39,
+      "source_template_id": 39,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_39",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 63.95,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.003,
+        "computing_basic_ranges_time_seconds": 0.16,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 63.741,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.016,
+          "solved_avg_time_seconds": 0.008,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 63.786
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_39.xml",
+        "py": "bfuncs_39.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_39/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_39/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 40,
+      "source_template_id": 40,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_40",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 75.82,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.004,
+        "computing_basic_ranges_time_seconds": 10.96,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 61.838,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.286,
+          "solved_avg_time_seconds": 0.909,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 64.856
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_40.xml",
+        "py": "bfuncs_40.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_40/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_40/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 41,
+      "source_template_id": 41,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_41",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 8.53,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "individual_times_count": 3,
+          "total_time_seconds": 8.525,
+          "individual_times_sum_seconds": 8.523
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_41.xml",
+        "py": "bfuncs_41.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_41/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_41/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 42,
+      "source_template_id": 42,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_42",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 60.2,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.93,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 59.135,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.036,
+          "solved_avg_time_seconds": 0.032,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 59.271
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 2,
+        "quantifier_nesting_layers": 2,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_42.xml",
+        "py": "bfuncs_42.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_42/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_42/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 43,
+      "source_template_id": 43,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_43",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 0.41,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "total_time_seconds": 0.409,
+          "individual_times_sum_seconds": 0.407
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_43.xml",
+        "py": "bfuncs_43.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_43/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_43/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 44,
+      "source_template_id": 44,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_44",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 1.01,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.2,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 0.76,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.018,
+          "solved_avg_time_seconds": 0.008,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 0.804
+        }
+      },
+      "structure_features": {
+        "height": 3,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 2,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_44.xml",
+        "py": "bfuncs_44.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_44/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_44/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 45,
+      "source_template_id": 45,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_45",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 11.71,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.22,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.002,
+          "constructed_main_constraint_time_seconds": 1.11,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 1.077,
+          "solved_avg_time_seconds": 3.098,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 11.485
+        }
+      },
+      "structure_features": {
+        "height": 5,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 4,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_45.xml",
+        "py": "bfuncs_45.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_45/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_45/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 46,
+      "source_template_id": 46,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_46",
+      "status": "solve_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 1.51,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "computing_basic_ranges_time_seconds": 0.14,
+        "solving": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "constructed_main_constraint_time_seconds": 0.673,
+          "constructed_ve_constraints_time_seconds": 0.001,
+          "constructed_symbol_domain_constraints_time_seconds": 0.11,
+          "solved_avg_time_seconds": 0.193,
+          "solved_count": 3,
+          "evaluated_avg_time_seconds": 0.0,
+          "evaluated_count": 0,
+          "total_time_seconds": 1.365
+        }
+      },
+      "structure_features": {
+        "height": 2,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 1,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_46.xml",
+        "py": "bfuncs_46.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_46/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_solve/template_46/bfuncs.py"
+      }
+    },
+    {
+      "constraint_id": 47,
+      "source_template_id": 47,
+      "template_path": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_47",
+      "status": "validate_success",
+      "instantiation_count": 1,
+      "total_time_seconds": 0.4,
+      "time_breakdown": {
+        "preparation_time_seconds": 0.002,
+        "validating": {
+          "is_timeout": false,
+          "parsed_template_time_seconds": 0.001,
+          "individual_times_count": 3,
+          "total_time_seconds": 0.394,
+          "individual_times_sum_seconds": 0.393
+        }
+      },
+      "structure_features": {
+        "height": 2,
+        "quantifier_count": 1,
+        "quantifier_nesting_layers": 1,
+        "symbol_count": 0,
+        "has_multiple_solutions": false
+      },
+      "extracted": true,
+      "files": {
+        "xml": "constraint_47.xml",
+        "py": "bfuncs_47.py"
+      },
+      "original_files": {
+        "xml": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_47/constraint.xml",
+        "py": "outputs/instantiation/taxi_RQ1&2_2/1221_1111/5000_11_validate/template_47/bfuncs.py"
+      }
+    }
+  ]
+}

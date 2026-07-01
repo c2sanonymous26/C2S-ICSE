@@ -1,0 +1,24 @@
+========================= 0113_1000/template_38 (5000_00_solve) instantiation starts ==========================
+- scenario: taxi
+- template: 0113_1000/template_38
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0015456676483154297 seconds
+Constructed ctx data in 4.00543212890625e-05 seconds
+Loaded data field types in 0.0005512237548828125 seconds
+************************************************** Preparation completes ***************************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0014636516571044922 seconds
+Set solve data in 0.0009019374847412109 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.000576019287109375 seconds
+Main Constraint is always False or True
+Constructed main constraint in 1.0498523712158203 seconds
+0113_1000/template_38 (5000_00_solve) has 0 valid models
+************************************************ Solving process completes *************************************************
+======================== 0113_1000/template_38 (5000_00_solve) instantiation completes ========================
+Total instantiation time: 1.08 seconds

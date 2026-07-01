@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed one-step same-vehicle transition should keep both the heading difference and the timestamp gap within reasonable bounds.",
+    "goal": "Detect high-speed one-step transitions that are implausible in direction or timing.",
+    "design_rationale": "Even at high speed, a realistic local transition should preserve both bounded heading change and bounded elapsed time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angles of v1 and v2 does not exceed a certain reasonable angular range, and the timestamp difference between v1 and v2 does not exceed a certain reasonable range."
+}

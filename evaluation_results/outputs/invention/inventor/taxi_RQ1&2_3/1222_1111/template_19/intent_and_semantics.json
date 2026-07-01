@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show significantly high speed, the direction change between them should be small.",
+    "goal": "Detect consecutive contexts where a large direction change occurs while both records show high speed.",
+    "design_rationale": "A vehicle travelling at sustained high speed cannot execute a sharp turn; a large directional change between two consecutive high-speed records indicates erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly higher than a certain threshold, then the absolute direction difference between v1 and v2 should be within a certain smaller reasonable range."
+}

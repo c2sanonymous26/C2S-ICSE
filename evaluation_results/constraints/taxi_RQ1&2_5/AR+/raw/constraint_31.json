@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "longitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "abs(add(sqrt(latitude_2), longitude_1))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1478.0621967315674,
+  "asrtm_time": 1430.1408205032349,
+  "predm_time": 46.78235077857971,
+  "asrt_info": {
+    "fitness": 0.002583150864360427,
+    "was_early_stopped": false,
+    "generations_completed": 3
+  }
+}

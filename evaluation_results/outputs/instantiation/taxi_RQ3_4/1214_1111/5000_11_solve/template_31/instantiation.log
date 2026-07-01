@@ -1,0 +1,82 @@
+============================================================ 1214_1111/template_31 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1214_1111/template_31
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0024566650390625 seconds
+Constructed ctx data in 4.0531158447265625e-05 seconds
+Loaded data field types in 0.0005640983581542969 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [2.747861225553276e-11, 402.4922359490677]
+        - final range for threshold symbol 'NTHRESHOLD2': [2.747861225553276e-11, 402.4922359490677]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(180*atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude)/pi - 180*atan2(v1_speed - v2_speed, 1.0)/pi) → range [1.8344934460401419e-09, 269.56557368187305]
+        - final range for threshold symbol 'NTHRESHOLD3': [1.8344934460401419e-09, 269.56557368187305]
+Approximate computed ranges for 3 threshold symbols in 1.26 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_timestamp) + I*im(v2_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 402.49223594906766]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 402.49223594906766]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(180*atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude)/pi - 180*atan2(v1_speed - v2_speed, 1.0)/pi) → range [0.0, 269.7708181042459]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 269.7708181042459]
+Theoretical computed ranges for 3 threshold symbols in 10.17 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_2': (0.0, 402.4922359490677), '_N_THRESHOLD_3': (0.0, 269.7708181042459)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.004030942916870117 seconds
+Set solve data in 0.00090789794921875 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'bfunc_4_c1')
+Found Eformulas in 0.0012869834899902344 seconds
+Constructed main constraint in 490.0479681491852 seconds
+Constructed VE constraints in 4.49603533744812 seconds
+Constructed symbol domain constraints in 2.6858556270599365 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 61
+        - (>=, _N_THRESHOLD_2): 11117
+        - (>=, _N_THRESHOLD_3): 22832
+    - symbol domains:
+        - _N_THRESHOLD_1: 61
+        - _N_THRESHOLD_2: 11118
+        - _N_THRESHOLD_3: 22833
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(587855075533453, 1152921504606846976), '_N_THRESHOLD_1': Fraction(60, 1), '_N_THRESHOLD_3': Fraction(4719355393944485, 17592186044416)}
+        - objective value: 20 out of 21
+        - solved in 99.40068197250366 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(3345722866136849, 73786976294838206464), '_N_THRESHOLD_1': Fraction(5, 1), '_N_THRESHOLD_3': Fraction(5439232368149733, 35184372088832)}
+        - objective value: 20 out of 21
+        - solved in 92.43320560455322 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(26, 1), '_N_THRESHOLD_2': Fraction(8224517738751551, 73786976294838206464), '_N_THRESHOLD_3': Fraction(6335458287508093, 35184372088832)}
+        - objective value: 20 out of 21
+        - solved in 97.21360373497009 seconds
+1214_1111/template_31 (5000_11_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1214_1111/template_31 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 798.01 seconds

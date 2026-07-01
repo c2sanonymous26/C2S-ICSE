@@ -1,0 +1,35 @@
+2025-12-16 11:13:31,909 - INFO - ======================================================================
+2025-12-16 11:13:31,909 - INFO - Starting run 48/50
+2025-12-16 11:13:31,909 - INFO - Mode: pairwise, Comparison: ge
+2025-12-16 11:13:31,909 - INFO - **********************************************************************
+2025-12-16 11:13:31,915 - INFO - Starting to create Cartesian product dataset, original data shape: (5042, 7)
+2025-12-16 11:13:42,634 - INFO - Cartesian product completed, new data shape: (25421764, 14)
+2025-12-16 11:13:43,718 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 11:13:43,718 - INFO - Assertion mining DataFrame shape: (25421764, 10)
+2025-12-16 11:13:45,486 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 11:13:45,486 - INFO - Precondition mining DataFrame shape: (25421764, 14)
+2025-12-16 11:13:45,596 - INFO - **********************************************************************
+2025-12-16 11:13:45,596 - INFO - **********************************************************************
+2025-12-16 11:13:45,596 - INFO - Target field: speed_2 (selected from 10 candidates)
+2025-12-16 11:13:45,596 - INFO - **********************************************************************
+2025-12-16 11:13:45,596 - INFO - Timeout: 3600 seconds
+2025-12-16 11:13:45,596 - INFO - **********************************************************************
+2025-12-16 11:13:45,596 - INFO - Starting assertion mining...
+2025-12-16 11:13:46,107 - INFO - Target: speed_2 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 11:13:46,107 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-16 11:13:46,107 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-16 11:17:27,320 - INFO - Batch 0 training completed, current best fitness: 0.000700000
+2025-12-16 11:17:27,320 - INFO - Target 'speed_2' constraint discovery completed normally
+2025-12-16 11:17:27,320 - INFO - Generations completed: 1
+2025-12-16 11:17:27,327 - INFO - Assertion mining completed, assertion: sub(tan(log(longitude_2)), sin(log(timestamp_2))) (fitness: 0.000700000)
+2025-12-16 11:17:27,327 - INFO - **********************************************************************
+2025-12-16 11:17:27,327 - INFO - **********************************************************************
+2025-12-16 11:17:27,327 - INFO - Starting assertion validation...
+2025-12-16 11:17:27,834 - INFO - Assertion: sub(tan(log(longitude_2)), sin(log(timestamp_2))), Comparison: ge
+2025-12-16 11:17:29,050 - INFO - Assertion validation completed, fit rate: 1.0000 (25421764/25421764)
+2025-12-16 11:17:29,050 - INFO - **********************************************************************
+2025-12-16 11:17:29,050 - INFO - **********************************************************************
+2025-12-16 11:17:29,050 - INFO - Skipping precondition mining due to complexity exploison.
+2025-12-16 11:17:29,050 - INFO - **********************************************************************
+2025-12-16 11:17:29,168 - INFO - Run 48 successfully generated constraint
+2025-12-16 11:17:29,169 - INFO - ======================================================================

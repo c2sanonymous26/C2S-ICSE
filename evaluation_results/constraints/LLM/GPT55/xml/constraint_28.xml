@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and the grpid recorded in v2 is greater than the grpid recorded in v1, then the timestamp difference between v2 and v1 divided by the grpid difference between v2 and v1 lies within a certain reasonable per-record sampling interval range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

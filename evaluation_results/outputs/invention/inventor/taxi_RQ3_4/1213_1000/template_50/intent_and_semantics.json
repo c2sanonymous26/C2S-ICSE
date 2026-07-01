@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should stay close to its next context in space.",
+    "goal": "Detect stopped contexts whose next-step location change is implausibly large.",
+    "design_rationale": "When a vehicle is stationary, the spatial displacement to the next local context should remain within a small reasonable bound."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is zero, then the distance between the coordinates of v1 and those of the next context v2 computed using the haversine formula should not exceed a certain reasonable upper bound."
+}

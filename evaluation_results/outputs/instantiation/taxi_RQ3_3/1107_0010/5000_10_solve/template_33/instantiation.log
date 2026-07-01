@@ -1,0 +1,41 @@
+================================== 1107_0010/template_33 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_33
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.00458216667175293 seconds
+Constructed ctx data in 6.628036499023438e-05 seconds
+Loaded data field types in 0.0008780956268310547 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.002158641815185547 seconds
+Set solve data in 0.0009109973907470703 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005993843078613281 seconds
+Constructed main constraint in 3.6882710456848145 seconds
+Constructed symbol domain constraints in 0.023218870162963867 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 23
+        - (>=, _N_THRESHOLD_2): 77
+    - symbol domains:
+        - _N_THRESHOLD_1: 24
+        - _N_THRESHOLD_2: 78
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(108, 1), '_N_THRESHOLD_2': Fraction(-8351635283769273, 140737488355328)}
+        - solved in 0.004674673080444336 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(107, 1), '_N_THRESHOLD_2': Fraction(-6245284450980923, 70368744177664)}
+        - solved in 0.004824399948120117 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.009413719177246094 seconds
+1107_0010/template_33 (5000_10_solve) has 2 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_33 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 3.78 seconds

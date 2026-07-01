@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The angular velocity (rate of heading change) between two consecutive contexts of the same vehicle does not exceed a reasonable upper bound.",
+    "goal": "Detect consecutive contexts with an implausibly fast change in heading direction.",
+    "design_rationale": "A vehicle's heading cannot change arbitrarily fast; the rate of heading change per unit time is bounded by physical steering limits."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the ratio of the absolute heading difference to the timestamp difference does not exceed a certain reasonable angular velocity upper bound."
+}

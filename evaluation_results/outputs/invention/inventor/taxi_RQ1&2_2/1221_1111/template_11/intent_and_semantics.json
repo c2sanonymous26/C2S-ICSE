@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The joint product of speed difference and heading change between same-vehicle contexts that are close in time is bounded.",
+    "goal": "Detect same-vehicle context pairs that are close in time but simultaneously show large speed difference and large heading change.",
+    "design_rationale": "Within a short time window, large simultaneous changes in both speed and heading are physically implausible; their product being large indicates measurement anomalies."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the product of the absolute speed difference and the absolute heading difference does not exceed a certain reasonable upper bound."
+}

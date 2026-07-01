@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any two consecutive contexts of the same vehicle, the ratio of the absolute speed difference to the timestamp difference should not exceed a certain upper limit.",
+    "goal": "Detect consecutive contexts of the same vehicle where the rate of speed change (acceleration) is implausibly large.",
+    "design_rationale": "Physical constraints limit how quickly a vehicle can accelerate or decelerate; an excessively high ratio of speed difference to time difference between adjacent records indicates an anomalous or erroneous measurement."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute speed difference between v1 and v2 to their timestamp difference does not exceed a certain upper limit."
+}

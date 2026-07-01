@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Different nearby vehicles observed at nearly the same time should not have an implausibly large direction difference.",
+    "goal": "Detect nearby cross-vehicle observations with inconsistent travel directions.",
+    "design_rationale": "If two vehicles are very close in space and time under this rule, an extreme direction discrepancy may signal anomalous or mismatched observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the absolute difference in their travel direction angles should not exceed a certain reasonable angular range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close (the difference does not exceed a certain reasonable time interval).",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 120"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The geographic distance between v1 and v2 (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance.",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.1"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference in travel direction angle between v1 and v2 does not exceed a certain reasonable angular range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

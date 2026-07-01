@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "log(sub(tan(tan(longitude)), neg(add(timestamp, direction))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.601830244064331,
+  "asrtm_time": 1.5347285270690918,
+  "predm_time": 0.06458520889282227,
+  "asrt_info": {
+    "fitness": 0.0044284044125790355,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

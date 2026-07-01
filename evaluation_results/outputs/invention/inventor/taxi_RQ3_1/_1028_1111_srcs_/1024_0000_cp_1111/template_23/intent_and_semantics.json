@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should imply at least a reasonable minimum travel speed.",
+    "goal": "Detect adjacent contexts whose implied movement speed is implausibly low.",
+    "design_rationale": "If consecutive contexts are separated in time and space, the implied movement speed should not fall below an unreasonable lower bound that suggests duplicate or inconsistent trajectory states."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not be lower than a certain reasonable minimum speed."
+}

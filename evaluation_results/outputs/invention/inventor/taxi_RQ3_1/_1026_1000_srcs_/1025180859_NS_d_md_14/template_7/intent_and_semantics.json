@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive same-vehicle contexts that point into the same directional quadrant should move consistently in longitude and latitude.",
+    "goal": "Detect adjacent contexts whose coordinate changes are inconsistent with a shared directional quadrant.",
+    "design_rationale": "If consecutive headings remain in the same quadrant, the signs of the coordinate changes should align with a coherent movement direction instead of contradicting each other."
+  },
+  "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in the same quadrant (such as 0-90° or 90-180°), then the longitude difference and latitude difference between v1 and v2 must have the same sign."
+}

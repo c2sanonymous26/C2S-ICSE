@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should remain followed by another zero-speed context under this rule.",
+    "goal": "Detect stopped contexts whose immediate next same-vehicle context breaks the stationary pattern.",
+    "design_rationale": "If the vehicle is stationary at v1, the next one-step context should also remain stationary under this pattern."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and there exists a context v2 such that v2 belongs to the same vehicle and the grpid value of v2 is 1 greater than that of v1, then the speed of v2 is also zero."
+}

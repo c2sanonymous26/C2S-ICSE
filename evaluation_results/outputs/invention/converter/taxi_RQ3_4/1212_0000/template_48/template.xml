@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, there should be a reasonable relationship between the direction value and the speed value of v1, that is, when the speed value is significantly higher than a certain threshold, the direction value should not change drastically within a short time.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <bfunc id="2"/>
+    </implies>
+  </forall>
+</formula>

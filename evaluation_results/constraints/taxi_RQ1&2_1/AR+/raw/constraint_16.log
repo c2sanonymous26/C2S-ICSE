@@ -1,0 +1,68 @@
+2025-12-15 10:31:17,859 - INFO - ======================================================================
+2025-12-15 10:31:17,859 - INFO - Starting run 16/50
+2025-12-15 10:31:17,859 - INFO - Mode: pairwise, Comparison: ge
+2025-12-15 10:31:17,859 - INFO - **********************************************************************
+2025-12-15 10:31:17,871 - INFO - Starting to create Cartesian product dataset, original data shape: (5042, 7)
+2025-12-15 10:31:28,584 - INFO - Cartesian product completed, new data shape: (25421764, 14)
+2025-12-15 10:31:29,640 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 10:31:29,640 - INFO - Assertion mining DataFrame shape: (25421764, 10)
+2025-12-15 10:31:31,390 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 10:31:31,390 - INFO - Precondition mining DataFrame shape: (25421764, 14)
+2025-12-15 10:31:31,499 - INFO - **********************************************************************
+2025-12-15 10:31:31,499 - INFO - **********************************************************************
+2025-12-15 10:31:31,499 - INFO - Target field: timestamp_1 (selected from 10 candidates)
+2025-12-15 10:31:31,499 - INFO - **********************************************************************
+2025-12-15 10:31:31,499 - INFO - Timeout: 3600 seconds
+2025-12-15 10:31:31,499 - INFO - **********************************************************************
+2025-12-15 10:31:31,499 - INFO - Starting assertion mining...
+2025-12-15 10:31:32,000 - INFO - Target: timestamp_1 - Features: ['timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 10:31:32,001 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-15 10:31:32,001 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-15 10:35:28,594 - INFO - Batch 0 training completed, current best fitness: 0.050753242
+2025-12-15 10:35:28,594 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-15 10:39:11,581 - INFO - Batch 1 training completed, current best fitness: 0.050299348
+2025-12-15 10:39:11,582 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-15 10:43:09,234 - INFO - Batch 2 training completed, current best fitness: 0.050099596
+2025-12-15 10:43:09,235 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-15 10:46:56,595 - INFO - Batch 3 training completed, current best fitness: 0.050798073
+2025-12-15 10:46:56,596 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-15 10:46:56,596 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-15 10:50:34,952 - INFO - Batch 4 training completed, current best fitness: 0.050099596
+2025-12-15 10:50:34,953 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-15 10:50:34,953 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-15 10:54:12,818 - INFO - Batch 5 training completed, current best fitness: 0.050099596
+2025-12-15 10:54:12,819 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-15 10:54:12,819 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-15 10:57:52,970 - INFO - Batch 6 training completed, current best fitness: 0.050099596
+2025-12-15 10:57:52,970 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-15 10:57:52,970 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-15 11:01:31,358 - INFO - Batch 7 training completed, current best fitness: 0.050099596
+2025-12-15 11:01:31,359 - INFO - Current fitness not improved, consecutive no improvement count: 5
+2025-12-15 11:01:31,359 - INFO - Starting batch 8 training, will train to generation 8
+2025-12-15 11:05:11,009 - INFO - Batch 8 training completed, current best fitness: 0.050099596
+2025-12-15 11:05:11,009 - INFO - Current fitness not improved, consecutive no improvement count: 6
+2025-12-15 11:05:11,009 - INFO - Starting batch 9 training, will train to generation 9
+2025-12-15 11:08:48,766 - INFO - Batch 9 training completed, current best fitness: 0.050099596
+2025-12-15 11:08:48,766 - INFO - Current fitness not improved, consecutive no improvement count: 7
+2025-12-15 11:08:48,766 - INFO - Starting batch 10 training, will train to generation 10
+2025-12-15 11:12:27,465 - INFO - Batch 10 training completed, current best fitness: 0.050099596
+2025-12-15 11:12:27,465 - INFO - Current fitness not improved, consecutive no improvement count: 8
+2025-12-15 11:12:27,465 - INFO - Starting batch 11 training, will train to generation 11
+2025-12-15 11:16:04,951 - INFO - Batch 11 training completed, current best fitness: 0.050099596
+2025-12-15 11:16:04,952 - INFO - Current fitness not improved, consecutive no improvement count: 9
+2025-12-15 11:16:04,952 - INFO - Starting batch 12 training, will train to generation 12
+2025-12-15 11:19:44,726 - INFO - Batch 12 training completed, current best fitness: 0.000501350
+2025-12-15 11:19:44,727 - INFO - Target 'timestamp_1' constraint discovery completed normally
+2025-12-15 11:19:44,727 - INFO - Generations completed: 13
+2025-12-15 11:19:44,744 - INFO - Assertion mining completed, assertion: add(add(-35262.478, timestamp_2), longitude_2) (fitness: 0.000501350)
+2025-12-15 11:19:44,744 - INFO - **********************************************************************
+2025-12-15 11:19:44,745 - INFO - **********************************************************************
+2025-12-15 11:19:44,745 - INFO - Starting assertion validation...
+2025-12-15 11:19:45,648 - INFO - Assertion: add(add(-35262.478, timestamp_2), longitude_2), Comparison: ge
+2025-12-15 11:19:46,183 - INFO - Assertion validation completed, fit rate: 1.0000 (25421764/25421764)
+2025-12-15 11:19:46,183 - INFO - **********************************************************************
+2025-12-15 11:19:46,183 - INFO - **********************************************************************
+2025-12-15 11:19:46,183 - INFO - Skipping precondition mining due to complexity exploison.
+2025-12-15 11:19:46,183 - INFO - **********************************************************************
+2025-12-15 11:19:46,389 - INFO - Run 16 successfully generated constraint
+2025-12-15 11:19:46,389 - INFO - ======================================================================

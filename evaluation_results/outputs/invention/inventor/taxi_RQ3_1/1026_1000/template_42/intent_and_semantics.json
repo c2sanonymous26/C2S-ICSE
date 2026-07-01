@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A one-step increase in grpid for the same vehicle should correspond to a later timestamp.",
+    "goal": "Detect same-vehicle context pairs where the temporal order contradicts the group order.",
+    "design_rationale": "The sequence encoded by grpid should be consistent with chronological progression for observations of the same vehicle."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the timestamp of v1 must be greater than the timestamp of v2."
+}

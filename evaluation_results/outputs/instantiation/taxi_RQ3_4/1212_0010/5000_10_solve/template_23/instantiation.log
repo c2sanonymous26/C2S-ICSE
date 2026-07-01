@@ -1,0 +1,38 @@
+============================================================ 1212_0010/template_23 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1212_0010/template_23
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0029354095458984375 seconds
+Constructed ctx data in 4.0531158447265625e-05 seconds
+Loaded data field types in 0.0005192756652832031 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0021321773529052734 seconds
+Set solve data in 0.0009970664978027344 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005764961242675781 seconds
+Constructed main constraint in 61.48502993583679 seconds
+Constructed symbol domain constraints in 0.5189640522003174 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 6709
+    - symbol domains:
+        - _N_THRESHOLD_1: 6710
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(7953972068061725, 70368744177664)}
+        - solved in 1.7339098453521729 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 3.4367196559906006 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 3.4614334106445312 seconds
+1212_0010/template_23 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1212_0010/template_23 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 70.69 seconds

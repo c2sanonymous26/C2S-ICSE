@@ -1,0 +1,59 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show high speed and the middle context shows low speed, the GPS-derived bearing from the first to the third context should be consistent with the middle context's direction.",
+    "goal": "Detect three consecutive contexts where the overall displacement bearing is inconsistent with the middle record's direction in a speed dip pattern.",
+    "design_rationale": "The middle low-speed record's direction should still reflect the vehicle's overall trajectory; a large discrepancy between the net bearing (v1 to v3) and the middle direction value indicates erroneous direction data in the middle record."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the displacement bearing derived from the coordinate differences of v1 and v3 should be close to v2's direction angle within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle and are three consecutive contexts",
+      "implementation": "v1.carid == v2.carid && v1.carid == v3.carid && (v2.grpid - v1.grpid) == 1 && (v3.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "both v1 and v3 have speeds significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1 && v3.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v2's speed is significantly lower than a certain threshold",
+      "implementation": "v2.speed < NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the displacement bearing derived from the coordinate differences of v1 and v3 is close to v2's direction angle within a certain reasonable range",
+      "implementation": "abs(degrees(atan2(sin(radians(v3.longitude - v1.longitude)) × cos(radians(v3.latitude)), cos(radians(v1.latitude)) × sin(radians(v3.latitude)) - sin(radians(v1.latitude)) × cos(radians(v3.latitude)) × cos(radians(v3.longitude - v1.longitude)))) - v2.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <and>
+        <not>
+          <bfunc id="1_c1"/>
+        </not>
+        <not>
+          <bfunc id="2_c1"/>
+        </not>
+      </and>
+      <bfunc id="3_c1"/>
+    </implies>
+  </forall>
+</formula>

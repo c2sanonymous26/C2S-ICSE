@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle decelerates from high speed to low speed between two consecutive contexts, the displacement distance between them should be within a reasonable range.",
+    "goal": "Detect deceleration contexts where the displacement distance is implausibly large or small.",
+    "design_rationale": "A vehicle transitioning from high speed to low speed covers a predictable distance; a displacement outside the expected range suggests inconsistency between the speed change and the coordinate data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the displacement distance derived from the coordinate differences of v1 and v2 should be within a certain reasonable range."
+}

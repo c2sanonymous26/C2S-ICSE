@@ -1,0 +1,37 @@
+2025-12-15 17:33:57,329 - INFO - ======================================================================
+2025-12-15 17:33:57,329 - INFO - Starting run 34/50
+2025-12-15 17:33:57,329 - INFO - Mode: pairwise, Comparison: gt
+2025-12-15 17:33:57,329 - INFO - **********************************************************************
+2025-12-15 17:33:57,342 - INFO - Starting to create Cartesian product dataset, original data shape: (5042, 7)
+2025-12-15 17:34:08,113 - INFO - Cartesian product completed, new data shape: (25421764, 14)
+2025-12-15 17:34:09,176 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 17:34:09,177 - INFO - Assertion mining DataFrame shape: (25421764, 10)
+2025-12-15 17:34:10,941 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 17:34:10,941 - INFO - Precondition mining DataFrame shape: (25421764, 14)
+2025-12-15 17:34:11,048 - INFO - **********************************************************************
+2025-12-15 17:34:11,048 - INFO - **********************************************************************
+2025-12-15 17:34:11,048 - INFO - Target field: longitude_2 (selected from 10 candidates)
+2025-12-15 17:34:11,048 - INFO - **********************************************************************
+2025-12-15 17:34:11,048 - INFO - Timeout: 3600 seconds
+2025-12-15 17:34:11,048 - INFO - **********************************************************************
+2025-12-15 17:34:11,048 - INFO - Starting assertion mining...
+2025-12-15 17:34:11,552 - INFO - Target: longitude_2 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'direction_1', 'direction_2']
+2025-12-15 17:34:11,553 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-15 17:34:11,553 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-15 17:38:06,215 - INFO - Batch 0 training completed, current best fitness: 0.010439471
+2025-12-15 17:38:06,215 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-15 17:41:48,876 - INFO - Batch 1 training completed, current best fitness: 0.003002009
+2025-12-15 17:41:48,876 - INFO - Target 'longitude_2' constraint discovery completed normally
+2025-12-15 17:41:48,876 - INFO - Generations completed: 2
+2025-12-15 17:41:48,893 - INFO - Assertion mining completed, assertion: sub(abs(sub(log(timestamp_2), longitude_1)), mul(latitude_2, sin(cos(latitude_2)))) (fitness: 0.003002009)
+2025-12-15 17:41:48,893 - INFO - **********************************************************************
+2025-12-15 17:41:48,893 - INFO - **********************************************************************
+2025-12-15 17:41:48,893 - INFO - Starting assertion validation...
+2025-12-15 17:41:49,443 - INFO - Assertion: sub(abs(sub(log(timestamp_2), longitude_1)), mul(latitude_2, sin(cos(latitude_2)))), Comparison: gt
+2025-12-15 17:41:50,801 - INFO - Assertion validation completed, fit rate: 1.0000 (25421764/25421764)
+2025-12-15 17:41:50,801 - INFO - **********************************************************************
+2025-12-15 17:41:50,801 - INFO - **********************************************************************
+2025-12-15 17:41:50,801 - INFO - Skipping precondition mining due to complexity exploison.
+2025-12-15 17:41:50,801 - INFO - **********************************************************************
+2025-12-15 17:41:50,918 - INFO - Run 34 successfully generated constraint
+2025-12-15 17:41:50,918 - INFO - ======================================================================

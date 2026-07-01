@@ -1,0 +1,69 @@
+=============================== 1229_1111/template_9 (5000_11_solve) instantiation starts ================================
+- scenario: taxi
+- template: 1229_1111/template_9
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0017986297607421875 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005588531494140625 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression (v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) → range [-4169517073.459118, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [-4169517073.459118, inf]
+Approximate computed ranges for 2 threshold symbols in 0.83 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression (v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD2': [-inf, inf]
+Theoretical computed ranges for 1 threshold symbols in 0.23 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 250.0), '_N_THRESHOLD_2': (-4169517073.459118, inf)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0015420913696289062 seconds
+Set solve data in 0.0008833408355712891 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 1, 1): ('bfunc_1_c1', 'exists_1')
+Found Eformulas in 0.0027222633361816406 seconds
+Constructed main constraint in 10.217238664627075 seconds
+Constructed VE constraints in 0.0759432315826416 seconds
+Constructed symbol domain constraints in 0.04238271713256836 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 43
+        - (<, _N_THRESHOLD_2): 331
+    - symbol domains:
+        - _N_THRESHOLD_1: 44
+        - _N_THRESHOLD_2: 332
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(108, 1), '_N_THRESHOLD_2': Fraction(-3602879701896397, 36028797018963968)}
+        - objective value: 14 out of 17
+        - solved in 0.1039583683013916 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.06766200065612793 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.0662240982055664 seconds
+1229_1111/template_9 (5000_11_solve) has 1 valid models
+************************************************ Solving process completes *************************************************
+============================== 1229_1111/template_9 (5000_11_solve) instantiation completes ==============================
+Total instantiation time: 11.70 seconds

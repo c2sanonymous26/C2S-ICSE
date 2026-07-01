@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a non-negative speed within a reasonable upper bound.",
+    "goal": "Detect contexts with physically implausible speed values.",
+    "design_rationale": "Vehicle speed should not be negative and should remain within realistic operational limits."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be non-negative and should not exceed a certain reasonable upper bound."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-derived travel-speed ratio within a reasonable multiple of their average speed.",
+    "goal": "Detect adjacent same-vehicle contexts whose coordinate-derived travel speed is inconsistent with their average recorded speed.",
+    "design_rationale": "For a valid adjacent transition, the speed inferred from displacement and elapsed time should remain comparable to the average of the two recorded speed values."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the straight-line distance computed from the coordinates of v1 and v2 and the timestamp difference of v1 and v2 should not exceed a certain reasonable multiple of the average speed of v1 and v2."
+}

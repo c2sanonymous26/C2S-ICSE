@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "lt",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "add(latitude_1, longitude_2)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 9.750953912734985,
+  "asrtm_time": 9.122804403305054,
+  "predm_time": 0.6154861450195312,
+  "asrt_info": {
+    "fitness": 0.002279355247841796,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

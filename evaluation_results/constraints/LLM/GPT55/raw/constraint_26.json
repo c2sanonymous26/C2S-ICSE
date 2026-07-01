@@ -1,0 +1,113 @@
+{
+  "constraint_id": 26,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 3,
+    "generation_seconds": 78.68873023986816
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Each non-final context of a taxi has an immediate successor context in the same taxi sequence.",
+      "goal": "Detect missing contexts or gaps in the per-taxi sequence numbering when a later context for the same taxi exists but the immediately following grpid is absent.",
+      "design_rationale": "The grpid field is defined as a continuous sequence number within each taxi. Therefore, if a context is not the last observed context for that taxi, the next sequence number should appear in some context of the same taxi; otherwise, the data stream likely has packet loss, dropped records, or sequence corruption."
+    },
+    "semantics": "For any context v1, if there exists a context v3 such that v3 belongs to the same vehicle as v1 and the grpid recorded in v3 is greater than the grpid recorded in v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid recorded in v2 immediately follows the grpid recorded in v1.",
+    "structure": "forall v1 in dataset ((exists v3 in dataset (bfunc1(v1, v3) and bfunc2(v1, v3))) implies (exists v2 in dataset (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v3 belongs to the same vehicle as v1",
+        "implementation": "v3.carid == v1.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "the grpid recorded in v3 is greater than the grpid recorded in v1",
+        "implementation": "v3.grpid > v1.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 belongs to the same vehicle as v1",
+        "implementation": "v2.carid == v1.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the grpid recorded in v2 immediately follows the grpid recorded in v1",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": []
+  },
+  "constraint": {
+    "intent": {
+      "content": "Each non-final context of a taxi has an immediate successor context in the same taxi sequence.",
+      "goal": "Detect missing contexts or gaps in the per-taxi sequence numbering when a later context for the same taxi exists but the immediately following grpid is absent.",
+      "design_rationale": "The grpid field is defined as a continuous sequence number within each taxi. Therefore, if a context is not the last observed context for that taxi, the next sequence number should appear in some context of the same taxi; otherwise, the data stream likely has packet loss, dropped records, or sequence corruption."
+    },
+    "semantics": "For any context v1, if there exists a context v3 such that v3 belongs to the same vehicle as v1 and the grpid recorded in v3 is greater than the grpid recorded in v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid recorded in v2 immediately follows the grpid recorded in v1.",
+    "structure": "forall v1 in dataset ((exists v3 in dataset (bfunc1(v1, v3) and bfunc2(v1, v3))) implies (exists v2 in dataset (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v3 belongs to the same vehicle as v1",
+        "implementation": "v3.carid == v1.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "the grpid recorded in v3 is greater than the grpid recorded in v1",
+        "implementation": "v3.grpid > v1.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 belongs to the same vehicle as v1",
+        "implementation": "v2.carid == v1.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the grpid recorded in v2 immediately follows the grpid recorded in v1",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      }
+    ]
+  }
+}

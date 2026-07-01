@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have a reasonable positional change whenever their timestamp difference falls in the expected range.",
+    "goal": "Detect cases where a plausible local time gap is paired with an implausible coordinate-derived positional change.",
+    "design_rationale": "Once a within-vehicle pair satisfies the expected temporal condition, its spatial transition should also remain within a reasonable range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then, when the difference between the timestamp value of v1 and that of v2 lies within a certain reasonable range, the positional change between v1 and v2 (computed from coordinates) should lie within a certain reasonable range."
+}

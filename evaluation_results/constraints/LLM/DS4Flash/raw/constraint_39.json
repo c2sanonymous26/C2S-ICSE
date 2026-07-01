@@ -1,0 +1,60 @@
+{
+  "constraint_id": 39,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 61.87733292579651
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The instantaneous speed of each taxi context does not exceed a maximum speed limit.",
+      "goal": "Detect unrealistic speed values that indicate sensor errors or data corruption.",
+      "design_rationale": "Taxis in urban areas are subject to speed limits and physical constraints; any speed exceeding a reasonable threshold (e.g., 120 km/h) is physically implausible and should be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 does not exceed a certain maximum speed threshold.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 does not exceed a certain maximum speed threshold",
+        "implementation": "v1.speed <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 114.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The instantaneous speed of each taxi context does not exceed a maximum speed limit.",
+      "goal": "Detect unrealistic speed values that indicate sensor errors or data corruption.",
+      "design_rationale": "Taxis in urban areas are subject to speed limits and physical constraints; any speed exceeding a reasonable threshold (e.g., 120 km/h) is physically implausible and should be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 does not exceed a certain maximum speed threshold.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 does not exceed a certain maximum speed threshold",
+        "implementation": "v1.speed <= 114.0",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 6
+  }
+}

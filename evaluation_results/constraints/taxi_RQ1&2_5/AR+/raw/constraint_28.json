@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "longitude",
+  "status": "success_simple_constraint",
+  "assertion": "mul(max(sqrt(latitude), sqrt(latitude)), max(latitude, neg(latitude)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 12.758245706558228,
+  "asrtm_time": 12.697325229644775,
+  "predm_time": 0.0593724250793457,
+  "asrt_info": {
+    "fitness": 0.003961240253035096,
+    "was_early_stopped": false,
+    "generations_completed": 2
+  }
+}

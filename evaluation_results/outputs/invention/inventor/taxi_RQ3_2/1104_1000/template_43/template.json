@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have both a reasonable heading discrepancy and a reasonable rate of heading discrepancy over time.",
+    "goal": "Detect near-consecutive contexts whose direction mismatch is too large or changes too aggressively with respect to elapsed time.",
+    "design_rationale": "A plausible local transition should keep the displacement-derived direction close to the recorded heading and should not let that mismatch evolve at an implausible temporal rate."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction angle of v1 should lie within a certain reasonable range, and the ratio between that difference and the timestamp difference between v1 and v2 should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is 1 greater than that of v2.",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction angle of v1 should lie within a certain reasonable range.",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) - v1.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction angle of v1 and the timestamp difference between v1 and v2 should lie within a certain reasonable range.",
+      "implementation": "(abs(degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) - v1.direction) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

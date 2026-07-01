@@ -1,0 +1,35 @@
+======================================================= 1213_1000/template_37 (5000_00_solve) instantiation starts ======================================================
+- scenario: taxi
+- template: 1213_1000/template_37
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0016164779663085938 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005383491516113281 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0014028549194335938 seconds
+Set solve data in 0.0008947849273681641 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005655288696289062 seconds
+Constructed main constraint in 63.49964714050293 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(102, 1), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 0.0011816024780273438 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(103, 1), '_N_THRESHOLD_2': Fraction(1, 1)}
+        - solved in 0.00092315673828125 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(104, 1), '_N_THRESHOLD_2': Fraction(2, 1)}
+        - solved in 0.0008404254913330078 seconds
+1213_1000/template_37 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+===================================================== 1213_1000/template_37 (5000_00_solve) instantiation completes =====================================================
+Total instantiation time: 63.54 seconds

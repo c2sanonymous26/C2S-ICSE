@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed of v1 is zero, then for any context v2, if v1 and v2 belong to the same vehicle and v2 is the next context of v1, the product of the absolute speed difference between them and the absolute difference in direction angle between them should lie within a certain reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <forall var="v2" in="ctx1">
+        <implies>
+          <bfunc id="2"/>
+          <bfunc id="3"/>
+        </implies>
+      </forall>
+    </implies>
+  </forall>
+</formula>

@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle have an excessively large combined position-and-heading variation indicator.",
+    "goal": "Identify adjacent same-vehicle records whose geographic distance and direction difference together are too large.",
+    "design_rationale": "For consecutive records of one vehicle, the product of spatial distance and direction difference should remain under a reasonable upper bound; otherwise the joint change is abnormal."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the product of their latitude-longitude distance and their direction difference must be significantly less than some upper bound (i.e., the combined indicator of vehicle position change and direction change should not be too large).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the grpid of v1 is greater than that of v2 by 1",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the latitude-longitude distance and direction difference between v1 and v2 is significantly less than some upper bound",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) × abs(v1.direction - v2.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

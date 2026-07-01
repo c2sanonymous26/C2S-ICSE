@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time and both have high speeds have similar heading directions.",
+    "goal": "Detect heading direction inconsistencies among high-speed records from different vehicles at the same time.",
+    "design_rationale": "High-speed vehicles operating at the same time in a city tend to follow similar traffic directions; large heading differences among high-speed records suggest at least one erroneous record."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, and both their speeds are significantly higher than a certain threshold, then the absolute heading difference between v1 and v2 does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is within a certain reasonable time range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "both v1 and v2 have speeds significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD2 && v2.speed > NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute heading difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

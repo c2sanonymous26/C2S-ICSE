@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS-implied average speed between two consecutive contexts of the same vehicle is above a minimum lower bound.",
+    "goal": "Detect consecutive contexts where the GPS displacement is implausibly small relative to the time gap.",
+    "design_rationale": "A moving vehicle should cover a certain minimum distance between consecutive GPS samples; a GPS-implied speed below a physical minimum suggests GPS error or duplicate records."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the ratio of the haversine GPS distance to the timestamp difference (i.e., the GPS-implied average speed) must be greater than a certain reasonable minimum speed lower bound."
+}

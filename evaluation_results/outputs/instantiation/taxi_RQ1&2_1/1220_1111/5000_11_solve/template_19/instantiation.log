@@ -1,0 +1,71 @@
+============================================================ 1220_1111/template_19 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1220_1111/template_19
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002795696258544922 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0005688667297363281 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression v2_speed/v1_speed → range [0.0, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, inf]
+Approximate computed ranges for 2 threshold symbols in 0.44 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression v2_speed/v1_speed → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD2': [-inf, inf]
+Theoretical computed ranges for 1 threshold symbols in 0.22 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 250.0), '_N_THRESHOLD_2': (0.0, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0018265247344970703 seconds
+Set solve data in 0.0008966922760009766 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'bfunc_4_c1')
+Found Eformulas in 0.0012862682342529297 seconds
+Constructed main constraint in 52.20548105239868 seconds
+Constructed VE constraints in 0.025275468826293945 seconds
+Constructed symbol domain constraints in 0.02583909034729004 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 23
+        - (>=, _N_THRESHOLD_2): 124
+    - symbol domains:
+        - _N_THRESHOLD_1: 24
+        - _N_THRESHOLD_2: 125
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(108, 1), '_N_THRESHOLD_2': Fraction(1222013313908765, 1125899906842624)}
+        - objective value: 14 out of 17
+        - solved in 0.02943563461303711 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(91, 1), '_N_THRESHOLD_2': Fraction(2527019790413045, 2251799813685248)}
+        - objective value: 12 out of 17
+        - solved in 0.029561519622802734 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.019685029983520508 seconds
+1220_1111/template_19 (5000_11_solve) has 2 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1220_1111/template_19 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 53.06 seconds

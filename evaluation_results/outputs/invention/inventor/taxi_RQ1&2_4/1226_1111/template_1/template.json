@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "When a vehicle is travelling at significantly high speed, there should exist a preceding context of the same vehicle with a speed difference within a reasonable range.",
+    "goal": "Detect high-speed contexts that have no plausible preceding context, indicating a sudden implausible speed surge.",
+    "design_rationale": "A vehicle cannot instantaneously reach high speed; its previous record should show a speed within a bounded difference, confirming a gradual acceleration."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists another context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the absolute speed difference between v1 and v2 does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the previous context of v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute speed difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+========================= 0116_1111/template_45 (5000_11_solve) instantiation starts ==========================
+- scenario: taxi
+- template: 0116_1111/template_45
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.004277467727661133 seconds
+Constructed ctx data in 4.100799560546875e-05 seconds
+Loaded data field types in 0.0005476474761962891 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 5 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 994658877.4919494]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 994658877.4919494]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs((atan2(sin(pi*(v1_direction/180 - v3_direction/180)), cos(pi*(v1_direction/180 - v3_direction/180))) - atan2(sin(pi*(v2_direction/180 - v5_direction/180)), cos(pi*(v2_direction/180 - v5_direction/180))))/(v1_timestamp - v2_timestamp)) → range [1.1416142556034806e-22, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [1.1416142556034806e-22, inf]
+Approximate computed ranges for 2 threshold symbols in 1.69 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 5 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v1_timestamp) + I*im(v1_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs((atan2(sin(pi*(v1_direction/180 - v3_direction/180)), cos(pi*(v1_direction/180 - v3_direction/180))) - atan2(sin(pi*(v2_direction/180 - v5_direction/180)), cos(pi*(v2_direction/180 - v5_direction/180))))/(v1_timestamp - v2_timestamp)) → range [0.0, 3.490519278067119e-20]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 3.490519278067119e-20]
+Theoretical computed ranges for 2 threshold symbols in 0.46 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_2': (0.0, inf)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.002535581588745117 seconds
+Set solve data in 0.0025482177734375 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_1', 'exists_4')
+Found Eformulas in 0.0013608932495117188 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 574626.
+Solving process timeout in 3600.0 seconds
+************************************************ Solving process completes *************************************************
+======================== 0116_1111/template_45 (5000_11_solve) instantiation completes ========================
+Total instantiation time: 3602.38 seconds

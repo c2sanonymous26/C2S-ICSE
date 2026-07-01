@@ -1,0 +1,38 @@
+================================== 1107_0010/template_25 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_25
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0027408599853515625 seconds
+Constructed ctx data in 6.127357482910156e-05 seconds
+Loaded data field types in 0.000885009765625 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0018036365509033203 seconds
+Set solve data in 0.0008876323699951172 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005631446838378906 seconds
+Constructed main constraint in 58.99209403991699 seconds
+Constructed symbol domain constraints in 0.2692890167236328 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3478
+    - symbol domains:
+        - _N_THRESHOLD_1: 3479
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8166465835151587, 9223372036854775808)}
+        - solved in 0.49800729751586914 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.0261220932006836 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0144152641296387 seconds
+1107_0010/template_25 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_25 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 61.86 seconds

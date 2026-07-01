@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any vehicle record v1, if the speed of v1 is 0, then the latitude-longitude distance between v1 and the previous record v2 (where v2 belongs to the same vehicle and the grpid of v2 is smaller than that of v1 by 1) does not exceed some upper bound (i.e., when the vehicle stops, its position should remain basically consistent with its position before stopping).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <and>
+          <bfunc id="2"/>
+          <bfunc id="3"/>
+        </and>
+      </exists>
+    </implies>
+  </forall>
+</formula>

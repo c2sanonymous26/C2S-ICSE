@@ -1,0 +1,39 @@
+===================================================== 1027_0001/template_39 (5000_01_solve) instantiation starts =====================================================
+- scenario: taxi
+- template: 1027_0001/template_39
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+************************************************************************** Preparation starts **************************************************************************
+Decomposed template in 0.0030319690704345703 seconds
+Constructed ctx data in 4.0531158447265625e-05 seconds
+Loaded data field types in 0.0005271434783935547 seconds
+************************************************************************ Preparation completes *************************************************************************
+************************************************************************ Solving process starts ************************************************************************
+Parsed template in 0.002061605453491211 seconds
+Set solve data in 0.00086212158203125 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005745887756347656 seconds
+Constructed main constraint in 63.80707502365112 seconds
+Constructed VE constraints in 1.1682510375976562e-05 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(315, 1), '_N_THRESHOLD_2': Fraction(2916311760943289, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.001451730728149414 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(316, 1), '_N_THRESHOLD_2': Fraction(2925107853965497, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0012385845184326172 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(631, 2), '_N_THRESHOLD_2': Fraction(2929505900476601, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0011551380157470703 seconds
+1027_0001/template_39 (5000_01_solve) has 3 valid models
+********************************************************************** Solving process completes ***********************************************************************
+=================================================== 1027_0001/template_39 (5000_01_solve) instantiation completes ====================================================
+Total instantiation time: 63.86 seconds

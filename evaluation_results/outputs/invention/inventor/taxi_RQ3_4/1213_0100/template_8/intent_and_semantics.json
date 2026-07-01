@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded signed direction-change rate in magnitude.",
+    "goal": "Detect adjacent same-vehicle contexts whose turning rate magnitude is implausibly large.",
+    "design_rationale": "Even when the direction-change rate is signed, its magnitude should remain within a realistic bound between adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the direction-change rate computed from the direction difference and timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

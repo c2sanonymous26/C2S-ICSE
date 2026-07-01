@@ -1,0 +1,65 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have both a bounded spatial distance and a bounded speed difference.",
+    "goal": "Detect cross-vehicle context pairs that are jointly implausible in location and speed.",
+    "design_rationale": "This rule constrains both spatial separation and speed discrepancy for closely timed observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the coordinate distance between them should not exceed a certain value, and the speed difference between them should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2) and bfunc5(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate distance between v1 and v2 does not exceed a certain value.",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed difference between v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate distance between v1 and v2 does not exceed a certain value.",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD4",
+      "restrictions": []
+    }
+  ]
+}

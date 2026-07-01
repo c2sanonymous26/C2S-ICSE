@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded direction-change rate.",
+    "goal": "Detect adjacent same-vehicle contexts whose turning behavior is implausibly abrupt.",
+    "design_rationale": "A physically plausible trajectory should not exhibit an excessive direction-change rate between adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the direction-change rate computed from the direction difference and timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have a reasonable product of spatial distance and combined speed.",
+    "goal": "Detect cross-vehicle context pairs whose distance and combined speed are jointly implausible.",
+    "design_rationale": "When two vehicles are observed at similar times, the joint magnitude formed by their separation and total speed should stay within a realistic range under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other with a difference not exceeding a certain value, then the product of the coordinate distance between them and the sum of their speeds should lie within a certain reasonable range."
+}

@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times and moving in similar directions also have similar speeds.",
+    "goal": "Identify different-vehicle pairs whose speeds differ too much despite being close in time and heading.",
+    "design_rationale": "If two vehicles are observed close in time and their travel directions are similar, their speed difference is expected to stay within a reasonable bound."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles, their timestamps are close (the absolute time difference does not exceed some value), and their direction difference is significantly less than some value (i.e., the two vehicles are traveling in similar directions), then their speed difference is significantly less than some value (i.e., the two vehicles have similar speeds).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the direction difference between v1 and v2 is significantly less than some value (i.e., the two vehicles are traveling in similar directions)",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2 || abs(v1.direction - v2.direction) >= 360 - NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed difference between v1 and v2 is significantly less than some value (i.e., the two vehicles have similar speeds)",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

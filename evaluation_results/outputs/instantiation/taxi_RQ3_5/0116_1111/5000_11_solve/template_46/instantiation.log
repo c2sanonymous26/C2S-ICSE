@@ -1,0 +1,71 @@
+========================= 0116_1111/template_46 (5000_11_solve) instantiation starts ==========================
+- scenario: taxi
+- template: 0116_1111/template_46
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0018024444580078125 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0005319118499755859 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction)/(v1_timestamp - v2_timestamp) → range [-11902059102.441292, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [-11902059102.441292, inf]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) → range [-4101777334.1788654, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [-4101777334.1788654, inf]
+Approximate computed ranges for 2 threshold symbols in 1.67 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_direction - v2_direction) when the argument is not real or imaginary.
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_direction - v2_direction)/(v1_timestamp - v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_speed - v2_speed) when the argument is not real or imaginary.
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_speed - v2_speed)/(v1_timestamp - v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD2': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.15 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-11902059102.441292, inf), '_N_THRESHOLD_2': (-4101777334.1788654, inf)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0015072822570800781 seconds
+Set solve data in 0.0008783340454101562 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005881786346435547 seconds
+Constructed main constraint in 63.85736632347107 seconds
+Constructed VE constraints in 0.0010838508605957031 seconds
+Constructed symbol domain constraints in 0.1588892936706543 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 543
+        - (>=, _N_THRESHOLD_2): 1491
+    - symbol domains:
+        - _N_THRESHOLD_1: 544
+        - _N_THRESHOLD_2: 1492
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(5404319552844595, 4503599627370496), '_N_THRESHOLD_1': Fraction(5, 1)}
+        - objective value: 8 out of 8
+        - solved in 0.14324426651000977 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.2751905918121338 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.27492761611938477 seconds
+0116_1111/template_46 (5000_11_solve) has 1 valid models
+************************************************ Solving process completes *************************************************
+======================== 0116_1111/template_46 (5000_11_solve) instantiation completes ========================
+Total instantiation time: 66.60 seconds

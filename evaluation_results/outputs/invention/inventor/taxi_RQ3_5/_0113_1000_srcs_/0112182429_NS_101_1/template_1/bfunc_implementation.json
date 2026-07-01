@@ -1,0 +1,20 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.speed > NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "abs(atan2(sin(radians(v1.direction - v2.direction)) × cos(radians(v1.latitude)), cos(radians(v2.latitude)) × sin(radians(v1.latitude)) - sin(radians(v2.latitude)) × cos(radians(v1.latitude)) × cos(radians(v1.direction - v2.direction)))) <= NTHRESHOLD2"
+    },
+    {
+      "id": "bfunc4",
+      "implementation": "atan2(sin(radians(v1.direction - v2.direction)) × cos(radians(v1.latitude)), cos(radians(v2.latitude)) × sin(radians(v1.latitude)) - sin(radians(v2.latitude)) × cos(radians(v1.latitude)) × cos(radians(v1.direction - v2.direction))) <= NTHRESHOLD3"
+    }
+  ]
+}

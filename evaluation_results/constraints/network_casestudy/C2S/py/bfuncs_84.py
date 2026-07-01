@@ -1,0 +1,12 @@
+from math import *
+from typing import Any
+
+def bfunc_1_c1(var_bindings: dict[str, dict[str, Any]]) -> bool:
+    return var_bindings['v1']['CellID'] is not None
+
+def bfunc_2_c1(var_bindings: dict[str, dict[str, Any]]) -> bool:
+    return var_bindings['v1']['ScEarfcn'] is not None
+
+def bfunc_2_c2(var_bindings: dict[str, dict[str, Any]]) -> bool:
+    return var_bindings['v1']['ScPci'] is not None
+

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time are not too spatially close to each other.",
+    "goal": "Detect records from different vehicles at the same time that occupy the same or nearly the same GPS location.",
+    "design_rationale": "Two distinct vehicles cannot physically occupy the same location simultaneously; an implausibly small distance between different-vehicle records at the same time suggests GPS errors or vehicle ID misassignment."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute time difference within a certain range), their haversine GPS distance must be greater than a certain reasonable minimum lower bound."
+}

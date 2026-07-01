@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The joint product of heading difference and GPS distance between contexts from different vehicles that are close in time is bounded.",
+    "goal": "Detect context pairs from different vehicles at the same time that simultaneously show large heading difference and large spatial separation.",
+    "design_rationale": "Large heading difference and large spatial separation between different-vehicle contexts at the same time indicate jointly anomalous sensor readings."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute time difference within a certain range), the product of the absolute heading difference and the haversine GPS distance does not exceed a certain reasonable upper bound."
+}

@@ -1,0 +1,118 @@
+{
+  "constraint_id": 8,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 111.68064379692078
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The acceleration implied by two consecutive contexts of the same vehicle is bounded within a physically reasonable range.",
+      "goal": "Detect abrupt and physically implausible changes in taxi speed between consecutive records, which may indicate sensor errors, GPS noise, or corrupted speed readings.",
+      "design_rationale": "A taxi cannot increase or decrease its speed beyond realistic acceleration or braking limits over the time interval between consecutive driving-state reports. Bounding the implied acceleration helps ensure temporal consistency of the recorded speed values for each vehicle."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, and the timestamp of v2 is greater than the timestamp of v1, then the absolute speed difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the grpid of v2 immediately follows the grpid of v1",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp of v2 is greater than the timestamp of v1",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute speed difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound",
+        "implementation": "abs(v2.speed - v1.speed) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 9.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The acceleration implied by two consecutive contexts of the same vehicle is bounded within a physically reasonable range.",
+      "goal": "Detect abrupt and physically implausible changes in taxi speed between consecutive records, which may indicate sensor errors, GPS noise, or corrupted speed readings.",
+      "design_rationale": "A taxi cannot increase or decrease its speed beyond realistic acceleration or braking limits over the time interval between consecutive driving-state reports. Bounding the implied acceleration helps ensure temporal consistency of the recorded speed values for each vehicle."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, and the timestamp of v2 is greater than the timestamp of v1, then the absolute speed difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the grpid of v2 immediately follows the grpid of v1",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp of v2 is greater than the timestamp of v1",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute speed difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound",
+        "implementation": "(abs((v2.speed - v1.speed)) ÷ (v2.timestamp - v1.timestamp)) <= 9.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

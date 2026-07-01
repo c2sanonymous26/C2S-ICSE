@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a non-negative speed value.",
+    "goal": "Detect contexts with physically impossible negative speeds.",
+    "design_rationale": "Vehicle speed should never be negative in a valid trajectory record."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be non-negative."
+}

@@ -1,0 +1,1211 @@
+{
+  "summary": {
+    "total_constraints": 50,
+    "passed_constraints": 50,
+    "failed_constraints": 0,
+    "pass_rate": 100.0,
+    "failed_constraint_names": []
+  },
+  "details": [
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the direction-change rate computed from the direction difference and timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_1"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_2"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the displacement distance computed from the coordinates of v1 and v2 and the timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_3"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the acceleration computed from the speed difference and timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_4"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v1 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_5"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the speed-change rate computed from the speed difference and timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_6"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the direction-change rate computed from the direction difference and timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_7"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the direction-change rate computed from the direction difference and timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_8"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the displacement distance computed from the coordinates of v1 and v2 and the average of the speed values of v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_9"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the displacement distance computed from v1 and v2 and the timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_10"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the displacement distance computed from v1 and v2 and the timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_11"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the ratio between the speed difference and timestamp difference computed from v1 and v2, that is, the acceleration, should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_12"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the ratio of the displacement distance to the timestamp difference, that is, the average speed, and the average of the speed values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_13"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed value of v1 is zero, then the absolute difference between the direction value of v1 and the direction value of the previous context v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_14"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_15"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the average of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_16"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the average of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_17"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the displacement distance computed from the coordinates of v1 and v2 and the average of the speed values of v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_18"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the ratio of the displacement distance to the timestamp difference, that is, the average speed, and the speed values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_19"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed value of v1 is zero, then the longitude and latitude coordinates of v1 should be identical to those of the previous context v2.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_20"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed value of v1 is zero, then the difference between the timestamp value of v1 and that of the previous context v2 should not exceed a certain reasonable upper bound on time.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_21"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the distance between their positions computed from the coordinates should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_22"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close to each other, with the absolute time difference lying within a certain range, then their speed difference should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_23"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close to each other, with the absolute time difference lying within a certain range, then the Euclidean distance between them should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_24"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their motion directions computed from direction should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_25"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of their speed difference should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_26"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their motion directions computed from direction should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_27"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their motion directions computed from direction should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_28"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of their acceleration computed from speed difference and time difference should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_29"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of their speed-change trend computed from speed difference and time difference should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_30"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their motion directions computed from direction and the angle related to the direction of the line connecting their positions computed from coordinates should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_31"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of their speed-change rate computed from speed difference and time difference should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_32"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the direction value of v1 should be between 0 degrees and 360 degrees.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_33"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the speed value of v1 should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_34"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the longitude and latitude coordinates of v1 should lie within a geographically valid range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_35"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_36"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the speed value of v1 should be non-negative.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_37"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the grpid value of v1 should be greater than or equal to 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_38"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_39"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies bfunc2(v1))",
+      "semantics": "For any context v1, there should be a reasonable relationship between the direction value and the speed value of v1, that is, when the speed value is significantly higher than a certain threshold, the direction value should not change drastically within a short time.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_40"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any context v1, there should be a reasonable relationship between the timestamp value and the grpid value of v1, meaning that a record with a larger grpid value should also have a larger timestamp value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_41"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) and bfunc2(v1))",
+      "semantics": "For any context v1, the speed value of v1 should be non-negative and should be smaller than a certain reasonable upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_42"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their motion directions computed from direction and the angle related to the direction of the line connecting their positions computed from coordinates should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_43"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the speed value of v1 and the speed value of v2 should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_44"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the average of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_45"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the average of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_46"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the average of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_47"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v1 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_48"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the maximum of the absolute differences between the displacement direction computed from the coordinates of v1 and v2 and the direction values of v1 and v2 should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_49"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the ratio between the displacement distance computed from the coordinates of v1 and v2 and the timestamp difference between v1 and v2 should lie within a certain reasonable range, and the absolute difference between that ratio and the speed value of v1 should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_50"
+    }
+  ]
+}

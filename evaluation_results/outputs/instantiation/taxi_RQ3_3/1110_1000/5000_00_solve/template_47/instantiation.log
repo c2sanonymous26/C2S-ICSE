@@ -1,0 +1,35 @@
+============================ 1110_1000/template_47 (5000_00_solve) instantiation starts =============================
+- scenario: taxi
+- template: 1110_1000/template_47
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0030074119567871094 seconds
+Constructed ctx data in 3.814697265625e-05 seconds
+Loaded data field types in 0.0006017684936523438 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.002058744430541992 seconds
+Set solve data in 0.0008776187896728516 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005679130554199219 seconds
+Constructed main constraint in 104.8321008682251 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-1, 1), '_N_THRESHOLD_2': Fraction(-1, 1)}
+        - solved in 0.0015079975128173828 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-3, 2), '_N_THRESHOLD_2': Fraction(-1, 2)}
+        - solved in 0.0012044906616210938 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-5, 4), '_N_THRESHOLD_2': Fraction(-5, 4)}
+        - solved in 0.0014600753784179688 seconds
+1110_1000/template_47 (5000_00_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+=========================== 1110_1000/template_47 (5000_00_solve) instantiation completes ===========================
+Total instantiation time: 104.90 seconds

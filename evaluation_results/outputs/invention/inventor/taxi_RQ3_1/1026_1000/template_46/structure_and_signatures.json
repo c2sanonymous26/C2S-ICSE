@@ -1,0 +1,37 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1."
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v2",
+        "v3"
+      ],
+      "semantics": "v3 is the previous context of v2."
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The direction-angle variation among v1, v2, and v3 does not exceed a certain reasonable stationary error range."
+    }
+  ]
+}

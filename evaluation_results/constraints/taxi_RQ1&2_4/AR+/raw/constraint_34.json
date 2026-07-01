@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "le",
+  "target_col": "timestamp_1",
+  "status": "success_simple_constraint",
+  "assertion": "sub(mul(timestamp_2, longitude_1), sin(timestamp_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 221.3328835964203,
+  "asrtm_time": 219.18597960472107,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0006000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

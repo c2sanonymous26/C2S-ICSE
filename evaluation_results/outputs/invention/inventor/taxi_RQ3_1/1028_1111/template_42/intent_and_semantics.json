@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive same-vehicle contexts should not combine a large direction change with a high average speed.",
+    "goal": "Detect adjacent contexts whose heading change and mean speed together exceed a plausible joint bound.",
+    "design_rationale": "A rapid movement segment should not simultaneously show an extreme heading shift, so the product of angle change and average speed should remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the product of the absolute difference in direction angle between v1 and v2 and the average of their speed values should not exceed a certain reasonable upper bound."
+}

@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "total_time": 82.53035187721252,
+  "reimagine_rollback_count": 1,
+  "reimagine_attempts": [
+    {
+      "attempt_number": 1,
+      "result": "duplicate",
+      "duplicate_with": "constraint_7",
+      "time_cost": 31.50499987602234,
+      "semantics": {
+        "time_cost": 5.013938903808594,
+        "semantic_duplicate_count": 0,
+        "llm_call_count": 1
+      },
+      "rewrites": [
+        {
+          "attempt_number": 1,
+          "result": "success",
+          "time_cost": 26.39044499397278,
+          "sas_stats": {
+            "time_cost": 6.958452939987183,
+            "syntax_error_count": 0,
+            "semantic_error_count": 0,
+            "llm_call_count": 1
+          },
+          "impl_stats": {
+            "time_cost": 19.431941270828247,
+            "syntax_error_count": 0,
+            "consistency_error_count": 0,
+            "unit_error_count": 0,
+            "llm_call_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "attempt_number": 2,
+      "result": "success",
+      "duplicate_with": null,
+      "time_cost": 51.02260088920593,
+      "semantics": {
+        "time_cost": 12.81658387184143,
+        "semantic_duplicate_count": 1,
+        "llm_call_count": 2
+      },
+      "rewrites": [
+        {
+          "attempt_number": 1,
+          "result": "success",
+          "time_cost": 31.008207082748413,
+          "sas_stats": {
+            "time_cost": 7.335767030715942,
+            "syntax_error_count": 0,
+            "semantic_error_count": 0,
+            "llm_call_count": 1
+          },
+          "impl_stats": {
+            "time_cost": 23.672412157058716,
+            "syntax_error_count": 0,
+            "consistency_error_count": 0,
+            "unit_error_count": 0,
+            "llm_call_count": 1
+          }
+        }
+      ]
+    }
+  ]
+}

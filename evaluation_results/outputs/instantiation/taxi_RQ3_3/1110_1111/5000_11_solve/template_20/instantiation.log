@@ -1,0 +1,45 @@
+============================================================ 1110_1111/template_20 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1110_1111/template_20
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0017480850219726562 seconds
+Constructed ctx data in 3.814697265625e-05 seconds
+Loaded data field types in 0.0005669593811035156 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 999660569.4854164]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 999660569.4854164]
+Approximate computed ranges for 1 threshold symbols in 0.15 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v1_timestamp) + I*im(v1_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+Theoretical computed ranges for 1 threshold symbols in 0.10 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0014569759368896484 seconds
+Set solve data in 0.0008680820465087891 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005843639373779297 seconds
+Main Constraint is always False or True
+Constructed main constraint in 0.4064183235168457 seconds
+1110_1111/template_20 (5000_11_solve) has 0 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1110_1111/template_20 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 0.70 seconds

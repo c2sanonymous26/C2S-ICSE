@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should not change direction by an implausibly large angle.",
+    "goal": "Detect abrupt heading jumps between adjacent contexts of the same vehicle.",
+    "design_rationale": "A vehicle's heading should evolve smoothly across consecutive observations, so an extreme direction-angle change suggests inconsistent or noisy trajectory data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in direction angle between v1 and v2 should not exceed a certain reasonable upper bound for angle change."
+}

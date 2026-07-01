@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the heading change rate to the next consecutive context is bounded.",
+    "goal": "Detect high-speed contexts followed by an implausibly fast heading change.",
+    "design_rationale": "A vehicle traveling at high speed cannot rotate rapidly; an excessively fast angular velocity following a high-speed context indicates a sensor anomaly."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, the ratio of the absolute heading difference between v1 and the next context v2 to their timestamp difference does not exceed a certain reasonable angular velocity upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 80"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next consecutive context after v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the ratio of the absolute heading difference between v1 and v2 to their timestamp difference does not exceed a certain reasonable angular velocity upper bound",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

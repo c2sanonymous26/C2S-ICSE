@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should remain within a reasonable timestamp gap relative to the previous context.",
+    "goal": "Detect high-speed contexts whose elapsed time from the previous context is implausibly large.",
+    "design_rationale": "A valid local transition around a high-speed context should still preserve a realistic time gap to the previous context."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the difference between the timestamp value of v1 and that of its previous context v2 should not exceed a certain reasonable upper bound on time."
+}

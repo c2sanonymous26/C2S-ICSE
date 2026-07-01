@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "mul(abs(sub(sub(log(speed), max(direction, 27122.143)), sin(div(-60777.944, speed)))), 62277.704)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.5068747997283936,
+  "asrtm_time": 0.44740796089172363,
+  "predm_time": 0.05780601501464844,
+  "asrt_info": {
+    "fitness": 0.0014,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should have an id value within a reasonable range.",
+    "goal": "Detect records whose id value falls outside the expected range.",
+    "design_rationale": "The id field should stay within a valid range under this rule."
+  },
+  "semantics": "For any context v1, the id of v1 must lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The id of v1 lies within a certain range.",
+      "implementation": "v1.id >= 1 && v1.id <= NTHRESHOLD1 ",
+      "restrictions": []
+    }
+  ]
+}

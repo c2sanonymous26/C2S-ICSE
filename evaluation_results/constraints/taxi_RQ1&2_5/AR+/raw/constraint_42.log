@@ -1,0 +1,47 @@
+2025-12-28 21:42:52,640 - INFO - ======================================================================
+2025-12-28 21:42:52,640 - INFO - Starting run 42/50
+2025-12-28 21:42:52,640 - INFO - Mode: pairwise, Comparison: le
+2025-12-28 21:42:52,640 - INFO - **********************************************************************
+2025-12-28 21:42:52,645 - INFO - Starting to create Cartesian product dataset, original data shape: (5042, 7)
+2025-12-28 21:43:03,379 - INFO - Cartesian product completed, new data shape: (25421764, 14)
+2025-12-28 21:43:04,451 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 21:43:04,452 - INFO - Assertion mining DataFrame shape: (25421764, 10)
+2025-12-28 21:43:06,216 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 21:43:06,216 - INFO - Precondition mining DataFrame shape: (25421764, 14)
+2025-12-28 21:43:06,324 - INFO - **********************************************************************
+2025-12-28 21:43:06,324 - INFO - **********************************************************************
+2025-12-28 21:43:06,324 - INFO - Target field: longitude_1 (selected from 10 candidates)
+2025-12-28 21:43:06,324 - INFO - **********************************************************************
+2025-12-28 21:43:06,324 - INFO - Timeout: 3600 seconds
+2025-12-28 21:43:06,324 - INFO - **********************************************************************
+2025-12-28 21:43:06,324 - INFO - Starting assertion mining...
+2025-12-28 21:43:06,833 - INFO - Target: longitude_1 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 21:43:06,833 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-28 21:43:06,834 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-28 21:46:43,698 - INFO - Batch 0 training completed, current best fitness: 0.294598060
+2025-12-28 21:46:43,698 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-28 21:50:18,994 - INFO - Batch 1 training completed, current best fitness: 0.022844892
+2025-12-28 21:50:18,995 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-28 21:53:55,493 - INFO - Batch 2 training completed, current best fitness: 0.009075352
+2025-12-28 21:53:55,494 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-28 21:57:25,845 - INFO - Batch 3 training completed, current best fitness: 0.009075352
+2025-12-28 21:57:25,846 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-28 21:57:25,846 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-28 22:00:56,981 - INFO - Batch 4 training completed, current best fitness: 0.009075352
+2025-12-28 22:00:56,982 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-28 22:00:56,982 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-28 22:04:34,219 - INFO - Batch 5 training completed, current best fitness: 0.003660220
+2025-12-28 22:04:34,219 - INFO - Target 'longitude_1' constraint discovery completed normally
+2025-12-28 22:04:34,219 - INFO - Generations completed: 6
+2025-12-28 22:04:34,226 - INFO - Assertion mining completed, assertion: mul(log(longitude_2), sqrt(mul(log(longitude_2), mul(log(longitude_2), sqrt(mul(log(longitude_2), sqrt(-27461.682))))))) (fitness: 0.003660220)
+2025-12-28 22:04:34,227 - INFO - **********************************************************************
+2025-12-28 22:04:34,227 - INFO - **********************************************************************
+2025-12-28 22:04:34,227 - INFO - Starting assertion validation...
+2025-12-28 22:04:34,751 - INFO - Assertion: mul(log(longitude_2), sqrt(mul(log(longitude_2), mul(log(longitude_2), sqrt(mul(log(longitude_2), sqrt(-27461.682))))))), Comparison: le
+2025-12-28 22:04:36,695 - INFO - Assertion validation completed, fit rate: 1.0000 (25421764/25421764)
+2025-12-28 22:04:36,696 - INFO - **********************************************************************
+2025-12-28 22:04:36,696 - INFO - **********************************************************************
+2025-12-28 22:04:36,696 - INFO - Skipping precondition mining due to complexity exploison.
+2025-12-28 22:04:36,696 - INFO - **********************************************************************
+2025-12-28 22:04:36,816 - INFO - Run 42 successfully generated constraint
+2025-12-28 22:04:36,816 - INFO - ======================================================================

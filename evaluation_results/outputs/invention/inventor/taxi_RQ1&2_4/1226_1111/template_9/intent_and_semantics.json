@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at significantly high speed, there should exist a preceding context of the same vehicle with a plausible acceleration rate (speed change per unit time).",
+    "goal": "Detect high-speed contexts with no preceding context that shows a physically plausible rate of speed increase.",
+    "design_rationale": "A vehicle cannot reach high speed instantaneously; the previous record must show a bounded ratio of speed difference to time elapsed, confirming a gradual and realistic speed build-up."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists another context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the ratio of the absolute speed difference between v1 and v2 to their timestamp difference does not exceed a certain reasonable range."
+}

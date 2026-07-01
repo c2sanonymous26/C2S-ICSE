@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "max(cos(neg(timestamp_2)), max(abs(direction_2), min(timestamp_2, timestamp_1)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 524.0190436840057,
+  "asrtm_time": 475.5578570365906,
+  "predm_time": 46.150773763656616,
+  "asrt_info": {
+    "fitness": 0.001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

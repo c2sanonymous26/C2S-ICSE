@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have the same coordinates as the next one-step context of the same vehicle.",
+    "goal": "Detect zero-speed contexts whose subsequent same-vehicle context implies unexpected movement.",
+    "design_rationale": "If the current context records zero speed, the immediately following one-step context should preserve the same location under this stopping rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the coordinates of v1 should be identical to those of the next context v2 from the same vehicle whose grpid value is 1 greater than that of v1.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is a context from the same vehicle whose grpid value is 1 greater than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 have identical coordinates.",
+      "implementation": "v1.latitude == v2.latitude && v1.longitude == v2.longitude",
+      "restrictions": []
+    }
+  ]
+}

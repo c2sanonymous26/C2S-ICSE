@@ -1,0 +1,122 @@
+{
+  "constraint_id": 22,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 93.82610201835632
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "For any two consecutive contexts of the same vehicle, if the distance between their GPS locations is very small, then the speed recorded in the later context is low.",
+      "goal": "Detect cases where a taxi reports a high speed despite negligible movement, indicating a sensor error or GPS jump.",
+      "design_rationale": "If a vehicle barely moves between two consecutive records, its instantaneous speed should be low. A high speed reading with negligible displacement suggests a speed sensor malfunction or GPS location error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the distance between their GPS locations (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is very small (does not exceed a certain threshold), then the speed recorded in v2 is below a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is very small (does not exceed a certain threshold)",
+        "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is below a certain upper bound",
+        "implementation": "v2.speed <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 0.005
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "For any two consecutive contexts of the same vehicle, if the distance between their GPS locations is very small, then the speed recorded in the later context is low.",
+      "goal": "Detect cases where a taxi reports a high speed despite negligible movement, indicating a sensor error or GPS jump.",
+      "design_rationale": "If a vehicle barely moves between two consecutive records, its instantaneous speed should be low. A high speed reading with negligible displacement suggests a speed sensor malfunction or GPS location error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the distance between their GPS locations (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is very small (does not exceed a certain threshold), then the speed recorded in v2 is below a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is very small (does not exceed a certain threshold)",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 0.005",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is below a certain upper bound",
+        "implementation": "v2.speed <= 0.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the geographic variation among these contexts, computed using the haversine formula, should not exceed a certain reasonable stationary error range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <exists var="v3" in="ctx1">
+          <and>
+            <and>
+              <bfunc id="2"/>
+              <bfunc id="3"/>
+            </and>
+            <bfunc id="4"/>
+          </and>
+        </exists>
+      </exists>
+    </implies>
+  </forall>
+</formula>

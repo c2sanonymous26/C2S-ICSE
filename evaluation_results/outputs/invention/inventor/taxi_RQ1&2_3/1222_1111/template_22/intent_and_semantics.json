@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS-derived displacement bearing between two consecutive contexts of the same vehicle is consistent with the average of their reported directions.",
+    "goal": "Detect consecutive contexts where the GPS-derived bearing disagrees with the average of the two recorded direction values.",
+    "design_rationale": "The displacement bearing computed from coordinates should align with the average of the direction fields across consecutive samples; a large discrepancy indicates inconsistency between the coordinate and direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the displacement bearing derived from the coordinate differences of v1 and v2 should be close to the average of the directions of v1 and v2 within a certain reasonable range."
+}

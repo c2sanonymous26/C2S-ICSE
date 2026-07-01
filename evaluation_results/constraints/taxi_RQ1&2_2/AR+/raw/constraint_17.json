@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "sub(latitude_2, mul(latitude_1, min(neg(timestamp_2), max(mul(timestamp_2, -56770.299), add(direction_1, direction_2)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 524.1329474449158,
+  "asrtm_time": 475.73460626602173,
+  "predm_time": 47.02814435958862,
+  "asrt_info": {
+    "fitness": 0.0014,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

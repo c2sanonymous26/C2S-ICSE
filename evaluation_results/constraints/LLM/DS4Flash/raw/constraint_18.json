@@ -1,0 +1,122 @@
+{
+  "constraint_id": 18,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 115.9843807220459
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "When a vehicle makes a sharp turn (large heading change) between consecutive records, its speed should be low.",
+      "goal": "Detect physically implausible high-speed sharp turns, which indicate sensor errors or GPS anomalies.",
+      "design_rationale": "In real-world driving, sharp turns are typically executed at low speeds due to safety and physical constraints. A large heading change combined with high speed is physically unrealistic and likely indicates data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the absolute circular heading difference between v1 and v2 (the smallest angular difference modulo 360) exceeds a certain threshold, then the speed recorded in v1 is below a certain upper bound and the speed recorded in v2 is below a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute circular heading difference between v1 and v2 (the smallest angular difference modulo 360) exceeds a certain threshold",
+        "implementation": "min(abs(v1.direction - v2.direction), 360 - abs(v1.direction - v2.direction)) > NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is below a certain upper bound and the speed recorded in v2 is below a certain upper bound",
+        "implementation": "v1.speed <= NTHRESHOLD2 && v2.speed <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 135.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 30.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "When a vehicle makes a sharp turn (large heading change) between consecutive records, its speed should be low.",
+      "goal": "Detect physically implausible high-speed sharp turns, which indicate sensor errors or GPS anomalies.",
+      "design_rationale": "In real-world driving, sharp turns are typically executed at low speeds due to safety and physical constraints. A large heading change combined with high speed is physically unrealistic and likely indicates data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the absolute circular heading difference between v1 and v2 (the smallest angular difference modulo 360) exceeds a certain threshold, then the speed recorded in v1 is below a certain upper bound and the speed recorded in v2 is below a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute circular heading difference between v1 and v2 (the smallest angular difference modulo 360) exceeds a certain threshold",
+        "implementation": "min(abs((v1.direction - v2.direction)), (360 - abs((v1.direction - v2.direction)))) > 135.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is below a certain upper bound and the speed recorded in v2 is below a certain upper bound",
+        "implementation": "(v1.speed <= 30.0) && (v2.speed <= 30.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

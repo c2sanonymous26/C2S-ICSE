@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should exhibit a reasonable local coordinate-change rate.",
+    "goal": "Detect contexts with implausible changes in geographic position.",
+    "design_rationale": "Valid taxi movement should not imply an excessive rate of coordinate change."
+  },
+  "semantics": "For any context v1, the rate of change in the longitude and latitude values of v1 should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The rate of change in the longitude and latitude values of v1 lies within a certain reasonable range.",
+      "implementation": "abs(v1.longitude - 0) <= 1 && abs(v1.latitude - 0) <= 1",
+      "restrictions": []
+    }
+  ]
+}

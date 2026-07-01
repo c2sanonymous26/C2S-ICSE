@@ -1,0 +1,122 @@
+{
+  "constraint_id": 16,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 121.88252520561218
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi reported as nearly stationary in two consecutive contexts should not move a significant geographic distance between those contexts.",
+      "goal": "Detect GPS jumps or inconsistent speed readings where a taxi appears to change position substantially despite both consecutive records indicating very low movement.",
+      "design_rationale": "In normal taxi operation, if the instantaneous speed readings in two consecutive records of the same taxi are sufficiently small, the vehicle should remain near the same location over that transition; a large displacement under near-zero speeds suggests GPS noise, localization failure, or sensor inconsistency."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, and both contexts have speeds that are sufficiently small, then the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+        "implementation": "abs(v1.grpid - v2.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "both v1 and v2 have speeds that are sufficiently small",
+        "implementation": "v1.speed <= NTHRESHOLD1 && v2.speed <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently small",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 5.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.1
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi reported as nearly stationary in two consecutive contexts should not move a significant geographic distance between those contexts.",
+      "goal": "Detect GPS jumps or inconsistent speed readings where a taxi appears to change position substantially despite both consecutive records indicating very low movement.",
+      "design_rationale": "In normal taxi operation, if the instantaneous speed readings in two consecutive records of the same taxi are sufficiently small, the vehicle should remain near the same location over that transition; a large displacement under near-zero speeds suggests GPS noise, localization failure, or sensor inconsistency."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, and both contexts have speeds that are sufficiently small, then the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+        "implementation": "abs((v1.grpid - v2.grpid)) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "both v1 and v2 have speeds that are sufficiently small",
+        "implementation": "(v1.speed <= 5.0) && (v2.speed <= 5.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently small",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 0.1",
+        "restrictions": []
+      }
+    ]
+  }
+}

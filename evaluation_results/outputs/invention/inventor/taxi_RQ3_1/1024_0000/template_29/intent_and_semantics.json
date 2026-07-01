@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles with similar directions at nearly the same time should still keep a reasonable minimum spatial separation.",
+    "goal": "Detect suspiciously overlapping different vehicles that also have similar direction states.",
+    "design_rationale": "Even when two vehicles have similar directions and close timestamps, they should not collapse into an unrealistically small spatial gap."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and the absolute difference in their travel direction angles lies within a certain reasonable angular range, then their geographic distance (computed using the haversine formula) should not be lower than a certain reasonable minimum distance."
+}

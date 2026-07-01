@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v1.latitude is greater than sub(min(neg(v2.direction), min(v1.timestamp, v2.direction)), tan(mul(5169.952, -57090.012))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1.latitude is greater than sub(min(neg(v2.direction), min(v1.timestamp, v2.direction)), tan(mul(5169.952, -57090.012)))",
+      "implementation": "var_bindings['v1']['latitude'] > (min((-var_bindings['v2']['direction']), min(var_bindings['v1']['timestamp'], var_bindings['v2']['direction'])) - tan((646244/125 * -14272503/250)))"
+    }
+  ]
+}

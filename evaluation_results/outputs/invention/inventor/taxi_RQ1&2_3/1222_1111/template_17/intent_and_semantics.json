@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The direction change trend across three consecutive contexts of the same vehicle is consistent, unless a significant speed change occurs.",
+    "goal": "Detect three consecutive contexts where the direction trend reverses abruptly without a corresponding speed change.",
+    "design_rationale": "A vehicle typically maintains a consistent turning direction over short intervals; a sudden reversal in direction trend without a speed change suggests erroneous direction data."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, then the direction change trend from v1 to v2 (increasing/decreasing) should be consistent with the direction change trend from v2 to v3, unless a significant speed change occurs."
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "ge",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(latitude_2, sqrt(neg(neg(latitude_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 451.57895731925964,
+  "asrtm_time": 450.3992669582367,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0035612514275619143,
+    "was_early_stopped": false,
+    "generations_completed": 2
+  }
+}

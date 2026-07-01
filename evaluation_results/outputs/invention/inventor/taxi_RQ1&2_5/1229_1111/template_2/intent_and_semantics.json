@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles that are close in time approach each other at an excessively high relative speed.",
+    "goal": "Identify pairs of different-vehicle records whose implied relative speed is unrealistically large within a short time interval.",
+    "design_rationale": "When two vehicles are observed at nearly the same time, the ratio between their spatial distance and time difference should remain below a reasonable bound; otherwise the approach speed is implausible."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the ratio of their latitude-longitude distance to their timestamp difference (i.e., relative speed) must be significantly less than some upper bound (i.e., the speed at which the two vehicles approach each other should not be too high)."
+}

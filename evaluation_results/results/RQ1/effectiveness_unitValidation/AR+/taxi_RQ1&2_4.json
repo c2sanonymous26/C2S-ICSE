@@ -1,0 +1,388 @@
+{
+  "summary": {
+    "total_constraints": 42,
+    "passed_constraints": 5,
+    "failed_constraints": 37,
+    "pass_rate": 11.9
+  },
+  "details": [
+    {
+      "constraint_name": "constraint_1",
+      "target_col": "longitude_2",
+      "cmp": "gt",
+      "assertion": "sqrt(sqrt(abs(longitude_1)))",
+      "overall_passed": true,
+      "error": null,
+      "full_expression": "longitude_2 > sqrt(sqrt(abs(longitude_1)))"
+    },
+    {
+      "constraint_name": "constraint_10",
+      "target_col": "speed",
+      "cmp": "ge",
+      "assertion": "cos(log(timestamp))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function log requires a dimensionless parameter without units, but got second",
+      "full_expression": "speed >= cos(log(timestamp))"
+    },
+    {
+      "constraint_name": "constraint_11",
+      "target_col": "speed_2",
+      "cmp": "gt",
+      "assertion": "sin(sqrt(latitude_2))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got degree ** 0.5",
+      "full_expression": "speed_2 > sin(sqrt(latitude_2))"
+    },
+    {
+      "constraint_name": "constraint_14",
+      "target_col": "direction",
+      "cmp": "le",
+      "assertion": "sqrt(max(sub(timestamp, speed), mul(latitude, timestamp)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sub requires unit-compatible arguments: second vs kilometer / hour",
+      "full_expression": "direction <= sqrt(max(sub(timestamp, speed), mul(latitude, timestamp)))"
+    },
+    {
+      "constraint_name": "constraint_15",
+      "target_col": "speed_1",
+      "cmp": "lt",
+      "assertion": "add(min(add(speed_2, timestamp_2), longitude_1), mul(latitude_1, div(latitude_2, latitude_2)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function add requires unit-compatible arguments: kilometer / hour vs second",
+      "full_expression": "speed_1 < add(min(add(speed_2, timestamp_2), longitude_1), mul(latitude_1, div(latitude_2, latitude_2)))"
+    },
+    {
+      "constraint_name": "constraint_16",
+      "target_col": "latitude",
+      "cmp": "ge",
+      "assertion": "sin(sub(sin(sin(timestamp)), direction))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got second",
+      "full_expression": "latitude >= sin(sub(sin(sin(timestamp)), direction))"
+    },
+    {
+      "constraint_name": "constraint_17",
+      "target_col": "speed",
+      "cmp": "gt",
+      "assertion": "neg(cos(log(longitude)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function log requires a dimensionless parameter without units, but got degree",
+      "full_expression": "speed > neg(cos(log(longitude)))"
+    },
+    {
+      "constraint_name": "constraint_18",
+      "target_col": "latitude_2",
+      "cmp": "ge",
+      "assertion": "neg(max(sub(tan(min(timestamp_2, timestamp_1)), cos(log(timestamp_2))), abs(abs(cos(latitude_1)))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function tan strictly requires a radian unit, but got second",
+      "full_expression": "latitude_2 >= neg(max(sub(tan(min(timestamp_2, timestamp_1)), cos(log(timestamp_2))), abs(abs(cos(latitude_1)))))"
+    },
+    {
+      "constraint_name": "constraint_19",
+      "target_col": "direction_2",
+      "cmp": "ge",
+      "assertion": "neg(add(timestamp_1, -21731.675))",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: direction_2(degree) ge assertion(second)",
+      "full_expression": "direction_2 >= neg(add(timestamp_1, -21731.675))"
+    },
+    {
+      "constraint_name": "constraint_2",
+      "target_col": "timestamp",
+      "cmp": "gt",
+      "assertion": "add(sqrt(direction), min(latitude, latitude))",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: timestamp(second) gt assertion(degree ** 0.5)",
+      "full_expression": "timestamp > add(sqrt(direction), min(latitude, latitude))"
+    },
+    {
+      "constraint_name": "constraint_20",
+      "target_col": "longitude_1",
+      "cmp": "le",
+      "assertion": "max(cos(neg(timestamp_2)), max(abs(direction_2), min(timestamp_2, timestamp_1)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function cos strictly requires a radian unit, but got second",
+      "full_expression": "longitude_1 <= max(cos(neg(timestamp_2)), max(abs(direction_2), min(timestamp_2, timestamp_1)))"
+    },
+    {
+      "constraint_name": "constraint_21",
+      "target_col": "latitude_2",
+      "cmp": "lt",
+      "assertion": "max(sin(speed_2), abs(longitude_2))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got kilometer / hour",
+      "full_expression": "latitude_2 < max(sin(speed_2), abs(longitude_2))"
+    },
+    {
+      "constraint_name": "constraint_22",
+      "target_col": "longitude_1",
+      "cmp": "lt",
+      "assertion": "abs(sub(direction_1, -19711.637))",
+      "overall_passed": true,
+      "error": null,
+      "full_expression": "longitude_1 < abs(sub(direction_1, -19711.637))"
+    },
+    {
+      "constraint_name": "constraint_23",
+      "target_col": "direction_2",
+      "cmp": "lt",
+      "assertion": "mul(longitude_2, longitude_1)",
+      "overall_passed": true,
+      "error": null,
+      "full_expression": "direction_2 < mul(longitude_2, longitude_1)"
+    },
+    {
+      "constraint_name": "constraint_25",
+      "target_col": "timestamp_1",
+      "cmp": "le",
+      "assertion": "mul(sub(19025.060, longitude_2), abs(timestamp_2))",
+      "overall_passed": true,
+      "error": null,
+      "full_expression": "timestamp_1 <= mul(sub(19025.060, longitude_2), abs(timestamp_2))"
+    },
+    {
+      "constraint_name": "constraint_28",
+      "target_col": "latitude_2",
+      "cmp": "lt",
+      "assertion": "div(abs(sqrt(div(max(timestamp_1, timestamp_2), log(longitude_2)))), log(sqrt(neg(log(longitude_2)))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function log requires a dimensionless parameter without units, but got degree",
+      "full_expression": "latitude_2 < div(abs(sqrt(div(max(timestamp_1, timestamp_2), log(longitude_2)))), log(sqrt(neg(log(longitude_2)))))"
+    },
+    {
+      "constraint_name": "constraint_3",
+      "target_col": "timestamp_2",
+      "cmp": "ge",
+      "assertion": "sqrt(direction_2)",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: timestamp_2(second) ge assertion(degree ** 0.5)",
+      "full_expression": "timestamp_2 >= sqrt(direction_2)"
+    },
+    {
+      "constraint_name": "constraint_30",
+      "target_col": "timestamp_2",
+      "cmp": "gt",
+      "assertion": "cos(div(tan(sin(longitude_2)), tan(sqrt(direction_1))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got degree",
+      "full_expression": "timestamp_2 > cos(div(tan(sin(longitude_2)), tan(sqrt(direction_1))))"
+    },
+    {
+      "constraint_name": "constraint_31",
+      "target_col": "latitude",
+      "cmp": "ge",
+      "assertion": "sin(sub(timestamp, speed))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sub requires unit-compatible arguments: second vs kilometer / hour",
+      "full_expression": "latitude >= sin(sub(timestamp, speed))"
+    },
+    {
+      "constraint_name": "constraint_32",
+      "target_col": "latitude_2",
+      "cmp": "le",
+      "assertion": "add(max(direction_2, longitude_2), cos(-10577.597))",
+      "overall_passed": true,
+      "error": null,
+      "full_expression": "latitude_2 <= add(max(direction_2, longitude_2), cos(-10577.597))"
+    },
+    {
+      "constraint_name": "constraint_33",
+      "target_col": "speed_1",
+      "cmp": "ge",
+      "assertion": "add(mul(max(sub(add(latitude_2, timestamp_2), min(speed_2, timestamp_2)), abs(add(speed_2, timestamp_1))), div(neg(log(longitude_1)), sqrt(log(timestamp_2)))), mul(log(div(sqrt(longitude_1), log(speed_2))), abs(sqrt(mul(longitude_1, longitude_1)))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function add requires unit-compatible arguments: degree vs second",
+      "full_expression": "speed_1 >= add(mul(max(sub(add(latitude_2, timestamp_2), min(speed_2, timestamp_2)), abs(add(speed_2, timestamp_1))), div(neg(log(longitude_1)), sqrt(log(timestamp_2)))), mul(log(div(sqrt(longitude_1), log(speed_2))), abs(sqrt(mul(longitude_1, longitude_1)))))"
+    },
+    {
+      "constraint_name": "constraint_34",
+      "target_col": "timestamp_1",
+      "cmp": "le",
+      "assertion": "sub(mul(timestamp_2, longitude_1), sin(timestamp_2))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got second",
+      "full_expression": "timestamp_1 <= sub(mul(timestamp_2, longitude_1), sin(timestamp_2))"
+    },
+    {
+      "constraint_name": "constraint_35",
+      "target_col": "speed",
+      "cmp": "ge",
+      "assertion": "sub(div(longitude, direction), mul(longitude, latitude))",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: speed(kilometer / hour) ge assertion(dimensionless)",
+      "full_expression": "speed >= sub(div(longitude, direction), mul(longitude, latitude))"
+    },
+    {
+      "constraint_name": "constraint_36",
+      "target_col": "direction",
+      "cmp": "le",
+      "assertion": "max(neg(mul(sin(sqrt(latitude)), mul(sub(neg(timestamp), max(speed, longitude)), cos(div(latitude, longitude))))), max(timestamp, longitude))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sin strictly requires a radian unit, but got degree ** 0.5",
+      "full_expression": "direction <= max(neg(mul(sin(sqrt(latitude)), mul(sub(neg(timestamp), max(speed, longitude)), cos(div(latitude, longitude))))), max(timestamp, longitude))"
+    },
+    {
+      "constraint_name": "constraint_37",
+      "target_col": "direction_2",
+      "cmp": "le",
+      "assertion": "sub(min(speed_2, sub(latitude_2, sqrt(longitude_2))), neg(max(timestamp_1, direction_1)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function min requires unit-compatible arguments: kilometer / hour vs degree",
+      "full_expression": "direction_2 <= sub(min(speed_2, sub(latitude_2, sqrt(longitude_2))), neg(max(timestamp_1, direction_1)))"
+    },
+    {
+      "constraint_name": "constraint_38",
+      "target_col": "speed_1",
+      "cmp": "ge",
+      "assertion": "cos(abs(latitude_1))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function cos strictly requires a radian unit, but got degree",
+      "full_expression": "speed_1 >= cos(abs(latitude_1))"
+    },
+    {
+      "constraint_name": "constraint_39",
+      "target_col": "latitude_1",
+      "cmp": "gt",
+      "assertion": "sub(min(neg(direction_2), min(timestamp_1, direction_2)), tan(mul(5169.952, -57090.012)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function min requires unit-compatible arguments: second vs degree",
+      "full_expression": "latitude_1 > sub(min(neg(direction_2), min(timestamp_1, direction_2)), tan(mul(5169.952, -57090.012)))"
+    },
+    {
+      "constraint_name": "constraint_4",
+      "target_col": "longitude_1",
+      "cmp": "gt",
+      "assertion": "mul(add(div(sub(direction_1, timestamp_1), div(timestamp_2, speed_2)), mul(div(direction_2, timestamp_1), tan(direction_1))), abs(min(sqrt(speed_1), sqrt(direction_1))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function sub requires unit-compatible arguments: degree vs second",
+      "full_expression": "longitude_1 > mul(add(div(sub(direction_1, timestamp_1), div(timestamp_2, speed_2)), mul(div(direction_2, timestamp_1), tan(direction_1))), abs(min(sqrt(speed_1), sqrt(direction_1))))"
+    },
+    {
+      "constraint_name": "constraint_40",
+      "target_col": "longitude",
+      "cmp": "le",
+      "assertion": "add(tan(latitude), sqrt(timestamp))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function tan strictly requires a radian unit, but got degree",
+      "full_expression": "longitude <= add(tan(latitude), sqrt(timestamp))"
+    },
+    {
+      "constraint_name": "constraint_41",
+      "target_col": "direction",
+      "cmp": "eq",
+      "assertion": "div(sin(-23107.089), timestamp)",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: direction(degree) eq assertion(1 / second)",
+      "full_expression": "direction == div(sin(-23107.089), timestamp)"
+    },
+    {
+      "constraint_name": "constraint_43",
+      "target_col": "latitude",
+      "cmp": "gt",
+      "assertion": "tan(sin(add(direction, timestamp)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function add requires unit-compatible arguments: degree vs second",
+      "full_expression": "latitude > tan(sin(add(direction, timestamp)))"
+    },
+    {
+      "constraint_name": "constraint_44",
+      "target_col": "timestamp_2",
+      "cmp": "gt",
+      "assertion": "add(speed_2, latitude_2)",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function add requires unit-compatible arguments: kilometer / hour vs degree",
+      "full_expression": "timestamp_2 > add(speed_2, latitude_2)"
+    },
+    {
+      "constraint_name": "constraint_45",
+      "target_col": "speed_1",
+      "cmp": "ge",
+      "assertion": "abs(div(div(direction_2, timestamp_1), neg(timestamp_1)))",
+      "overall_passed": false,
+      "error": "Comparison units are incompatible: speed_1(kilometer / hour) ge assertion(degree / second ** 2)",
+      "full_expression": "speed_1 >= abs(div(div(direction_2, timestamp_1), neg(timestamp_1)))"
+    },
+    {
+      "constraint_name": "constraint_46",
+      "target_col": "timestamp",
+      "cmp": "gt",
+      "assertion": "add(div(sqrt(add(longitude, longitude)), add(speed, log(longitude))), latitude)",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function log requires a dimensionless parameter without units, but got degree",
+      "full_expression": "timestamp > add(div(sqrt(add(longitude, longitude)), add(speed, log(longitude))), latitude)"
+    },
+    {
+      "constraint_name": "constraint_48",
+      "target_col": "latitude_1",
+      "cmp": "gt",
+      "assertion": "tan(latitude_2)",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function tan strictly requires a radian unit, but got degree",
+      "full_expression": "latitude_1 > tan(latitude_2)"
+    },
+    {
+      "constraint_name": "constraint_49",
+      "target_col": "direction",
+      "cmp": "ge",
+      "assertion": "min(speed, cos(add(max(speed, longitude), sqrt(timestamp))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function max requires unit-compatible arguments: kilometer / hour vs degree",
+      "full_expression": "direction >= min(speed, cos(add(max(speed, longitude), sqrt(timestamp))))"
+    },
+    {
+      "constraint_name": "constraint_5",
+      "target_col": "direction_2",
+      "cmp": "le",
+      "assertion": "add(max(timestamp_1, longitude_2), sub(latitude_1, longitude_1))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function max requires unit-compatible arguments: second vs degree",
+      "full_expression": "direction_2 <= add(max(timestamp_1, longitude_2), sub(latitude_1, longitude_1))"
+    },
+    {
+      "constraint_name": "constraint_50",
+      "target_col": "direction_1",
+      "cmp": "le",
+      "assertion": "min(sub(timestamp_1, log(speed_1)), timestamp_1)",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function log requires a dimensionless parameter without units, but got kilometer / hour",
+      "full_expression": "direction_1 <= min(sub(timestamp_1, log(speed_1)), timestamp_1)"
+    },
+    {
+      "constraint_name": "constraint_6",
+      "target_col": "direction_1",
+      "cmp": "ge",
+      "assertion": "add(neg(min(tan(latitude_2), mul(timestamp_2, speed_2))), log(min(cos(sub(sub(latitude_1, speed_1), div(longitude_1, longitude_1))), speed_1)))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function tan strictly requires a radian unit, but got degree",
+      "full_expression": "direction_1 >= add(neg(min(tan(latitude_2), mul(timestamp_2, speed_2))), log(min(cos(sub(sub(latitude_1, speed_1), div(longitude_1, longitude_1))), speed_1)))"
+    },
+    {
+      "constraint_name": "constraint_7",
+      "target_col": "timestamp_2",
+      "cmp": "ge",
+      "assertion": "log(neg(div(tan(timestamp_1), log(speed_1))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function tan strictly requires a radian unit, but got second",
+      "full_expression": "timestamp_2 >= log(neg(div(tan(timestamp_1), log(speed_1))))"
+    },
+    {
+      "constraint_name": "constraint_8",
+      "target_col": "latitude_2",
+      "cmp": "ge",
+      "assertion": "tan(min(min(sqrt(longitude_2), div(direction_2, timestamp_2)), log(add(latitude_1, speed_2))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function min requires unit-compatible arguments: degree ** 0.5 vs degree / second",
+      "full_expression": "latitude_2 >= tan(min(min(sqrt(longitude_2), div(direction_2, timestamp_2)), log(add(latitude_1, speed_2))))"
+    },
+    {
+      "constraint_name": "constraint_9",
+      "target_col": "timestamp_1",
+      "cmp": "le",
+      "assertion": "mul(add(add(cos(timestamp_2), add(latitude_2, timestamp_2)), min(log(direction_2), sin(latitude_1))), abs(sub(max(longitude_1, latitude_2), div(speed_1, direction_2))))",
+      "overall_passed": false,
+      "error": "Assertion unit error: Function cos strictly requires a radian unit, but got second",
+      "full_expression": "timestamp_1 <= mul(add(add(cos(timestamp_2), add(latitude_2, timestamp_2)), min(log(direction_2), sin(latitude_1))), abs(sub(max(longitude_1, latitude_2), div(speed_1, direction_2))))"
+    }
+  ]
+}

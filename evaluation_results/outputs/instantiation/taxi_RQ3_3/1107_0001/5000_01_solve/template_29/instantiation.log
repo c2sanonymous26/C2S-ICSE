@@ -1,0 +1,39 @@
+================================== 1107_0001/template_29 (5000_01_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0001/template_29
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0016252994537353516 seconds
+Constructed ctx data in 3.9577484130859375e-05 seconds
+Loaded data field types in 0.0005459785461425781 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0014014244079589844 seconds
+Set solve data in 0.0008840560913085938 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005645751953125 seconds
+Constructed main constraint in 58.927738904953 seconds
+Constructed VE constraints in 1.2636184692382812e-05 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(42, 1)}
+        - objective value: 0 out of 0
+        - solved in 0.0014657974243164062 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(43, 1)}
+        - objective value: 0 out of 0
+        - solved in 0.0010128021240234375 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(85, 2)}
+        - objective value: 0 out of 0
+        - solved in 0.0008668899536132812 seconds
+1107_0001/template_29 (5000_01_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0001/template_29 (5000_01_solve) instantiation completes =================================
+Total instantiation time: 58.97 seconds

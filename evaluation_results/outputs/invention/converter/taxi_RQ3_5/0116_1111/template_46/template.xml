@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 5 greater than that of v2, then the direction-change rate between v1 and v2, computed from direction difference and time difference, should lie within a certain reasonable range, and the speed-change rate between v1 and v2, computed from speed difference and time difference, should also lie within a certain reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <and>
+          <bfunc id="3"/>
+          <bfunc id="4"/>
+        </and>
+      </implies>
+    </forall>
+  </forall>
+</formula>

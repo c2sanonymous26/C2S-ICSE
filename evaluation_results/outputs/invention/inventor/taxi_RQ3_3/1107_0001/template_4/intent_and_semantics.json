@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The local sequence identifier should increase consistently with time.",
+    "goal": "Detect ordering information that contradicts temporal progression within a vehicle trajectory.",
+    "design_rationale": "If grpid represents within-vehicle progression, larger grpid values should correspond to later timestamps rather than break temporal order."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be positively correlated with its timestamp value, meaning that records with larger grpid values should also have larger timestamp values."
+}

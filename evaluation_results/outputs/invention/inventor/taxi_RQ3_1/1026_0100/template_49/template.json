@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "Two contexts of the same vehicle separated by one intermediate group should still imply a plausible average movement speed.",
+    "goal": "Detect two-step transitions whose displacement-over-time ratio is implausibly high even after relaxing the threshold for a grpid gap of 2.",
+    "design_rationale": "When two contexts are two group steps apart, the allowed movement bound can be relaxed to twice the single-step speed upper bound while still enforcing physically plausible vehicle motion."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the difference between the grpid values of v1 and v2 equals 2, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed twice a certain reasonable upper bound for speed.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The difference between the grpid values of v1 and v2 equals 2.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 is not 0.",
+      "implementation": "v1.timestamp != v2.timestamp",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference does not exceed twice a certain reasonable upper bound for speed.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v2.timestamp - v1.timestamp) ÷ (60 × 60)) <= NTHRESHOLD1 × 2",
+      "restrictions": []
+    }
+  ]
+}

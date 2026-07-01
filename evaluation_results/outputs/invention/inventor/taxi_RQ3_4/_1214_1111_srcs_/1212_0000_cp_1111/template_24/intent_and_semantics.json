@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A stationary context should keep the same coordinates as its previous context.",
+    "goal": "Detect zero-speed contexts whose position changes unexpectedly.",
+    "design_rationale": "When a vehicle is stationary, its coordinates should remain unchanged from the previous context."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is zero, then the longitude and latitude coordinates of v1 should be identical to those of the previous context v2."
+}

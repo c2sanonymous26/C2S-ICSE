@@ -1,0 +1,38 @@
+================================== 1107_0010/template_37 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_37
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.002781391143798828 seconds
+Constructed ctx data in 4.00543212890625e-05 seconds
+Loaded data field types in 0.0005395412445068359 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0019059181213378906 seconds
+Set solve data in 0.0008814334869384766 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005624294281005859 seconds
+Constructed main constraint in 58.086071729660034 seconds
+Constructed symbol domain constraints in 0.5732986927032471 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 7251
+    - symbol domains:
+        - _N_THRESHOLD_1: 7252
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2916311760943289, 8796093022208)}
+        - solved in 2.0207250118255615 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 4.033765077590942 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 4.035686492919922 seconds
+1107_0010/template_37 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_37 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 68.81 seconds

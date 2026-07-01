@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle with a large speed gap should still keep a bounded heading difference.",
+    "goal": "Detect same-vehicle near-consecutive contexts whose combined speed and direction change is implausible.",
+    "design_rationale": "Even when speed changes markedly across a near-consecutive transition, the heading difference should remain within a reasonable bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then when the speed difference between v1 and v2 exceeds a certain threshold, the absolute direction difference of v1 and v2 should not exceed a certain reasonable range."
+}

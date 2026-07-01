@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "sin(sub(timestamp, speed))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.579453706741333,
+  "asrtm_time": 0.5190169811248779,
+  "predm_time": 0.05854916572570801,
+  "asrt_info": {
+    "fitness": 0.0004,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

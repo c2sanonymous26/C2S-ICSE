@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should lie on the plausible road network of the city.",
+    "goal": "Detect contexts whose reported positions are off the reasonable road network.",
+    "design_rationale": "Taxi observations should correspond to locations on realistic road segments rather than arbitrary off-road coordinates."
+  },
+  "semantics": "For any context v1, the geographic location corresponding to the longitude and latitude values of v1 should lie on the reasonable road network of the city."
+}

@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the GPS distance to the previous consecutive context exceeds a minimum lower bound and the time gap is bounded.",
+    "goal": "Detect high-speed contexts whose GPS displacement from the previous context is implausibly small or whose time gap is implausibly large.",
+    "design_rationale": "A vehicle traveling at high speed must have covered a minimum GPS distance within a bounded time from the previous sample; violations indicate GPS or timing errors."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, the haversine GPS distance between v1 and the previous context v2 must be greater than a certain reasonable minimum lower bound, and the timestamp difference between v1 and v2 must be below a certain reasonable time upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous consecutive context of v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the haversine GPS distance between v1 and v2 is greater than a certain reasonable minimum lower bound",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) > NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is below a certain reasonable time upper bound",
+      "implementation": "v1.timestamp - v2.timestamp < NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

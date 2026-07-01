@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is greater than min(log(sqrt(abs(add(neg(v1.speed), mul(-11189.766, 2442.834))))), cos(v1.direction)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is greater than min(log(sqrt(abs(add(neg(v1.speed), mul(-11189.766, 2442.834))))), cos(v1.direction))",
+      "implementation": "var_bindings['v1']['timestamp'] > min((0 if abs(sqrt(abs(abs(((-var_bindings['v1']['speed']) + (-5594883/500 * 1221417/500)))))) < 1/1000 else log(abs(sqrt(abs(abs(((-var_bindings['v1']['speed']) + (-5594883/500 * 1221417/500)))))))), cos(var_bindings['v1']['direction']))"
+    }
+  ]
+}

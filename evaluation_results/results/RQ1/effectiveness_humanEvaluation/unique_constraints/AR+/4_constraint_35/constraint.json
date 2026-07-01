@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.speed is greater than or equal to sub(div(v1.longitude, v1.direction), mul(v1.longitude, v1.latitude)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.speed is greater than or equal to sub(div(v1.longitude, v1.direction), mul(v1.longitude, v1.latitude))",
+      "implementation": "var_bindings['v1']['speed'] >= ((1 if -1/1000 <= (var_bindings['v1']['direction']) <= 1/1000 else (var_bindings['v1']['longitude']) / (var_bindings['v1']['direction'])) - (var_bindings['v1']['longitude'] * var_bindings['v1']['latitude']))"
+    }
+  ]
+}

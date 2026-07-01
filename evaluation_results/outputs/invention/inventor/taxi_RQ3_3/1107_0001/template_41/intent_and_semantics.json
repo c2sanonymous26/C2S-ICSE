@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-derived position-change rate consistent with their average speed.",
+    "goal": "Detect adjacent contexts whose coordinate evolution is inconsistent with the recorded speeds.",
+    "design_rationale": "A valid local trajectory should produce a position-change rate that remains compatible with the average recorded speed across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the position-change rate computed from the coordinate differences and timestamp difference between v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The speed of each context is within a physically plausible range.",
+    "goal": "Detect contexts with abnormal speed values that exceed physical limits for road vehicles.",
+    "design_rationale": "A taxi cannot exceed a maximum physical speed on roads; extreme speed values indicate GPS noise, measurement errors, or data corruption."
+  },
+  "semantics": "For any context v1, the speed value of v1 is within a physically plausible range."
+}

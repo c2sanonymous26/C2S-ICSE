@@ -1,0 +1,56 @@
+{
+  "constraint_id": 25,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 33.46144080162048
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The instantaneous speed recorded in each taxi context does not exceed a plausible upper bound for urban taxi travel.",
+      "goal": "Detect contexts with physically implausible or operationally unrealistic speed readings that may indicate sensor malfunction, unit conversion errors, or corrupted telemetry.",
+      "design_rationale": "SmartCity monitors taxis driving on city roads, where vehicle motion is constrained by urban traffic conditions and road networks. An excessively high instantaneous speed is unlikely for a taxi operating normally in this environment and is therefore a strong anomaly signal even when other fields appear consistent."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 does not exceed a certain upper bound",
+        "implementation": "v1.speed <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 100.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The instantaneous speed recorded in each taxi context does not exceed a plausible upper bound for urban taxi travel.",
+      "goal": "Detect contexts with physically implausible or operationally unrealistic speed readings that may indicate sensor malfunction, unit conversion errors, or corrupted telemetry.",
+      "design_rationale": "SmartCity monitors taxis driving on city roads, where vehicle motion is constrained by urban traffic conditions and road networks. An excessively high instantaneous speed is unlikely for a taxi operating normally in this environment and is therefore a strong anomaly signal even when other fields appear consistent."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 does not exceed a certain upper bound",
+        "implementation": "v1.speed <= 100.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

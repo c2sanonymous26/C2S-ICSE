@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the heading change rate to the next consecutive context is bounded.",
+    "goal": "Detect high-speed contexts followed by an implausibly fast heading change.",
+    "design_rationale": "A vehicle traveling at high speed cannot rotate rapidly; an excessively fast angular velocity following a high-speed context indicates a sensor anomaly."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, the ratio of the absolute heading difference between v1 and the next context v2 to their timestamp difference does not exceed a certain reasonable angular velocity upper bound."
+}

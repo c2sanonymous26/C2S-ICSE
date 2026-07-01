@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any two consecutive contexts of the same vehicle, the ratio of the absolute heading angle difference to their timestamp difference should not exceed a certain upper limit.",
+    "goal": "Detect consecutive contexts of the same vehicle where the rate of heading angle change is implausibly high.",
+    "design_rationale": "Physical constraints limit how quickly a vehicle's heading can change; an excessively high ratio of heading angle difference to time elapsed between consecutive records suggests an erroneous direction value."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute heading angle difference between v1 and v2 to their timestamp difference does not exceed a certain upper limit."
+}

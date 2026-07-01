@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a speed value within a reasonable range.",
+    "goal": "Detect contexts with implausible speed values.",
+    "design_rationale": "Vehicle speeds should stay within realistic operating limits for the target traffic scenario."
+  },
+  "semantics": "For any context v1, the speed value of v1 should lie within a certain reasonable range."
+}

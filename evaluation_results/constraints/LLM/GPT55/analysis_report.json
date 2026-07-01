@@ -1,0 +1,614 @@
+{
+  "method": "LLM",
+  "scenario": "taxi",
+  "scope": "NS",
+  "data_file": "inputs/taxi/data/5000.csv",
+  "similarity_check": true,
+  "constraints": [
+    {
+      "constraint_id": 1,
+      "status": "converted",
+      "raw_file": "raw/constraint_1.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 105.19205498695374,
+      "files": {
+        "xml": "constraint_1.xml",
+        "py": "bfuncs_1.py"
+      }
+    },
+    {
+      "constraint_id": 2,
+      "status": "converted",
+      "raw_file": "raw/constraint_2.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 55.749744176864624,
+      "files": {
+        "xml": "constraint_2.xml",
+        "py": "bfuncs_2.py"
+      }
+    },
+    {
+      "constraint_id": 3,
+      "status": "converted",
+      "raw_file": "raw/constraint_3.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 68.19908285140991,
+      "files": {
+        "xml": "constraint_3.xml",
+        "py": "bfuncs_3.py"
+      }
+    },
+    {
+      "constraint_id": 4,
+      "status": "converted",
+      "raw_file": "raw/constraint_4.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 153.0106873512268,
+      "files": {
+        "xml": "constraint_4.xml",
+        "py": "bfuncs_4.py"
+      }
+    },
+    {
+      "constraint_id": 5,
+      "status": "converted",
+      "raw_file": "raw/constraint_5.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 132.90617489814758,
+      "files": {
+        "xml": "constraint_5.xml",
+        "py": "bfuncs_5.py"
+      }
+    },
+    {
+      "constraint_id": 6,
+      "status": "converted",
+      "raw_file": "raw/constraint_6.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 170.58791303634644,
+      "files": {
+        "xml": "constraint_6.xml",
+        "py": "bfuncs_6.py"
+      }
+    },
+    {
+      "constraint_id": 7,
+      "status": "converted",
+      "raw_file": "raw/constraint_7.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 123.22998595237732,
+      "files": {
+        "xml": "constraint_7.xml",
+        "py": "bfuncs_7.py"
+      }
+    },
+    {
+      "constraint_id": 8,
+      "status": "converted",
+      "raw_file": "raw/constraint_8.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 111.68064379692078,
+      "files": {
+        "xml": "constraint_8.xml",
+        "py": "bfuncs_8.py"
+      }
+    },
+    {
+      "constraint_id": 9,
+      "status": "converted",
+      "raw_file": "raw/constraint_9.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 157.28173303604126,
+      "files": {
+        "xml": "constraint_9.xml",
+        "py": "bfuncs_9.py"
+      }
+    },
+    {
+      "constraint_id": 10,
+      "status": "converted",
+      "raw_file": "raw/constraint_10.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 110.85264205932617,
+      "files": {
+        "xml": "constraint_10.xml",
+        "py": "bfuncs_10.py"
+      }
+    },
+    {
+      "constraint_id": 11,
+      "status": "converted",
+      "raw_file": "raw/constraint_11.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 150.3256597518921,
+      "files": {
+        "xml": "constraint_11.xml",
+        "py": "bfuncs_11.py"
+      }
+    },
+    {
+      "constraint_id": 12,
+      "status": "converted",
+      "raw_file": "raw/constraint_12.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 73.25755524635315,
+      "files": {
+        "xml": "constraint_12.xml",
+        "py": "bfuncs_12.py"
+      }
+    },
+    {
+      "constraint_id": 13,
+      "status": "converted",
+      "raw_file": "raw/constraint_13.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 42.16555595397949,
+      "files": {
+        "xml": "constraint_13.xml",
+        "py": "bfuncs_13.py"
+      }
+    },
+    {
+      "constraint_id": 14,
+      "status": "converted",
+      "raw_file": "raw/constraint_14.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 77.40435314178467,
+      "files": {
+        "xml": "constraint_14.xml",
+        "py": "bfuncs_14.py"
+      }
+    },
+    {
+      "constraint_id": 15,
+      "status": "converted",
+      "raw_file": "raw/constraint_15.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 134.14672684669495,
+      "files": {
+        "xml": "constraint_15.xml",
+        "py": "bfuncs_15.py"
+      }
+    },
+    {
+      "constraint_id": 16,
+      "status": "converted",
+      "raw_file": "raw/constraint_16.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 121.88252520561218,
+      "files": {
+        "xml": "constraint_16.xml",
+        "py": "bfuncs_16.py"
+      }
+    },
+    {
+      "constraint_id": 17,
+      "status": "converted",
+      "raw_file": "raw/constraint_17.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 129.4339210987091,
+      "files": {
+        "xml": "constraint_17.xml",
+        "py": "bfuncs_17.py"
+      }
+    },
+    {
+      "constraint_id": 18,
+      "status": "converted",
+      "raw_file": "raw/constraint_18.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 188.45377802848816,
+      "files": {
+        "xml": "constraint_18.xml",
+        "py": "bfuncs_18.py"
+      }
+    },
+    {
+      "constraint_id": 19,
+      "status": "converted",
+      "raw_file": "raw/constraint_19.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 119.882817029953,
+      "files": {
+        "xml": "constraint_19.xml",
+        "py": "bfuncs_19.py"
+      }
+    },
+    {
+      "constraint_id": 20,
+      "status": "converted",
+      "raw_file": "raw/constraint_20.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 168.27127599716187,
+      "files": {
+        "xml": "constraint_20.xml",
+        "py": "bfuncs_20.py"
+      }
+    },
+    {
+      "constraint_id": 21,
+      "status": "converted",
+      "raw_file": "raw/constraint_21.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 60.20472192764282,
+      "files": {
+        "xml": "constraint_21.xml",
+        "py": "bfuncs_21.py"
+      }
+    },
+    {
+      "constraint_id": 22,
+      "status": "converted",
+      "raw_file": "raw/constraint_22.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 75.69823670387268,
+      "files": {
+        "xml": "constraint_22.xml",
+        "py": "bfuncs_22.py"
+      }
+    },
+    {
+      "constraint_id": 23,
+      "status": "converted",
+      "raw_file": "raw/constraint_23.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 79.19453024864197,
+      "files": {
+        "xml": "constraint_23.xml",
+        "py": "bfuncs_23.py"
+      }
+    },
+    {
+      "constraint_id": 24,
+      "status": "converted",
+      "raw_file": "raw/constraint_24.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 114.93426012992859,
+      "files": {
+        "xml": "constraint_24.xml",
+        "py": "bfuncs_24.py"
+      }
+    },
+    {
+      "constraint_id": 25,
+      "status": "converted",
+      "raw_file": "raw/constraint_25.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 138.3738718032837,
+      "files": {
+        "xml": "constraint_25.xml",
+        "py": "bfuncs_25.py"
+      }
+    },
+    {
+      "constraint_id": 26,
+      "status": "converted",
+      "raw_file": "raw/constraint_26.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 78.68873023986816,
+      "files": {
+        "xml": "constraint_26.xml",
+        "py": "bfuncs_26.py"
+      }
+    },
+    {
+      "constraint_id": 27,
+      "status": "converted",
+      "raw_file": "raw/constraint_27.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 78.88326501846313,
+      "files": {
+        "xml": "constraint_27.xml",
+        "py": "bfuncs_27.py"
+      }
+    },
+    {
+      "constraint_id": 28,
+      "status": "converted",
+      "raw_file": "raw/constraint_28.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 126.80276799201965,
+      "files": {
+        "xml": "constraint_28.xml",
+        "py": "bfuncs_28.py"
+      }
+    },
+    {
+      "constraint_id": 29,
+      "status": "converted",
+      "raw_file": "raw/constraint_29.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 129.60822701454163,
+      "files": {
+        "xml": "constraint_29.xml",
+        "py": "bfuncs_29.py"
+      }
+    },
+    {
+      "constraint_id": 30,
+      "status": "converted",
+      "raw_file": "raw/constraint_30.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 180.19010186195374,
+      "files": {
+        "xml": "constraint_30.xml",
+        "py": "bfuncs_30.py"
+      }
+    },
+    {
+      "constraint_id": 31,
+      "status": "converted",
+      "raw_file": "raw/constraint_31.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 145.48854279518127,
+      "files": {
+        "xml": "constraint_31.xml",
+        "py": "bfuncs_31.py"
+      }
+    },
+    {
+      "constraint_id": 32,
+      "status": "converted",
+      "raw_file": "raw/constraint_32.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 204.56625604629517,
+      "files": {
+        "xml": "constraint_32.xml",
+        "py": "bfuncs_32.py"
+      }
+    },
+    {
+      "constraint_id": 33,
+      "status": "converted",
+      "raw_file": "raw/constraint_33.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 221.5388150215149,
+      "files": {
+        "xml": "constraint_33.xml",
+        "py": "bfuncs_33.py"
+      }
+    },
+    {
+      "constraint_id": 34,
+      "status": "converted",
+      "raw_file": "raw/constraint_34.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 187.94143104553223,
+      "files": {
+        "xml": "constraint_34.xml",
+        "py": "bfuncs_34.py"
+      }
+    },
+    {
+      "constraint_id": 35,
+      "status": "converted",
+      "raw_file": "raw/constraint_35.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 77.03923678398132,
+      "files": {
+        "xml": "constraint_35.xml",
+        "py": "bfuncs_35.py"
+      }
+    },
+    {
+      "constraint_id": 36,
+      "status": "converted",
+      "raw_file": "raw/constraint_36.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 123.38476181030273,
+      "files": {
+        "xml": "constraint_36.xml",
+        "py": "bfuncs_36.py"
+      }
+    },
+    {
+      "constraint_id": 37,
+      "status": "converted",
+      "raw_file": "raw/constraint_37.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 104.95542812347412,
+      "files": {
+        "xml": "constraint_37.xml",
+        "py": "bfuncs_37.py"
+      }
+    },
+    {
+      "constraint_id": 38,
+      "status": "converted",
+      "raw_file": "raw/constraint_38.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 98.60586500167847,
+      "files": {
+        "xml": "constraint_38.xml",
+        "py": "bfuncs_38.py"
+      }
+    },
+    {
+      "constraint_id": 39,
+      "status": "converted",
+      "raw_file": "raw/constraint_39.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 122.98769998550415,
+      "files": {
+        "xml": "constraint_39.xml",
+        "py": "bfuncs_39.py"
+      }
+    },
+    {
+      "constraint_id": 40,
+      "status": "converted",
+      "raw_file": "raw/constraint_40.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 69.85194897651672,
+      "files": {
+        "xml": "constraint_40.xml",
+        "py": "bfuncs_40.py"
+      }
+    },
+    {
+      "constraint_id": 41,
+      "status": "converted",
+      "raw_file": "raw/constraint_41.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 116.95730686187744,
+      "files": {
+        "xml": "constraint_41.xml",
+        "py": "bfuncs_41.py"
+      }
+    },
+    {
+      "constraint_id": 42,
+      "status": "converted",
+      "raw_file": "raw/constraint_42.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 90.46165800094604,
+      "files": {
+        "xml": "constraint_42.xml",
+        "py": "bfuncs_42.py"
+      }
+    },
+    {
+      "constraint_id": 43,
+      "status": "converted",
+      "raw_file": "raw/constraint_43.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 130.78700876235962,
+      "files": {
+        "xml": "constraint_43.xml",
+        "py": "bfuncs_43.py"
+      }
+    },
+    {
+      "constraint_id": 44,
+      "status": "converted",
+      "raw_file": "raw/constraint_44.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 187.38697171211243,
+      "files": {
+        "xml": "constraint_44.xml",
+        "py": "bfuncs_44.py"
+      }
+    },
+    {
+      "constraint_id": 45,
+      "status": "converted",
+      "raw_file": "raw/constraint_45.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 103.79958724975586,
+      "files": {
+        "xml": "constraint_45.xml",
+        "py": "bfuncs_45.py"
+      }
+    },
+    {
+      "constraint_id": 46,
+      "status": "converted",
+      "raw_file": "raw/constraint_46.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 91.22549486160278,
+      "files": {
+        "xml": "constraint_46.xml",
+        "py": "bfuncs_46.py"
+      }
+    },
+    {
+      "constraint_id": 47,
+      "status": "converted",
+      "raw_file": "raw/constraint_47.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 106.66895508766174,
+      "files": {
+        "xml": "constraint_47.xml",
+        "py": "bfuncs_47.py"
+      }
+    },
+    {
+      "constraint_id": 48,
+      "status": "converted",
+      "raw_file": "raw/constraint_48.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 120.30935382843018,
+      "files": {
+        "xml": "constraint_48.xml",
+        "py": "bfuncs_48.py"
+      }
+    },
+    {
+      "constraint_id": 49,
+      "status": "converted",
+      "raw_file": "raw/constraint_49.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 135.38261604309082,
+      "files": {
+        "xml": "constraint_49.xml",
+        "py": "bfuncs_49.py"
+      }
+    },
+    {
+      "constraint_id": 50,
+      "status": "converted",
+      "raw_file": "raw/constraint_50.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 133.28095698356628,
+      "files": {
+        "xml": "constraint_50.xml",
+        "py": "bfuncs_50.py"
+      }
+    }
+  ],
+  "target_count": 50,
+  "existing_converted_constraints": 25,
+  "append_requested_runs": 5,
+  "successful_constraints": 50,
+  "effective_data_row_limit": 5042
+}

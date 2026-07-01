@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "ge",
+  "target_col": "latitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "add(div(longitude_2, timestamp_2), log(timestamp_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 539.4111924171448,
+  "asrtm_time": 491.92979884147644,
+  "predm_time": 46.07611155509949,
+  "asrt_info": {
+    "fitness": 0.004128470489791946,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

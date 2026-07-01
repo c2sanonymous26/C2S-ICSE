@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "When a vehicle is stationary, its coordinates should be the same as the previous context and the timestamp difference should be within a reasonable range.",
+    "goal": "Detect stationary contexts where either the coordinates differ from the previous record or the time gap is implausibly large.",
+    "design_rationale": "A stopped vehicle should remain at the same position relative to the previous record and be sampled at a regular interval; violations in either dimension indicate erroneous data."
+  },
+  "semantics": "For any context v1, if v1's speed is zero, then there exists a previous context v2 of the same vehicle such that the coordinates of v1 and v2 are the same and the absolute timestamp difference between v1 and v2 does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinates of v1 and v2 are the same",
+      "implementation": "v1.latitude == v2.latitude && v1.longitude == v2.longitude",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute timestamp difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1) implies bfunc2(v1))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is significantly higher than a certain threshold."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The direction value of v1 does not change drastically within a short time."
+    }
+  ]
+}

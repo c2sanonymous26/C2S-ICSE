@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "ge",
+  "target_col": "timestamp_1",
+  "status": "success_simple_constraint",
+  "assertion": "add(add(-35262.478, timestamp_2), longitude_2)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 2894.6841003894806,
+  "asrtm_time": 2893.2308297157288,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0005013495838794652,
+    "was_early_stopped": false,
+    "generations_completed": 13
+  }
+}

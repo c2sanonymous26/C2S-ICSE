@@ -1,0 +1,170 @@
+{
+  "constraint_id": 6,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 170.58791303634644
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The recorded direction at the later context of a moving taxi should align with the geographic bearing of its recent movement.",
+      "goal": "Detect direction readings that are inconsistent with the actual movement direction inferred from consecutive GPS positions of the same taxi.",
+      "design_rationale": "When a taxi moves a meaningful distance between consecutive contexts, the bearing from the earlier GPS location to the later GPS location should be close to the taxi's recorded heading at the later context. A large mismatch suggests compass/heading sensor errors, GPS anomalies, or incorrect record association."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, their timestamp difference is within a reliable comparison range, and the GPS displacement from v1 to v2 is sufficiently large, then the direction recorded in v2 is close to the geographic bearing from the location of v1 to the location of v2 within a certain angular tolerance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is within a reliable comparison range.",
+        "implementation": "v2.timestamp - v1.timestamp >= NTHRESHOLD1 && v2.timestamp - v1.timestamp <= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement from the location of v1 to the location of v2 is sufficiently large.",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) >= NTHRESHOLD3",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The direction recorded in v2 is close to the geographic bearing from the location of v1 to the location of v2 within a certain angular tolerance.",
+        "implementation": "abs(((v2.direction - degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) + 180) % 360) - 180) <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 5.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 60.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 0.1
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 45.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The recorded direction at the later context of a moving taxi should align with the geographic bearing of its recent movement.",
+      "goal": "Detect direction readings that are inconsistent with the actual movement direction inferred from consecutive GPS positions of the same taxi.",
+      "design_rationale": "When a taxi moves a meaningful distance between consecutive contexts, the bearing from the earlier GPS location to the later GPS location should be close to the taxi's recorded heading at the later context. A large mismatch suggests compass/heading sensor errors, GPS anomalies, or incorrect record association."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, their timestamp difference is within a reliable comparison range, and the GPS displacement from v1 to v2 is sufficiently large, then the direction recorded in v2 is close to the geographic bearing from the location of v1 to the location of v2 within a certain angular tolerance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is within a reliable comparison range.",
+        "implementation": "((v2.timestamp - v1.timestamp) >= 5.0) && ((v2.timestamp - v1.timestamp) <= 60.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement from the location of v1 to the location of v2 is sufficiently large.",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) >= 0.1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The direction recorded in v2 is close to the geographic bearing from the location of v1 to the location of v2 within a certain angular tolerance.",
+        "implementation": "abs(((((v2.direction - degrees(atan2((sin(radians((v2.longitude - v1.longitude))) × cos(radians(v2.latitude))), ((cos(radians(v1.latitude)) × sin(radians(v2.latitude))) - ((sin(radians(v1.latitude)) × cos(radians(v2.latitude))) × cos(radians((v2.longitude - v1.longitude)))))))) + 180) % 360) - 180)) <= 45.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

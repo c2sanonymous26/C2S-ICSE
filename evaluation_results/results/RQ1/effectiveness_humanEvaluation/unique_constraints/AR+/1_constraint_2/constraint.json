@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to the same vehicle (same carid), v1.speed is greater than or equal to div(cos(cos(tan(tan(sin(-43399.820))))), v2.timestamp).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle (they have the same carid)",
+      "implementation": "var_bindings['v1']['carid'] == var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1.speed is greater than or equal to div(cos(cos(tan(tan(sin(-43399.820))))), v2.timestamp)",
+      "implementation": "var_bindings['v1']['speed'] >= (1 if -1/1000 <= (var_bindings['v2']['timestamp']) <= 1/1000 else (cos(cos(tan(tan(sin(-2169991/50)))))) / (var_bindings['v2']['timestamp']))"
+    }
+  ]
+}

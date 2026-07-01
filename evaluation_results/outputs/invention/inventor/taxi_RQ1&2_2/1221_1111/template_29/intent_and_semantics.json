@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the acceleration from the previous consecutive context is bounded.",
+    "goal": "Detect high-speed contexts that were preceded by an implausibly rapid acceleration.",
+    "design_rationale": "A vehicle cannot accelerate to high speed instantaneously; an excessively large acceleration rate leading to a high-speed context indicates a speed sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, the ratio of the speed change from the previous context v2 to v1 to their timestamp difference (i.e., acceleration) does not exceed a certain reasonable upper bound."
+}

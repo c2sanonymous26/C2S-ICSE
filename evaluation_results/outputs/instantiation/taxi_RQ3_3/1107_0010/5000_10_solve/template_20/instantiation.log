@@ -1,0 +1,39 @@
+================================== 1107_0010/template_20 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_20
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0036046504974365234 seconds
+Constructed ctx data in 6.175041198730469e-05 seconds
+Loaded data field types in 0.0008752346038818359 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.00196075439453125 seconds
+Set solve data in 0.0009169578552246094 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.00069427490234375 seconds
+Constructed main constraint in 3145.5591428279877 seconds
+Constructed symbol domain constraints in 6.505796909332275 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 61
+        - (>=, _N_THRESHOLD_2): 1
+        - (>=, _N_THRESHOLD_3): 77406
+        - (>=, _N_THRESHOLD_4): 115
+        - (>=, _N_THRESHOLD_5): 1
+    - symbol domains:
+        - _N_THRESHOLD_1: 61
+        - _N_THRESHOLD_2: 1
+        - _N_THRESHOLD_3: 77407
+        - _N_THRESHOLD_4: 116
+        - _N_THRESHOLD_5: 2
+Solving iteration 1:
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 2844197.
+Solving process timeout in 3600.0 seconds
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_20 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 3600.17 seconds

@@ -1,0 +1,23 @@
+{
+  "mode": "carid_join",
+  "cmp": "eq",
+  "target_col": "direction_2",
+  "status": "success_with_preconditions",
+  "assertion": "div(div(longitude_1, mul(tan(div(timestamp_1, timestamp_2)), timestamp_1)), longitude_1)",
+  "precondition": "frozenset({'direction_2_bin_0.000000000_31.500000000'})",
+  "rule_fit_rate": 1.0,
+  "overall_time": 552.6033880710602,
+  "asrtm_time": 479.9978256225586,
+  "predm_time": 72.587158203125,
+  "asrt_info": {
+    "fitness": 0.859040141908298,
+    "was_early_stopped": true,
+    "generations_completed": 35
+  },
+  "pred_info": {
+    "rule_confidence": 1.0,
+    "rule_support": 0.15797593335390311,
+    "precondition_length": "1",
+    "description": "direction_2_bin_0.000000000_31.500000000"
+  }
+}

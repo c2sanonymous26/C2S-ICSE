@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle are separated by at least a meaningful spatial distance.",
+    "goal": "Identify consecutive same-vehicle records whose geographic distance is too small.",
+    "design_rationale": "Adjacent records of the same vehicle are expected to show a minimum amount of movement; otherwise the records may be redundant, stagnant, or inconsistent."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the latitude-longitude distance between v1 and v2 must be significantly greater than some lower bound."
+}

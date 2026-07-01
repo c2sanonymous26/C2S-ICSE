@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The absolute grpid difference between two consecutive contexts of the same vehicle is exactly 1.",
+    "goal": "Verify that the grpid ordering of consecutive contexts is consistent with the definition of consecutiveness.",
+    "design_rationale": "Consecutive contexts are defined by a grpid difference of exactly 1; any deviation indicates an inconsistency in the data grouping."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, their grpid difference must equal 1."
+}

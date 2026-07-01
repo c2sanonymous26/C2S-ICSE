@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts within a bounded timestamp gap should keep the combination of heading difference and average speed within a reasonable turning-radius limit.",
+    "goal": "Detect context pairs whose joint turning geometry is implausible.",
+    "design_rationale": "A realistic same-vehicle movement over a local time window should preserve a plausible relationship between turning sharpness and speed."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the timestamp difference between them lies within a certain range, then the product of the absolute difference between their direction angles and their average speed should not exceed a certain reasonable turning-radius limit."
+}

@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.direction is greater than or equal to div(sqrt(tan(15867.784)), v1.timestamp).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.direction is greater than or equal to div(sqrt(tan(15867.784)), v1.timestamp)",
+      "implementation": "var_bindings['v1']['direction'] >= (1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (sqrt(abs(tan(1983473/125)))) / (var_bindings['v1']['timestamp']))"
+    }
+  ]
+}

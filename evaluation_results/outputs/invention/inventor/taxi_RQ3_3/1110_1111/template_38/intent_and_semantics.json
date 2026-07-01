@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "If a one-step previous context is stopped, the next context should keep the same direction angle.",
+    "goal": "Detect stopped one-step transitions whose heading continuity is broken.",
+    "design_rationale": "When the previous context is stationary, the local heading should remain unchanged to the next one-step context under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is zero, then the direction angle of v2 should be the same as that of v1."
+}

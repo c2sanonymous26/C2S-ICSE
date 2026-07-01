@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle keep implied travel speed within both lower and upper bounds.",
+    "goal": "Identify adjacent same-vehicle records whose implied movement speed is either too low or too high.",
+    "design_rationale": "The ratio between travel distance and time difference for consecutive records should stay within a reasonable interval to reflect plausible vehicle motion."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly greater than some lower bound (i.e., the vehicle's movement speed is not lower than some lower bound), and the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly less than some upper bound (i.e., the vehicle's movement speed does not exceed some upper bound)."
+}

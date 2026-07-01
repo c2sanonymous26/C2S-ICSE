@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then when the speed of v1 is 0, the speed of v2 must also be 0, or the timestamp difference between v1 and v2 should not exceed a certain reasonable upper bound for parking time.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <implies>
+          <bfunc id="3"/>
+          <or>
+            <bfunc id="4"/>
+            <bfunc id="5"/>
+          </or>
+        </implies>
+      </implies>
+    </forall>
+  </forall>
+</formula>

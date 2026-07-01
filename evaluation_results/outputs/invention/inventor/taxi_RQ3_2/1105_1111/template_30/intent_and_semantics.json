@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should reflect locally reasonable rates of change in both speed and direction.",
+    "goal": "Detect contexts whose local motion evolution is implausible when considering both speed and heading change.",
+    "design_rationale": "A valid trajectory context should not imply abnormal simultaneous change rates in speed and direction across its adjacent transition."
+  },
+  "semantics": "For any context v1, the rates of change in the speed and direction recorded around v1 should lie within a reasonable range."
+}

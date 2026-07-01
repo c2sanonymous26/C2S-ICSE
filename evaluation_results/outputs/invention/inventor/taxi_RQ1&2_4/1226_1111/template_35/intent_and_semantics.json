@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are temporally and spatially close should have similar instantaneous speeds.",
+    "goal": "Detect spatially and temporally proximate contexts from different vehicles with implausibly large speed discrepancies.",
+    "design_rationale": "Vehicles at the same location at the same time are subject to the same traffic conditions and should exhibit similar speeds; a large speed difference between nearby, simultaneous records suggests at least one is erroneous."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, and their timestamps are close (absolute difference does not exceed a certain value), and their positions are close (based on coordinate calculation), then their instantaneous speeds should be close (absolute speed difference does not exceed a certain value)."
+}

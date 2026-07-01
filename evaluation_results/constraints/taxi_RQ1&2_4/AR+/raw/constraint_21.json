@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "lt",
+  "target_col": "latitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "max(sin(speed_2), abs(longitude_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.606489181518555,
+  "asrtm_time": 7.956514358520508,
+  "predm_time": 0.630974292755127,
+  "asrt_info": {
+    "fitness": 0.0005,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

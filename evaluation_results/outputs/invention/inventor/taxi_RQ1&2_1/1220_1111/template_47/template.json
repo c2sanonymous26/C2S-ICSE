@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "When a context has a significantly low speed, the GPS displacement to the next consecutive context of the same vehicle is bounded.",
+    "goal": "Detect GPS jumps from low-speed contexts to far-away next records.",
+    "design_rationale": "At very low speed, the vehicle should remain in a small area between consecutive records; large GPS displacements following low-speed records indicate GPS errors."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly below a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the haversine GPS displacement between v1 and v2 does not exceed a certain reasonable spatial range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is significantly below a certain threshold",
+      "implementation": "v1.speed < NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the next consecutive context after v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the haversine GPS displacement between v1 and v2 does not exceed a certain reasonable spatial range",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

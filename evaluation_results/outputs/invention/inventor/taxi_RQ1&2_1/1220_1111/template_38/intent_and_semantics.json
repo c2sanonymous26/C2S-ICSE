@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly low speed, the GPS displacement to the next consecutive context is bounded.",
+    "goal": "Detect GPS jumps following low-speed records.",
+    "design_rationale": "At very low speed, the vehicle should not move far between consecutive records; large GPS displacements from low-speed contexts indicate GPS errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly below a certain threshold, then the haversine GPS displacement between v1 and v2 does not exceed a certain reasonable spatial range."
+}

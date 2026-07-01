@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, there should be a reasonable physical relationship between the speed value of v1 and its direction value, that is, when the speed value is zero, the direction value may be ignored or remain unchanged.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <bfunc id="1"/>
+  </forall>
+</formula>

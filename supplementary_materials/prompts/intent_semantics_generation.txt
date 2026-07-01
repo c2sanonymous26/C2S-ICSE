@@ -1,0 +1,51 @@
+Here are the four key pieces of information:
+
+<scenario>
+{{scenario}}
+</scenario>
+
+<context_definitions>
+Description: {{ctx_definitions.description}}
+Schema:  
+| field name | description | type | unit |
+|------------|-------------|------|------|
+{% for name, info in ctx_definitions.fields.items() %}
+| {{ name }} | {{ info.get('description', '') | replace('|', '\\|') }} | {{ info.get('type', '') }} | {{ info.get('unit', 'String type has no unit') }} |
+{% endfor %}
+{{ ctx_definitions.explanation }}
+</context_definitions>
+
+<scope>
+{{scope}}
+</scope>
+
+<existing_constraints>
+{% for constraint in existing_constraints %}
+- {{ constraint }}
+{% endfor %}
+</existing_constraints>
+
+The Phase 1 is to generate the intent and semantics by following the requirements below.
+
+1. First, identify the constraint intent in English. The intent should articulate: the content (what the constraint checks), the goal (what the purpose of the constraint is), and the design rationale (why the constraint is designed this way for this specific scenario).
+
+2. Then, express the semantics in English clearly and concisely based on the intent. Ensure the semantics can be clearly mapped to first-order logic formulas. Use logical structures (i.e., "for any...", "there exists... such that", "if... then...", "and", "or", "not") to express relationships to facilitate accurate conversion into formalized constraint structures later. Do not use "if... then..." unless it is absolutely necessary.
+
+3. Contexts can ONLY be introduced through quantifiers (i.e., "for any..." or "there exists... such that"), for example, "for any two contexts..." or "there exists a context such that...". Other logical structures ("if... then...", "and", "or", "not") are ONLY used to connect parts. Remember to quantify over contexts themselves, not the real-world entities that generate them (e.g., quantify over 'contexts', not 'vehicles').
+
+4. When using "there exists... such that", carefully consider whether such contexts are guaranteed to exist in the context sequence. If uncertain, place the existential statement as the antecedent of an implication to provide protective conditions.
+
+5. When expressing constraints involving thresholds that you are not sure about (a.k.a, fuzzy thresholds), use DESCRIPTIVE PHRASES (e.g., "within a certain range", "sufficiently high/low", "significantly higher/lower than", etc.) to describe them instead of specifying concrete values. These fuzzy thresholds will later be instantiated based on the context sequence.
+
+6. For each context introduced by quantifiers, you can only access the fields defined in the <context_definitions> tag. Any derived concepts or properties must be computed using these fields from one or more contexts. Do not assume the existence of fields or properties that are not explicitly defined in the schema. So, for precisely expressing the semantics, consider how many contexts need to be introduced carefully.
+
+7. Do not generate semantics that are already included in the existing constraints.
+
+{% if few_shots %}
+Here are some examples of semantics that you can refer to:
+{% for shot in few_shots %}
+- {{ shot.intent_and_semantics }}
+{% endfor %}
+
+Note: While these examples provide guidance, you should not limit yourself to similar patterns. Actively explore and utilize diverse sentence structures to express semantics. Your goal is to create practically meaningful, logically sound, and structurally varied constraint semantics that capture different aspects of the context sequence.
+{% endif %}

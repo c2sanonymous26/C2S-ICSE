@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show high speed and the middle context shows low speed, the GPS-derived bearing from the first to the third context should be consistent with the middle context's direction.",
+    "goal": "Detect three consecutive contexts where the overall displacement bearing is inconsistent with the middle record's direction in a speed dip pattern.",
+    "design_rationale": "The middle low-speed record's direction should still reflect the vehicle's overall trajectory; a large discrepancy between the net bearing (v1 to v3) and the middle direction value indicates erroneous direction data in the middle record."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the displacement bearing derived from the coordinate differences of v1 and v3 should be close to v2's direction angle within a certain reasonable range."
+}

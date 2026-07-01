@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The displacement direction between adjacent contexts should stay close to the later recorded direction value.",
+    "goal": "Detect adjacent same-vehicle contexts whose displacement direction is inconsistent with the reported heading of the later context.",
+    "design_rationale": "For adjacent observations of the same vehicle, the actual displacement direction should align with the recorded heading at the later context."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v2 should not exceed a certain value."
+}

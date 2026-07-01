@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles with close timestamps should be spatially close.",
+    "goal": "Detect temporally close contexts from different vehicles that are implausibly far apart.",
+    "design_rationale": "In a dense urban environment, taxis recorded at nearly the same time tend to share road space; a large spatial distance between temporally proximate records from different vehicles suggests at least one is erroneous or mislocated."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute difference does not exceed a certain value), then their position distance does not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (absolute difference does not exceed a certain value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinate distance between v1 and v2 does not exceed a certain value",
+      "implementation": "sqrt(pow(v1.longitude - v2.longitude, 2) + pow(v1.latitude - v2.latitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinate distance between v1 and v2 does not exceed a certain (possibly tighter) value",
+      "implementation": "sqrt(pow(v1.longitude - v2.longitude, 2) + pow(v1.latitude - v2.latitude, 2)) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

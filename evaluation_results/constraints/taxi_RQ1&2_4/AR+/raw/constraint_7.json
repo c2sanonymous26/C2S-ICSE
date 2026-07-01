@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "ge",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "log(neg(div(tan(timestamp_1), log(speed_1))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 227.64178085327148,
+  "asrtm_time": 225.78707075119019,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0007,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

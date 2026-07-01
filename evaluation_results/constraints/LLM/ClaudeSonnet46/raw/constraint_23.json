@@ -1,0 +1,146 @@
+{
+  "constraint_id": 23,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 83.10596799850464
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi that accelerates substantially between two consecutive nearby-in-time contexts should not simultaneously exhibit a large heading change.",
+      "goal": "Detect implausible motion transitions where a taxi’s recorded speed rises sharply while its reported heading swings too much between consecutive records.",
+      "design_rationale": "In normal urban driving, strong acceleration usually occurs while a vehicle continues approximately along its current path rather than making an abrupt turn at the same moment. A large speed increase combined with a large direction change over a short interval is therefore a useful indicator of noisy heading measurements, GPS instability, or inconsistent state reporting."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, and the speed recorded in v2 is sufficiently larger than the speed recorded in v1, then the change in direction between v1 and v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently larger than the speed recorded in v1",
+        "implementation": "v2.speed - v1.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change in direction between v1 and v2 is within a certain range",
+        "implementation": "min(abs(v2.direction - v1.direction), 360 - abs(v2.direction - v1.direction)) <= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 40.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 20.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 90.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi that accelerates substantially between two consecutive nearby-in-time contexts should not simultaneously exhibit a large heading change.",
+      "goal": "Detect implausible motion transitions where a taxi’s recorded speed rises sharply while its reported heading swings too much between consecutive records.",
+      "design_rationale": "In normal urban driving, strong acceleration usually occurs while a vehicle continues approximately along its current path rather than making an abrupt turn at the same moment. A large speed increase combined with a large direction change over a short interval is therefore a useful indicator of noisy heading measurements, GPS instability, or inconsistent state reporting."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, and the speed recorded in v2 is sufficiently larger than the speed recorded in v1, then the change in direction between v1 and v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 40.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently larger than the speed recorded in v1",
+        "implementation": "(v2.speed - v1.speed) >= 20.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change in direction between v1 and v2 is within a certain range",
+        "implementation": "min(abs((v2.direction - v1.direction)), (360 - abs((v2.direction - v1.direction)))) <= 90.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

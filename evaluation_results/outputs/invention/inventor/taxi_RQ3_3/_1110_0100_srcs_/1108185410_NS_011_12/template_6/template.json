@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context should stay geographically close to the next context.",
+    "goal": "Detect stopped contexts whose location differs implausibly from the next context.",
+    "design_rationale": "If a vehicle is stationary, the local displacement to the next context should remain within a very small distance range."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the coordinate distance between v1 and its next context v2 computed using the haversine formula should not exceed a certain reasonable stationary-distance range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1.",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable stationary-distance range.",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

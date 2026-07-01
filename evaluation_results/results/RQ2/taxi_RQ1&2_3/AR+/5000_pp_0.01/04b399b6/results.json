@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "scenario": "taxi",
+    "constraint_dir": "constraints/taxi_RQ1&2_3/AR+",
+    "check_dir": "outputs/check/taxi_RQ1&2_3/AR+",
+    "perturbation_data_name": "5000_pp_0.01/04b399b6",
+    "pure_perturbation_incs_count": 326791,
+    "uses_perturbation_data_incs_directly": true
+  },
+  "overall_results": {
+    "involved_constraint_count": 19,
+    "incs": 326791,
+    "AUPRC": 0.415029,
+    "actual_perturbation_count": 39,
+    "suspicious_count": 5042
+  },
+  "per_constraint_results": {
+    "constraint_10": {
+      "incs": 3,
+      "AUPRC": 0.179247,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 3
+    },
+    "constraint_13": {
+      "incs": 129,
+      "AUPRC": 0.275132,
+      "actual_perturbation_count": 26,
+      "suspicious_count": 132
+    },
+    "constraint_18": {
+      "incs": 4,
+      "AUPRC": 0.237872,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 4
+    },
+    "constraint_2": {
+      "incs": 331,
+      "AUPRC": 0.591334,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 339
+    },
+    "constraint_22": {
+      "incs": 3,
+      "AUPRC": 0.334523,
+      "actual_perturbation_count": 9,
+      "suspicious_count": 3
+    },
+    "constraint_23": {
+      "incs": 65494,
+      "AUPRC": 0.592559,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 5042
+    },
+    "constraint_24": {
+      "incs": 124,
+      "AUPRC": 0.445436,
+      "actual_perturbation_count": 9,
+      "suspicious_count": 126
+    },
+    "constraint_27": {
+      "incs": 23,
+      "AUPRC": 0.373508,
+      "actual_perturbation_count": 14,
+      "suspicious_count": 29
+    },
+    "constraint_33": {
+      "incs": 24,
+      "AUPRC": 0.004363,
+      "actual_perturbation_count": 22,
+      "suspicious_count": 24
+    },
+    "constraint_35": {
+      "incs": 75089,
+      "AUPRC": 0.824108,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 5042
+    },
+    "constraint_36": {
+      "incs": 45350,
+      "AUPRC": 0.589624,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 5042
+    },
+    "constraint_4": {
+      "incs": 25017,
+      "AUPRC": 0.296121,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 5037
+    },
+    "constraint_43": {
+      "incs": 3,
+      "AUPRC": 0.334523,
+      "actual_perturbation_count": 9,
+      "suspicious_count": 3
+    },
+    "constraint_45": {
+      "incs": 24,
+      "AUPRC": 0.006148,
+      "actual_perturbation_count": 31,
+      "suspicious_count": 24
+    },
+    "constraint_46": {
+      "incs": 15030,
+      "AUPRC": 0.334546,
+      "actual_perturbation_count": 9,
+      "suspicious_count": 5042
+    },
+    "constraint_47": {
+      "incs": 40060,
+      "AUPRC": 1.0,
+      "actual_perturbation_count": 8,
+      "suspicious_count": 5042
+    },
+    "constraint_50": {
+      "incs": 60076,
+      "AUPRC": 1.0,
+      "actual_perturbation_count": 8,
+      "suspicious_count": 5042
+    },
+    "constraint_6": {
+      "incs": 3,
+      "AUPRC": 0.334523,
+      "actual_perturbation_count": 9,
+      "suspicious_count": 3
+    },
+    "constraint_7": {
+      "incs": 4,
+      "AUPRC": 0.237872,
+      "actual_perturbation_count": 17,
+      "suspicious_count": 4
+    }
+  }
+}

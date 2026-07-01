@@ -1,0 +1,140 @@
+{
+  "total_runs": 50,
+  "all_runs_stats": {
+    "mode_distribution": {
+      "carid_diff": 10,
+      "single": 17,
+      "pairwise": 14,
+      "carid_join": 9
+    },
+    "cmp_distribution": {
+      "le": 11,
+      "ge": 14,
+      "eq": 9,
+      "gt": 11,
+      "lt": 5
+    },
+    "target_col_distribution": {
+      "longitude_1": 3,
+      "speed_1": 5,
+      "direction": 4,
+      "speed_2": 2,
+      "latitude": 5,
+      "latitude_1": 3,
+      "latitude_2": 5,
+      "speed": 3,
+      "timestamp_2": 4,
+      "timestamp_1": 4,
+      "timestamp": 4,
+      "longitude_2": 1,
+      "longitude": 1,
+      "direction_1": 2,
+      "direction_2": 4
+    }
+  },
+  "all_runs_time_stats": {
+    "total_time_from_logs": 24555.068999999996,
+    "avg_time_from_logs": 491.1013799999999,
+    "successful_runs_from_logs": 42
+  },
+  "successful_constraints": 42,
+  "success_rate": 0.84,
+  "successful_constraints_stats": {
+    "status_distribution": {
+      "success_simple_constraint": 41,
+      "success_with_preconditions": 1
+    },
+    "mode_distribution": {
+      "carid_join": 9,
+      "single": 13,
+      "pairwise": 11,
+      "carid_diff": 9
+    },
+    "cmp_distribution": {
+      "ge": 14,
+      "le": 11,
+      "gt": 11,
+      "lt": 5,
+      "eq": 1
+    },
+    "target_col_distribution": {
+      "timestamp_2": 4,
+      "direction_2": 4,
+      "speed_2": 1,
+      "latitude": 3,
+      "speed_1": 4,
+      "direction": 4,
+      "latitude_2": 5,
+      "timestamp_1": 3,
+      "speed": 3,
+      "longitude": 1,
+      "longitude_1": 3,
+      "latitude_1": 2,
+      "direction_1": 2,
+      "longitude_2": 1,
+      "timestamp": 2
+    },
+    "fit_rate_stats": {
+      "perfect_fit_count": 42,
+      "avg_fit_rate": 1.0,
+      "min_fit_rate": 1.0,
+      "max_fit_rate": 1.0,
+      "fit_rates": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "time_stats": {
+      "total_time": 7716.393142700195,
+      "avg_time_among_successful": 183.72364625476655,
+      "avg_asrtm_time_among_successful": 172.84004988556816,
+      "avg_predm_time_among_successful": 10.122304450897943
+    }
+  },
+  "conversion_stats": {
+    "total_processed": 42,
+    "successful_conversions": 42,
+    "failed_conversions": 0,
+    "success_rate": 1.0
+  }
+}

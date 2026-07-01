@@ -1,0 +1,40 @@
+============================================================ 1102_0010/template_14 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1102_0010/template_14
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.006311893463134766 seconds
+Constructed ctx data in 6.508827209472656e-05 seconds
+Loaded data field types in 0.0008754730224609375 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.002552032470703125 seconds
+Set solve data in 0.0008687973022460938 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005593299865722656 seconds
+Constructed main constraint in 63.46902799606323 seconds
+Constructed symbol domain constraints in 0.4074411392211914 seconds
+    - symbol inequalities:
+        - (<=, _N_THRESHOLD_1): 2688
+        - (>=, _N_THRESHOLD_2): 2688
+    - symbol domains:
+        - _N_THRESHOLD_1: 2689
+        - _N_THRESHOLD_2: 2689
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(0, 1), '_N_THRESHOLD_2': Fraction(6708688910580761, 17592186044416)}
+        - solved in 0.6192283630371094 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.2693519592285156 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.2231919765472412 seconds
+1102_0010/template_14 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1102_0010/template_14 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 67.05 seconds

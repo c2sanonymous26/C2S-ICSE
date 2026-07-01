@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.speed is greater than mul(max(v1.timestamp, v1.latitude), add(-61079.604, 2972.119)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.speed is greater than mul(max(v1.timestamp, v1.latitude), add(-61079.604, 2972.119))",
+      "implementation": "var_bindings['v1']['speed'] > (max(var_bindings['v1']['timestamp'], var_bindings['v1']['latitude']) * (-15269901/250 + 2972119/1000))"
+    }
+  ]
+}

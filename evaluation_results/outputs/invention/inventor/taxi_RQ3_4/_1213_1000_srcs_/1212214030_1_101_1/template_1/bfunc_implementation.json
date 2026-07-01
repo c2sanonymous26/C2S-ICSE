@@ -1,0 +1,12 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.speed == 0"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD1"
+    }
+  ]
+}

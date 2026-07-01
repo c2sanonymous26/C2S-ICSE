@@ -1,0 +1,587 @@
+{
+  "summary": {
+    "total_constraints": 24,
+    "passed_constraints": 24,
+    "failed_constraints": 0,
+    "pass_rate": 100.0,
+    "failed_constraint_names": []
+  },
+  "details": [
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their direction difference to their timestamp difference does not exceed some upper bound (i.e., the vehicle's rate of direction change should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_1"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the latitude-longitude distance between v1 and v2 must be significantly greater than some lower bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_3"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the difference between the timestamp of v1 and the timestamp of v2 does not exceed some upper bound (i.e., the time interval between adjacent records should not be too long).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_4"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their direction difference to their timestamp difference (i.e., the rate of direction change) must be significantly less than some upper bound (i.e., the vehicle's direction change should not be too drastic), and the absolute direction difference between v1 and v2 must be significantly less than some upper bound (i.e., the vehicle's direction change should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_5"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their speed difference to their timestamp difference (i.e., acceleration) must be significantly less than some upper bound (i.e., the vehicle's acceleration should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_6"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their speed difference and their direction difference must be significantly less than some upper bound (i.e., the combined indicator of speed and direction variation for the two vehicles within a nearby time interval should not be too large).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_7"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any vehicle record v1, if the speed of v1 is significantly higher than some threshold, then there exists another vehicle record v2 such that v2 belongs to the same vehicle and the grpid of v2 is smaller than that of v1 by 1, and the ratio of the speed difference between v1 and v2 to their timestamp difference (i.e., deceleration) must be significantly greater than some lower bound (i.e., the vehicle should have sufficient braking capability when in a high-speed state).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_9"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the product of their latitude-longitude distance and their direction difference must be significantly less than some upper bound (i.e., the combined indicator of vehicle position change and direction change should not be too large).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_10"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their speed difference to their timestamp difference (i.e., acceleration) must be significantly less than some upper bound (i.e., the vehicle's acceleration should not be too drastic), and the absolute speed difference between v1 and v2 must be significantly less than some upper bound (i.e., the vehicle's speed change should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_11"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the product of their latitude-longitude distance and the cosine value of their direction difference must be significantly greater than some lower bound (i.e., vehicle position change should maintain reasonable consistency with direction change).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_15"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the product of their latitude-longitude distance and the sine value of their direction difference must be significantly less than some upper bound (i.e., the lateral component of vehicle position change and direction change should not be too large).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_19"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the timestamp of v1 is significantly greater than the timestamp of v2 (i.e., the time interval is sufficiently long).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_21"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles, their timestamps are close (the absolute time difference does not exceed some value), and their direction difference is significantly less than some value (i.e., the two vehicles are traveling in similar directions), then their speed difference is significantly less than some value (i.e., the two vehicles have similar speeds).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_24"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the absolute value of the difference between the speed of v1 and the speed of v2 does not exceed some upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_26"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their latitude-longitude distance to their timestamp difference does not exceed some upper bound (i.e., the vehicle's movement speed does not exceed some upper bound).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_27"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the absolute value of the difference between the direction of v1 and the direction of v2 does not exceed some upper bound (i.e., the vehicle's direction change should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_28"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be greater than some lower bound (i.e., the vehicle's movement speed is not lower than some lower bound).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_29"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly greater than some lower bound (i.e., the vehicle's movement speed is not lower than some lower bound), and the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly less than some upper bound (i.e., the vehicle's movement speed does not exceed some upper bound).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_30"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of the absolute value of the difference between the direction of v1 and the direction of v2 to their timestamp difference (i.e., the rate of direction change) does not exceed some upper bound (i.e., the vehicle's direction change should not be too drastic).",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_31"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any vehicle record v1, the direction value of v1 is between 0 degrees and 360 degrees.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_32"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any vehicle record v1, the speed value of v1 is within some reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_33"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any vehicle record v1, the latitude and longitude values of v1 are within a reasonable geographic range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_34"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any vehicle record v1, the grpid value of v1 is greater than or equal to 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_35"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any vehicle record v1, the timestamp value of v1 is greater than or equal to 0.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_36"
+    }
+  ]
+}

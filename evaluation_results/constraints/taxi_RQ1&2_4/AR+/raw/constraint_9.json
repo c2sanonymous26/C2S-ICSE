@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "timestamp_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(add(add(cos(timestamp_2), add(latitude_2, timestamp_2)), min(log(direction_2), sin(latitude_1))), abs(sub(max(longitude_1, latitude_2), div(speed_1, direction_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 532.0506136417389,
+  "asrtm_time": 482.26646518707275,
+  "predm_time": 46.51183843612671,
+  "asrt_info": {
+    "fitness": 0.0021000000000000003,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

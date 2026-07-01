@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at high speed, the next consecutive context should have a grpid exactly one greater than the current.",
+    "goal": "Detect consecutive contexts where the grpid ordering is violated while the vehicle is at high speed.",
+    "design_rationale": "The grpid field encodes the sequential order of records within a trip; when the vehicle is moving at high speed, a non-sequential grpid indicates a record ordering error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then v2's grpid should equal v1's grpid plus 1."
+}

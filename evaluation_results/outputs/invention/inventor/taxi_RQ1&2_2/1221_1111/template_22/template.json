@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The haversine-implied average speed between two consecutive contexts of the same vehicle is consistent with the average of their reported speeds.",
+    "goal": "Detect consecutive contexts where the GPS-implied average speed deviates significantly from the average reported speed.",
+    "design_rationale": "The GPS-implied average speed should match the average reported instantaneous speed; significant discrepancies indicate inconsistency between the GPS and speed sensors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the absolute difference between the average of their instantaneous speeds and the ratio of their haversine GPS distance to their timestamp difference does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute difference between the average of the instantaneous speeds of v1 and v2 and the ratio of their haversine GPS distance to their timestamp difference does not exceed a certain reasonable range",
+      "implementation": "abs(((v1.speed + v2.speed) ÷ 2) - ((6371.0 × 1000 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v2.timestamp - v1.timestamp)))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

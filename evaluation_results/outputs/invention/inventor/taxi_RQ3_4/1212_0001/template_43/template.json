@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should have geographically valid coordinates.",
+    "goal": "Detect contexts whose coordinates fall outside a valid geographic range.",
+    "design_rationale": "Trajectory coordinates should remain within valid geographic bounds rather than impossible locations."
+  },
+  "semantics": "For any context v1, the longitude and latitude coordinates of v1 should lie within a geographically valid range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The longitude and latitude coordinates of v1 lie within a geographically valid range.",
+      "implementation": "v1.latitude >= NTHRESHOLD1 && v1.latitude <= NTHRESHOLD2 && v1.longitude >= NTHRESHOLD3 && v1.longitude <= NTHRESHOLD4",
+      "restrictions": []
+    }
+  ]
+}

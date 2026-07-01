@@ -1,0 +1,38 @@
+============================================================ 1102_0010/template_18 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1102_0010/template_18
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0014176368713378906 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.000537872314453125 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.001264810562133789 seconds
+Set solve data in 0.0008759498596191406 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006003379821777344 seconds
+Constructed main constraint in 58.20019197463989 seconds
+Constructed symbol domain constraints in 0.007581233978271484 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 82
+    - symbol domains:
+        - _N_THRESHOLD_1: 83
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(94, 1)}
+        - solved in 0.0029549598693847656 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.004619121551513672 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.004055976867675781 seconds
+1102_0010/template_18 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1102_0010/template_18 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 58.26 seconds

@@ -1,0 +1,170 @@
+{
+  "constraint_id": 24,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 64.93282198905945
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi that is moving quickly and then slows down sharply by the next consecutive record should still travel roughly in the direction indicated by its earlier heading.",
+      "goal": "Detect inconsistent combinations of heading, motion, and deceleration across consecutive records of the same taxi, which can indicate GPS drift, heading sensor noise, or mismatched position updates.",
+      "design_rationale": "During a short time interval, a taxi that starts from a sufficiently high speed and slows to a sufficiently low speed will usually continue moving along approximately its original heading before coming close to a stop. If the observed displacement points in a very different direction from the earlier recorded heading, the transition is likely anomalous for SmartCity driving-state data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, and the speed recorded in v2 is sufficiently low, then the difference between the direction recorded in v1 and the travel bearing from the location in v1 to the location in v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and (bfunc4(v1, v2) and bfunc5(v1, v2))) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large",
+        "implementation": "v1.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently low",
+        "implementation": "v2.speed <= NTHRESHOLD3",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the difference between the direction recorded in v1 and the travel bearing from the location in v1 to the location in v2 is within a certain range",
+        "implementation": "min(abs(v1.direction - ((degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) + 360) % 360)), 360 - abs(v1.direction - ((degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) + 360) % 360))) <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 5.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 40.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 10.0
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 45.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi that is moving quickly and then slows down sharply by the next consecutive record should still travel roughly in the direction indicated by its earlier heading.",
+      "goal": "Detect inconsistent combinations of heading, motion, and deceleration across consecutive records of the same taxi, which can indicate GPS drift, heading sensor noise, or mismatched position updates.",
+      "design_rationale": "During a short time interval, a taxi that starts from a sufficiently high speed and slows to a sufficiently low speed will usually continue moving along approximately its original heading before coming close to a stop. If the observed displacement points in a very different direction from the earlier recorded heading, the transition is likely anomalous for SmartCity driving-state data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, and the speed recorded in v2 is sufficiently low, then the difference between the direction recorded in v1 and the travel bearing from the location in v1 to the location in v2 is within a certain range.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and (bfunc4(v1, v2) and bfunc5(v1, v2))) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 5.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large",
+        "implementation": "v1.speed >= 40.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently low",
+        "implementation": "v2.speed <= 10.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the difference between the direction recorded in v1 and the travel bearing from the location in v1 to the location in v2 is within a certain range",
+        "implementation": "min(abs((v1.direction - ((degrees(atan2((sin(radians((v2.longitude - v1.longitude))) × cos(radians(v2.latitude))), ((cos(radians(v1.latitude)) × sin(radians(v2.latitude))) - ((sin(radians(v1.latitude)) × cos(radians(v2.latitude))) × cos(radians((v2.longitude - v1.longitude))))))) + 360) % 360))), (360 - abs((v1.direction - ((degrees(atan2((sin(radians((v2.longitude - v1.longitude))) × cos(radians(v2.latitude))), ((cos(radians(v1.latitude)) × sin(radians(v2.latitude))) - ((sin(radians(v1.latitude)) × cos(radians(v2.latitude))) × cos(radians((v2.longitude - v1.longitude))))))) + 360) % 360))))) <= 45.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

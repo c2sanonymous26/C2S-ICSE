@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Between two consecutive contexts of the same vehicle, the angular difference between the coordinate displacement direction and the direction angle change direction is within a reasonable range.",
+    "goal": "Detect consecutive contexts where the GPS movement direction and the direction field change are mutually inconsistent.",
+    "design_rationale": "The direction in which the coordinates shift and the direction in which the heading field changes should be aligned; a large angular discrepancy indicates inconsistency between the coordinate and direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the angle between the coordinate displacement direction and the direction angle change direction of v1 and v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "v1.grpid + 1 == v2.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the angle between the coordinate displacement direction and the direction angle change direction of v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.direction - v1.direction)), cos(radians(v1.direction)) × cos(radians(v2.direction)) + sin(radians(v1.direction)) × sin(radians(v2.direction)))) - degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

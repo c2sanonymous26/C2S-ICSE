@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether consecutive records from the same vehicle are separated by a sufficiently large time gap.",
+    "goal": "Identify adjacent same-vehicle records whose timestamp interval is not large enough when a minimum interval is expected.",
+    "design_rationale": "In scenarios where consecutive records should be meaningfully separated in time, the timestamp difference should exceed a reasonable lower bound."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the timestamp of v1 is significantly greater than the timestamp of v2 (i.e., the time interval is sufficiently long)."
+}

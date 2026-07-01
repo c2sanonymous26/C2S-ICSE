@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v2.timestamp is greater than or equal to log(neg(div(tan(v1.timestamp), log(v1.speed)))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.timestamp is greater than or equal to log(neg(div(tan(v1.timestamp), log(v1.speed))))",
+      "implementation": "var_bindings['v2']['timestamp'] >= (0 if abs((-(1 if -1/1000 <= ((0 if abs(var_bindings['v1']['speed']) < 1/1000 else log(abs(var_bindings['v1']['speed'])))) <= 1/1000 else (tan(var_bindings['v1']['timestamp'])) / ((0 if abs(var_bindings['v1']['speed']) < 1/1000 else log(abs(var_bindings['v1']['speed']))))))) < 1/1000 else log(abs((-(1 if -1/1000 <= ((0 if abs(var_bindings['v1']['speed']) < 1/1000 else log(abs(var_bindings['v1']['speed'])))) <= 1/1000 else (tan(var_bindings['v1']['timestamp'])) / ((0 if abs(var_bindings['v1']['speed']) < 1/1000 else log(abs(var_bindings['v1']['speed'])))))))))"
+    }
+  ]
+}

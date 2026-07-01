@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is less than or equal to mul(abs(sub(sub(log(v1.speed), max(v1.direction, 27122.143)), sin(div(-60777.944, v1.speed)))), 62277.704).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is less than or equal to mul(abs(sub(sub(log(v1.speed), max(v1.direction, 27122.143)), sin(div(-60777.944, v1.speed)))), 62277.704)",
+      "implementation": "var_bindings['v1']['timestamp'] <= (abs((((0 if abs(var_bindings['v1']['speed']) < 1/1000 else log(abs(var_bindings['v1']['speed']))) - max(var_bindings['v1']['direction'], 27122143/1000)) - sin((1 if -1/1000 <= (var_bindings['v1']['speed']) <= 1/1000 else (-7597243/125) / (var_bindings['v1']['speed']))))) * 7784713/125)"
+    }
+  ]
+}

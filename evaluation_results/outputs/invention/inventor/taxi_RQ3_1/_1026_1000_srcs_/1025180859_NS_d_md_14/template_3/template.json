@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Nearby cross-vehicle contexts with similar headings should not have wildly different instantaneous speeds.",
+    "goal": "Detect different-vehicle context pairs that are close in time and direction but exhibit an implausibly large speed gap.",
+    "design_rationale": "Vehicles moving in nearly the same direction at similar times should show comparable instantaneous speeds instead of an extreme discrepancy."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and they travel in the same direction (the absolute difference between their direction angles lies within a certain reasonable angular range), then the absolute difference between their instantaneous speeds should not exceed a certain reasonable upper bound for speed difference.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their difference does not exceed a certain reasonable time interval.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 have the same travel direction, meaning the absolute difference between their direction angles lies within a certain reasonable angular range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the instantaneous speeds of v1 and v2 does not exceed a certain reasonable upper bound for speed difference.",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

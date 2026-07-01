@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time have similar speeds.",
+    "goal": "Detect speed outliers among records from different vehicles that occur at the same time.",
+    "design_rationale": "Vehicles operating at the same time should have comparable speeds under similar traffic conditions; large speed discrepancies between simultaneous records from different vehicles suggest a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then the absolute difference in their instantaneous speeds does not exceed a certain reasonable range."
+}

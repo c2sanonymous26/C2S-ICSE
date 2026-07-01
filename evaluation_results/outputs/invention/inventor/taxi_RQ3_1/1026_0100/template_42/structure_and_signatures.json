@@ -1,0 +1,12 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The geographic location corresponding to the longitude and latitude values of v1 lies on the reasonable road network of the city."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should keep a bounded angle between their speed difference and the direction of the line connecting them.",
+    "goal": "Detect cross-vehicle context pairs whose speed-difference relation is implausible relative to their relative-position direction.",
+    "design_rationale": "When two observations are close in both time and position, the relation between their speed difference and their connecting-line direction should remain within a realistic angular range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the angle between their speed difference and the direction of the line connecting their positions computed from the coordinates should not exceed a certain value."
+}

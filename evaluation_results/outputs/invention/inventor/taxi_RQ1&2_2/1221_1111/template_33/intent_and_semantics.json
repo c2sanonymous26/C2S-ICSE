@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the heading change from the previous consecutive context is bounded.",
+    "goal": "Detect stationary contexts that show an implausible heading change from the previous context.",
+    "design_rationale": "A vehicle that is stationary should have a heading consistent with the previous record; a large heading change upon becoming stationary suggests a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, the absolute heading difference between v1 and the previous consecutive context v2 does not exceed a certain reasonable range."
+}

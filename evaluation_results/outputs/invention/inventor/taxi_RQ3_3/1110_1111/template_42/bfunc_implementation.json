@@ -1,0 +1,21 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid == v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "v2.grpid == v1.grpid - 1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "v1.speed == 0 && v2.speed != 0"
+    },
+    {
+      "id": "bfunc4",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1"
+    }
+  ],
+  "reason": null
+}

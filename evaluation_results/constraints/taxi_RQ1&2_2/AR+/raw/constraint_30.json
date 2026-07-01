@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "le",
+  "target_col": "direction_2",
+  "status": "success_simple_constraint",
+  "assertion": "add(timestamp_2, direction_1)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.37388277053833,
+  "asrtm_time": 7.75446081161499,
+  "predm_time": 0.6077930927276611,
+  "asrt_info": {
+    "fitness": 0.00030000000000000003,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

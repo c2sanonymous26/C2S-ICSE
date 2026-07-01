@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The heading change between two consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect consecutive contexts with an implausibly large change in heading direction.",
+    "design_rationale": "A vehicle's heading cannot change arbitrarily between consecutive samples; an excessively large heading change indicates a heading sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the absolute heading difference does not exceed a certain reasonable upper bound."
+}

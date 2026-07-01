@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The product of direction change and average speed between two consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect consecutive contexts where a large direction change occurs simultaneously with a high speed, which is physically implausible.",
+    "design_rationale": "A high-speed vehicle cannot undergo a sharp turn between consecutive samples; the product of directional change and average speed captures this combined implausibility."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the product of the absolute direction difference and the average speed of v1 and v2 should be within a certain reasonable range."
+}

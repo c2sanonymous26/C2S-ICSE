@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.direction is less than or equal to max(neg(mul(sin(sqrt(v1.latitude)), mul(sub(neg(v1.timestamp), max(v1.speed, v1.longitude)), cos(div(v1.latitude, v1.longitude))))), max(v1.timestamp, v1.longitude)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.direction is less than or equal to max(neg(mul(sin(sqrt(v1.latitude)), mul(sub(neg(v1.timestamp), max(v1.speed, v1.longitude)), cos(div(v1.latitude, v1.longitude))))), max(v1.timestamp, v1.longitude))",
+      "implementation": "var_bindings['v1']['direction'] <= max((-(sin(sqrt(abs(var_bindings['v1']['latitude']))) * (((-var_bindings['v1']['timestamp']) - max(var_bindings['v1']['speed'], var_bindings['v1']['longitude'])) * cos((1 if -1/1000 <= (var_bindings['v1']['longitude']) <= 1/1000 else (var_bindings['v1']['latitude']) / (var_bindings['v1']['longitude'])))))), max(var_bindings['v1']['timestamp'], var_bindings['v1']['longitude']))"
+    }
+  ]
+}

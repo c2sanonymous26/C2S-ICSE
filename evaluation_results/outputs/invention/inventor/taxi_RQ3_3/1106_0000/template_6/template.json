@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should keep the difference between timestamp and grpid within a reasonable range.",
+    "goal": "Detect contexts whose timestamp and grpid become abnormally misaligned.",
+    "design_rationale": "A bounded relationship between timestamp and sequence index can reveal inconsistent or corrupted ordering information."
+  },
+  "semantics": "For any context v1, the difference between the timestamp value of v1 and its grpid value should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The difference between the timestamp value of v1 and its grpid value lies within a certain reasonable range.",
+      "implementation": "abs(v1.timestamp - v1.grpid) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

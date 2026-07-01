@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should keep a bounded angle relative to the line connecting their positions.",
+    "goal": "Detect cross-vehicle context pairs whose travel direction is implausibly inconsistent with their relative-position direction.",
+    "design_rationale": "This rule constrains how the travel direction of nearby-time observations relates to the line connecting their positions."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their travel direction and the line connecting their positions should not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "Compute the direction of the line connecting the positions of v1 and v2.",
+      "implementation": "degrees(atan2(v2.longitude - v1.longitude, v2.latitude - v1.latitude)) <= NTHRESHOLD2",
+      "restrictions": [
+        "0 <= NTHRESHOLD2 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The angle between the travel direction of v1 and v2 and the line connecting their positions does not exceed a certain value.",
+      "implementation": "abs(abs(v1.direction - degrees(atan2(v2.longitude - v1.longitude, v2.latitude - v1.latitude))) % 360) <= NTHRESHOLD3 || abs(abs(v1.direction - degrees(atan2(v2.longitude - v1.longitude, v2.latitude - v1.latitude))) % 360 - 360) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

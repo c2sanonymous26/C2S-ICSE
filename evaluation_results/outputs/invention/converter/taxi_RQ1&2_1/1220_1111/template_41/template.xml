@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, and their haversine GPS distance is within a certain reasonable spatial range, then the product of the absolute speed difference and the absolute heading difference does not exceed a certain reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1"/>
+            <bfunc id="2"/>
+          </and>
+          <and>
+            <bfunc id="3"/>
+            <bfunc id="4"/>
+          </and>
+        </and>
+        <bfunc id="5"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

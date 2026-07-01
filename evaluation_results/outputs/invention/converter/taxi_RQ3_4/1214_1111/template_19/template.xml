@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of their speed-change trend computed from speed difference and time difference should not exceed a certain value.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1"/>
+            <bfunc id="2"/>
+          </and>
+          <bfunc id="3"/>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

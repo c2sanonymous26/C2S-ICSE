@@ -1,0 +1,1220 @@
+{
+  "summary": {
+    "total_constraints": 50,
+    "passed_constraints": 42,
+    "failed_constraints": 8,
+    "pass_rate": 84.0,
+    "failed_constraint_names": [
+      "constraint_12",
+      "constraint_18",
+      "constraint_19",
+      "constraint_28",
+      "constraint_31",
+      "constraint_45",
+      "constraint_46",
+      "constraint_49"
+    ]
+  },
+  "details": [
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) and bfunc2(v1))",
+      "semantics": "For any context v1, the speed value of v1 should be non-negative and should not exceed a certain reasonable speed limit.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_1"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the direction value of v1 should be between 0° and 360°.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_2"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_3"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum timestamp.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_4"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the grpid value of v1 should be positively correlated with its timestamp value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_5"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 should not exceed a certain reasonable maximum time interval.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_6"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in direction angle between v1 and v2 should not exceed a certain reasonable upper bound for angle change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_7"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in speed between v1 and v2 should not exceed a certain reasonable upper bound for speed change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_8"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the absolute difference in direction angle between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for angular speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_9"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the geographic difference between v1 and v2 (computed using the haversine formula) should not be lower than a certain reasonable minimum distance.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_10"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in direction angle between v1 and v2 should not exceed a certain reasonable upper bound for angle change, and the absolute difference in speed between v1 and v2 should not exceed a certain reasonable upper bound for speed change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_11"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_12"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed, and the ratio between the absolute difference in speed between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for acceleration.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_13"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must not be 0.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_14"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must be greater than 0 and less than a certain reasonable maximum time interval, and the grpid difference between v1 and v2 must equal 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_15"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the absolute difference in speed between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for acceleration.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_16"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the geographic difference between v1 and v2 (computed using the haversine formula) should not be lower than a certain reasonable minimum distance, and the timestamp difference between v1 and v2 should not exceed a certain reasonable maximum time interval.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_17"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not be lower than a certain reasonable minimum speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n >= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_18"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not be lower than a certain reasonable minimum speed, and it should not exceed a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n >= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_19"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (not bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain reasonable time interval), then their geographic distance (computed using the haversine formula) should not be lower than a certain reasonable minimum distance.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_20"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain reasonable time interval), then the absolute difference in their travel direction angles should not exceed a certain reasonable angular range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_21"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the absolute difference in their speed values should not exceed a certain reasonable upper bound for speed difference.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_22"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (not bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and the absolute difference in their travel direction angles lies within a certain reasonable angular range, then their geographic distance (computed using the haversine formula) should not be lower than a certain reasonable minimum distance.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_23"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the absolute difference in their travel direction angles should not exceed a certain reasonable angular range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_24"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2) and bfunc5(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the absolute difference in their travel direction angles should not exceed a certain reasonable angular range, and the absolute difference in their speed values should not exceed a certain reasonable upper bound for speed difference.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_25"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the grpid difference between v1 and v2 must equal 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_26"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (not bfunc3(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the geographic difference between v1 and v2 (computed using the haversine formula) must not be 0.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_27"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the absolute difference in direction angle between v1 and v2 should not exceed a certain reasonable upper bound for angle change, and the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc4: Implementation Semantic Error for bfunc4:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      2\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_28"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the timestamp value of v1 should be positively correlated with its grpid value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_29"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must be greater than 0.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_30"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the absolute difference in direction angle between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for angular speed, and the ratio between the geographic difference of v1 and v2 (computed using the haversine formula) and their timestamp difference should not exceed a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc4: Implementation Semantic Error for bfunc4:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      2\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_31"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio between the absolute difference in direction angle between v1 and the previous context v2 of v1 and the timestamp difference between v1 and v2 should not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_32"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the product of their instantaneous speeds and the cosine of the difference between their direction angles should not exceed a certain reasonable upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_33"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the product of the absolute difference between their direction angles and the sum of their instantaneous speeds should not exceed a certain reasonable upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_34"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must not be 0, and the grpid difference between v1 and v2 must equal 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_35"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is 0, then the absolute difference between the direction angle of v1 and that of the previous context v2 of v1 should not exceed a certain reasonable upper bound for angle change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_36"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and they travel in the same direction (the absolute difference between their direction angles lies within a certain reasonable angular range), then the absolute difference between their instantaneous speeds should not exceed a certain reasonable upper bound for speed difference.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_37"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is 0, then the geographic distance between v1 and its previous context v2, computed using the haversine formula, should not exceed a certain reasonable stationary error range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_38"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angle of v1 and that of the previous context v2 of v1 should not exceed a certain reasonable upper bound for angle change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_39"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are two consecutive contexts of that vehicle, and the speed of v1 is 0 while the speed of v2 is not 0, then the timestamp difference between v1 and v2 should not exceed a certain reasonable upper bound for start-up time.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_40"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in the same quadrant (such as 0-90° or 90-180°), then the longitude difference and latitude difference between v1 and v2 must have the same sign.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_41"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the timestamp of v1 must be greater than the timestamp of v2.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_42"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+      "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the geographic variation among these contexts, computed using the haversine formula, should not exceed a certain reasonable stationary error range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_43"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the product of the absolute difference between their direction angles and the sum of their speed values should not exceed a certain reasonable upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_44"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio between the geographic difference of v1 and its previous context v2, computed using the haversine formula, and the timestamp difference between v1 and v2 should not exceed twice a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      1\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        2\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n <= prod_num_target_term\n  prod_num_target_mul\n    prod_num_target_threshold\n      NTHRESHOLD\n      2\n    prod_num_target_factor\n      prod_num_target_num_expr\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_literal\t2\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_45"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+      "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the direction-angle variation among these contexts should not exceed a certain reasonable stationary error range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": false,
+          "error": "Parameters mismatch for bfunc1.\nUsed but not declared parameters: ['v2', 'v3']"
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": ""
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_46"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid of v2 is smaller than that of v1 by 1, and the ratio between the geographic difference of v1 and v2, computed using the haversine formula, and their timestamp difference should not exceed a certain reasonable upper bound for speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_47"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+      "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the standard deviation of the direction-angle changes among these contexts should not exceed a certain reasonable stationary heading fluctuation range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_48"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in opposite quadrants (such as 0-90° and 180-270°), then the ratio between the haversine distance computed from v1 and v2 and their timestamp difference, namely their average speed, must be significantly lower than the larger of the instantaneous speeds of v1 and v2.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc4: Implementation Semantic Error for bfunc4:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_math_func\n              prod_math_func_abs\n                prod_num_sub\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        2\n                        timestamp\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_field\n                        prod_num_field\n                          1\n                          timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n < prod_num_target_term\n  prod_num_target_mul\n    prod_num_target_num_expr\n      prod_num_term_single\n        prod_num_factor_single\n          prod_num_factor_math_func\n            prod_math_func_max\n              prod_num_term_single\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      1\n                      speed\n              prod_num_term_single\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      speed\n    prod_num_target_factor\n      prod_num_target_threshold\n        NTHRESHOLD\n        1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_49"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the timestamp of v1 must be greater than the timestamp of v2, and the speed of v1 must be greater than or equal to the speed of v2 minus a certain reasonable lower bound for speed change.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_50"
+    }
+  ]
+}

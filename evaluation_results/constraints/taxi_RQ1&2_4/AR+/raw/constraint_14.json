@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "direction",
+  "status": "success_simple_constraint",
+  "assertion": "sqrt(max(sub(timestamp, speed), mul(latitude, timestamp)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.6175811290740967,
+  "asrtm_time": 1.5557496547698975,
+  "predm_time": 0.05962729454040527,
+  "asrt_info": {
+    "fitness": 0.0008,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

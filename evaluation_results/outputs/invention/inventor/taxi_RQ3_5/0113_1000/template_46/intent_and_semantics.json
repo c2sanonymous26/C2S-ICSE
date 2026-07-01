@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at similar times should stay consistent with both the major road direction and a bounded speed difference under this rule.",
+    "goal": "Detect temporally nearby cross-vehicle contexts that are inconsistent in both geometric alignment and speed.",
+    "design_rationale": "A plausible pair under this rule should not simultaneously violate road-direction alignment and a reasonable speed difference bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the angle between the direction of the line connecting their positions and the direction of major city roads should not exceed a certain reasonable range, and the absolute speed difference of v1 and v2 should not exceed a certain reasonable range."
+}

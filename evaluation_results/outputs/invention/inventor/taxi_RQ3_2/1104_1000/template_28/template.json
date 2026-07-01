@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should satisfy a reasonable ratio between speed difference and geographic distance.",
+    "goal": "Detect different-vehicle pairs whose joint speed-distance relationship is implausible.",
+    "design_rationale": "This rule constrains a composite quantity formed by speed difference and spatial separation for near-synchronous observations of different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the ratio between the absolute difference in their speed values and their geographic distance should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close (the difference does not exceed a certain value).",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute difference in the speed values of v1 and v2 and their geographic distance.",
+      "implementation": "abs(v1.speed - v2.speed) ÷ sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) == NTHRESHOLD4",
+      "restrictions": [
+        "0.1 <= NTHRESHOLD4 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute difference in the speed values of v1 and v2 and their geographic distance lies within a certain reasonable range.",
+      "implementation": "(abs(v1.speed - v2.speed) ÷ sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) >= NTHRESHOLD2) && (abs(v1.speed - v2.speed) ÷ sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD3)",
+      "restrictions": []
+    }
+  ]
+}

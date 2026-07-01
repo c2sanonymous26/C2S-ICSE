@@ -1,0 +1,120 @@
+{
+  "constraint_id": 23,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 129.64440298080444
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The distance between consecutive contexts of the same vehicle should be consistent with the speed recorded at the first context.",
+      "goal": "Detect contexts where a high speed is recorded but the vehicle has moved very little, indicating a possible speed sensor error or GPS anomaly.",
+      "design_rationale": "If a taxi reports a high speed, it should have traveled a significant distance between consecutive records. A small displacement despite high speed suggests an inconsistency, likely due to sensor noise or data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the speed recorded in v1 is significantly higher than a certain threshold, then the distance between the GPS locations of v1 and v2 is above a certain lower bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 is significantly higher than a certain threshold",
+        "implementation": "v1.speed > NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 is above a certain lower bound",
+        "implementation": "pow(v2.latitude - v1.latitude, 2) + pow(v2.longitude - v1.longitude, 2) > NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 80.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 5e-06
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The distance between consecutive contexts of the same vehicle should be consistent with the speed recorded at the first context.",
+      "goal": "Detect contexts where a high speed is recorded but the vehicle has moved very little, indicating a possible speed sensor error or GPS anomaly.",
+      "design_rationale": "If a taxi reports a high speed, it should have traveled a significant distance between consecutive records. A small displacement despite high speed suggests an inconsistency, likely due to sensor noise or data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the speed recorded in v1 is significantly higher than a certain threshold, then the distance between the GPS locations of v1 and v2 is above a certain lower bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 is significantly higher than a certain threshold",
+        "implementation": "v1.speed > 80.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 is above a certain lower bound",
+        "implementation": "(pow((v2.latitude - v1.latitude), 2) + pow((v2.longitude - v1.longitude), 2)) > 5e-06",
+        "restrictions": []
+      }
+    ]
+  }
+}

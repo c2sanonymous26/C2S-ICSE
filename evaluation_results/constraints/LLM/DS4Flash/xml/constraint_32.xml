@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the absolute circular heading difference between v1 and v2 exceeds a certain threshold, then the speed recorded in v2 is less than the speed recorded in v1.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

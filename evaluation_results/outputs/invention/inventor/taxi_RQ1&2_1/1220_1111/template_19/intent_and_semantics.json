@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a high speed, the speed of the next consecutive context does not increase drastically beyond it.",
+    "goal": "Detect implausible sudden speed surges following a high-speed record.",
+    "design_rationale": "A vehicle already moving at high speed cannot suddenly accelerate to a much higher speed in one time step; extreme speed jumps from an already-high base indicate measurement errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and the speed of v1 is significantly higher than a certain threshold, then the ratio of v2's speed to v1's speed does not exceed a certain reasonable range."
+}

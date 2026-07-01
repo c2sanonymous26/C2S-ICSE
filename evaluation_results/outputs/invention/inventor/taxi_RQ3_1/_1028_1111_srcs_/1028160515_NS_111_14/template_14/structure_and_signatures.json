@@ -1,0 +1,41 @@
+{
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1.grpid + 1 = v2.grpid."
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v2.grpid + 1 = v3.grpid."
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The absolute difference between the speed change from v1 to v2 and the speed change from v2 to v3 does not exceed a certain reasonable upper bound for acceleration-change smoothness."
+    }
+  ]
+}

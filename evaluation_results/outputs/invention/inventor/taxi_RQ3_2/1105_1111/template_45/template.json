@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have both a reasonable turning rate and a reasonable speed-change rate.",
+    "goal": "Detect near-consecutive contexts whose local transition is implausible in either heading evolution or speed evolution.",
+    "design_rationale": "A plausible one-step transition should remain jointly smooth in direction-angle change rate and speed-change rate."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the direction-angle change rate between v1 and v2 computed from direction angle and timestamps should lie within a certain reasonable range, and the speed-change rate between v1 and v2 computed from speed and timestamps should also lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is 1 greater than that of v2.",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The direction-angle change rate between v1 and v2 computed from direction angle and timestamps lies within a certain reasonable range.",
+      "implementation": "abs((v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed-change rate between v1 and v2 computed from speed and timestamps lies within a certain reasonable range.",
+      "implementation": "abs((v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

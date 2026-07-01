@@ -1,0 +1,22 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.direction is less than or equal to div(mul(div(-35474.792, v1.timestamp), -47343.003), v1.timestamp).",
+  "structure": "forall v1 in dataset ((bfunc1(v1) implies bfunc2(v1)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "Precondition 1: (0.000000000 <= var_bindings['v1']['direction'] <= 15.750000000)",
+      "implementation": "(0.000000000 <= var_bindings['v1']['direction'] <= 15.750000000)"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.direction is less than or equal to div(mul(div(-35474.792, v1.timestamp), -47343.003), v1.timestamp)",
+      "implementation": "var_bindings['v1']['direction'] <= (1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (((1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (-4434349/125) / (var_bindings['v1']['timestamp'])) * -47343003/1000)) / (var_bindings['v1']['timestamp']))"
+    }
+  ]
+}

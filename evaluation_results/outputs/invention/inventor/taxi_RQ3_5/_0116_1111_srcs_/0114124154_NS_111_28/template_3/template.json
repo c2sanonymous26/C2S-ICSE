@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle should keep their movement direction close to the average heading direction.",
+    "goal": "Detect same-vehicle contexts whose coordinate-change direction is inconsistent with their average heading.",
+    "design_rationale": "A realistic local transition should keep the direction implied by coordinates aligned with the average recorded heading."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the coordinate-change direction of v1 and v2 and the average of their directions should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is 1 greater than that of v2.",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the coordinate-change direction of v1 and v2 and the average of their directions does not exceed a certain reasonable range.",
+      "implementation": "abs(degrees(atan2(v1.latitude - v2.latitude, v1.longitude - v2.longitude)) - ((v1.direction + v2.direction) ÷ 2)) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

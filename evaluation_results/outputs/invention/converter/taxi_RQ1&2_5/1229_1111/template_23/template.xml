@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then their direction difference is significantly greater than some value (i.e., the travel directions of two vehicles within a nearby time interval should not be too close).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1"/>
+            <bfunc id="2"/>
+          </and>
+          <bfunc id="3"/>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

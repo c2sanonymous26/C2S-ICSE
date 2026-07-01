@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-change direction close to the average recorded direction.",
+    "goal": "Detect adjacent same-vehicle contexts whose geometric movement direction is inconsistent with the average reported heading.",
+    "design_rationale": "For a locally consistent transition, the direction implied by coordinate change should align with the average of the two recorded directions."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the average of the directions of v1 and v2 should not exceed a certain reasonable range."
+}

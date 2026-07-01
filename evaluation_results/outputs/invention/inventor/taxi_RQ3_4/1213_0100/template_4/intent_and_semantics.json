@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded acceleration magnitude.",
+    "goal": "Detect adjacent same-vehicle contexts whose acceleration is implausibly large.",
+    "design_rationale": "A physically plausible trajectory should not show excessive acceleration between adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the acceleration computed from the speed difference and timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

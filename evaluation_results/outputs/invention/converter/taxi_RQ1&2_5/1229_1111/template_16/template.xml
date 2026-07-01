@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any three vehicle records v1, v2, and v3, if they belong to the same vehicle, the grpid of v1 is greater than that of v2 by 1, and the grpid of v2 is greater than that of v3 by 1, then the ratio of the latitude-longitude distance between v1 and v2 to the latitude-longitude distance between v2 and v3 (i.e., the rate of position change) must be significantly less than some upper bound (i.e., vehicle position change should not be too drastic).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <forall var="v3" in="ctx1">
+        <implies>
+          <and>
+            <bfunc id="1"/>
+            <and>
+              <bfunc id="2"/>
+              <bfunc id="3"/>
+            </and>
+          </and>
+          <bfunc id="4"/>
+        </implies>
+      </forall>
+    </forall>
+  </forall>
+</formula>

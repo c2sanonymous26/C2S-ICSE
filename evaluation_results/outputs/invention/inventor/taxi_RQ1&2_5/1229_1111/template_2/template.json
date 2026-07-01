@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles that are close in time approach each other at an excessively high relative speed.",
+    "goal": "Identify pairs of different-vehicle records whose implied relative speed is unrealistically large within a short time interval.",
+    "design_rationale": "When two vehicles are observed at nearly the same time, the ratio between their spatial distance and time difference should remain below a reasonable bound; otherwise the approach speed is implausible."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the ratio of their latitude-longitude distance to their timestamp difference (i.e., relative speed) must be significantly less than some upper bound (i.e., the speed at which the two vehicles approach each other should not be too high).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the ratio of the latitude-longitude distance between v1 and v2 to their timestamp difference (i.e., relative speed) is significantly less than some upper bound",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

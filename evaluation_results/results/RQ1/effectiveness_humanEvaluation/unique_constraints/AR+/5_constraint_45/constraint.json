@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is greater than mul(add(-49899.432, add(-49899.432, neg(v1.direction))), -12619.258).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is greater than mul(add(-49899.432, add(-49899.432, neg(v1.direction))), -12619.258)",
+      "implementation": "var_bindings['v1']['timestamp'] > ((-6237429/125 + (-6237429/125 + (-var_bindings['v1']['direction']))) * -6309629/500)"
+    }
+  ]
+}

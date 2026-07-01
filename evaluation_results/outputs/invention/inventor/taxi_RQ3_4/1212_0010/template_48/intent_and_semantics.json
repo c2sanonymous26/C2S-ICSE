@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should not be associated with a drastic short-term change in direction.",
+    "goal": "Detect contexts whose speed and direction jointly indicate implausible motion behavior.",
+    "design_rationale": "At high speed, a vehicle should not undergo an abrupt heading change within a short time under normal motion conditions."
+  },
+  "semantics": "For any context v1, there should be a reasonable relationship between the direction value and the speed value of v1, that is, when the speed value is significantly higher than a certain threshold, the direction value should not change drastically within a short time."
+}

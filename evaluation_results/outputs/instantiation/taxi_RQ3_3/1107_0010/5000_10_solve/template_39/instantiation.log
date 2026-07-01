@@ -1,0 +1,38 @@
+================================== 1107_0010/template_39 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_39
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.002782106399536133 seconds
+Constructed ctx data in 4.1961669921875e-05 seconds
+Loaded data field types in 0.0005347728729248047 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0018737316131591797 seconds
+Set solve data in 0.0008847713470458984 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005729198455810547 seconds
+Constructed main constraint in 58.383652687072754 seconds
+Constructed symbol domain constraints in 0.2806820869445801 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3610
+    - symbol domains:
+        - _N_THRESHOLD_1: 3611
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(3318114719557157, 36028797018963968)}
+        - solved in 0.5322737693786621 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.0949819087982178 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0886049270629883 seconds
+1107_0010/template_39 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_39 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 61.43 seconds

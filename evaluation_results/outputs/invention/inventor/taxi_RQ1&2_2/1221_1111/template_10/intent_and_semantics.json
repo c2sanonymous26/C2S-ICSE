@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the heading change to the next consecutive context is bounded.",
+    "goal": "Detect high-speed contexts followed by an implausibly large heading change.",
+    "design_rationale": "A vehicle traveling at high speed cannot make sharp turns; a large heading change immediately following a high-speed record indicates a sensor anomaly."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the absolute heading difference between v1 and v2 does not exceed a certain reasonable upper bound."
+}

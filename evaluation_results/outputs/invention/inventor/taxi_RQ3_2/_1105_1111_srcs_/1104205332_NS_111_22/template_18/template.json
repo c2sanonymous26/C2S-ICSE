@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should preserve forward timestamp order.",
+    "goal": "Detect local sequence inconsistencies where the later grpid context does not have a later timestamp.",
+    "design_rationale": "A one-step increase in grpid should correspond to temporal progression rather than reversal."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the timestamp of v1 must be greater than that of v2.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is 1 greater than that of v2.",
+      "implementation": "v1.grpid - v2.grpid == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp of v1 is greater than that of v2.",
+      "implementation": "v1.timestamp > v2.timestamp",
+      "restrictions": []
+    }
+  ]
+}

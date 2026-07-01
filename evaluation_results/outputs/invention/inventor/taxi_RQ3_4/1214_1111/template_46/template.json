@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep the coordinate-derived displacement speed to the previous context within a reasonable multiple of its own speed value.",
+    "goal": "Detect high-speed contexts whose coordinate-derived movement to the previous context is inconsistent with the recorded speed value.",
+    "design_rationale": "The displacement speed inferred from coordinates should remain comparable to the recorded speed value rather than exceed it by an unreasonable factor."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the ratio between the distance between the coordinates of v1 and those of its previous context v2 computed using the haversine formula and the timestamp difference between v1 and v2, that is, the displacement speed, should not exceed a certain reasonable multiple of the speed value of v1.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the squared Euclidean distance of the coordinates of v1 and v2 and the timestamp difference does not exceed a certain reasonable multiple of the speed value of v1.",
+      "implementation": "(pow(v2.latitude - v1.latitude, 2) + pow(v2.longitude - v1.longitude, 2)) ÷ (v1.timestamp - v2.timestamp) <= v1.speed × NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

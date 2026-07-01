@@ -1,0 +1,166 @@
+{
+  "constraint_id": 17,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 129.4339210987091
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi reporting a sustained high speed across consecutive contexts should show a corresponding nontrivial GPS displacement.",
+      "goal": "Detect records where the speed sensor reports significant motion but the GPS position remains nearly unchanged, indicating possible speed measurement errors, GPS freezing, or stale location data.",
+      "design_rationale": "If a taxi is moving at a sufficiently high recorded speed and the next context follows after a meaningful positive time interval, the vehicle should have traveled a noticeable distance. Very small displacement under such conditions is inconsistent with normal physical motion and may reveal data collection faults."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, the timestamp difference is sufficiently large for movement comparison, and the speeds recorded in v1 and v2 are both significantly high, then the GPS displacement between v1 and v2 is sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp of v2 is greater than the timestamp of v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is sufficiently large for movement comparison.",
+        "implementation": "v2.timestamp - v1.timestamp >= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The speeds recorded in v1 and v2 are both significantly high.",
+        "implementation": "v1.speed >= NTHRESHOLD2 && v2.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement between v1 and v2 is sufficiently large.",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) >= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 5.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 60.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 0.1
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi reporting a sustained high speed across consecutive contexts should show a corresponding nontrivial GPS displacement.",
+      "goal": "Detect records where the speed sensor reports significant motion but the GPS position remains nearly unchanged, indicating possible speed measurement errors, GPS freezing, or stale location data.",
+      "design_rationale": "If a taxi is moving at a sufficiently high recorded speed and the next context follows after a meaningful positive time interval, the vehicle should have traveled a noticeable distance. Very small displacement under such conditions is inconsistent with normal physical motion and may reveal data collection faults."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, the timestamp difference is sufficiently large for movement comparison, and the speeds recorded in v1 and v2 are both significantly high, then the GPS displacement between v1 and v2 is sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp of v2 is greater than the timestamp of v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v2 and v1 is sufficiently large for movement comparison.",
+        "implementation": "(v2.timestamp - v1.timestamp) >= 5.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The speeds recorded in v1 and v2 are both significantly high.",
+        "implementation": "(v1.speed >= 60.0) && (v2.speed >= 60.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement between v1 and v2 is sufficiently large.",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) >= 0.1",
+        "restrictions": []
+      }
+    ]
+  }
+}

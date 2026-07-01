@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should keep the cosine magnitude of the angle between their speed difference and the connecting-line direction within a bound.",
+    "goal": "Detect cross-vehicle context pairs whose speed-difference relation is geometrically inconsistent with their relative-position direction.",
+    "design_rationale": "A cosine-based directional consistency quantity derived from speed difference and relative position should remain bounded for nearby observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of the cosine of the angle between their speed difference and the direction of the line connecting their positions computed from the coordinates should not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (not bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The positions of v1 and v2 are close to each other, and the distance computed from their coordinates does not exceed a certain value.",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute value of the cosine of the angle between the speed difference of v1 and v2 and the direction of the line connecting their positions computed from the coordinates exceeds a certain value.",
+      "implementation": "abs(cos(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude) - atan2(sin(radians(v1.direction - v2.direction)), cos(radians(v1.direction - v2.direction))))) × abs(v1.speed - v2.speed) > NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

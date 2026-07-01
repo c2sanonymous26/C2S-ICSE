@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times and close positions also have similar travel directions.",
+    "goal": "Identify different-vehicle pairs whose headings differ too much despite being close in time and space.",
+    "design_rationale": "If two vehicles are observed close in time and position, their direction difference is expected to stay within a reasonable bound when they are moving similarly."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles, their timestamps are close (the absolute time difference does not exceed some value), and their latitude-longitude distance is significantly less than some value (i.e., the two vehicles are close in position), then their direction difference is significantly less than some value (i.e., the two vehicles are traveling in similar directions)."
+}

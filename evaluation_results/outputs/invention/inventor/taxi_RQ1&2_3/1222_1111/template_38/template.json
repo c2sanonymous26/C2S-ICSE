@@ -1,0 +1,58 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show low speed while the middle context shows high speed, the coordinate displacement between the first and third contexts should be small.",
+    "goal": "Detect three consecutive contexts where a transient speed spike occurs between two low-speed records while showing a large net coordinate displacement.",
+    "design_rationale": "Two low-speed records close in sequence should not be far apart in location; a large coordinate difference between the bounding low-speed records despite the middle high-speed sample suggests that the high-speed record is spurious."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly lower than a certain threshold while v2's speed is significantly higher than a certain threshold, then the coordinate differences between v1 and v3 should be within a certain smaller reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid && v2.carid == v3.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 are three consecutive contexts",
+      "implementation": "v1.grpid + 1 == v2.grpid && v2.grpid + 1 == v3.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "both v1 and v3 have speeds significantly lower than a certain threshold while v2's speed is significantly higher than a certain threshold",
+      "implementation": "v1.speed < NTHRESHOLD1 && v3.speed < NTHRESHOLD1 && v2.speed > NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD1 <= 30",
+        "NTHRESHOLD2 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the coordinate differences between v1 and v3 are within a certain smaller reasonable range",
+      "implementation": "sqrt(pow(v1.latitude - v3.latitude, 2) + pow(v1.longitude - v3.longitude, 2)) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

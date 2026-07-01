@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times maintain sufficiently different travel directions.",
+    "goal": "Identify different-vehicle pairs whose headings are too similar within a short time interval.",
+    "design_rationale": "If two records belong to different vehicles and occur close in time, their direction difference should stay above a reasonable lower bound when directional separation is expected."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then their direction difference is significantly greater than some value (i.e., the travel directions of two vehicles within a nearby time interval should not be too close)."
+}

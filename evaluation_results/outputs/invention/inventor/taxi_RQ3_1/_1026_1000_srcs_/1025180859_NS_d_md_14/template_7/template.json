@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Consecutive same-vehicle contexts that point into the same directional quadrant should move consistently in longitude and latitude.",
+    "goal": "Detect adjacent contexts whose coordinate changes are inconsistent with a shared directional quadrant.",
+    "design_rationale": "If consecutive headings remain in the same quadrant, the signs of the coordinate changes should align with a coherent movement direction instead of contradicting each other."
+  },
+  "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in the same quadrant (such as 0-90° or 90-180°), then the longitude difference and latitude difference between v1 and v2 must have the same sign.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle and are consecutive contexts.",
+      "implementation": "v1.carid == v2.carid && abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The travel directions of v1 and v2 lie in the same quadrant.",
+      "implementation": "(v1.direction >= 0 && v1.direction < 90 && v2.direction >= 0 && v2.direction < 90) || (v1.direction >= 90 && v1.direction < 180 && v2.direction >= 90 && v2.direction < 180) || (v1.direction >= 180 && v1.direction < 270 && v2.direction >= 180 && v2.direction < 270) || (v1.direction >= 270 && v1.direction < 360 && v2.direction >= 270 && v2.direction < 360)",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The longitude difference and latitude difference between v1 and v2 have the same sign.",
+      "implementation": "(v1.longitude - v2.longitude > 0 && v1.latitude - v2.latitude > 0) || (v1.longitude - v2.longitude < 0 && v1.latitude - v2.latitude < 0)",
+      "restrictions": []
+    }
+  ]
+}

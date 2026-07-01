@@ -1,0 +1,152 @@
+[
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_1.xml",
+    "comments": "This constraint is reasonable. It is a basic but important network configuration consistency constraint used to prevent conflicts where the serving cell and a neighbor use the same frequency and PCI.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_3.xml",
+    "comments": "This constraint is reasonable. It reflects the power-control mechanism in wireless communication: when ScRSRP is low, the device usually needs to increase its transmit power, which in turn reduces ScPHR.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_4.xml",
+    "comments": "This constraint is informative. There is indeed a correlation between ScRSRQ and ScRSRP, but because the dataset lacks N and ScRSSI, their mathematical relationship cannot be verified directly. The relation can only be approximated indirectly through thresholds, so its explanatory power is limited. A threshold of 18 is acceptable.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_5.xml",
+    "comments": "This constraint is reasonable and important. It captures the phenomenon that the serving-cell signal quality drops when a neighbor signal becomes significantly dominant, and the solved thresholds are also consistent with practical interference behavior in real networks.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_8.xml",
+    "comments": "This constraint is reasonable. It is a basic but important constraint that engineers would usually assume to hold by default, so it provides useful coverage as a safeguard.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_9.xml",
+    "comments": "This constraint is reasonable. ScTadv = 232 does not indicate a particularly long distance, so a low power-headroom threshold of 63 is reasonable and consistent with the underlying physical logic.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_10.xml",
+    "comments": "This constraint is reasonable. When a device is farther away from the base station, the received serving-cell signal is usually weaker, which is consistent with basic wireless propagation laws.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_11.xml",
+    "comments": "This constraint is reasonable. It is another basic and important network configuration consistency constraint.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_23.xml",
+    "comments": "This constraint is reasonable and impressive. It reflects co-channel interference: when a neighbor signal is strong, uplink signals from users served by nearby co-frequency cells may interfere with the current serving cell, thereby reducing ScSinrUL. This relationship is consistent with actual network interference mechanisms.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_24.xml",
+    "comments": "This constraint is reasonable. TA+AOA localization and signal-based localization rely on stable and usable radio measurements, so the serving-cell signal strength should be sufficient to support reliable positioning.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_28.xml",
+    "comments": "This constraint is reasonable. The protocol-defined value range of ScPci is [0, 503].",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_30.xml",
+    "comments": "This constraint is reasonable. It is a basic check for measurement consistency.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_32.xml",
+    "comments": "This constraint is reasonable. The serving-cell signal should usually dominate in a measurement report. Violations provide clues about coverage issues or measurement-quality problems.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_34.xml",
+    "comments": "This constraint is somewhat one-sided. Cell handover can be triggered by many factors, and signal quality is only one of them, so this relation alone cannot explain every handover event. Still, it can serve as a useful reference.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_37.xml",
+    "comments": "This constraint is somewhat one-sided. Whether the serving cell changes depends on complex network decision logic, so the relation is somewhat idealized; however, it still has reference value when the user undergoes substantial movement.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_41.xml",
+    "comments": "This constraint is reasonable. The scope represented by Tac is broader than that of CellId, so it is normal for one Tac to contain multiple CellIds, while the reverse relation does not necessarily hold.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_44.xml",
+    "comments": "This constraint is reasonable. It is also a basic but important network configuration consistency requirement.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_45.xml",
+    "comments": "This constraint is reasonable. For a device whose position remains basically unchanged over a short period of time, ScRSRP should usually remain relatively stable. This constraint is practically meaningful.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_47.xml",
+    "comments": "This constraint is reasonable in most cases. After a handover, the neighbor list in the new record should usually still reflect information about the old serving cell, so this constraint is useful for identifying structural consistency during handover.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_52.xml",
+    "comments": "This constraint is reasonable, and the solved range also falls within a normal interval.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_53.xml",
+    "comments": "This constraint is reasonable. The parameter value range is plausible from the perspective of practical network experience.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_55.xml",
+    "comments": "This constraint is reasonable. It can detect data affected by GPS drift, thereby preventing downstream tasks from being impacted.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_56.xml",
+    "comments": "This constraint is reasonable and also insightful. It is consistent with the S-Measure mechanism in LTE networks: when the serving-cell signal strength improves rapidly, the device stops measuring neighbors in order to reduce energy consumption.",
+    "category": "I"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_57.xml",
+    "comments": "This constraint is not reasonable. Neighbor lists themselves can change, so it is possible for a handover target cell not to appear in the neighbor list of the previous record.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_59.xml",
+    "comments": "This constraint is somewhat one-sided. Neighbor lists in adjacent records can be affected by ordering, environmental changes, and multipath effects, so they cannot be expected to remain exactly identical at all times. However, in most cases the neighbor list should still be highly stable, so the constraint retains some reference value.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_62.xml",
+    "comments": "This constraint is somewhat one-sided. Signal quality depends not only on signal strength but also on interference level, so even if the later record has a stronger signal, its signal quality may still become worse if it enters a high-interference area. Nevertheless, the constraint is still useful in practice because it can help identify potential high-interference regions.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_66.xml",
+    "comments": "This constraint is somewhat one-sided. When a device happens to be near a grid boundary, the GridID may change even under very small movement; however, in most cases the GridID should remain stable when the device is nearly stationary or moves only slightly, so the constraint still has reference value.",
+    "category": "III"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_73.xml",
+    "comments": "This constraint is reasonable. For the same physical cell, PCI and Earfcn are static configuration identifiers, so they should remain consistent when that cell appears in different roles across adjacent records.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_82.xml",
+    "comments": "This constraint is reasonable. Field 3 indicates that the device is positioned via TA+AOA, so the related measurements ScTadv and ScAOA should be present.",
+    "category": "II"
+  },
+  {
+    "file": "constraints/network_casestudy/C2S/xml/constraint_93.xml",
+    "comments": "This constraint is reasonable. The longitude and latitude range lies within the data-collection area and is consistent with the actual data distribution.",
+    "category": "II"
+  }
+]

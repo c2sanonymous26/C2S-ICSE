@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times maintain sufficiently different travel directions.",
+    "goal": "Identify different-vehicle pairs whose headings are too similar within a short time interval.",
+    "design_rationale": "If two records belong to different vehicles and occur close in time, their direction difference should stay above a reasonable lower bound when directional separation is expected."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then their direction difference is significantly greater than some value (i.e., the travel directions of two vehicles within a nearby time interval should not be too close).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the direction difference between v1 and v2 is significantly greater than some value",
+      "implementation": "abs(v1.direction - v2.direction) > NTHRESHOLD2 || abs(v1.direction - v2.direction) < (360 - NTHRESHOLD2)",
+      "restrictions": [
+        "30 <= NTHRESHOLD2 <= 180"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the direction difference between v1 and v2 is significantly greater than some value",
+      "implementation": "abs(v1.direction - v2.direction) > NTHRESHOLD3 || abs(v1.direction - v2.direction) < (360 - NTHRESHOLD3)",
+      "restrictions": []
+    }
+  ]
+}

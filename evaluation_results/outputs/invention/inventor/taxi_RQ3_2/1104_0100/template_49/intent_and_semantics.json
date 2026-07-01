@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have both a safely positive time gap and a clearly non-trivial positional change.",
+    "goal": "Detect near-consecutive contexts whose time gap or movement magnitude is suspiciously small.",
+    "design_rationale": "A valid progression in the sequence should advance both in time and in coordinate-derived movement beyond a minimal threshold."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the difference between the timestamp value of v1 and that of v2 should be significantly greater than a certain minimum value, and the positional change between v1 and v2 (computed from coordinates) should be significantly greater than a certain minimum value."
+}

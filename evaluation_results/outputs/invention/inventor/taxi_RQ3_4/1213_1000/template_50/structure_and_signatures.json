@@ -1,0 +1,20 @@
+{
+  "structure": "forall v1 in dataset (exists v2 in dataset (bfunc1(v1) implies bfunc2(v1, v2)))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is zero."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The distance between the coordinates of v1 and those of v2 computed using the haversine formula does not exceed a certain reasonable upper bound."
+    }
+  ]
+}

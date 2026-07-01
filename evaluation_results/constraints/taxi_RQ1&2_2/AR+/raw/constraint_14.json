@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "gt",
+  "target_col": "latitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "min(cos(max(mul(longitude_1, 50428.911), min(timestamp_2, -6547.244))), neg(neg(div(longitude_1, longitude_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.721895456314087,
+  "asrtm_time": 8.05253005027771,
+  "predm_time": 0.6593813896179199,
+  "asrt_info": {
+    "fitness": 0.0014,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

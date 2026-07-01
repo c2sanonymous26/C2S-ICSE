@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is less than or equal to mul(add(39335.904, v1.speed), max(v1.longitude, 35282.976)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is less than or equal to mul(add(39335.904, v1.speed), max(v1.longitude, 35282.976))",
+      "implementation": "var_bindings['v1']['timestamp'] <= ((4916988/125 + var_bindings['v1']['speed']) * max(var_bindings['v1']['longitude'], 4410372/125))"
+    }
+  ]
+}

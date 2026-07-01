@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS location of each context is within the valid city geographic boundary.",
+    "goal": "Detect contexts with GPS coordinates that fall outside the city operating area.",
+    "design_rationale": "Taxis operate within a defined city area; locations outside the city boundary indicate GPS errors or data corruption."
+  },
+  "semantics": "For any context v1, the GPS coordinates (latitude and longitude) of v1 are within a reasonable city geographic boundary."
+}

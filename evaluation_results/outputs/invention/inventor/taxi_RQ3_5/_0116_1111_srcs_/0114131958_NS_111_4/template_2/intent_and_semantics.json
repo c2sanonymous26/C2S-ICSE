@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have reasonably consistent backward and forward speed-change rates with neighboring same-vehicle contexts.",
+    "goal": "Detect high-speed contexts whose local speed-change dynamics are asymmetric in an implausible way.",
+    "design_rationale": "If the neighborhood around a high-speed context is realistic, the speed-change rates to the previous and next contexts should not differ excessively."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold and there exist two contexts v2 and v3 such that v2 and v3 belong to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the grpid value of v3 is 1 greater than that of v1, then the absolute difference between the speed-change rate between v1 and v2 and the speed-change rate between v1 and v3 should not exceed a certain reasonable range."
+}

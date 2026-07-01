@@ -1,0 +1,57 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed within a very short time remain sufficiently far apart in position.",
+    "goal": "Identify different-vehicle pairs that appear implausibly close to each other within a very short time interval.",
+    "design_rationale": "If two records belong to different vehicles and occur almost simultaneously, their spatial distance should stay above a reasonable lower bound; otherwise the observation is suspicious."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then their latitude-longitude distance is significantly greater than some value (i.e., two vehicles should not be able to appear at extremely close positions within a very short time).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (not bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 5"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the latitude-longitude distance between v1 and v2 is significantly greater than some value (i.e., two vehicles should not be able to appear at extremely close positions within a very short time)",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) > NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the latitude-longitude distance between v1 and v2 is less than or equal to some value (i.e., two vehicles appear at extremely close positions within a very short time)",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    }
+  ]
+}

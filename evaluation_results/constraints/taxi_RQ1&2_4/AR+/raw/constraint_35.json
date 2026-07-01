@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "speed",
+  "status": "success_simple_constraint",
+  "assertion": "sub(div(longitude, direction), mul(longitude, latitude))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.6144144535064697,
+  "asrtm_time": 0.5546350479125977,
+  "predm_time": 0.058165550231933594,
+  "asrt_info": {
+    "fitness": 0.0007,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

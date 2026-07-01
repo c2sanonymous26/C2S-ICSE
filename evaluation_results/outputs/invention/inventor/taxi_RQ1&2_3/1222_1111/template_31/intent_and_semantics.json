@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at low speed, the next consecutive context should have a grpid exactly one greater than the current.",
+    "goal": "Detect consecutive contexts where the grpid ordering is violated while the vehicle is at low speed.",
+    "design_rationale": "The grpid field must increase monotonically within a trip regardless of speed; a non-sequential grpid at low speed indicates a record ordering error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly lower than a certain threshold, then v2's grpid should equal v1's grpid plus 1."
+}

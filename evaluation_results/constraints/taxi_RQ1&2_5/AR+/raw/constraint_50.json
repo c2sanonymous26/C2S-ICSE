@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "neg(min(abs(add(sqrt(direction), cos(neg(direction)))), div(mul(add(-12824.157, min(-7019.369, speed)), sub(max(62640.522, longitude), sin(latitude))), neg(sub(cos(-21835.810), sin(sin(10613.504)))))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 58.66778922080994,
+  "asrtm_time": 58.589380502700806,
+  "predm_time": 0.0740349292755127,
+  "asrt_info": {
+    "fitness": 0.0038461450914100657,
+    "was_early_stopped": false,
+    "generations_completed": 5
+  }
+}

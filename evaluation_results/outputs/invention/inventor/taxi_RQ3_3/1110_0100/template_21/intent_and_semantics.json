@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should have a reasonable timestamp gap.",
+    "goal": "Detect adjacent contexts whose time interval is implausibly small or large.",
+    "design_rationale": "A valid local trajectory should maintain a realistic elapsed time between adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the timestamp difference between v1 and v2 should lie within a certain reasonable range."
+}

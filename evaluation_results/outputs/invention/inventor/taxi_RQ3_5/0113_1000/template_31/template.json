@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle context with a bounded heading-change rate.",
+    "goal": "Detect high-speed contexts whose heading changes too sharply relative to elapsed time.",
+    "design_rationale": "A realistic high-speed transition should not exhibit an excessive rate of direction change from the previous context."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the ratio between the absolute direction difference of v1 and v2 and the timestamp difference of v1 and v2 does not exceed a certain upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the previous context of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute direction difference of v1 and v2 and the timestamp difference of v1 and v2 does not exceed a certain upper bound.",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 lies within a certain reasonable range.",
+      "implementation": "v1.timestamp - v2.timestamp <= NTHRESHOLD3 && v1.timestamp - v2.timestamp > 0",
+      "restrictions": []
+    }
+  ]
+}

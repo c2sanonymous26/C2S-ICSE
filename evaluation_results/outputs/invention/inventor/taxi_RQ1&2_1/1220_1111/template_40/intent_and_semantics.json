@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a high speed, the GPS displacement to the previous and next contexts are proportional.",
+    "goal": "Detect GPS displacement asymmetries between forward and backward displacements in high-speed contexts.",
+    "design_rationale": "At high speed with regular sampling, the GPS displacement to the previous and next records should be similar; large asymmetries suggest a GPS error at one of the records."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio of the haversine GPS displacement between v1 and the previous context v2 to the haversine GPS displacement between v1 and the next context v3 does not exceed a certain reasonable range."
+}

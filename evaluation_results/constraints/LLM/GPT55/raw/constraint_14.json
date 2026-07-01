@@ -1,0 +1,60 @@
+{
+  "constraint_id": 14,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 77.40435314178467
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The timestamp of each taxi driving-state context must be a valid and reasonable UNIX timestamp within the expected data collection period.",
+      "goal": "Detect contexts with missing, corrupted, negative, or otherwise implausible timestamp values that cannot represent a valid observation time in the SmartCity monitoring system.",
+      "design_rationale": "Each context represents an instantaneous taxi state at a specific time, so its timestamp must be meaningful for temporal ordering, dispatching, and route analysis. A timestamp outside a reasonable collection-time range indicates data corruption, clock malfunction, or transmission errors."
+    },
+    "semantics": "For any context v1, the timestamp recorded in v1 is a valid UNIX timestamp and lies within a reasonable expected collection-time range.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The timestamp recorded in context v1 is a valid UNIX timestamp and lies within a reasonable expected collection-time range.",
+        "implementation": "v1.timestamp >= NTHRESHOLD1 && v1.timestamp <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1302193800.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 1302195599.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The timestamp of each taxi driving-state context must be a valid and reasonable UNIX timestamp within the expected data collection period.",
+      "goal": "Detect contexts with missing, corrupted, negative, or otherwise implausible timestamp values that cannot represent a valid observation time in the SmartCity monitoring system.",
+      "design_rationale": "Each context represents an instantaneous taxi state at a specific time, so its timestamp must be meaningful for temporal ordering, dispatching, and route analysis. A timestamp outside a reasonable collection-time range indicates data corruption, clock malfunction, or transmission errors."
+    },
+    "semantics": "For any context v1, the timestamp recorded in v1 is a valid UNIX timestamp and lies within a reasonable expected collection-time range.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The timestamp recorded in context v1 is a valid UNIX timestamp and lies within a reasonable expected collection-time range.",
+        "implementation": "(v1.timestamp >= 1302193800.0) && (v1.timestamp <= 1302195599.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The displacement direction between adjacent contexts should stay close to the earlier recorded direction value.",
+    "goal": "Detect adjacent same-vehicle contexts whose displacement direction is inconsistent with the reported heading of the earlier context.",
+    "design_rationale": "For adjacent observations of the same vehicle, the actual displacement direction should align with the recorded heading at the earlier context."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v1 should not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction value of v1 does not exceed a certain value.",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) - v1.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

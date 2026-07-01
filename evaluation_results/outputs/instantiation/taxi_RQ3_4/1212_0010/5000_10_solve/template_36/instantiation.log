@@ -1,0 +1,44 @@
+============================================================ 1212_0010/template_36 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1212_0010/template_36
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0022940635681152344 seconds
+Constructed ctx data in 4.506111145019531e-05 seconds
+Loaded data field types in 0.0006742477416992188 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0016546249389648438 seconds
+Set solve data in 0.0009331703186035156 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006244182586669922 seconds
+Constructed main constraint in 486.1262845993042 seconds
+Constructed symbol domain constraints in 1.0205199718475342 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 61
+        - (>=, _N_THRESHOLD_2): 10351
+        - (>=, _N_THRESHOLD_3): 2531
+    - symbol domains:
+        - _N_THRESHOLD_1: 61
+        - _N_THRESHOLD_2: 10352
+        - _N_THRESHOLD_3: 2532
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(59, 1), '_N_THRESHOLD_3': Fraction(86, 1), '_N_THRESHOLD_2': Fraction(-1, 1000000)}
+        - solved in 5.9511399269104 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(0, 1), '_N_THRESHOLD_3': Fraction(56, 1), '_N_THRESHOLD_2': Fraction(-1, 1000000)}
+        - solved in 5.99911642074585 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(60, 1), '_N_THRESHOLD_3': Fraction(56, 1), '_N_THRESHOLD_2': Fraction(-1, 1000000)}
+        - solved in 5.91353178024292 seconds
+1212_0010/template_36 (5000_10_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1212_0010/template_36 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 505.09 seconds

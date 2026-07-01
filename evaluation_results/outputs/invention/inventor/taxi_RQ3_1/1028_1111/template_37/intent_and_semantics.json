@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Nearby contexts from different vehicles with similar travel directions should not have an implausibly large speed gap.",
+    "goal": "Detect different-vehicle context pairs that are close in time and heading but differ too much in instantaneous speed.",
+    "design_rationale": "Vehicles moving in similar directions within the same time window should exhibit relatively comparable speeds rather than an extreme discrepancy."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and the absolute difference between their travel direction angles lies within a certain reasonable angular range, then the absolute difference between their instantaneous speeds should not exceed a certain reasonable upper bound for speed difference."
+}

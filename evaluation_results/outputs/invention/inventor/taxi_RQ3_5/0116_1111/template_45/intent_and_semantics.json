@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at similar times should not have an implausibly large discrepancy between their locally inferred direction-change rates.",
+    "goal": "Detect temporally nearby cross-vehicle contexts whose local turning dynamics are inconsistent.",
+    "design_rationale": "Under this rule, the direction-change rates inferred from each context's local neighborhood should remain within a reasonable gap."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the absolute difference between their direction-change rates, computed from their respective surrounding records, should not exceed a certain reasonable range."
+}

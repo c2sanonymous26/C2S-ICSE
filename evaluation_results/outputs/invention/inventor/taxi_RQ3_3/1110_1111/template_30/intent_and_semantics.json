@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts with a small time gap should not imply an excessive movement speed.",
+    "goal": "Detect short-gap same-vehicle context pairs whose coordinate-derived speed is implausibly high.",
+    "design_rationale": "Within a short time interval, a realistic vehicle trajectory should preserve a bounded displacement-over-time value."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the time difference between them is smaller than a certain threshold, then the ratio between the distance between their coordinates computed using the Euclidean distance formula and the timestamp difference between them should not exceed a certain reasonable upper bound on speed."
+}

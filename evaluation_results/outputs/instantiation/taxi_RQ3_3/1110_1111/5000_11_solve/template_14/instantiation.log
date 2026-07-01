@@ -1,0 +1,60 @@
+============================================================ 1110_1111/template_14 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1110_1111/template_14
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0018482208251953125 seconds
+Constructed ctx data in 5.054473876953125e-05 seconds
+Loaded data field types in 0.0005745887756347656 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0)/Abs(v1_timestamp - v2_timestamp) → range [4.6501070103026395e-17, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [4.6501070103026395e-17, inf]
+Approximate computed ranges for 1 threshold symbols in 1.29 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0)/Abs(v1_timestamp - v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.13 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (4.6501070103026395e-17, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0016219615936279297 seconds
+Set solve data in 0.0009136199951171875 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005540847778320312 seconds
+Constructed main constraint in 59.27310276031494 seconds
+Constructed VE constraints in 0.0009987354278564453 seconds
+Constructed symbol domain constraints in 0.2795064449310303 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3478
+    - symbol domains:
+        - _N_THRESHOLD_1: 3479
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8166465835151587, 9223372036854775808)}
+        - objective value: 4 out of 4
+        - solved in 0.51090407371521 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.0296101570129395 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0229628086090088 seconds
+1110_1111/template_14 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1110_1111/template_14 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 63.60 seconds

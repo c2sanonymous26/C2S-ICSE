@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should still imply a bounded coordinate-distance-over-time ratio relative to the previous context.",
+    "goal": "Detect high-speed contexts whose previous-step coordinate movement is implausibly large.",
+    "design_rationale": "Even for fast movement, the coordinate-distance-over-time ratio to the previous context should remain within a realistic bound."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the ratio between the distance between the coordinates of v1 and those of the previous context v2, computed using the haversine formula, and the timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

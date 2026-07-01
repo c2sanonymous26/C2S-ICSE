@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show low speed while the middle context shows high speed, the coordinate displacement between the first and third contexts should be small.",
+    "goal": "Detect three consecutive contexts where a transient speed spike occurs between two low-speed records while showing a large net coordinate displacement.",
+    "design_rationale": "Two low-speed records close in sequence should not be far apart in location; a large coordinate difference between the bounding low-speed records despite the middle high-speed sample suggests that the high-speed record is spurious."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly lower than a certain threshold while v2's speed is significantly higher than a certain threshold, then the coordinate differences between v1 and v3 should be within a certain smaller reasonable range."
+}

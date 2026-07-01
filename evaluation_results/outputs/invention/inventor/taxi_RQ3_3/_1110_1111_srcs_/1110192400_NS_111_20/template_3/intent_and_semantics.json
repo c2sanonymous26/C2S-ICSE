@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts one grpid step apart should have a reasonable timestamp gap and exactly one grpid difference.",
+    "goal": "Detect one-step same-vehicle context pairs that violate temporal continuity or sequence continuity.",
+    "design_rationale": "A valid one-step local transition should remain consistent in both elapsed time and grpid progression."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is equal to the grpid value of v2 minus 1, then the timestamp difference between v1 and v2 should lie within a certain reasonable range, and the difference between their grpid values should be exactly 1."
+}

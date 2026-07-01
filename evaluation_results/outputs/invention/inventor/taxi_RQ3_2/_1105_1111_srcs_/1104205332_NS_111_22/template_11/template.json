@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have a previous same-vehicle one-step context whose timestamp gap to v1 remains reasonable.",
+    "goal": "Detect stopped contexts whose local time gap from the previous context is implausible.",
+    "design_rationale": "A stationary local transition should still preserve a realistic elapsed time between neighboring contexts."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then there exists another context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the timestamp difference between v1 and v2 should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 should lie within a certain reasonable range.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

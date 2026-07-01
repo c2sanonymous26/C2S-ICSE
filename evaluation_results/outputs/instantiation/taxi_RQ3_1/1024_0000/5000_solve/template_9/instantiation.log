@@ -1,0 +1,35 @@
+============================================================== 1024_0000/template_9 (5000_solve) instantiation starts =============================================================
+- scenario: taxi
+- template: 1024_0000/template_9
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0015642642974853516 seconds
+Constructed ctx data in 3.838539123535156e-05 seconds
+Loaded data field types in 0.0005106925964355469 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0013735294342041016 seconds
+Set solve data in 0.0008790493011474609 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005764961242675781 seconds
+Constructed main constraint in 60.38942503929138 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(42, 1)}
+        - solved in 0.001117706298828125 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(43, 1)}
+        - solved in 0.0008313655853271484 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(85, 2)}
+        - solved in 0.0006678104400634766 seconds
+1024_0000/template_9 (5000_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+============================================================ 1024_0000/template_9 (5000_solve) instantiation completes ============================================================
+Total instantiation time: 60.43 seconds

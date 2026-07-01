@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the rate of heading change between it and the previous context is bounded.",
+    "goal": "Detect physically impossible heading changes at high speed.",
+    "design_rationale": "At high speed, a vehicle cannot turn sharply within a short time interval; a large heading change rate at high speed indicates a GPS anomaly or data error rather than actual vehicle behavior."
+  },
+  "semantics": "For any context v1, if the speed recorded in v1 is significantly higher than a certain threshold, then the ratio of the absolute heading difference between v1 and its previous context v2 to the timestamp difference between v1 and v2 does not exceed a certain upper bound."
+}

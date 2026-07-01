@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time and both have very low speeds are also spatially close.",
+    "goal": "Detect spatial outliers among low-speed records from different vehicles at the same time.",
+    "design_rationale": "Vehicles with very low speeds at the same time are likely in similar traffic conditions; large spatial separation between such records suggests GPS errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, and both their speeds are significantly below a certain threshold, then their haversine GPS distance does not exceed a certain reasonable spatial range."
+}

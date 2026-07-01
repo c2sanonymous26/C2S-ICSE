@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "le",
+  "target_col": "timestamp_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(sub(19025.060, longitude_2), abs(timestamp_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 533.6531538963318,
+  "asrtm_time": 485.578821182251,
+  "predm_time": 46.89273977279663,
+  "asrt_info": {
+    "fitness": 0.0006000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

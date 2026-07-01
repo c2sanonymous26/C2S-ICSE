@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "When a context has a significantly low speed, both the heading change and the time gap to the next context are bounded.",
+    "goal": "Detect anomalous patterns where low-speed contexts are followed by large heading changes or large time gaps.",
+    "design_rationale": "At very low speeds, heading changes should be minimal and the recording interval should be regular; deviations suggest erroneous records."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly below a certain threshold, then the absolute heading difference between v1 and its next context v2 does not exceed a certain reasonable range, and the timestamp difference between v1 and v2 does not exceed a certain reasonable time range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is significantly below a certain threshold",
+      "implementation": "v1.speed < NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute heading difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 does not exceed a certain reasonable time range",
+      "implementation": "v2.timestamp - v1.timestamp <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

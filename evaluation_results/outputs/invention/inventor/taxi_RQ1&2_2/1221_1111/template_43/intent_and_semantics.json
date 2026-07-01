@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The heading direction of each context is within the valid compass range [0, 360].",
+    "goal": "Detect contexts with an out-of-range heading value.",
+    "design_rationale": "Compass heading is defined in the range [0, 360] degrees; any value outside this range indicates a heading sensor error or data corruption."
+  },
+  "semantics": "For any context v1, the heading value of v1 is between 0 and 360 degrees."
+}

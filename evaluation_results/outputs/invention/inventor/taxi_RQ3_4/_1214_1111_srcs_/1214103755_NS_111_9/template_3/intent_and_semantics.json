@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should have a speed ratio within a reasonable range.",
+    "goal": "Detect cross-vehicle context pairs whose relative speed magnitude is implausible given their close spatial and temporal proximity.",
+    "design_rationale": "Nearby observations close in time should not display an extreme speed ratio under normal movement behavior."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the ratio of their speeds should not exceed a certain reasonable range."
+}

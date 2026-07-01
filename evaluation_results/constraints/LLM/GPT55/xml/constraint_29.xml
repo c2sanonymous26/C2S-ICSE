@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if v1 and v2 belong to the same vehicle and the timestamp recorded in v2 is greater than the timestamp recorded in v1 by a sufficiently reliable positive amount, then the GPS displacement between v1 and v2 does not exceed a physically feasible distance determined by their timestamp difference and a certain reasonable maximum travel-rate threshold, allowing a small tolerance.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

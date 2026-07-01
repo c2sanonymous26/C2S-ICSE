@@ -1,0 +1,130 @@
+{
+  "constraint_id": 49,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 168.42423701286316
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The directions of different taxis that are spatially close at nearly the same time should be similar.",
+      "goal": "Detect anomalous direction readings that are inconsistent with nearby traffic, which may indicate sensor errors or GPS direction inaccuracies.",
+      "design_rationale": "In dense traffic, vehicles moving in close proximity tend to travel in similar directions (e.g., along the same road). A large direction discrepancy between nearby vehicles at the same time suggests a sensor error or a misaligned direction reading."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different taxis (different carid), their timestamps are within a certain time window, and their GPS locations are spatially close (haversine distance within a certain distance), then the absolute angular difference between the direction in v1 and the direction in v2 is within a certain angle.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different taxis (different carid)",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "timestamps of v1 and v2 are within a certain time window",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "GPS locations of v1 and v2 are spatially close (haversine distance within a certain distance)",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "absolute angular difference between the direction in v1 and the direction in v2 is within a certain angle",
+        "implementation": "min(abs(v1.direction - v2.direction), 360 - abs(v1.direction - v2.direction)) <= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 3.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 45.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The directions of different taxis that are spatially close at nearly the same time should be similar.",
+      "goal": "Detect anomalous direction readings that are inconsistent with nearby traffic, which may indicate sensor errors or GPS direction inaccuracies.",
+      "design_rationale": "In dense traffic, vehicles moving in close proximity tend to travel in similar directions (e.g., along the same road). A large direction discrepancy between nearby vehicles at the same time suggests a sensor error or a misaligned direction reading."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different taxis (different carid), their timestamps are within a certain time window, and their GPS locations are spatially close (haversine distance within a certain distance), then the absolute angular difference between the direction in v1 and the direction in v2 is within a certain angle.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different taxis (different carid)",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "timestamps of v1 and v2 are within a certain time window",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "GPS locations of v1 and v2 are spatially close (haversine distance within a certain distance)",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 3.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "absolute angular difference between the direction in v1 and the direction in v2 is within a certain angle",
+        "implementation": "min(abs((v1.direction - v2.direction)), (360 - abs((v1.direction - v2.direction)))) <= 45.0",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 18
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should share the same coordinates as an adjacent context one grpid step away.",
+    "goal": "Detect stationary contexts whose position is inconsistent with nearby sequence neighbors.",
+    "design_rationale": "If a vehicle is not moving, its coordinates should remain unchanged across immediately adjacent sequence positions."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is zero, then the longitude and latitude values of v1 should be the same as those of an adjacent context whose grpid differs by 1."
+}

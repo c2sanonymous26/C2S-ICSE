@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, the geographic location corresponding to the longitude and latitude values of v1 should lie on the reasonable road network of the city.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <bfunc id="1"/>
+  </forall>
+</formula>

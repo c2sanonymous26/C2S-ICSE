@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context has at least one other context from a different vehicle that is spatially close within the same time period.",
+    "goal": "Detect isolated records that are unreachably far from all other vehicles during the same time period.",
+    "design_rationale": "In a taxi fleet operating in a city, vehicles should not be completely isolated in space at any given time; if no other vehicle is within a reasonable distance during the same time period, the record likely indicates a GPS error."
+  },
+  "semantics": "For any context v1, there exists a context v2 such that v1 and v2 belong to different vehicles, v1 and v2 are within the same time period, and the distance between v1 and v2 does not exceed a certain value."
+}

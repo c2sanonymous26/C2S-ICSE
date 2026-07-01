@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The coordinate displacement between two consecutive contexts of the same vehicle is within a reasonable range.",
+    "goal": "Detect consecutive contexts with an implausibly large coordinate jump.",
+    "design_rationale": "A vehicle cannot teleport between consecutive samples; an excessively large latitude or longitude difference indicates a GPS positioning error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the latitude and longitude differences between v1 and v2 should each be within a certain reasonable range."
+}

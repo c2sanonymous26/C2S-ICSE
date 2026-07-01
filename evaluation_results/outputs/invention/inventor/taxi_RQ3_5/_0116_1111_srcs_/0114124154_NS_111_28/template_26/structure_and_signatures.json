@@ -1,0 +1,51 @@
+{
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (exists v3 in dataset (exists v4 in dataset (exists v5 in dataset (exists v6 in dataset (bfunc3(v1, v3, v4) and bfunc4(v2, v5, v6) and bfunc5(v1, v2, v3, v4, v5, v6))))))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles."
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their absolute time difference does not exceed a certain value."
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v3",
+        "v4"
+      ],
+      "semantics": "v3 and v4 are the previous and next contexts of v1."
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v2",
+        "v5",
+        "v6"
+      ],
+      "semantics": "v5 and v6 are the previous and next contexts of v2."
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ],
+      "semantics": "The absolute difference between the direction-change rates of v1 and v2 does not exceed a certain reasonable range."
+    }
+  ]
+}

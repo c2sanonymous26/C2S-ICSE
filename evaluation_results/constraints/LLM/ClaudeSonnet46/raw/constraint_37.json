@@ -1,0 +1,186 @@
+{
+  "constraint_id": 37,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 91.59879899024963
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi that makes a clearly eastbound short-interval movement should have at least one of the two surrounding direction readings aligned with due east.",
+      "goal": "Detect inconsistencies between reported headings and the actual GPS movement direction across consecutive records of the same taxi.",
+      "design_rationale": "When consecutive contexts for the same taxi are close in time and show a noticeable increase in longitude with little change in latitude, the vehicle is effectively moving eastward over that interval. In such cases, at least one of the recorded headings should reflect eastbound travel; otherwise the direction sensor or location trace is likely unreliable."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the longitude recorded in v2 is greater than the longitude recorded in v1 by at least a certain small amount, and the absolute difference between the latitudes recorded in v1 and v2 is within a certain small range, then the direction recorded in v1 is within a certain range of due east or the direction recorded in v2 is within a certain range of due east.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies (bfunc6(v1) or bfunc7(v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v2 is greater than the longitude recorded in v1 by at least a certain small amount",
+        "implementation": "v2.longitude - v1.longitude >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the latitudes recorded in v1 and v2 is within a certain small range",
+        "implementation": "abs(v1.latitude - v2.latitude) <= NTHRESHOLD3",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the direction recorded in v1 is within a certain range of due east",
+        "implementation": "abs(v1.direction - 90) <= NTHRESHOLD4",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc7",
+        "parameters": [
+          "v2"
+        ],
+        "semantics": "the direction recorded in v2 is within a certain range of due east",
+        "implementation": "abs(v2.direction - 90) <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 5.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.0003
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 0.001
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 0.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi that makes a clearly eastbound short-interval movement should have at least one of the two surrounding direction readings aligned with due east.",
+      "goal": "Detect inconsistencies between reported headings and the actual GPS movement direction across consecutive records of the same taxi.",
+      "design_rationale": "When consecutive contexts for the same taxi are close in time and show a noticeable increase in longitude with little change in latitude, the vehicle is effectively moving eastward over that interval. In such cases, at least one of the recorded headings should reflect eastbound travel; otherwise the direction sensor or location trace is likely unreliable."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the longitude recorded in v2 is greater than the longitude recorded in v1 by at least a certain small amount, and the absolute difference between the latitudes recorded in v1 and v2 is within a certain small range, then the direction recorded in v1 is within a certain range of due east or the direction recorded in v2 is within a certain range of due east.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies (bfunc6(v1) or bfunc7(v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 5.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v2 is greater than the longitude recorded in v1 by at least a certain small amount",
+        "implementation": "(v2.longitude - v1.longitude) >= 0.0003",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the latitudes recorded in v1 and v2 is within a certain small range",
+        "implementation": "abs((v1.latitude - v2.latitude)) <= 0.001",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the direction recorded in v1 is within a certain range of due east",
+        "implementation": "abs((v1.direction - 90)) <= 0.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc7",
+        "parameters": [
+          "v2"
+        ],
+        "semantics": "the direction recorded in v2 is within a certain range of due east",
+        "implementation": "abs((v2.direction - 90)) <= 0.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

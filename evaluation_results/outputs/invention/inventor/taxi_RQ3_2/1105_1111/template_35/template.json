@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "A zero-speed context should preserve both coordinates and heading from the previous context.",
+    "goal": "Detect stopped contexts whose previous context suggests unexpected movement or heading change.",
+    "design_rationale": "If a vehicle is truly stationary, the immediately previous local context should agree in both location and heading under this rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the coordinates of v1 should be identical to those of the previous context v2, and the direction angle of v1 should also be identical to that of v2.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinates of v1 are identical to those of v2.",
+      "implementation": "v1.latitude == v2.latitude && v1.longitude == v2.longitude",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The direction angle of v1 is identical to that of v2.",
+      "implementation": "v1.direction == v2.direction",
+      "restrictions": []
+    }
+  ]
+}

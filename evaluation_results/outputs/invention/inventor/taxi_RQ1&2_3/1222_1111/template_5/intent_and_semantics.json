@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The displacement speed derived from coordinate differences is consistent with the reported average speed between two consecutive contexts of the same vehicle.",
+    "goal": "Detect consecutive contexts where the GPS-derived displacement rate and the recorded speed are mutually inconsistent.",
+    "design_rationale": "The speed field and GPS coordinates are both measures of the same physical motion; a large discrepancy between the two suggests that at least one field contains erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the ratio of the displacement distance (computed from the coordinate differences) to the timestamp difference should be close to the average speed of v1 and v2 within a certain reasonable range."
+}

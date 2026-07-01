@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is greater than or equal to add(div(v1.longitude, v1.longitude), log(v1.timestamp)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is greater than or equal to add(div(v1.longitude, v1.longitude), log(v1.timestamp))",
+      "implementation": "var_bindings['v1']['latitude'] >= ((1 if -1/1000 <= (var_bindings['v1']['longitude']) <= 1/1000 else (var_bindings['v1']['longitude']) / (var_bindings['v1']['longitude'])) + (0 if abs(var_bindings['v1']['timestamp']) < 1/1000 else log(abs(var_bindings['v1']['timestamp']))))"
+    }
+  ]
+}

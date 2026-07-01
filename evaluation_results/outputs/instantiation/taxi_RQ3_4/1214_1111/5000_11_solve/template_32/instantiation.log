@@ -1,0 +1,80 @@
+============================================================ 1214_1111/template_32 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1214_1111/template_32
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0032172203063964844 seconds
+Constructed ctx data in 4.029273986816406e-05 seconds
+Loaded data field types in 0.0005621910095214844 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 999654856.4345555]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 999654856.4345555]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_latitude - v2_latitude)**2.0 + Abs(v1_longitude - v2_longitude)**2.0 → range [2.145701662201152e-26, 161999.99999928]
+        - final range for threshold symbol 'NTHRESHOLD2': [2.145701662201152e-26, 161999.99999928]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)*Abs(cos(atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude) - atan2(sin(pi*(v1_direction/180 - v2_direction/180)), cos(pi*(v1_direction/180 - v2_direction/180))))) → range [0.0, 249.99999999989157]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 249.99999999989157]
+Approximate computed ranges for 3 threshold symbols in 1.89 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_timestamp) + I*im(v2_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_latitude - v2_latitude) when the argument is not real or imaginary.
+        - field expression Abs(v1_latitude - v2_latitude)**2.0 + Abs(v1_longitude - v2_longitude)**2.0 → range [0.0, 161999.99999928003]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 161999.99999928003]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+        - field expression Abs(v1_speed - v2_speed)*Abs(cos(atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude) - atan2(sin(pi*(v1_direction/180 - v2_direction/180)), cos(pi*(v1_direction/180 - v2_direction/180))))) → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 250.0]
+Theoretical computed ranges for 3 threshold symbols in 24.51 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_2': (0.0, 161999.99999928003), '_N_THRESHOLD_3': (0.0, 250.0)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0040471553802490234 seconds
+Set solve data in 0.0009059906005859375 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'not_1')
+Found Eformulas in 0.0014050006866455078 seconds
+Constructed main constraint in 1086.4347105026245 seconds
+Constructed VE constraints in 19.456361770629883 seconds
+Constructed symbol domain constraints in 12.120259761810303 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 11
+        - (>=, _N_THRESHOLD_2): 63587
+        - (<, _N_THRESHOLD_3): 79825
+    - symbol domains:
+        - _N_THRESHOLD_1: 12
+        - _N_THRESHOLD_2: 63588
+        - _N_THRESHOLD_3: 79826
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(7538962941996209, 295147905179352825856), '_N_THRESHOLD_1': Fraction(4, 1), '_N_THRESHOLD_3': Fraction(5514413158426697, 70368744177664)}
+        - objective value: 21 out of 21
+        - solved in 1418.3879256248474 seconds
+Solving iteration 2:
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 1875637.
+Solving process timeout in 3600.0 seconds
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1214_1111/template_32 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 3626.98 seconds

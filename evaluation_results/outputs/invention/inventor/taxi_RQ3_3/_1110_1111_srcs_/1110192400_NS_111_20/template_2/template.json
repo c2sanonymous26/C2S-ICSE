@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts three grpid steps apart should keep both the acceleration-like quantity and the turning-rate quantity within reasonable bounds.",
+    "goal": "Detect three-step same-vehicle context pairs whose local speed and heading evolution are implausible.",
+    "design_rationale": "Even across a larger sequence gap, the combined translational and directional dynamics should remain within realistic bounds."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is equal to the grpid value of v2 minus 3, then the ratio between their speed difference and timestamp difference should not exceed a certain reasonable upper bound on acceleration, and the ratio between the absolute difference in their direction angles and timestamp difference should not exceed a certain reasonable upper bound on turning rate.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is equal to the grpid value of v2 minus 3.",
+      "implementation": "v1.grpid == v2.grpid - 3",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The acceleration computed from v1 and v2 does not exceed a certain reasonable upper bound on acceleration.",
+      "implementation": "abs(v1.speed - v2.speed) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

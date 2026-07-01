@@ -1,0 +1,35 @@
+======================================================== 1213_1000/template_50 (5000_00_solve) instantiation starts =======================================================
+- scenario: taxi
+- template: 1213_1000/template_50
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0013082027435302734 seconds
+Constructed ctx data in 3.314018249511719e-05 seconds
+Loaded data field types in 0.0005176067352294922 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.001211404800415039 seconds
+Set solve data in 0.0008749961853027344 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005707740783691406 seconds
+Constructed main constraint in 2720.5232717990875 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(0, 1)}
+        - solved in 0.04223489761352539 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(923593888125499, 2305843009213693952)}
+        - solved in 0.04226088523864746 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(923593888125499, 4611686018427387904)}
+        - solved in 0.04673409461975098 seconds
+1213_1000/template_50 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+====================================================== 1213_1000/template_50 (5000_00_solve) instantiation completes ======================================================
+Total instantiation time: 2721.58 seconds

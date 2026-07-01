@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle transition whose movement-direction angle stays consistent with the road-angle reference.",
+    "goal": "Detect high-speed contexts whose recent movement direction deviates implausibly from the major road angle reference.",
+    "design_rationale": "At high speed, the recent movement direction should remain reasonably aligned with the major-road angular reference."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the absolute value of the difference between the angle of the coordinate-change direction of v1 and v2 and the angle of the major city road direction does not exceed a certain reasonable range."
+}

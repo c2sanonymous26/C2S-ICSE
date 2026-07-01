@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep this timestamp-to-speed-difference ratio within a bounded range.",
+    "goal": "Detect adjacent same-vehicle contexts whose time and speed-change relation is implausible under this rule.",
+    "design_rationale": "This rule constrains the specific quantity defined from the timestamp gap and the absolute speed difference across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the absolute timestamp difference of v1 and v2 and the absolute speed difference of v1 and v2, that is, the acceleration-change-rate quantity, should not exceed a certain upper bound."
+}

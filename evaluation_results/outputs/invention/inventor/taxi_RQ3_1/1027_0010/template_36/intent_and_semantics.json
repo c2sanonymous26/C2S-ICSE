@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should have adjacent group indices.",
+    "goal": "Detect broken context continuity within a vehicle trajectory.",
+    "design_rationale": "If two contexts are consecutive for the same vehicle, their group indices should differ by exactly one."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the grpid difference between v1 and v2 must equal 1."
+}

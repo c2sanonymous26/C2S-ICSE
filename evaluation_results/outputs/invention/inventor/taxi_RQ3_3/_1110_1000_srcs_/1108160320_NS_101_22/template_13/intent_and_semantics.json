@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A long-duration zero-speed context should remain directionally close to the next context.",
+    "goal": "Detect stationary contexts whose heading drifts implausibly over an extended stopped interval.",
+    "design_rationale": "If a vehicle remains stopped for a sufficiently long local interval, its heading should not shift beyond a small angular bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and remains so beyond a certain time threshold, meaning that the timestamp difference between v1 and its next context v2 exceeds a certain value, then the absolute difference between the direction angle of v1 and that of v2 should not exceed a certain reasonable angular range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep their implied inter-record time within a reasonable bound.",
+    "goal": "Detect adjacent same-vehicle contexts whose elapsed time per grpid step is implausibly large.",
+    "design_rationale": "A valid local transition should preserve a reasonable amount of time between neighboring grpid steps."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the timestamp difference of v1 and v2 and the grpid difference of v1 and v2, that is, the inter-record time, should not exceed a certain reasonable upper bound."
+}

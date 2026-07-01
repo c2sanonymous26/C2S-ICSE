@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should keep a bounded discrepancy between their movement-direction relation and the direction implied by the line connecting them.",
+    "goal": "Detect cross-vehicle context pairs whose directional relation is implausible relative to their spatial geometry.",
+    "design_rationale": "For nearby observations from different vehicles, the relation between their movement directions and the connecting-line direction should remain geometrically consistent."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute difference between the angle of their movement directions computed from direction values and the angle of the direction of the line connecting their positions computed from the coordinates should not exceed a certain value."
+}

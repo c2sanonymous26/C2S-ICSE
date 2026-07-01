@@ -1,0 +1,13 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid == v2.carid && v1.grpid + 1 == v2.grpid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v2.speed - v1.speed) <= NTHRESHOLD1 && min(abs(v2.direction - v1.direction), 360 - abs(v2.direction - v1.direction)) <= NTHRESHOLD2"
+    }
+  ],
+  "reason": null
+}

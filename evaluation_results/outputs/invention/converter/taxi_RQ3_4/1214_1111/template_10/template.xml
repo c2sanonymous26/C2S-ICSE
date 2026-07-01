@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed value of v1 is zero, then the longitude and latitude coordinates of v1 should be identical to those of the previous context v2.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <and>
+          <bfunc id="2"/>
+          <bfunc id="3"/>
+        </and>
+      </exists>
+    </implies>
+  </forall>
+</formula>

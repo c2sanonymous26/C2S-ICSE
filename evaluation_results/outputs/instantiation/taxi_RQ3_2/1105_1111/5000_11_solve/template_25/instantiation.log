@@ -1,0 +1,60 @@
+============================================================ 1105_1111/template_25 (5000_11_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1105_1111/template_25
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts *********************************************************************************
+Decomposed template in 0.0025191307067871094 seconds
+Constructed ctx data in 3.814697265625e-05 seconds
+Loaded data field types in 0.0005686283111572266 seconds
+******************************************************************************* Preparation completes ********************************************************************************
+************************************************************************ Symbol basic ranges computing starts ************************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 998857385.524332]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 998857385.524332]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 25755163669.481853]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 25755163669.481853]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 11462374002.208914]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 11462374002.208914]
+Approximate computed ranges for 3 threshold symbols in 2.11 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_timestamp) + I*im(v2_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_direction - v2_direction)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 0.0]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 0.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_direction - v2_direction)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 0.0]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 0.0]
+Theoretical computed ranges for 3 threshold symbols in 0.19 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_2': (0.0, 25755163669.481853), '_N_THRESHOLD_3': (0.0, 11462374002.208914)}
+********************************************************************** Symbol basic ranges computing completes ***********************************************************************
+******************************************************************************* Solving process starts *******************************************************************************
+Parsed template in 0.0035686492919921875 seconds
+Set solve data in 0.0008747577667236328 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_1', 'and_2')
+Found Eformulas in 0.0013027191162109375 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 2689557.
+Solving process timeout in 3600.0 seconds
+***************************************************************************** Solving process completes ******************************************************************************
+========================================================== 1105_1111/template_25 (5000_11_solve) instantiation completes ===========================================================
+Total instantiation time: 3603.01 seconds

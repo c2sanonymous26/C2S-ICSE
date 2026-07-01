@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "lt",
+  "target_col": "longitude",
+  "status": "success_simple_constraint",
+  "assertion": "neg(sub(cos(timestamp), sqrt(17846.543)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.5963339805603027,
+  "asrtm_time": 1.5281484127044678,
+  "predm_time": 0.06618189811706543,
+  "asrt_info": {
+    "fitness": 0.002312174284250028,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

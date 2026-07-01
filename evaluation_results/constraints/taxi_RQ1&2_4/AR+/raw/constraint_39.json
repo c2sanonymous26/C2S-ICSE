@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "gt",
+  "target_col": "latitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "sub(min(neg(direction_2), min(timestamp_1, direction_2)), tan(mul(5169.952, -57090.012)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 223.96350574493408,
+  "asrtm_time": 222.4851906299591,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0011,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

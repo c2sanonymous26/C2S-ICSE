@@ -1,0 +1,17 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid == v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "abs((v1.speed + v2.speed) ÷ 2 - sqrt(pow(v2.latitude - v1.latitude, 2) + pow(v2.longitude - v1.longitude, 2)) ÷ (abs(v2.timestamp - v1.timestamp) ÷ 3600)) <= NTHRESHOLD2"
+    }
+  ],
+  "reason": null
+}

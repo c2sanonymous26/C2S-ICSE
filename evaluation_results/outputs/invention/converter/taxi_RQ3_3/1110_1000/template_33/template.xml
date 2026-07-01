@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the direction-angle change rate computed from their direction-angle difference and timestamp difference and the speed-change rate computed from their speed difference and timestamp difference should not exceed a certain reasonable range, and the product of that ratio and the average speed of v1 and v2 should not exceed a certain reasonable turning-radius limit.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <and>
+          <bfunc id="3"/>
+          <bfunc id="4"/>
+        </and>
+      </implies>
+    </forall>
+  </forall>
+</formula>

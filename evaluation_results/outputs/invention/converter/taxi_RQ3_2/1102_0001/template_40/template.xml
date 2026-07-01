@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed value of v1 is zero, then the longitude and latitude values of v1 should be the same as those of an adjacent context whose grpid differs by 1.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <bfunc id="2"/>
+      </exists>
+    </implies>
+  </forall>
+</formula>

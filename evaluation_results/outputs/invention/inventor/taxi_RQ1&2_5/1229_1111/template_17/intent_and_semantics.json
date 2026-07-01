@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether the acceleration of heading change across three consecutive records of the same vehicle stays within a reasonable upper bound.",
+    "goal": "Identify same-vehicle record triples with overly abrupt variation in direction change.",
+    "design_rationale": "Across three consecutive records, the ratio between successive direction differences should remain bounded; otherwise the vehicle's turning behavior changes too sharply."
+  },
+  "semantics": "For any three vehicle records v1, v2, and v3, if they belong to the same vehicle, the grpid of v1 is greater than that of v2 by 1, and the grpid of v2 is greater than that of v3 by 1, then the ratio of the direction difference between v1 and v2 to the direction difference between v2 and v3 (i.e., the acceleration of direction change) must be significantly less than some upper bound (i.e., the acceleration of the vehicle's direction change should not be too drastic)."
+}

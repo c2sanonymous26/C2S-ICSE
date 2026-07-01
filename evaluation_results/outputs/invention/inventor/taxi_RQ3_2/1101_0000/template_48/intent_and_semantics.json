@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should satisfy a reasonable ratio between geographic distance and timestamp difference.",
+    "goal": "Detect different-vehicle pairs whose spatial separation evolves implausibly relative to the time gap considered by this rule.",
+    "design_rationale": "This rule constrains the spatial-distance-over-time relation for near-synchronous observations of different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the ratio between their geographic distance (computed from coordinates) and their timestamp difference should lie within a certain reasonable range."
+}

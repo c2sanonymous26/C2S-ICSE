@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to different vehicles (different carid values), v2.longitude is greater than or equal to cos(log(div(v1.speed, v2.direction))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles (they have different carid values)",
+      "implementation": "var_bindings['v1']['carid'] != var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.longitude is greater than or equal to cos(log(div(v1.speed, v2.direction)))",
+      "implementation": "var_bindings['v2']['longitude'] >= cos((0 if abs((1 if -1/1000 <= (var_bindings['v2']['direction']) <= 1/1000 else (var_bindings['v1']['speed']) / (var_bindings['v2']['direction']))) < 1/1000 else log(abs((1 if -1/1000 <= (var_bindings['v2']['direction']) <= 1/1000 else (var_bindings['v1']['speed']) / (var_bindings['v2']['direction']))))))"
+    }
+  ]
+}

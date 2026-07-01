@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether a stopped vehicle keeps a heading consistent with its immediately previous record.",
+    "goal": "Identify zero-speed records whose direction deviates too much from the previous adjacent record of the same vehicle.",
+    "design_rationale": "When a vehicle is stopped, its heading should remain broadly consistent with the heading right before stopping; a large discrepancy suggests an abnormal reading."
+  },
+  "semantics": "For any vehicle record v1, if the speed of v1 is 0, then the absolute difference between the direction of v1 and the direction of the previous record v2 (where v2 belongs to the same vehicle and the grpid of v2 is smaller than that of v1 by 1) does not exceed some upper bound (i.e., when the vehicle stops, its direction should remain basically consistent with its direction before stopping)."
+}

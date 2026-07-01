@@ -1,0 +1,44 @@
+============================================================ 1221_1111/template_17 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1221_1111/template_17
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0019714832305908203 seconds
+Constructed ctx data in 3.838539123535156e-05 seconds
+Loaded data field types in 0.0006096363067626953 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression (-v1_speed + v2_speed)/(-v1_timestamp + v2_timestamp) → range [-7989386708.310333, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [-7989386708.310333, inf]
+Approximate computed ranges for 1 threshold symbols in 0.77 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression (-v1_speed + v2_speed)/(-v1_timestamp + v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.27 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-7989386708.310333, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0018305778503417969 seconds
+Set solve data in 0.0009336471557617188 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005991458892822266 seconds
+Main Constraint is always False or True
+Constructed main constraint in 9.55202865600586 seconds
+1221_1111/template_17 (5000_11_solve) has 0 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1221_1111/template_17 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 10.65 seconds

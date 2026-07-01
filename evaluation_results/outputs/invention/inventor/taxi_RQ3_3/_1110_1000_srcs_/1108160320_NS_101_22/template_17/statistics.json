@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "total_time": 71.69516801834106,
+  "phase1_semantics": {
+    "time_cost": 16.123409032821655,
+    "duplicate_count": 1,
+    "total_attempts": 2
+  },
+  "phase2_structure_and_signatures": {
+    "time_cost": 8.963583946228027,
+    "syntax_error_count": 0,
+    "semantic_error_count": 0,
+    "rollback_count": 0,
+    "total_attempts": 1
+  },
+  "phase3_implementation": {
+    "time_cost": 46.542561769485474,
+    "syntax_error_count": 2,
+    "consistency_error_count": 0,
+    "unit_error_count": 0,
+    "total_attempts": 3
+  }
+}

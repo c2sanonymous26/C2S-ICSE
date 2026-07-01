@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is greater than add(sqrt(v1.direction), min(v1.latitude, v1.latitude)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is greater than add(sqrt(v1.direction), min(v1.latitude, v1.latitude))",
+      "implementation": "var_bindings['v1']['timestamp'] > (sqrt(abs(var_bindings['v1']['direction'])) + min(var_bindings['v1']['latitude'], var_bindings['v1']['latitude']))"
+    }
+  ]
+}

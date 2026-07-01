@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle's speed is zero, the direction change relative to the previous context should be within a reasonable range.",
+    "goal": "Detect contexts where a stationary vehicle shows an implausibly large direction change relative to the preceding context.",
+    "design_rationale": "A stationary vehicle should not exhibit a large heading change; a large direction difference when speed is zero indicates a sensor error."
+  },
+  "semantics": "For any context v1, if v1's speed is zero, then the direction difference between v1 and the previous context v2 should be within a certain reasonable range."
+}

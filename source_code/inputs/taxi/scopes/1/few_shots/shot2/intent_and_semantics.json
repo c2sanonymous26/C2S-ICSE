@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The recorded direction of a taxi context must remain within a reasonable and valid operational range.",
+    "goal": "Detect contexts with implausible direction values that fall outside the expected valid range, which may indicate sensor calibration issues, data corruption, or transmission errors.",
+    "design_rationale": "Direction values are expected to stay within a logically valid domain defined by the application. Values outside this reasonable range are physically or semantically inconsistent and should be treated as potential anomalies."
+  },
+  "semantics": "For any context v1, the direction recorded in v1 lies within a valid and reasonable range."
+}

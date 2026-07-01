@@ -1,0 +1,35 @@
+============================================================ 1104_0100/template_5 (5000_00_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1104_0100/template_5
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0030014514923095703 seconds
+Constructed ctx data in 3.886222839355469e-05 seconds
+Loaded data field types in 0.0005435943603515625 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0018885135650634766 seconds
+Set solve data in 0.0008695125579833984 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005691051483154297 seconds
+Constructed main constraint in 59.40494704246521 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(3318114719557157, 36028797018963968)}
+        - solved in 0.0011484622955322266 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(39346911738521125, 36028797018963968)}
+        - solved in 0.0008528232574462891 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(21332513229039141, 36028797018963968)}
+        - solved in 0.0007498264312744141 seconds
+1104_0100/template_5 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1104_0100/template_5 (5000_00_solve) instantiation completes ==========================================================
+Total instantiation time: 59.45 seconds

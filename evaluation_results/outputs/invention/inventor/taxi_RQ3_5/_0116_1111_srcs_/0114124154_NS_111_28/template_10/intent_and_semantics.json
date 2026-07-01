@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep the distance-change rate to the next context within a reasonable range.",
+    "goal": "Detect high-speed contexts whose next-step displacement-over-time behavior is implausible.",
+    "design_rationale": "When speed is high, the distance change to the next context should evolve at a realistic rate."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the distance-change rate between the coordinates of v1 and its next context v2, computed from distance and time difference, should lie within a certain reasonable range."
+}

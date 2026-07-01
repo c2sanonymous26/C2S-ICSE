@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "ge",
+  "target_col": "latitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "neg(max(sub(tan(min(timestamp_2, timestamp_1)), cos(log(timestamp_2))), abs(abs(cos(latitude_1)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.563263654708862,
+  "asrtm_time": 7.960096120834351,
+  "predm_time": 0.5906999111175537,
+  "asrt_info": {
+    "fitness": 0.0014,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

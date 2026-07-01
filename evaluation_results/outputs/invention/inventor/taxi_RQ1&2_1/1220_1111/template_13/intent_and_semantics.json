@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Both the heading change and the implied average speed between two consecutive contexts of the same vehicle are jointly bounded.",
+    "goal": "Jointly detect physically implausible combinations of large heading change and high average speed between consecutive records.",
+    "design_rationale": "While either large heading changes or high average speed alone may occur, their joint occurrence is more strongly constrained by physics; this combined constraint provides more discriminative detection."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the absolute heading difference between v1 and v2 does not exceed a certain reasonable upper bound, and the ratio of the haversine GPS displacement to the timestamp difference does not exceed a certain reasonable speed upper bound."
+}

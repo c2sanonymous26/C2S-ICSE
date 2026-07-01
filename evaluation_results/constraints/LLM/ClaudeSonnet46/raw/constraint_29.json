@@ -1,0 +1,150 @@
+{
+  "constraint_id": 29,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 90.58061575889587
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "When a taxi is moving sufficiently fast and its recorded heading is close to due north, the next consecutive context for that same taxi should show a noticeable increase in latitude.",
+      "goal": "Detect inconsistencies between heading and positional change, such as incorrect direction readings, swapped coordinates, or GPS updates that do not reflect the reported motion.",
+      "design_rationale": "In city driving, a taxi that is already moving at a substantial speed and is pointed roughly north should, over a short positive time interval, make measurable northward progress. Requiring this only for consecutive records of the same taxi and only when the heading is near due north avoids overconstraining turns, stops, and low-speed maneuvers."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, and the direction recorded in v1 is within a certain range of due north, then the latitude recorded in v2 is greater than the latitude recorded in v1 by at least a certain small amount.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large and the direction recorded in v1 is within a certain range of due north",
+        "implementation": "v1.speed >= NTHRESHOLD2 && (abs(v1.direction - 0) <= NTHRESHOLD3 || abs(v1.direction - 360) <= NTHRESHOLD3)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v2 is greater than the latitude recorded in v1 by at least a certain small amount",
+        "implementation": "v2.latitude - v1.latitude >= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 20.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 20.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 22.5
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 0.0005
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "When a taxi is moving sufficiently fast and its recorded heading is close to due north, the next consecutive context for that same taxi should show a noticeable increase in latitude.",
+      "goal": "Detect inconsistencies between heading and positional change, such as incorrect direction readings, swapped coordinates, or GPS updates that do not reflect the reported motion.",
+      "design_rationale": "In city driving, a taxi that is already moving at a substantial speed and is pointed roughly north should, over a short positive time interval, make measurable northward progress. Requiring this only for consecutive records of the same taxi and only when the heading is near due north avoids overconstraining turns, stops, and low-speed maneuvers."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, and the direction recorded in v1 is within a certain range of due north, then the latitude recorded in v2 is greater than the latitude recorded in v1 by at least a certain small amount.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 20.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large and the direction recorded in v1 is within a certain range of due north",
+        "implementation": "(v1.speed >= 20.0) && ((abs((v1.direction - 0)) <= 22.5) || (abs((v1.direction - 360)) <= 22.5))",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v2 is greater than the latitude recorded in v1 by at least a certain small amount",
+        "implementation": "(v2.latitude - v1.latitude) >= 0.0005",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose turning rate and speed-change rate to v1 both stay within reasonable upper bounds.",
+    "goal": "Detect high-speed contexts that require an implausible local transition in either heading-change rate or speed-change rate.",
+    "design_rationale": "The move into a very fast context should remain jointly plausible in both turning behavior and speed evolution."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists another context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, the direction-angle change rate between v1 and v2 computed from direction angle and timestamps does not exceed a certain reasonable upper bound, and the speed-change rate between v1 and v2 computed from speed and timestamps does not exceed a certain reasonable upper bound."
+}

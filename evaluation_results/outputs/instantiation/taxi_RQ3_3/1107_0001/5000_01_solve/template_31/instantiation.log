@@ -1,0 +1,40 @@
+================================== 1107_0001/template_31 (5000_01_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0001/template_31
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.002489805221557617 seconds
+Constructed ctx data in 6.175041198730469e-05 seconds
+Loaded data field types in 0.0008680820465087891 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.001451253890991211 seconds
+Set solve data in 0.0008938312530517578 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 1, 1): ('bfunc_1_c1', 'exists_1')
+Found Eformulas in 0.0013232231140136719 seconds
+Constructed main constraint in 66.58940601348877 seconds
+Constructed VE constraints in 0.7386124134063721 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(128327631007385001, 1125899906842624), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - objective value: 8 out of 9
+        - solved in 0.4720938205718994 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(256680220387444137, 2251799813685248), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - objective value: 8 out of 9
+        - solved in 0.4826788902282715 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(513385399147562409, 4503599627370496), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - objective value: 8 out of 9
+        - solved in 0.4597811698913574 seconds
+1107_0001/template_31 (5000_01_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0001/template_31 (5000_01_solve) instantiation completes =================================
+Total instantiation time: 68.80 seconds

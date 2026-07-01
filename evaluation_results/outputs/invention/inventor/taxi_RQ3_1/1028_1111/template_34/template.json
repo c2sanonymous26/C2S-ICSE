@@ -1,0 +1,67 @@
+{
+  "intent": {
+    "content": "Three nearby cross-vehicle contexts observed at similar times should satisfy a relaxed transitive upper bound on pairwise distance.",
+    "goal": "Detect triples of contexts whose pairwise spatial configuration violates a plausible distance-consistency relation.",
+    "design_rationale": "If v1 is close to v2 and v2 is close to v3 within the same time window, then v1 and v3 should remain within a correspondingly larger but still bounded distance."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), the geographic distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable upper bound for distance, and the geographic distance between v2 and v3 does not exceed a certain reasonable upper bound for distance, then the geographic distance between v1 and v3 should not exceed a larger reasonable upper bound for distance.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v2, v3)) implies bfunc5(v1, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their difference does not exceed a certain reasonable time interval.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The geographic distance between v1 and v2, computed using the haversine formula, does not exceed a certain reasonable upper bound for distance.",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.05"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v2",
+        "v3"
+      ],
+      "semantics": "The geographic distance between v2 and v3 does not exceed a certain reasonable upper bound for distance.",
+      "implementation": "sqrt(pow(v2.latitude - v3.latitude, 2) + pow(v2.longitude - v3.longitude, 2)) <= NTHRESHOLD3",
+      "restrictions": [
+        "NTHRESHOLD3 <= 0.05"
+      ]
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v3"
+      ],
+      "semantics": "The geographic distance between v1 and v3 does not exceed a larger reasonable upper bound for distance.",
+      "implementation": "sqrt(pow(v1.latitude - v3.latitude, 2) + pow(v1.longitude - v3.longitude, 2)) <= NTHRESHOLD4",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+============================================================ 1110_1111/template_47 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1110_1111/template_47
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0020945072174072266 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0005779266357421875 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 5 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction) → range [0.0, 359.999999999]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 359.999999999]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 999891987.3085657]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 999891987.3085657]
+Approximate computed ranges for 3 threshold symbols in 0.31 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 5 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v1_direction) + I*im(v1_direction).
+        - field expression Abs(v1_direction - v2_direction) → range [0.0, 359.999999999]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 359.999999999]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v1_timestamp) + I*im(v1_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 1000000000.0]
+Theoretical computed ranges for 3 threshold symbols in 0.19 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 250.0), '_N_THRESHOLD_2': (0.0, 359.999999999), '_N_THRESHOLD_3': (0.0, 1000000000.0)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0016412734985351562 seconds
+Set solve data in 0.0009129047393798828 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'and_3')
+Found Eformulas in 0.0012469291687011719 seconds
+Constructed main constraint in 59.484129428863525 seconds
+Constructed VE constraints in 0.07527923583984375 seconds
+Constructed symbol domain constraints in 0.03527569770812988 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 43
+        - (>=, _N_THRESHOLD_2): 8
+        - (>=, _N_THRESHOLD_3): 65
+    - symbol domains:
+        - _N_THRESHOLD_1: 44
+        - _N_THRESHOLD_2: 9
+        - _N_THRESHOLD_3: 66
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(93, 1), '_N_THRESHOLD_3': Fraction(497, 1), '_N_THRESHOLD_2': Fraction(270, 1)}
+        - objective value: 18 out of 21
+        - solved in 0.04896259307861328 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(74, 1), '_N_THRESHOLD_2': Fraction(315, 1), '_N_THRESHOLD_3': Fraction(121, 1)}
+        - objective value: 18 out of 21
+        - solved in 0.048757314682006836 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(112, 1), '_N_THRESHOLD_2': Fraction(45, 1), '_N_THRESHOLD_3': Fraction(36, 1)}
+        - objective value: 16 out of 21
+        - solved in 0.04960966110229492 seconds
+1110_1111/template_47 (5000_11_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1110_1111/template_47 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 60.31 seconds

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), then the absolute difference between the speed recorded in v2 and the speed recorded in v1 divided by the absolute time difference between v2 and v1 does not exceed a certain upper bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

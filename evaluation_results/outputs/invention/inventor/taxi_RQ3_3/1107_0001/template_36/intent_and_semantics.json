@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should have both a reasonable timestamp gap and exactly one grpid step.",
+    "goal": "Detect adjacent contexts that violate temporal continuity or sequence continuity.",
+    "design_rationale": "A valid local trajectory transition should be consistent in both time spacing and grpid progression."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the timestamp difference between v1 and v2 should lie within a certain reasonable range, and the difference between their grpid values should be exactly 1."
+}

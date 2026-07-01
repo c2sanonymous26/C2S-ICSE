@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should satisfy a reasonable ratio between speed difference and geographic distance.",
+    "goal": "Detect different-vehicle pairs whose joint speed-distance relationship is implausible.",
+    "design_rationale": "This rule constrains a composite quantity formed by speed difference and spatial separation for near-synchronous observations of different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the ratio between the absolute difference in their speed values and their geographic distance should lie within a certain reasonable range."
+}

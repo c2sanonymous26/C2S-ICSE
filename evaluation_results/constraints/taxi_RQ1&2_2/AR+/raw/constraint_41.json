@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "gt",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "sin(cos(sub(add(speed, -16583.383), sin(longitude))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.5718879699707031,
+  "asrtm_time": 0.5105948448181152,
+  "predm_time": 0.05952119827270508,
+  "asrt_info": {
+    "fitness": 0.0008,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

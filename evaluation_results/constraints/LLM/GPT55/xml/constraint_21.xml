@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if there exists a context v0 such that v0 belongs to the same vehicle as v1 and the grpid of v0 is smaller than the grpid of v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid of v2 immediately precedes the grpid of v1.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <exists var="v0" in="ctx1">
+        <bfunc id="1"/>
+      </exists>
+      <exists var="v2" in="ctx1">
+        <bfunc id="2"/>
+      </exists>
+    </implies>
+  </forall>
+</formula>

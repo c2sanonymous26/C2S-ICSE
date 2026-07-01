@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a jointly plausible combination of speed and direction values.",
+    "goal": "Detect contexts whose speed-direction pairing falls outside an acceptable domain.",
+    "design_rationale": "Even if speed and direction are individually valid, some combinations of the two may still be implausible and should be bounded jointly."
+  },
+  "semantics": "For any context v1, the combination of the speed value and direction value of v1 should lie within a certain reasonable range."
+}

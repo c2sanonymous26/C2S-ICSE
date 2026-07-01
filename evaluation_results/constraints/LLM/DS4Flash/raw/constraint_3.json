@@ -1,0 +1,122 @@
+{
+  "constraint_id": 3,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 128.7893979549408
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The recorded speed of a context should be consistent with the displacement from the previous context of the same vehicle.",
+      "goal": "Detect contexts where the speed reading is zero or near-zero despite significant movement, indicating a sensor error or data corruption.",
+      "design_rationale": "A taxi cannot move a large distance without having a positive speed. If the GPS shows a large displacement between two consecutive records of the same taxi, the instantaneous speed recorded at the later context should reflect that movement. A zero or near-zero speed when the vehicle has moved significantly is physically implausible and indicates a faulty speed sensor or data transmission error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the distance between their GPS locations (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is significantly larger than a certain threshold, then the speed recorded in v2 is above a certain lower bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is significantly larger than a certain threshold",
+        "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) > NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is above a certain lower bound",
+        "implementation": "v2.speed > NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 0.2
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 1.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The recorded speed of a context should be consistent with the displacement from the previous context of the same vehicle.",
+      "goal": "Detect contexts where the speed reading is zero or near-zero despite significant movement, indicating a sensor error or data corruption.",
+      "design_rationale": "A taxi cannot move a large distance without having a positive speed. If the GPS shows a large displacement between two consecutive records of the same taxi, the instantaneous speed recorded at the later context should reflect that movement. A zero or near-zero speed when the vehicle has moved significantly is physically implausible and indicates a faulty speed sensor or data transmission error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), and the distance between their GPS locations (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is significantly larger than a certain threshold, then the speed recorded in v2 is above a certain lower bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 (computed from v1.latitude, v1.longitude and v2.latitude, v2.longitude) is significantly larger than a certain threshold",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) > 0.2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is above a certain lower bound",
+        "implementation": "v2.speed > 1.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

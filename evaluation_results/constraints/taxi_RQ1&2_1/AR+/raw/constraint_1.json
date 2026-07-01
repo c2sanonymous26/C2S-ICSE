@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "gt",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "abs(abs(add(div(speed, speed), log(timestamp))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.6431372165679932,
+  "asrtm_time": 1.5670735836029053,
+  "predm_time": 0.07362151145935059,
+  "asrt_info": {
+    "fitness": 0.002114135666557876,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

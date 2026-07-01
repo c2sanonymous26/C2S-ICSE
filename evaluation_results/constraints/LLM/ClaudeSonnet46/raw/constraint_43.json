@@ -1,0 +1,150 @@
+{
+  "constraint_id": 43,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 66.30329704284668
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Two nearby taxis observed at nearly the same time should not be moving in almost opposite directions at high speed simultaneously.",
+      "goal": "Detect implausible multi-vehicle traffic states that may indicate direction or position sensing errors.",
+      "design_rationale": "When two taxis are spatially very close within a short time window, recording both of them as moving fast while facing nearly opposite directions is unlikely in ordinary lane-level urban traffic and can signal swapped headings, GPS overlap artifacts, or delayed context reporting."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, the time difference between v1 and v2 is sufficiently small, the geographic distance between the locations in v1 and v2 is sufficiently small, and the change between the directions recorded in v1 and v2 is within a range close to an about-face, then at least one of the speeds recorded in v1 and v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference between v1 and v2 is sufficiently small",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the locations in v1 and v2 is sufficiently small",
+        "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) <= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change between the directions recorded in v1 and v2 is within a range close to an about-face",
+        "implementation": "abs((abs(v1.direction - v2.direction)) - 180) <= NTHRESHOLD3 || abs((360 - abs(v1.direction - v2.direction)) - 180) <= NTHRESHOLD3",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "at least one of the speeds recorded in v1 and v2 is sufficiently low",
+        "implementation": "v1.speed <= NTHRESHOLD4 || v2.speed <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.1
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 22.5
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 20.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Two nearby taxis observed at nearly the same time should not be moving in almost opposite directions at high speed simultaneously.",
+      "goal": "Detect implausible multi-vehicle traffic states that may indicate direction or position sensing errors.",
+      "design_rationale": "When two taxis are spatially very close within a short time window, recording both of them as moving fast while facing nearly opposite directions is unlikely in ordinary lane-level urban traffic and can signal swapped headings, GPS overlap artifacts, or delayed context reporting."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, the time difference between v1 and v2 is sufficiently small, the geographic distance between the locations in v1 and v2 is sufficiently small, and the change between the directions recorded in v1 and v2 is within a range close to an about-face, then at least one of the speeds recorded in v1 and v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference between v1 and v2 is sufficiently small",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the locations in v1 and v2 is sufficiently small",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 0.1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change between the directions recorded in v1 and v2 is within a range close to an about-face",
+        "implementation": "(abs((abs((v1.direction - v2.direction)) - 180)) <= 22.5) || (abs(((360 - abs((v1.direction - v2.direction))) - 180)) <= 22.5)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "at least one of the speeds recorded in v1 and v2 is sufficiently low",
+        "implementation": "(v1.speed <= 20.0) || (v2.speed <= 20.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

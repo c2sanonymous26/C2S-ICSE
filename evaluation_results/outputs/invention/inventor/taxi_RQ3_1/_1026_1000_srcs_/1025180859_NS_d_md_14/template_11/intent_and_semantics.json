@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should still imply a bounded average movement speed relative to its previous context.",
+    "goal": "Detect high-speed contexts whose displacement-over-time ratio against the previous observation becomes implausibly large even under a relaxed bound.",
+    "design_rationale": "Even when the reported speed is already high, the implied movement between consecutive contexts should remain within a relaxed but still realistic upper limit."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio between the geographic difference of v1 and its previous context v2, computed using the haversine formula, and the timestamp difference between v1 and v2 should not exceed twice a certain reasonable upper bound for speed."
+}

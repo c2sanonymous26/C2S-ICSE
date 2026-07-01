@@ -1,0 +1,10 @@
+{
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": ["v1"],
+      "semantics": "v1's GPS location (latitude and longitude) is within the city boundary"
+    }
+  ]
+}

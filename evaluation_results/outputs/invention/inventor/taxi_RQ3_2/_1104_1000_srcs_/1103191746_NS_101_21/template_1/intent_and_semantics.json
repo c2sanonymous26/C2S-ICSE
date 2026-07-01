@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have a reasonable direction-angle change rate over time.",
+    "goal": "Detect near-consecutive contexts whose heading changes too quickly or too slowly relative to elapsed time.",
+    "design_rationale": "A locally consecutive transition should not exhibit an implausible rate of heading change when measured against the timestamp gap."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the ratio between the absolute difference in direction angle between v1 and v2 and the timestamp difference between v1 and v2 should lie within a certain reasonable range."
+}

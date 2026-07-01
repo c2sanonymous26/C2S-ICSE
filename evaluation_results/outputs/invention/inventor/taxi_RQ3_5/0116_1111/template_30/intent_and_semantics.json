@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle should keep angular velocity within a reasonable upper bound.",
+    "goal": "Detect same-vehicle contexts whose local direction change over time is implausibly high.",
+    "design_rationale": "A realistic one-step transition should not exhibit an excessive direction change rate."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the ratio between the direction difference of v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound on angular velocity."
+}

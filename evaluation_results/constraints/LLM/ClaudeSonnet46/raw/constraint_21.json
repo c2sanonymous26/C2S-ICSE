@@ -1,0 +1,142 @@
+{
+  "constraint_id": 21,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 68.10848307609558
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Two consecutive contexts of the same taxi that report exactly the same GPS position over a short positive time interval should both indicate low speed.",
+      "goal": "Detect inconsistencies where a taxi appears stationary in consecutive records but one or both speed readings suggest substantial motion.",
+      "design_rationale": "When a taxi remains at the exact same recorded latitude and longitude across two closely spaced timestamps, the vehicle is most plausibly stopped or creeping very slowly. Repeated identical positions combined with non-low speeds are likely caused by speed-sensor errors, delayed GPS updates, or record synchronization problems."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the longitude recorded in v1 equals the longitude recorded in v2, and the latitude recorded in v1 equals the latitude recorded in v2, then the speed recorded in v1 is sufficiently low and the speed recorded in v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle, and v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v1.carid == v2.carid && v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v1 equals the longitude recorded in v2",
+        "implementation": "v1.longitude == v2.longitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v1 equals the latitude recorded in v2",
+        "implementation": "v1.latitude == v2.latitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently low and the speed recorded in v2 is sufficiently low",
+        "implementation": "v1.speed <= NTHRESHOLD2 && v2.speed <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 9.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Two consecutive contexts of the same taxi that report exactly the same GPS position over a short positive time interval should both indicate low speed.",
+      "goal": "Detect inconsistencies where a taxi appears stationary in consecutive records but one or both speed readings suggest substantial motion.",
+      "design_rationale": "When a taxi remains at the exact same recorded latitude and longitude across two closely spaced timestamps, the vehicle is most plausibly stopped or creeping very slowly. Repeated identical positions combined with non-low speeds are likely caused by speed-sensor errors, delayed GPS updates, or record synchronization problems."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the longitude recorded in v1 equals the longitude recorded in v2, and the latitude recorded in v1 equals the latitude recorded in v2, then the speed recorded in v1 is sufficiently low and the speed recorded in v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle, and v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v1.carid == v2.carid) && (v2.grpid == (v1.grpid + 1))",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 1.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v1 equals the longitude recorded in v2",
+        "implementation": "v1.longitude == v2.longitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v1 equals the latitude recorded in v2",
+        "implementation": "v1.latitude == v2.latitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently low and the speed recorded in v2 is sufficiently low",
+        "implementation": "(v1.speed <= 9.0) && (v2.speed <= 9.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "lt",
+  "target_col": "speed_2",
+  "status": "success_simple_constraint",
+  "assertion": "mul(sub(sqrt(abs(neg(longitude_1))), sub(abs(abs(61240.201)), add(min(speed_1, direction_1), div(timestamp_2, latitude_1)))), sqrt(sub(mul(tan(latitude_2), min(longitude_1, speed_1)), max(abs(38476.284), cos(direction_1)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 529.4687659740448,
+  "asrtm_time": 479.7546980381012,
+  "predm_time": 47.193697929382324,
+  "asrt_info": {
+    "fitness": 0.003,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

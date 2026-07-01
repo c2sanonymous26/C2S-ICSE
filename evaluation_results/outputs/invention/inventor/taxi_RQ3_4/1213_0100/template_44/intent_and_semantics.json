@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have a reasonable speed difference.",
+    "goal": "Detect near-consecutive contexts whose speed discrepancy is implausibly large.",
+    "design_rationale": "A locally consecutive vehicle transition should not exhibit an excessive jump in recorded speed."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the speed value of v1 and the speed value of v2 should lie within a certain reasonable range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times have an excessively large lateral component of combined speed-and-heading variation.",
+    "goal": "Identify different-vehicle pairs whose speed difference and heading difference produce too large a lateral variation indicator.",
+    "design_rationale": "For vehicle pairs that are close in time, the product of speed difference and the sine of heading difference should remain under a reasonable upper bound; otherwise the lateral discrepancy is abnormal."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their speed difference and the sine value of their direction difference must be significantly less than some upper bound (i.e., the lateral component of speed and direction variation for the two vehicles within a nearby time interval should not be too large)."
+}

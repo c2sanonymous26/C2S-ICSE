@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the speed-change sensitivity quantity within a bounded range.",
+    "goal": "Detect adjacent same-vehicle contexts whose combined elapsed-time magnitude and speed-change magnitude is implausibly large.",
+    "design_rationale": "This rule constrains a speed-change sensitivity quantity derived from the timestamp gap and absolute speed difference across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the absolute timestamp difference of v1 and v2 and the absolute speed difference of v1 and v2, that is, the speed-change sensitivity, should not exceed a certain upper bound."
+}

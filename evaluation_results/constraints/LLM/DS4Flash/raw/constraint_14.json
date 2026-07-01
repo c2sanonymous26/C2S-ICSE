@@ -1,0 +1,93 @@
+{
+  "constraint_id": 14,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 3,
+    "generation_seconds": 40.50477194786072
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The timestamps of contexts from the same vehicle must be strictly increasing with respect to the sequence number (grpid), even for non-consecutive records.",
+      "goal": "Detect out-of-order timestamps or sequence number mismatches that may indicate data corruption, transmission delays, or recording errors.",
+      "design_rationale": "The grpid is a sequence number that should correspond to the temporal order of records. If a context has a higher grpid but an earlier timestamp than another context from the same vehicle, it indicates an inconsistency in the data collection or transmission process, which should be flagged as an anomaly."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and v1.grpid is less than v2.grpid, then the timestamp of v1 is less than the timestamp of v2.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1.grpid is less than v2.grpid",
+        "implementation": "v1.grpid < v2.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1.timestamp is less than v2.timestamp",
+        "implementation": "v1.timestamp < v2.timestamp",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": []
+  },
+  "constraint": {
+    "intent": {
+      "content": "The timestamps of contexts from the same vehicle must be strictly increasing with respect to the sequence number (grpid), even for non-consecutive records.",
+      "goal": "Detect out-of-order timestamps or sequence number mismatches that may indicate data corruption, transmission delays, or recording errors.",
+      "design_rationale": "The grpid is a sequence number that should correspond to the temporal order of records. If a context has a higher grpid but an earlier timestamp than another context from the same vehicle, it indicates an inconsistency in the data collection or transmission process, which should be flagged as an anomaly."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and v1.grpid is less than v2.grpid, then the timestamp of v1 is less than the timestamp of v2.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1.grpid is less than v2.grpid",
+        "implementation": "v1.grpid < v2.grpid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1.timestamp is less than v2.timestamp",
+        "implementation": "v1.timestamp < v2.timestamp",
+        "restrictions": []
+      }
+    ]
+  }
+}

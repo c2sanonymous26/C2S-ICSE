@@ -1,0 +1,98 @@
+{
+  "constraint_id": 35,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 377.4528250694275
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The lateral acceleration implied by the speed and heading change rate between consecutive contexts of the same vehicle does not exceed an upper bound.",
+      "goal": "Detect physically impossible turns where the lateral acceleration (centripetal acceleration) exceeds the maximum possible due to tire-road friction.",
+      "design_rationale": "In a real vehicle, the lateral acceleration during a turn is limited by physics; a high product of speed and heading change rate indicates an unrealistic turn, likely due to GPS noise or sensor error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), then the product of the speed recorded in v1 and the absolute circular heading difference between v1 and v2 divided by the absolute time difference between v2 and v1 does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the product of the speed recorded in v1 and the absolute circular heading difference between v1 and v2 divided by the absolute time difference between v2 and v1 does not exceed a certain upper bound",
+        "implementation": "(v1.speed × degrees(abs(atan2(sin(radians(v1.direction - v2.direction)), cos(radians(v1.direction - v2.direction)))))) ÷ abs(v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 3105.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The lateral acceleration implied by the speed and heading change rate between consecutive contexts of the same vehicle does not exceed an upper bound.",
+      "goal": "Detect physically impossible turns where the lateral acceleration (centripetal acceleration) exceeds the maximum possible due to tire-road friction.",
+      "design_rationale": "In a real vehicle, the lateral acceleration during a turn is limited by physics; a high product of speed and heading change rate indicates an unrealistic turn, likely due to GPS noise or sensor error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle (v1.carid = v2.carid) and are consecutive records of that vehicle (v2.grpid - v1.grpid = 1), then the product of the speed recorded in v1 and the absolute circular heading difference between v1 and v2 divided by the absolute time difference between v2 and v1 does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle (v1.carid = v2.carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle (v2.grpid - v1.grpid = 1)",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the product of the speed recorded in v1 and the absolute circular heading difference between v1 and v2 divided by the absolute time difference between v2 and v1 does not exceed a certain upper bound",
+        "implementation": "((v1.speed × degrees(abs(atan2(sin(radians((v1.direction - v2.direction))), cos(radians((v1.direction - v2.direction))))))) ÷ abs((v2.timestamp - v1.timestamp))) <= 3105.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

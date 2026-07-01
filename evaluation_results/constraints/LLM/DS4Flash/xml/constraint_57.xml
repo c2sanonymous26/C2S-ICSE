@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same taxi (same carid), the time difference (timestamp of v2 minus timestamp of v1) is positive and within a certain short time window, and the speed in v1 is above a certain threshold, then the angular difference between the direction in v1 and the bearing from v1's location (longitude, latitude) to v2's location (longitude, latitude) is within a certain angle.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

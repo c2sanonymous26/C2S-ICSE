@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts three grpid steps apart should keep both the acceleration-like quantity and the turning-rate quantity within reasonable bounds.",
+    "goal": "Detect three-step same-vehicle context pairs whose local speed and heading evolution are implausible.",
+    "design_rationale": "Even across a larger sequence gap, the combined translational and directional dynamics should remain within realistic bounds."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is equal to the grpid value of v2 minus 3, then the ratio between their speed difference and timestamp difference should not exceed a certain reasonable upper bound on acceleration, and the ratio between the absolute difference in their direction angles and timestamp difference should not exceed a certain reasonable upper bound on turning rate."
+}

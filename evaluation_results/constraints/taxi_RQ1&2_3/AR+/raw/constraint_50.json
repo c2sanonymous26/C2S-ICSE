@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "gt",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "abs(div(-12236.040, longitude_2))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1034.8233811855316,
+  "asrtm_time": 985.5204832553864,
+  "predm_time": 48.00828266143799,
+  "asrt_info": {
+    "fitness": 0.0009944509811249196,
+    "was_early_stopped": false,
+    "generations_completed": 2
+  }
+}

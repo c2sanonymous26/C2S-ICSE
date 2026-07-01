@@ -1,0 +1,533 @@
+{
+  "semantic_threshold": 0.98,
+  "total_equivalence_classes": 8,
+  "total_constraints_in_classes": 29,
+  "largest_class_size": 7,
+  "equivalence_classes": [
+    {
+      "class_id": 1,
+      "size": 7,
+      "constraints": [
+        "constraint_10",
+        "constraint_14",
+        "constraint_17",
+        "constraint_21",
+        "constraint_23",
+        "constraint_24",
+        "constraint_29"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_14",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_17",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_21",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_23",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_24",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_10",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_14",
+          "constraint2": "constraint_17",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_14",
+          "constraint2": "constraint_21",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_14",
+          "constraint2": "constraint_23",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_14",
+          "constraint2": "constraint_24",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_14",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_17",
+          "constraint2": "constraint_21",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_17",
+          "constraint2": "constraint_23",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_17",
+          "constraint2": "constraint_24",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_17",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_21",
+          "constraint2": "constraint_23",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_21",
+          "constraint2": "constraint_24",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_21",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_23",
+          "constraint2": "constraint_24",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_23",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_24",
+          "constraint2": "constraint_29",
+          "reason": "Based on semantic similarity (semantics: 0.9995)",
+          "comprehensive_similarity": 0.9994996740014512,
+          "semantics_similarity": 0.9994996740014512,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        }
+      ]
+    },
+    {
+      "class_id": 2,
+      "size": 5,
+      "constraints": [
+        "constraint_22",
+        "constraint_26",
+        "constraint_28",
+        "constraint_31",
+        "constraint_32"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_22",
+          "constraint2": "constraint_26",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_22",
+          "constraint2": "constraint_28",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_22",
+          "constraint2": "constraint_31",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_22",
+          "constraint2": "constraint_32",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_26",
+          "constraint2": "constraint_28",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_26",
+          "constraint2": "constraint_31",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_26",
+          "constraint2": "constraint_32",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_28",
+          "constraint2": "constraint_31",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_28",
+          "constraint2": "constraint_32",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_31",
+          "constraint2": "constraint_32",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999998807907104,
+          "semantics_similarity": 0.9999998807907104,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        }
+      ]
+    },
+    {
+      "class_id": 3,
+      "size": 4,
+      "constraints": [
+        "constraint_20",
+        "constraint_4",
+        "constraint_5",
+        "constraint_6"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_4",
+          "constraint2": "constraint_20",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999999403953552,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_5",
+          "constraint2": "constraint_20",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999999403953552,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_6",
+          "constraint2": "constraint_20",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_4",
+          "constraint2": "constraint_5",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999999403953552,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_4",
+          "constraint2": "constraint_6",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999999403953552,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_5",
+          "constraint2": "constraint_6",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 0.9999999403953552,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        }
+      ]
+    },
+    {
+      "class_id": 4,
+      "size": 3,
+      "constraints": [
+        "constraint_1",
+        "constraint_18",
+        "constraint_3"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_1",
+          "constraint2": "constraint_18",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9586699372384607,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_1",
+          "constraint2": "constraint_3",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9645976821581521,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_3",
+          "constraint2": "constraint_18",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9929193964710943,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        }
+      ]
+    },
+    {
+      "class_id": 5,
+      "size": 3,
+      "constraints": [
+        "constraint_11",
+        "constraint_13",
+        "constraint_33"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_11",
+          "constraint2": "constraint_13",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_11",
+          "constraint2": "constraint_33",
+          "reason": "Based on semantic similarity (semantics: 0.9949)",
+          "comprehensive_similarity": 0.9948937637465342,
+          "semantics_similarity": 0.9948937637465342,
+          "structure_identical": false,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_13",
+          "constraint2": "constraint_33",
+          "reason": "Based on semantic similarity (semantics: 0.9949)",
+          "comprehensive_similarity": 0.9948937637465342,
+          "semantics_similarity": 0.9948937637465342,
+          "structure_identical": false,
+          "bfuncs_identical": false
+        }
+      ]
+    },
+    {
+      "class_id": 6,
+      "size": 3,
+      "constraints": [
+        "constraint_15",
+        "constraint_16",
+        "constraint_19"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_15",
+          "constraint2": "constraint_16",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        },
+        {
+          "constraint1": "constraint_15",
+          "constraint2": "constraint_19",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        },
+        {
+          "constraint1": "constraint_16",
+          "constraint2": "constraint_19",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": true,
+          "bfuncs_identical": false
+        }
+      ]
+    },
+    {
+      "class_id": 7,
+      "size": 2,
+      "constraints": [
+        "constraint_8",
+        "constraint_9"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_8",
+          "constraint2": "constraint_9",
+          "reason": "Identical structure and bfuncs",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 0.9999999403953552,
+          "structure_identical": true,
+          "bfuncs_identical": true
+        }
+      ]
+    },
+    {
+      "class_id": 8,
+      "size": 2,
+      "constraints": [
+        "constraint_25",
+        "constraint_27"
+      ],
+      "explanations": [
+        {
+          "constraint1": "constraint_25",
+          "constraint2": "constraint_27",
+          "reason": "Based on semantic similarity (semantics: 1.0000)",
+          "comprehensive_similarity": 1.0,
+          "semantics_similarity": 1.0,
+          "structure_identical": false,
+          "bfuncs_identical": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a timestamp not earlier than a reasonable minimum bound.",
+    "goal": "Detect contexts with invalid or implausibly early timestamps.",
+    "design_rationale": "Recorded timestamps should remain within the valid temporal range of the dataset."
+  },
+  "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum timestamp."
+}

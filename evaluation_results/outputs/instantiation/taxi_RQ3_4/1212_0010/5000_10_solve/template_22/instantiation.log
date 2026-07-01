@@ -1,0 +1,38 @@
+============================================================ 1212_0010/template_22 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1212_0010/template_22
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0027768611907958984 seconds
+Constructed ctx data in 3.8623809814453125e-05 seconds
+Loaded data field types in 0.0005285739898681641 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0019986629486083984 seconds
+Set solve data in 0.0008671283721923828 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005528926849365234 seconds
+Constructed main constraint in 60.03827095031738 seconds
+Constructed symbol domain constraints in 0.23506712913513184 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3065
+    - symbol domains:
+        - _N_THRESHOLD_1: 3066
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2715421701902993, 8796093022208)}
+        - solved in 0.401242733001709 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.8182926177978516 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.8191719055175781 seconds
+1212_0010/template_22 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1212_0010/template_22 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 62.36 seconds

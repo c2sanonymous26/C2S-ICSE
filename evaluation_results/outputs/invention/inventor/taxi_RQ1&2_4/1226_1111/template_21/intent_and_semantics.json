@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at significantly high speed, there should exist a preceding context of the same vehicle where the coordinate displacement direction and the heading change direction are consistent.",
+    "goal": "Detect high-speed contexts with no preceding context showing consistent coordinate displacement and heading change directions.",
+    "design_rationale": "A vehicle travelling at high speed must have arrived from a consistent direction; the absence of a preceding context with aligned displacement and heading change directions indicates an erroneous high-speed record."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the coordinate displacement direction and the direction angle change direction of v1 and v2 are consistent."
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "le",
+  "target_col": "speed_1",
+  "status": "success_simple_constraint",
+  "assertion": "sub(mul(abs(cos(timestamp_1)), abs(mul(latitude_2, timestamp_1))), tan(sin(neg(speed_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 9.356197595596313,
+  "asrtm_time": 8.735084533691406,
+  "predm_time": 0.6032650470733643,
+  "asrt_info": {
+    "fitness": 0.0013000000000000002,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

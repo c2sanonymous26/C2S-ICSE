@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if v1's speed is zero and there exists a sustained sequence of contexts with zero speed (i.e., the next two consecutive contexts v2 and v3 also exist), then the Haversine displacement between these consecutive zero-speed contexts should not exceed a negligibly small range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <exists var="v3" in="ctx1">
+          <and>
+            <and>
+              <bfunc id="2"/>
+              <bfunc id="3"/>
+            </and>
+            <bfunc id="4"/>
+          </and>
+        </exists>
+      </exists>
+    </implies>
+  </forall>
+</formula>

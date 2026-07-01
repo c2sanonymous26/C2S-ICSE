@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should satisfy a reasonable ratio between direction difference and the sum of their speeds.",
+    "goal": "Detect different-vehicle pairs whose combined direction-speed relationship is implausible.",
+    "design_rationale": "This rule constrains a composite quantity formed by angular separation and combined speed for near-synchronous observations of different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the ratio between the absolute difference in their travel directions and the sum of their speeds should lie within a certain reasonable range."
+}

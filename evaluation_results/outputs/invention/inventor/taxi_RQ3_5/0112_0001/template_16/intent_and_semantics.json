@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A low-speed context should keep a reasonable heading difference from its previous context.",
+    "goal": "Detect low-speed contexts whose heading changes too abruptly from the previous context.",
+    "design_rationale": "At very low speed, the local heading should still remain reasonably consistent with the previous context."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly lower than a certain threshold, then the absolute difference between the direction of v1 and that of its previous context v2 should not exceed a certain reasonable range."
+}

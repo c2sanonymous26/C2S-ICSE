@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Every context has latitude and longitude values within a reasonable urban geographic area.",
+    "goal": "Detect contexts where the reported GPS coordinates fall outside the expected city boundary.",
+    "design_rationale": "Taxis operate within a city; coordinates outside the expected geographic bounds indicate a GPS positioning error or data entry mistake."
+  },
+  "semantics": "For any context v1, the longitude and latitude values of v1 should be within a certain reasonable urban geographic range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the longitude and latitude values of v1 are within a certain reasonable urban geographic range",
+      "implementation": "v1.latitude >= NTHRESHOLD1 && v1.latitude <= NTHRESHOLD2 && v1.longitude >= NTHRESHOLD3 && v1.longitude <= NTHRESHOLD4",
+      "restrictions": []
+    }
+  ]
+}

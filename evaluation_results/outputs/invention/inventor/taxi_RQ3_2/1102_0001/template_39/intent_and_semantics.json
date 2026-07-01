@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should not require a meaningful change in direction.",
+    "goal": "Detect contexts that violate the expected physical relationship between speed and direction at zero speed.",
+    "design_rationale": "If the vehicle is stationary, direction information becomes irrelevant or should remain stable rather than behaving erratically."
+  },
+  "semantics": "For any context v1, there should be a reasonable physical relationship between the speed value of v1 and its direction value, that is, when the speed value is zero, the direction value may be ignored or remain unchanged."
+}

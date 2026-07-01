@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "ge",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "sub(add(-41897.049, timestamp_1), neg(speed_1))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.728366374969482,
+  "asrtm_time": 8.116942882537842,
+  "predm_time": 0.6046087741851807,
+  "asrt_info": {
+    "fitness": 0.0006016079047320289,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

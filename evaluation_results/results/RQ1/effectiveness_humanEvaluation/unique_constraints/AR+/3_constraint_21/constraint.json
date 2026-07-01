@@ -1,0 +1,33 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to the same vehicle (same carid), v2.direction is less than or equal to div(cos(div(cos(36216.286), v1.timestamp)), v1.timestamp).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle (they have the same carid)",
+      "implementation": "var_bindings['v1']['carid'] == var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "Precondition 1: (0.000000000 <= var_bindings['v2']['direction'] <= 31.500000000)",
+      "implementation": "(0.000000000 <= var_bindings['v2']['direction'] <= 31.500000000)"
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.direction is less than or equal to div(cos(div(cos(36216.286), v1.timestamp)), v1.timestamp)",
+      "implementation": "var_bindings['v2']['direction'] <= (1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (cos((1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (cos(18108143/500)) / (var_bindings['v1']['timestamp'])))) / (var_bindings['v1']['timestamp']))"
+    }
+  ]
+}

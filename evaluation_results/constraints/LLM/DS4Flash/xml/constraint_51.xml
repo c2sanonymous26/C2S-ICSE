@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1), and the speed in v1 is above a certain threshold, and the time difference (timestamp of v2 minus timestamp of v1) is positive, then the product of the speed in v1 and the absolute angular difference between the direction in v1 and the direction in v2 divided by the time difference does not exceed a certain maximum lateral acceleration.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1"/>
+            <bfunc id="2"/>
+          </and>
+          <bfunc id="3"/>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

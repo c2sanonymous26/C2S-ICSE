@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts within a bounded timestamp gap should have a coordinate-derived average speed that stays close to their recorded average speed.",
+    "goal": "Detect context pairs whose implied speed from coordinates is inconsistent with the recorded speeds.",
+    "design_rationale": "A realistic same-vehicle motion window should maintain consistency between geometric motion and recorded speed values."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the timestamp difference between them lies within a certain range, then the absolute difference between the average speed computed from their coordinate difference and timestamp difference and the average of their recorded speeds should not exceed a certain reasonable range."
+}

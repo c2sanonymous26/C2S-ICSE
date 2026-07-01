@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "ge",
+  "target_col": "latitude_2",
+  "status": "success_simple_constraint",
+  "assertion": "tan(min(min(sqrt(longitude_2), div(direction_2, timestamp_2)), log(add(latitude_1, speed_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 537.1953771114349,
+  "asrtm_time": 488.75174951553345,
+  "predm_time": 46.76631188392639,
+  "asrt_info": {
+    "fitness": 0.0012000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

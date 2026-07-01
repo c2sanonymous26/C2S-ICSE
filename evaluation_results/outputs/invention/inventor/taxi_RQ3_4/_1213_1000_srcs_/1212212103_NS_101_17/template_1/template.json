@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep both its heading difference and its heading-change rate relative to the previous context within reasonable bounds.",
+    "goal": "Detect high-speed contexts whose heading change from the previous context is implausibly large or too abrupt.",
+    "design_rationale": "At high speed, both the absolute heading deviation and the time-normalized heading-change rate should remain within realistic limits."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the absolute difference between the direction value of v1 and that of the previous context v2 should not exceed a certain upper bound, and the ratio between that difference and the timestamp difference between v1 and v2 should not exceed another upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the direction value of v1 and that of v2 does not exceed a certain upper bound.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the direction-value difference of v1 and v2 and the timestamp difference does not exceed a certain upper bound.",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

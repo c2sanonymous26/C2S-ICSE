@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A long-duration zero-speed context should remain geographically close to the next context.",
+    "goal": "Detect stationary contexts whose location drifts implausibly over an extended stopped interval.",
+    "design_rationale": "If a vehicle remains stopped for a sufficiently long local interval, its position should not shift beyond a small stationary drift bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and remains so beyond a certain time threshold, meaning that the timestamp difference between v1 and its next context v2 exceeds a certain value, then the coordinate distance between v1 and v2 computed using the haversine formula should not exceed a certain reasonable upper bound on stationary-position drift.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero and remains so beyond a certain time threshold.",
+      "implementation": "v1.speed == 0 && (v1.timestamp < NTHRESHOLD1)",
+      "restrictions": [
+        "NTHRESHOLD1 >= 300"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1.",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The coordinate distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable upper bound on stationary-position drift.",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

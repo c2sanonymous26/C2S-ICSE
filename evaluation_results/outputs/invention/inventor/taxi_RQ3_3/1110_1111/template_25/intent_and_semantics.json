@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable heading difference relative to the next context.",
+    "goal": "Detect high-speed contexts whose next-step heading change is implausible.",
+    "design_rationale": "Even at high speed, the local change in heading to the next context should remain within a realistic angular bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angle of v1 and that of its next context v2 should not exceed a certain reasonable angular range."
+}

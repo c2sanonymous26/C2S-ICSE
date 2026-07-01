@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the combined heading difference and average speed within a reasonable turning-radius bound.",
+    "goal": "Detect adjacent contexts whose joint turning geometry is implausible.",
+    "design_rationale": "A valid local trajectory should preserve a realistic relationship between speed and turning sharpness across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the absolute difference in travel direction of v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable upper bound on turning radius.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The product of the absolute difference in travel direction of v1 and v2 and the average speed of v1 and v2 does not exceed a certain reasonable upper bound on turning radius.",
+      "implementation": "abs(v1.direction - v2.direction) × ((v1.speed + v2.speed) ÷ 2) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

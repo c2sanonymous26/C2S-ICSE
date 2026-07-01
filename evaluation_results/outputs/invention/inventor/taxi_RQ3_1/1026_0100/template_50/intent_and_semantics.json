@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a direction angle within the valid range from 0° to 360°.",
+    "goal": "Detect contexts with invalid heading values outside the permitted directional domain.",
+    "design_rationale": "Direction angles represent circular headings and should stay within the standard range from 0° to 360°."
+  },
+  "semantics": "For any context v1, the direction angle value of v1 should be between 0° and 360°."
+}

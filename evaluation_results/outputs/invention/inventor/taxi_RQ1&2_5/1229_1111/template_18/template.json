@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times have an excessively large lateral component of combined speed-and-heading variation.",
+    "goal": "Identify different-vehicle pairs whose speed difference and heading difference produce too large a lateral variation indicator.",
+    "design_rationale": "For vehicle pairs that are close in time, the product of speed difference and the sine of heading difference should remain under a reasonable upper bound; otherwise the lateral discrepancy is abnormal."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their speed difference and the sine value of their direction difference must be significantly less than some upper bound (i.e., the lateral component of speed and direction variation for the two vehicles within a nearby time interval should not be too large).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the speed difference between v1 and v2 and the sine value of their direction difference is significantly less than some upper bound",
+      "implementation": "abs(v1.speed - v2.speed) × sin(radians(abs(v1.direction - v2.direction))) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

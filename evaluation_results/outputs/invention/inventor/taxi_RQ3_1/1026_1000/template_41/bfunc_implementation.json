@@ -1,0 +1,16 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid == v2.carid && abs(v1.grpid - v2.grpid) == 1"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "(v1.direction >= 0 && v1.direction < 90 && v2.direction >= 0 && v2.direction < 90) || (v1.direction >= 90 && v1.direction < 180 && v2.direction >= 90 && v2.direction < 180) || (v1.direction >= 180 && v1.direction < 270 && v2.direction >= 180 && v2.direction < 270) || (v1.direction >= 270 && v1.direction < 360 && v2.direction >= 270 && v2.direction < 360)"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "(v1.longitude - v2.longitude > 0 && v1.latitude - v2.latitude > 0) || (v1.longitude - v2.longitude < 0 && v1.latitude - v2.latitude < 0)"
+    }
+  ]
+}

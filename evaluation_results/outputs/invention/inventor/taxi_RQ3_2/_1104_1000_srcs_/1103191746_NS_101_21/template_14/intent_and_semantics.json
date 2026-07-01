@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have both a reasonable heading discrepancy and a reasonable rate of heading discrepancy over time.",
+    "goal": "Detect near-consecutive contexts whose direction mismatch is too large or changes too aggressively with respect to elapsed time.",
+    "design_rationale": "A plausible local transition should keep the displacement-derived direction close to the recorded heading and should not let that mismatch evolve at an implausible temporal rate."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction angle of v1 should lie within a certain reasonable range, and the ratio between that difference and the timestamp difference between v1 and v2 should lie within a certain reasonable range."
+}

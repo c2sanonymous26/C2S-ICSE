@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep its heading consistent with the direction implied by its coordinate change from the previous context.",
+    "goal": "Detect high-speed contexts whose movement direction conflicts with their recorded heading.",
+    "design_rationale": "When speed is high, the direction inferred from the previous transition should remain close to the recorded heading."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction of the coordinate change of v1 computed from its previous context v2 and the direction of v1 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the direction of the coordinate change of v1 computed from the coordinates of v2 and the direction of v1 does not exceed a certain reasonable range.",
+      "implementation": "abs(degrees(atan2(sin(radians(v1.longitude - v2.longitude)) × cos(radians(v1.latitude)), cos(radians(v2.latitude)) × sin(radians(v1.latitude)) - sin(radians(v2.latitude)) × cos(radians(v1.latitude)) × cos(radians(v1.longitude - v2.longitude)))) - v1.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

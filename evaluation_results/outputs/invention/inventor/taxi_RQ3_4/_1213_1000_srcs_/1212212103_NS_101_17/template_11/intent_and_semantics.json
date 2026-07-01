@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should keep the relation between their heading difference and their connecting-line direction within a bounded range.",
+    "goal": "Detect cross-vehicle context pairs whose direction relation is implausible relative to their relative-position geometry.",
+    "design_rationale": "This rule constrains how the directional difference between two nearby-time observations relates to the direction of the line connecting them."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the absolute difference between their direction difference and the direction of the line connecting their positions computed from the coordinates should not exceed a certain value."
+}

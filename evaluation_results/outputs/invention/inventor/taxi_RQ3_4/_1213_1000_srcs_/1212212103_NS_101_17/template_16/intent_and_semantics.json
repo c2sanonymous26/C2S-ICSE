@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the sign of the acceleration-like quantity consistent with the sign of the direction difference.",
+    "goal": "Detect adjacent same-vehicle contexts whose directional change and acceleration-like behavior are sign-inconsistent.",
+    "design_rationale": "This rule enforces a specific consistency relation between direction change and the acceleration-like quantity across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the sign of the ratio between the absolute speed difference and the timestamp difference of v1 and v2, that is, the acceleration-like quantity, should be consistent with the sign of their direction difference."
+}

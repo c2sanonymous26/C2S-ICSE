@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed one-step same-vehicle transition should keep the heading difference within a reasonable angular range.",
+    "goal": "Detect high-speed one-step transitions whose heading change is implausible.",
+    "design_rationale": "Even when speed is high, the local heading difference between consecutive one-step contexts should remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angles of v1 and v2 should not exceed a certain reasonable angular range."
+}

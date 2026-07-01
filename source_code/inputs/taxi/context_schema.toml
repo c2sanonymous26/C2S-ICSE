@@ -1,0 +1,52 @@
+[context_definitions]
+description = "This context sequence contains driving states of multiple taxis in a city. Each context captures the instantaneous driving state of a taxi at a specific timestamp."
+explanation = """
+In the schema, each field is defined with the following attributes:
+- description: A clear textual explanation of the field's meaning and purpose.
+- type: Data type specification.
+- unit: Measurement units in pint package, with their corresponding powers. E.g., {} for unitless fields, {"km": "1", "h": "-1"} for kilometers per hour, and {"ms": "1"} for milliseconds.
+"""
+
+[context_definitions.fields.id]
+description = "Unique identifier for the context"
+type = "int"
+unit = { record_id = "1" }
+
+[context_definitions.fields.grpid]
+description = "Sequence number of contexts within the same taxi; consecutive contexts have a difference of 1 (i.e., numbering is continuous within each taxi)"
+type = "int"
+unit = { group_id = "1" }
+
+[context_definitions.fields.carid]
+description = "Unique identifier for the taxi"
+type = "str"
+
+[context_definitions.fields.timestamp]
+description = "UNIX timestamp of the context"
+type = "float"
+unit = { s = "1" }
+range = "[0, +oo)"
+
+[context_definitions.fields.longitude]
+description = "Geographic longitude of taxi position" 
+type = "float"
+unit = { degree = "1" }
+range = "[-180.0, 180.0)"
+
+[context_definitions.fields.latitude]
+description = "Geographic latitude of taxi position"
+type = "float" 
+unit = { degree = "1" }
+range = "[-90.0, 90.0]"
+
+[context_definitions.fields.speed]
+description = "Instantaneous speed rate of vehicle (scala quantity, without involving direction)"
+type = "float"
+unit = { km = "1", h = "-1" }
+range = "[0.0, 250.0]"
+
+[context_definitions.fields.direction]
+description = "Azimuth angle of vehicle, referenced from true north (0°) and measured clockwise (East 90°, South 180°, West 270°)"
+type = "float"
+unit = { degree = "1" }
+range = "[0.0, 360.0)"

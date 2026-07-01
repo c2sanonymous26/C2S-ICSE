@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, and the speed recorded in v1 or v2 is sufficiently high, then the timestamp difference between v2 and v1 is within a sufficiently short high-speed sampling interval.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <and>
+              <bfunc id="1"/>
+              <bfunc id="2"/>
+            </and>
+            <bfunc id="3"/>
+          </and>
+          <or>
+            <bfunc id="4"/>
+            <bfunc id="5"/>
+          </or>
+        </and>
+        <bfunc id="6"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

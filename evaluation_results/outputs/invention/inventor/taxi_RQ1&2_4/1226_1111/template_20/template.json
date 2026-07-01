@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "When a vehicle is stopped and the next consecutive context is also stopped, the timestamp difference between them should not exceed a certain reasonable range.",
+    "goal": "Detect consecutive stationary contexts with an implausibly large time gap between samples.",
+    "design_rationale": "A vehicle that remains stopped should be sampled at a regular interval; an excessively large timestamp difference between two consecutive zero-speed records suggests a data gap or recording error."
+  },
+  "semantics": "For any context v1, if v1's speed is zero and the zero speed is sustained beyond a certain time threshold (i.e., multiple consecutive contexts have zero speed), then the absolute timestamp difference of these consecutive zero-speed contexts does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2's speed is zero and the timestamp difference does not exceed the threshold",
+      "implementation": "v2.speed == 0 && abs(v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

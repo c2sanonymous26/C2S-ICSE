@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time do not simultaneously exhibit a large speed difference and a large heading difference.",
+    "goal": "Detect co-occurring outliers where both speed and heading diverge significantly between records from different vehicles at the same time.",
+    "design_rationale": "In normal traffic, vehicles at the same time that differ significantly in both speed and heading are implausible; such joint anomalies suggest erroneous records."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then it is not the case that both the absolute speed difference and the absolute heading difference are simultaneously large."
+}

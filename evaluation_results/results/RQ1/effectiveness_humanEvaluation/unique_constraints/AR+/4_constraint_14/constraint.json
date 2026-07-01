@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.direction is less than or equal to sqrt(max(sub(v1.timestamp, v1.speed), mul(v1.latitude, v1.timestamp))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.direction is less than or equal to sqrt(max(sub(v1.timestamp, v1.speed), mul(v1.latitude, v1.timestamp)))",
+      "implementation": "var_bindings['v1']['direction'] <= sqrt(abs(max((var_bindings['v1']['timestamp'] - var_bindings['v1']['speed']), (var_bindings['v1']['latitude'] * var_bindings['v1']['timestamp']))))"
+    }
+  ]
+}

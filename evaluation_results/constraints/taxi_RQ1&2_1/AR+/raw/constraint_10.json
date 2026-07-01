@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "mul(add(39335.904, speed), max(longitude, 35282.976))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 27.23007345199585,
+  "asrtm_time": 27.14914870262146,
+  "predm_time": 0.07706999778747559,
+  "asrt_info": {
+    "fitness": 0.004017520568164536,
+    "was_early_stopped": false,
+    "generations_completed": 3
+  }
+}

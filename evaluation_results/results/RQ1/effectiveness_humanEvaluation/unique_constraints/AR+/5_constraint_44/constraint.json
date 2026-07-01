@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is less than mul(abs(add(-54979.658, add(min(10994.281, v1.speed), neg(-28263.866)))), 52554.063).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is less than mul(abs(add(-54979.658, add(min(10994.281, v1.speed), neg(-28263.866)))), 52554.063)",
+      "implementation": "var_bindings['v1']['timestamp'] < (abs((-27489829/500 + (min(10994281/1000, var_bindings['v1']['speed']) + (--14131933/500)))) * 52554063/1000)"
+    }
+  ]
+}

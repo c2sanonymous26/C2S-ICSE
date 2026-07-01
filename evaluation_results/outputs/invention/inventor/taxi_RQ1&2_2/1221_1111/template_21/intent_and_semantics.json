@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the heading of the next consecutive context is close to or identical to the current heading.",
+    "goal": "Detect stationary contexts followed by an implausible heading change.",
+    "design_rationale": "A stationary vehicle's heading should not change significantly; a large heading change from a zero-speed context suggests a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the absolute heading difference between v1 and v2 does not exceed a certain reasonable range or their headings are identical."
+}

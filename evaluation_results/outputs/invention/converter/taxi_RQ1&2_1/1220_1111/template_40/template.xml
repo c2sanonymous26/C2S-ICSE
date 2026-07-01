@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio of the haversine GPS displacement between v1 and the previous context v2 to the haversine GPS displacement between v1 and the next context v3 does not exceed a certain reasonable range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <exists var="v3" in="ctx1">
+          <and>
+            <bfunc id="2"/>
+            <and>
+              <bfunc id="3"/>
+              <bfunc id="4"/>
+            </and>
+          </and>
+        </exists>
+      </exists>
+    </implies>
+  </forall>
+</formula>

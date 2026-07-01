@@ -1,0 +1,60 @@
+{
+  "constraint_id": 3,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 68.19908285140991
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The group sequence number recorded in each context must lie within a valid range for taxi context ordering.",
+      "goal": "Detect contexts whose grpid values are invalid, corrupted, or outside the expected range for per-vehicle sequence numbering.",
+      "design_rationale": "The grpid field is used to order contexts within the same taxi stream and to identify consecutive records. If a context has an invalid or unreasonable grpid value, downstream constraints that rely on per-vehicle ordering may produce incorrect results or miss anomalies."
+    },
+    "semantics": "For any context v1, the grpid recorded in v1 lies within a valid and reasonable sequence-number range.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The grpid recorded in context v1 lies within a valid and reasonable sequence-number range.",
+        "implementation": "v1.grpid >= NTHRESHOLD1 && v1.grpid <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 13.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 205.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The group sequence number recorded in each context must lie within a valid range for taxi context ordering.",
+      "goal": "Detect contexts whose grpid values are invalid, corrupted, or outside the expected range for per-vehicle sequence numbering.",
+      "design_rationale": "The grpid field is used to order contexts within the same taxi stream and to identify consecutive records. If a context has an invalid or unreasonable grpid value, downstream constraints that rely on per-vehicle ordering may produce incorrect results or miss anomalies."
+    },
+    "semantics": "For any context v1, the grpid recorded in v1 lies within a valid and reasonable sequence-number range.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The grpid recorded in context v1 lies within a valid and reasonable sequence-number range.",
+        "implementation": "(v1.grpid >= 13.0) && (v1.grpid <= 205.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

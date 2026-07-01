@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose speed-change rate and heading change to v1 are both reasonable.",
+    "goal": "Detect unusually high-speed contexts that require an implausible local transition in either acceleration or turning behavior.",
+    "design_rationale": "The transition into a high-speed context should remain jointly plausible in both speed evolution and direction-angle evolution."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, the speed-change rate between v1 and v2 computed from speed and timestamp difference should lie within a certain reasonable range, and the direction-angle change between v1 and v2 computed from direction should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and (bfunc3(v1, v2) and bfunc4(v1, v2)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed-change rate between v1 and v2 computed from speed and timestamp difference should lie within a certain reasonable range.",
+      "implementation": "abs((v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The direction-angle change between v1 and v2 computed from direction should lie within a certain reasonable range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

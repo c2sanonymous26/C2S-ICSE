@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should differ by exactly one grpid step.",
+    "goal": "Detect local sequence inconsistencies in the grpid field.",
+    "design_rationale": "If two contexts are adjacent in the same vehicle trajectory, their sequence identifiers should progress by exactly one."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the difference between their grpid values should be exactly 1.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The difference between the grpid values of v1 and v2 is exactly 1.",
+      "implementation": "v1.grpid - v2.grpid == 1 || v2.grpid - v1.grpid == 1",
+      "restrictions": []
+    }
+  ]
+}

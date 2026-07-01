@@ -1,0 +1,93 @@
+============================================================ 1105_1111/template_27 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1105_1111/template_27
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.003600597381591797 seconds
+Constructed ctx data in 3.910064697265625e-05 seconds
+Loaded data field types in 0.0005793571472167969 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 4 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 997238520.683595]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 997238520.683595]
+    - computing range for threshold symbol 'NTHRESHOLD4' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 15859566048.399128]
+        - final range for threshold symbol 'NTHRESHOLD4': [0.0, 15859566048.399128]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 28411266509.812054]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 28411266509.812054]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 69345366446.21753]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 69345366446.21753]
+Approximate computed ranges for 4 threshold symbols in 3.01 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 4 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_timestamp) + I*im(v2_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD4' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [nan, nan]
+        - empty intersection for threshold symbol 'NTHRESHOLD4': nan > nan
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [nan, nan]
+        - empty intersection for threshold symbol 'NTHRESHOLD2': nan > nan
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_speed - v2_speed)/sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [nan, nan]
+        - empty intersection for threshold symbol 'NTHRESHOLD3': nan > nan
+Theoretical computed ranges for 1 threshold symbols in 0.24 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_4': (0.0, 15859566048.399128), '_N_THRESHOLD_2': (0.0, 28411266509.812054), '_N_THRESHOLD_3': (0.0, 69345366446.21753)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0020101070404052734 seconds
+Set solve data in 0.000888824462890625 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'and_3')
+Found Eformulas in 0.00125885009765625 seconds
+Constructed main constraint in 413.59426283836365 seconds
+Constructed VE constraints in 1.2468674182891846 seconds
+Constructed symbol domain constraints in 1.3647308349609375 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 21
+        - (==, _N_THRESHOLD_4): 4131
+        - (<=, _N_THRESHOLD_2): 4131
+        - (>=, _N_THRESHOLD_3): 4131
+    - symbol domains:
+        - _N_THRESHOLD_1: 21
+        - _N_THRESHOLD_4: 4132
+        - _N_THRESHOLD_2: 4132
+        - _N_THRESHOLD_3: 4132
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(7, 1), '_N_THRESHOLD_4': Fraction(7556149259138607, 2251799813685248), '_N_THRESHOLD_3': Fraction(2721212976347729, 281474976710656), '_N_THRESHOLD_2': Fraction(4650193707019447, 2251799813685248)}
+        - objective value: 24 out of 25
+        - solved in 1025.840621471405 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(17, 1), '_N_THRESHOLD_4': Fraction(4757603722714503, 562949953421312), '_N_THRESHOLD_3': Fraction(2814688442997809, 281474976710656), '_N_THRESHOLD_2': Fraction(8323214326121459, 1125899906842624)}
+        - objective value: 24 out of 25
+        - solved in 724.4358983039856 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_4': Fraction(1778188581786567, 281474976710656), '_N_THRESHOLD_1': Fraction(9, 1), '_N_THRESHOLD_2': Fraction(4701602879982033, 1125899906842624), '_N_THRESHOLD_3': Fraction(2814688442997809, 281474976710656)}
+        - objective value: 24 out of 25
+        - solved in 833.3740894794464 seconds
+1105_1111/template_27 (5000_11_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1105_1111/template_27 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 3003.22 seconds

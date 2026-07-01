@@ -1,0 +1,35 @@
+============================================================= 1026_1000/template_31 (5000_solve) instantiation starts =============================================================
+- scenario: taxi
+- template: 1026_1000/template_31
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.003996372222900391 seconds
+Constructed ctx data in 5.817413330078125e-05 seconds
+Loaded data field types in 0.0007963180541992188 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0017821788787841797 seconds
+Set solve data in 0.0008702278137207031 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005497932434082031 seconds
+Constructed main constraint in 62.97068786621094 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(315, 1), '_N_THRESHOLD_2': Fraction(2916311760943289, 8796093022208)}
+        - solved in 0.0012047290802001953 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(316, 1), '_N_THRESHOLD_2': Fraction(2925107853965497, 8796093022208)}
+        - solved in 0.0009670257568359375 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(631, 2), '_N_THRESHOLD_2': Fraction(2920709807454393, 8796093022208)}
+        - solved in 0.0008804798126220703 seconds
+1026_1000/template_31 (5000_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+============================================================ 1026_1000/template_31 (5000_solve) instantiation completes ===========================================================
+Total instantiation time: 63.02 seconds

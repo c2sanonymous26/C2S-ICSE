@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the next consecutive context of the same vehicle maintains a reasonably high speed.",
+    "goal": "Detect implausible sudden speed drops from high-speed records to very low-speed records.",
+    "design_rationale": "A vehicle moving at high speed cannot decelerate instantaneously to near-zero; abrupt speed drops from high to low in consecutive records indicate erroneous measurements."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the ratio of v2's speed to v1's speed is not less than a certain reasonable lower bound."
+}

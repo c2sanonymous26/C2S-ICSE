@@ -1,0 +1,41 @@
+{
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "signatures": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 are three consecutive contexts"
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "both v1 and v3 have speeds significantly lower than a certain threshold while v2's speed is significantly higher than a certain threshold"
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the coordinate differences between v1 and v3 are within a certain smaller reasonable range"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A stopped context should stay geographically close to its previous context within a parking fluctuation tolerance.",
+    "goal": "Detect zero-speed contexts whose location shift from the previous observation is too large for a parked vehicle.",
+    "design_rationale": "When a vehicle is parked or stopped, successive recorded positions should remain within a small positional fluctuation range rather than drifting substantially."
+  },
+  "semantics": "For any context v1, if the speed of v1 is 0, then the geographic difference between v1 and its previous context v2, computed using the haversine formula, should not exceed a certain reasonable parking-position fluctuation range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is 0.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The geographic difference between v1 and v2, computed using the haversine formula, does not exceed a certain reasonable parking-position fluctuation range.",
+      "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

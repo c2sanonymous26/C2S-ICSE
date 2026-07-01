@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A sustained zero-speed segment should keep the variability of its heading changes within a small stationary fluctuation range.",
+    "goal": "Detect prolonged stationary segments whose heading-change variability is too large to be explained by stationary noise.",
+    "design_rationale": "When a vehicle remains stopped across consecutive observations, the dispersion of heading changes should stay low rather than showing erratic fluctuation."
+  },
+  "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the standard deviation of the direction-angle changes among these contexts should not exceed a certain reasonable stationary heading fluctuation range."
+}

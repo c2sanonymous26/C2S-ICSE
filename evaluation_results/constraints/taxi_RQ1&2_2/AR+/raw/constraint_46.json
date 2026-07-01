@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "gt",
+  "target_col": "speed_2",
+  "status": "success_simple_constraint",
+  "assertion": "max(cos(sqrt(-10647.349)), mul(tan(latitude_1), sin(latitude_1)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 541.2077965736389,
+  "asrtm_time": 492.0999798774719,
+  "predm_time": 47.34186053276062,
+  "asrt_info": {
+    "fitness": 0.0009000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

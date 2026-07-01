@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The combined rate of speed and direction change between a context and its next consecutive context is bounded.",
+    "goal": "Detect physically implausible simultaneous changes in both speed and heading between consecutive contexts.",
+    "design_rationale": "A vehicle cannot simultaneously undergo extreme changes in both speed and direction; correlated anomalous changes suggest sensor errors."
+  },
+  "semantics": "For any context v1, the rate of change of speed and direction between v1 and its next consecutive context v2 is within a reasonable range."
+}

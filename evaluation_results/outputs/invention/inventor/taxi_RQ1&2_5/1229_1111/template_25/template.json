@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times and close positions also have similar travel directions.",
+    "goal": "Identify different-vehicle pairs whose headings differ too much despite being close in time and space.",
+    "design_rationale": "If two vehicles are observed close in time and position, their direction difference is expected to stay within a reasonable bound when they are moving similarly."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles, their timestamps are close (the absolute time difference does not exceed some value), and their latitude-longitude distance is significantly less than some value (i.e., the two vehicles are close in position), then their direction difference is significantly less than some value (i.e., the two vehicles are traveling in similar directions).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (the absolute time difference does not exceed some value)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the latitude-longitude distance between v1 and v2 is significantly less than some value (i.e., the two vehicles are close in position)",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "0 <= NTHRESHOLD2 <= 0.1"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the direction difference between v1 and v2 is significantly less than some value (i.e., the two vehicles are traveling in similar directions)",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

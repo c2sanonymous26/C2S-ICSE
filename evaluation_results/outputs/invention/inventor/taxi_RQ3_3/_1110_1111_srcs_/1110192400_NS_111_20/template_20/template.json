@@ -1,0 +1,63 @@
+{
+  "intent": {
+    "content": "A high-speed one-step same-vehicle transition should keep both the heading difference and the timestamp gap within reasonable bounds.",
+    "goal": "Detect high-speed one-step transitions that are implausible in direction or timing.",
+    "design_rationale": "Even at high speed, a realistic local transition should preserve both bounded heading change and bounded elapsed time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction angles of v1 and v2 does not exceed a certain reasonable angular range, and the timestamp difference between v1 and v2 does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2) and bfunc5(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is equal to the grpid value of v2 minus 1.",
+      "implementation": "v1.grpid == v2.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the direction angles of v1 and v2 does not exceed a certain reasonable angular range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

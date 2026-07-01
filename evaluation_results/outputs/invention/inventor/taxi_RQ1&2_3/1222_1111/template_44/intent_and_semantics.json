@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Between two consecutive contexts of the same vehicle, both the angular velocity and the GPS-derived speed are within physically plausible bounds.",
+    "goal": "Detect consecutive contexts where either the rate of direction change or the GPS-derived speed exceeds a reasonable physical limit.",
+    "design_rationale": "Combining angular velocity and speed bounds provides a joint physical plausibility check; a violation in either dimension indicates erroneous data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute direction difference to the timestamp difference should not exceed a certain reasonable angular velocity upper bound, and the ratio of the Haversine distance to the timestamp difference should not exceed a certain reasonable speed upper bound."
+}

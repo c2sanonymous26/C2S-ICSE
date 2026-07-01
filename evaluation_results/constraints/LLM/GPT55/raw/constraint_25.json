@@ -1,0 +1,166 @@
+{
+  "constraint_id": 25,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 138.3738718032837
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The direction change rate between consecutive moving contexts of the same taxi is bounded.",
+      "goal": "Detect physically implausible abrupt heading changes between consecutive records of the same vehicle, especially when the taxi is moving fast enough for direction readings to be meaningful.",
+      "design_rationale": "A taxi that is moving at a meaningful speed cannot rotate its travel direction arbitrarily within a short time interval. Excessive heading change per unit time between consecutive contexts suggests compass noise, GPS instability, timestamp errors, or corrupted driving-state data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, their timestamp difference is within a reliable comparison range, and the speeds recorded in both v1 and v2 are sufficiently high for direction comparison, then the absolute normalized heading difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp of v2 is greater than the timestamp of v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v1 and v2 is within a reliable comparison range.",
+        "implementation": "v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The speeds recorded in both v1 and v2 are sufficiently high for direction comparison.",
+        "implementation": "v1.speed >= NTHRESHOLD2 && v2.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The absolute normalized heading difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+        "implementation": "min(abs(v2.direction - v1.direction), 360 - abs(v2.direction - v1.direction)) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 21.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 20.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 5.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The direction change rate between consecutive moving contexts of the same taxi is bounded.",
+      "goal": "Detect physically implausible abrupt heading changes between consecutive records of the same vehicle, especially when the taxi is moving fast enough for direction readings to be meaningful.",
+      "design_rationale": "A taxi that is moving at a meaningful speed cannot rotate its travel direction arbitrarily within a short time interval. Excessive heading change per unit time between consecutive contexts suggests compass noise, GPS instability, timestamp errors, or corrupted driving-state data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid of v2 immediately follows the grpid of v1, the timestamp of v2 is greater than the timestamp of v1, their timestamp difference is within a reliable comparison range, and the speeds recorded in both v1 and v2 are sufficiently high for direction comparison, then the absolute normalized heading difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The grpid of v2 immediately follows the grpid of v1.",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp of v2 is greater than the timestamp of v1.",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp difference between v1 and v2 is within a reliable comparison range.",
+        "implementation": "(v2.timestamp - v1.timestamp) <= 21.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The speeds recorded in both v1 and v2 are sufficiently high for direction comparison.",
+        "implementation": "(v1.speed >= 20.0) && (v2.speed >= 20.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The absolute normalized heading difference between v1 and v2 divided by their timestamp difference does not exceed a certain reasonable upper bound.",
+        "implementation": "(min(abs((v2.direction - v1.direction)), (360 - abs((v2.direction - v1.direction)))) ÷ (v2.timestamp - v1.timestamp)) <= 5.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Between two consecutive contexts of the same vehicle, the angular difference between the coordinate displacement direction and the direction angle change direction is within a reasonable range.",
+    "goal": "Detect consecutive contexts where the GPS movement direction and the direction field change are mutually inconsistent.",
+    "design_rationale": "The direction in which the coordinates shift and the direction in which the heading field changes should be aligned; a large angular discrepancy indicates inconsistency between the coordinate and direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the angle between the coordinate displacement direction and the direction angle change direction of v1 and v2 should not exceed a certain reasonable range."
+}

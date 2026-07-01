@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Nearby contexts from different vehicles observed at similar times should satisfy a bounded combined speed-direction interaction.",
+    "goal": "Detect cross-vehicle context pairs whose joint speed magnitude and directional alignment imply an implausible interaction pattern.",
+    "design_rationale": "When two vehicles are close in space and time, the combination of their speeds and relative headings should remain within a realistic bound instead of producing an extreme directional-speed product."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the product of their instantaneous speeds and the cosine of the difference between their direction angles should not exceed a certain reasonable upper bound."
+}

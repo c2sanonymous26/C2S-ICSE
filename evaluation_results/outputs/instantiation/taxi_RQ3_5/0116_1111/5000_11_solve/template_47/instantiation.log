@@ -1,0 +1,71 @@
+========================== 0116_1111/template_47 (5000_11_solve) instantiation starts ===========================
+- scenario: taxi
+- template: 0116_1111/template_47
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0017232894897460938 seconds
+Constructed ctx data in 3.170967102050781e-05 seconds
+Loaded data field types in 0.0005078315734863281 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs((v1_speed - v2_speed)/(v1_timestamp - v2_timestamp)) → range [0.0, inf]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, inf]
+Approximate computed ranges for 2 threshold symbols in 0.80 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_speed → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 250.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_speed) + I*im(v2_speed).
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs((v1_speed - v2_speed)/(v1_timestamp - v2_timestamp)) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD2': [-inf, inf]
+Theoretical computed ranges for 1 threshold symbols in 0.20 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 250.0), '_N_THRESHOLD_2': (0.0, inf)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0014431476593017578 seconds
+Set solve data in 0.0008752346038818359 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 1, 1): ('bfunc_1_c1', 'exists_1')
+Found Eformulas in 0.0013554096221923828 seconds
+Constructed main constraint in 8.428893566131592 seconds
+Constructed VE constraints in 0.07324886322021484 seconds
+Constructed symbol domain constraints in 0.03484058380126953 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 43
+        - (>=, _N_THRESHOLD_2): 238
+    - symbol domains:
+        - _N_THRESHOLD_1: 44
+        - _N_THRESHOLD_2: 239
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(112, 1), '_N_THRESHOLD_2': Fraction(2476979795053773, 2251799813685248)}
+        - objective value: 12 out of 17
+        - solved in 0.07346582412719727 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.04167771339416504 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.0418238639831543 seconds
+0116_1111/template_47 (5000_11_solve) has 1 valid models
+************************************************ Solving process completes *************************************************
+========================= 0116_1111/template_47 (5000_11_solve) instantiation completes =========================
+Total instantiation time: 9.76 seconds

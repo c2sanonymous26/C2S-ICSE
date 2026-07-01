@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A low-speed context should keep a reasonable heading difference from its previous context.",
+    "goal": "Detect low-speed contexts whose heading changes too abruptly from the previous context.",
+    "design_rationale": "At very low speed, the local heading should still remain reasonably consistent with the previous context."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly lower than a certain threshold, then the absolute difference between the direction of v1 and that of its previous context v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly lower than a certain threshold.",
+      "implementation": "v1.speed < NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the direction of v1 and that of v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

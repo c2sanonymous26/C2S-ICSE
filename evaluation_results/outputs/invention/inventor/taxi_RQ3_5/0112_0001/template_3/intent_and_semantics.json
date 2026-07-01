@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have coordinates within the reasonable geographic range of the city.",
+    "goal": "Detect contexts whose coordinates fall outside the expected city area.",
+    "design_rationale": "Taxi trajectories should remain within the valid spatial scope of the target city."
+  },
+  "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city."
+}

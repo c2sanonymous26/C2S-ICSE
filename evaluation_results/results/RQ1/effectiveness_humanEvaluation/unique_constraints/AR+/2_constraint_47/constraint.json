@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to different vehicles (different carid values), v2.speed is less than mul(sub(sqrt(abs(neg(v1.longitude))), sub(abs(abs(61240.201)), add(min(v1.speed, v1.direction), div(v2.timestamp, v1.latitude)))), sqrt(sub(mul(tan(v2.latitude), min(v1.longitude, v1.speed)), max(abs(38476.284), cos(v1.direction))))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles (they have different carid values)",
+      "implementation": "var_bindings['v1']['carid'] != var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.speed is less than mul(sub(sqrt(abs(neg(v1.longitude))), sub(abs(abs(61240.201)), add(min(v1.speed, v1.direction), div(v2.timestamp, v1.latitude)))), sqrt(sub(mul(tan(v2.latitude), min(v1.longitude, v1.speed)), max(abs(38476.284), cos(v1.direction)))))",
+      "implementation": "var_bindings['v2']['speed'] < ((sqrt(abs(abs((-var_bindings['v1']['longitude'])))) - (abs(abs(61240201/1000)) - (min(var_bindings['v1']['speed'], var_bindings['v1']['direction']) + (1 if -1/1000 <= (var_bindings['v1']['latitude']) <= 1/1000 else (var_bindings['v2']['timestamp']) / (var_bindings['v1']['latitude']))))) * sqrt(abs(((tan(var_bindings['v2']['latitude']) * min(var_bindings['v1']['longitude'], var_bindings['v1']['speed'])) - max(abs(9619071/250), cos(var_bindings['v1']['direction']))))))"
+    }
+  ]
+}

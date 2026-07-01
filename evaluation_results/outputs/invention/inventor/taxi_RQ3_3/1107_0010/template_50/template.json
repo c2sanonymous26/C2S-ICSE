@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should still have a bounded coordinate-derived speed relative to the previous context.",
+    "goal": "Detect high-speed contexts whose local movement from the previous context is implausibly large.",
+    "design_rationale": "Even at high speed, the displacement over time from the previous context should remain within a realistic speed bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the ratio between the coordinate distance between v1 and its previous context v2 computed using the haversine formula and the timestamp difference between v1 and v2 should not exceed a certain reasonable upper bound on speed.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the coordinate distance between v1 and v2 computed using the haversine formula and the timestamp difference between v1 and v2 does not exceed a certain reasonable upper bound on speed.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v1.timestamp - v2.timestamp) ÷ 3600) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "constraint_id": 29,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 119.50104022026062
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Two contexts from different vehicles that are spatially close within the same time period should have similar directions.",
+      "goal": "Detect contexts with anomalous direction readings where a vehicle's heading is significantly different from nearby vehicles at the same time, indicating possible GPS or sensor errors.",
+      "design_rationale": "Vehicles in close proximity under similar traffic conditions typically travel in the same direction (e.g., on the same road). A large directional discrepancy between nearby vehicles suggests a sensor error or GPS anomaly in one of the records."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are within a certain time window (absolute time difference within a certain range), and the distance between their GPS locations is within a certain distance, then the absolute circular heading difference between v1 and v2 does not exceed a certain bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1,v2) and bfunc2(v1,v2)) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute time difference between v1 and v2 is within a certain range",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 is within a certain distance",
+        "implementation": "pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2) <= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute circular heading difference between v1 and v2 does not exceed a certain bound",
+        "implementation": "min(abs(v1.direction - v2.direction), 360 - abs(v1.direction - v2.direction)) <= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 1e-08
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 90.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Two contexts from different vehicles that are spatially close within the same time period should have similar directions.",
+      "goal": "Detect contexts with anomalous direction readings where a vehicle's heading is significantly different from nearby vehicles at the same time, indicating possible GPS or sensor errors.",
+      "design_rationale": "Vehicles in close proximity under similar traffic conditions typically travel in the same direction (e.g., on the same road). A large directional discrepancy between nearby vehicles suggests a sensor error or GPS anomaly in one of the records."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are within a certain time window (absolute time difference within a certain range), and the distance between their GPS locations is within a certain distance, then the absolute circular heading difference between v1 and v2 does not exceed a certain bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1,v2) and bfunc2(v1,v2)) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute time difference between v1 and v2 is within a certain range",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the distance between the GPS locations of v1 and v2 is within a certain distance",
+        "implementation": "(pow((v1.latitude - v2.latitude), 2) + pow((v1.longitude - v2.longitude), 2)) <= 1e-08",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute circular heading difference between v1 and v2 does not exceed a certain bound",
+        "implementation": "min(abs((v1.direction - v2.direction)), (360 - abs((v1.direction - v2.direction)))) <= 90.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

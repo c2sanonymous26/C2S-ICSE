@@ -1,0 +1,35 @@
+============================= 1110_1000/template_30 (5000_00_solve) instantiation starts =============================
+- scenario: taxi
+- template: 1110_1000/template_30
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.001779794692993164 seconds
+Constructed ctx data in 3.719329833984375e-05 seconds
+Loaded data field types in 0.0005240440368652344 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0014958381652832031 seconds
+Set solve data in 0.00089263916015625 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006062984466552734 seconds
+Constructed main constraint in 104.28865909576416 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-1, 1), '_N_THRESHOLD_2': Fraction(-26154561269168297, 18014398509481984)}
+        - solved in 0.0018956661224365234 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-3, 2), '_N_THRESHOLD_2': Fraction(-17147362014427305, 18014398509481984)}
+        - solved in 0.0012912750244140625 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-7, 4), '_N_THRESHOLD_2': Fraction(-12643762387056809, 18014398509481984)}
+        - solved in 0.0011608600616455078 seconds
+1110_1000/template_30 (5000_00_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+=========================== 1110_1000/template_30 (5000_00_solve) instantiation completes ============================
+Total instantiation time: 104.35 seconds

@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "The heading direction of each context is within the valid compass range [0, 360].",
+    "goal": "Detect contexts with invalid heading values that fall outside the valid compass range.",
+    "design_rationale": "Heading direction is measured on a compass scale from 0 to 360 degrees; any value outside this range is physically impossible and indicates a sensor error."
+  },
+  "semantics": "For any context v1, the direction value of v1 is between 0 and 360 degrees.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the direction value of v1 is between 0 and 360 degrees",
+      "implementation": "v1.direction >= 0 && v1.direction <= 360",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle transitions from stopped to moving between two consecutive contexts, the time gap should be small and the direction should remain consistent.",
+    "goal": "Detect consecutive contexts where a vehicle resumes movement from rest but shows an implausibly large time gap or direction change.",
+    "design_rationale": "A stop-to-move transition should happen promptly and without a large heading change; a large timestamp difference or direction change at this transition indicates a recording anomaly."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is zero while v2's speed is non-zero, then the timestamp difference between v1 and v2 should be within a certain smaller reasonable range, and v2's direction should be the same as v1's direction."
+}

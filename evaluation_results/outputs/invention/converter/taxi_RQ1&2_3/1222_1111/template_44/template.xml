@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute direction difference to the timestamp difference should not exceed a certain reasonable angular velocity upper bound, and the ratio of the Haversine distance to the timestamp difference should not exceed a certain reasonable speed upper bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <and>
+          <bfunc id="3"/>
+          <bfunc id="4"/>
+        </and>
+      </implies>
+    </forall>
+  </forall>
+</formula>

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show high speed, the GPS-derived displacement rate should be consistent with the average speed.",
+    "goal": "Detect high-speed consecutive contexts where the GPS-derived displacement rate and the average reported speed are mutually inconsistent.",
+    "design_rationale": "At high speed, both coordinates and speed measurements must remain consistent; a large discrepancy between the GPS-derived displacement rate and the average speed indicates erroneous data in one of the fields."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly higher than a certain threshold, then the ratio of the displacement distance (computed from the coordinate differences) to the timestamp difference should be close to the average speed of v1 and v2 within a certain reasonable range."
+}

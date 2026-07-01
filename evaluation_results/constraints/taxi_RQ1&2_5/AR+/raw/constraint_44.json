@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "lt",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "mul(abs(add(-54979.658, add(min(10994.281, speed), neg(-28263.866)))), 52554.063)",
+  "rule_fit_rate": 1.0,
+  "overall_time": 44.77567648887634,
+  "asrtm_time": 44.695578813552856,
+  "predm_time": 0.07641124725341797,
+  "asrt_info": {
+    "fitness": 0.004969392370729439,
+    "was_early_stopped": false,
+    "generations_completed": 4
+  }
+}

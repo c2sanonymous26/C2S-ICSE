@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle, are consecutive records of that vehicle, v2 occurs after v1 in time, and the absolute angular difference between their recorded directions is sufficiently large, then the average speed implied by the geographic distance between their GPS locations divided by their timestamp difference does not exceed a certain upper bound for sharp-turn movement.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <and>
+              <bfunc id="1"/>
+              <bfunc id="2"/>
+            </and>
+            <bfunc id="3"/>
+          </and>
+          <bfunc id="4"/>
+        </and>
+        <bfunc id="5"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

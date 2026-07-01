@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a next same-vehicle context with a bounded speed difference.",
+    "goal": "Detect high-speed contexts whose local speed transition to the next context is implausible.",
+    "design_rationale": "A realistic high-speed trajectory should not show an excessive speed jump to the next context."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next context of v1, and the absolute speed difference of v1 and v2 does not exceed a certain reasonable range."
+}

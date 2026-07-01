@@ -1,0 +1,43 @@
+2025-12-16 05:26:03,067 - INFO - ======================================================================
+2025-12-16 05:26:03,067 - INFO - Starting run 12/50
+2025-12-16 05:26:03,067 - INFO - Mode: carid_diff, Comparison: eq
+2025-12-16 05:26:03,067 - INFO - **********************************************************************
+2025-12-16 05:26:03,075 - INFO - Starting to create different carid data pairing, original data shape: (5042, 7)
+2025-12-16 05:26:17,282 - INFO - Different carid pairing completed, new data shape: (25220822, 14)
+2025-12-16 05:26:18,360 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 05:26:18,360 - INFO - Assertion mining DataFrame shape: (25220822, 10)
+2025-12-16 05:26:20,121 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 05:26:20,122 - INFO - Precondition mining DataFrame shape: (25220822, 14)
+2025-12-16 05:26:20,227 - INFO - **********************************************************************
+2025-12-16 05:26:20,227 - INFO - **********************************************************************
+2025-12-16 05:26:20,227 - INFO - Target field: latitude_1 (selected from 10 candidates)
+2025-12-16 05:26:20,227 - INFO - **********************************************************************
+2025-12-16 05:26:20,228 - INFO - Timeout: 3600 seconds
+2025-12-16 05:26:20,228 - INFO - **********************************************************************
+2025-12-16 05:26:20,228 - INFO - Starting assertion mining...
+2025-12-16 05:26:20,729 - INFO - Target: latitude_1 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 05:26:20,730 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-16 05:26:20,730 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-16 05:34:15,099 - INFO - Batch 0 training completed, current best fitness: 0.801018289
+2025-12-16 05:34:15,099 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-16 05:42:05,834 - INFO - Batch 1 training completed, current best fitness: 0.800718289
+2025-12-16 05:42:05,835 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-16 05:49:56,031 - INFO - Batch 2 training completed, current best fitness: 0.800718289
+2025-12-16 05:49:56,032 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 05:49:56,032 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-16 05:58:24,898 - INFO - Batch 3 training completed, current best fitness: 0.800618289
+2025-12-16 05:58:24,899 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-16 06:07:06,759 - INFO - Batch 4 training completed, current best fitness: 0.800618289
+2025-12-16 06:07:06,759 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 06:07:06,759 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-16 06:15:44,630 - INFO - Batch 5 training completed, current best fitness: 0.800618289
+2025-12-16 06:15:44,630 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 06:15:44,630 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-16 06:24:20,039 - INFO - Batch 6 training completed, current best fitness: 0.800618289
+2025-12-16 06:24:20,039 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-16 06:24:20,039 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-16 06:26:29,717 - ERROR - Assertion mining exception: Target processing timeout
+2025-12-16 06:26:29,726 - ERROR - Assertion mining failed
+2025-12-16 06:26:29,726 - INFO - **********************************************************************
+2025-12-16 06:26:29,838 - WARNING - Run 12 failed to generate constraint
+2025-12-16 06:26:29,838 - INFO - ======================================================================

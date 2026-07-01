@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any context, there exists another context from a different vehicle that is temporally close and spatially proximate.",
+    "goal": "Detect contexts that are spatially and temporally isolated from all other vehicles, which may indicate phantom data.",
+    "design_rationale": "In a dense urban environment, taxis are expected to share road space; a record with no nearby vehicle from any other taxi within a short time window suggests the record may be fabricated or mislocated."
+  },
+  "semantics": "For any context v1, there exists a context v2 such that v1 and v2 belong to different vehicles, and v1 and v2 fall within the same time period, and the distance between v1 and v2 does not exceed a certain value."
+}

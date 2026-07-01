@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The joint product of GPS displacement and heading change between same-vehicle contexts that are close in time is bounded.",
+    "goal": "Detect same-vehicle context pairs that are close in time but simultaneously show large GPS displacement and large heading change.",
+    "design_rationale": "Large GPS displacement and large heading change within a short time window are jointly implausible; their product being large indicates measurement anomalies."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the product of the haversine GPS distance and the absolute heading difference does not exceed a certain reasonable upper bound."
+}

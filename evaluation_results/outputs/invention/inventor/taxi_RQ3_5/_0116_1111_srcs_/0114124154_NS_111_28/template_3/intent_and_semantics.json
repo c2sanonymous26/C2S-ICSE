@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle should keep their movement direction close to the average heading direction.",
+    "goal": "Detect same-vehicle contexts whose coordinate-change direction is inconsistent with their average heading.",
+    "design_rationale": "A realistic local transition should keep the direction implied by coordinates aligned with the average recorded heading."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the coordinate-change direction of v1 and v2 and the average of their directions should not exceed a certain reasonable range."
+}

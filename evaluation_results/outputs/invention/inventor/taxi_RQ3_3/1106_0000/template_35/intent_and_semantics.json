@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should not change heading too much relative to the previous context.",
+    "goal": "Detect stopped contexts whose heading differs implausibly from the previous context.",
+    "design_rationale": "If a vehicle is stationary, the local heading should remain stable rather than jump abruptly."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction angle of v1 and that of its previous context v2 should not exceed a certain reasonable angular range."
+}

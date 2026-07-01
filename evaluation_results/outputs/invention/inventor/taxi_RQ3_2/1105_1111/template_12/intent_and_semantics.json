@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are two grpid steps apart and close in time should have a reasonable speed change.",
+    "goal": "Detect implausible speed changes across short-range within-vehicle transitions spanning two grpid steps.",
+    "design_rationale": "Even across a two-step sequence gap, nearby observations in time should remain dynamically consistent in their speed change."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 2 greater than that of v2, then, when the time difference between v1 and v2 is smaller than a certain value, the speed change between v1 and v2 (computed from speed) should lie within a certain reasonable range."
+}

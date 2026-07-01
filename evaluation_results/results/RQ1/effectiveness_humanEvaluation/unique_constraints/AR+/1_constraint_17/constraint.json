@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is less than min(sqrt(div(neg(sub(-62823.006, v1.speed)), abs(v1.longitude))), max(v1.longitude, sin(sqrt(sub(v1.longitude, v1.timestamp))))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is less than min(sqrt(div(neg(sub(-62823.006, v1.speed)), abs(v1.longitude))), max(v1.longitude, sin(sqrt(sub(v1.longitude, v1.timestamp)))))",
+      "implementation": "var_bindings['v1']['latitude'] < min(sqrt(abs((1 if -1/1000 <= (abs(var_bindings['v1']['longitude'])) <= 1/1000 else ((-(-31411503/500 - var_bindings['v1']['speed']))) / (abs(var_bindings['v1']['longitude']))))), max(var_bindings['v1']['longitude'], sin(sqrt(abs((var_bindings['v1']['longitude'] - var_bindings['v1']['timestamp']))))))"
+    }
+  ]
+}

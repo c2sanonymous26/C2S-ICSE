@@ -1,0 +1,16 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.speed > NTHRESHOLD1"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) ÷ ((v1.timestamp - v2.timestamp) ÷ (60 × 60)) <= NTHRESHOLD2 × 2"
+    }
+  ]
+}

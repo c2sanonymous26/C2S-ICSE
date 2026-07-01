@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "gt",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "add(sin(neg(mul(speed_2, latitude_2))), sub(max(sub(timestamp_1, 17133.830), abs(speed_1)), div(sin(direction_1), sqrt(latitude_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 555.3609957695007,
+  "asrtm_time": 506.5761706829071,
+  "predm_time": 46.52346086502075,
+  "asrt_info": {
+    "fitness": 0.0018006578832063108,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

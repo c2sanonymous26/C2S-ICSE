@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The acceleration (rate of speed change) between two consecutive contexts of the same vehicle does not exceed a physical upper bound.",
+    "goal": "Detect consecutive contexts with an implausibly large speed change per unit time.",
+    "design_rationale": "A vehicle's acceleration is bounded by physical limits; an excessively large speed change per second indicates a speed sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle (with v2 being the next after v1), the ratio of the absolute speed difference to the timestamp difference (i.e., acceleration) does not exceed a certain reasonable upper bound."
+}

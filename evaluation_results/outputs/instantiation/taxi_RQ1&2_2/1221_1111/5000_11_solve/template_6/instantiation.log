@@ -1,0 +1,45 @@
+============================================================ 1221_1111/template_6 (5000_11_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1221_1111/template_6
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0018563270568847656 seconds
+Constructed ctx data in 3.8623809814453125e-05 seconds
+Loaded data field types in 0.0005936622619628906 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction)/(v1_timestamp - v2_timestamp) → range [-6017887342.323332, inf]
+        - final range for threshold symbol 'NTHRESHOLD1': [-6017887342.323332, inf]
+Approximate computed ranges for 1 threshold symbols in 0.84 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_direction - v2_direction) when the argument is not real or imaginary.
+        - try to use level2b failed: Cannot convert complex to float
+        - field expression Abs(v1_direction - v2_direction)/(v1_timestamp - v2_timestamp) → range [-inf, inf]
+        - meaningless range for threshold symbol 'NTHRESHOLD1': [-inf, inf]
+Theoretical computed ranges for 0 threshold symbols in 0.10 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-6017887342.323332, inf)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.001607656478881836 seconds
+Set solve data in 0.0009322166442871094 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005943775177001953 seconds
+Main Constraint is always False or True
+Constructed main constraint in 0.47044944763183594 seconds
+1221_1111/template_6 (5000_11_solve) has 0 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1221_1111/template_6 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 1.46 seconds

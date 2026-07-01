@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should not remain stopped for longer than a reasonable upper bound relative to its previous context.",
+    "goal": "Detect parked contexts whose stationary duration appears implausibly long.",
+    "design_rationale": "If the vehicle is stopped, the elapsed time since the previous context should remain within a reasonable parking-time bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the timestamp difference between v1 and its previous context v2 should not exceed a certain reasonable upper bound on parking time."
+}

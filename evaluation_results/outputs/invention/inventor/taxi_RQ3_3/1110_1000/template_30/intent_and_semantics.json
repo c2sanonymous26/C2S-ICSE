@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts within a bounded timestamp gap should keep the combined magnitude of acceleration and direction-change rate within a reasonable range.",
+    "goal": "Detect context pairs whose joint speed-change and turning behavior is implausible.",
+    "design_rationale": "A realistic local vehicle transition should not simultaneously exhibit abnormal acceleration and abnormal turning dynamics."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the timestamp difference between them lies within a certain range, then the product of the average acceleration computed from their speed difference and timestamp difference and the direction-change rate computed from their direction-angle difference and timestamp difference should not exceed a certain reasonable range."
+}

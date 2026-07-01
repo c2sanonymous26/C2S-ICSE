@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle are moving, the coordinate displacement direction and the direction angle change direction are consistent.",
+    "goal": "Detect moving consecutive contexts where the GPS displacement direction and the heading change direction are mutually inconsistent.",
+    "design_rationale": "The direction in which a vehicle's coordinates shift and the direction in which its heading changes should be aligned; a large angular discrepancy between the two indicates erroneous coordinate or direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v1 is the immediately preceding context of v2, and both v1 and v2 have non-zero speed, then the coordinate displacement direction and the direction angle change direction of v1 and v2 should be consistent.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 is the immediately preceding context of v2",
+      "implementation": "v2.grpid == v1.grpid + 1 && v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "both v1 and v2 have non-zero speed",
+      "implementation": "v1.speed > 0 && v2.speed > 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinate displacement direction and the direction angle change direction of v1 and v2 are consistent",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.direction - v1.direction)), cos(radians(v2.direction - v1.direction))))) <= NTHRESHOLD1 && abs(degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude)) - degrees(atan2(sin(radians(v2.direction - v1.direction)), cos(radians(v2.direction - v1.direction))))) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

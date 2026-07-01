@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time have similar speeds.",
+    "goal": "Detect speed outliers among records from different vehicles that occur at the same time.",
+    "design_rationale": "Vehicles operating at the same time should have comparable speeds under similar traffic conditions; large speed discrepancies between simultaneous records from different vehicles suggest a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then the absolute difference in their instantaneous speeds does not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is within a certain reasonable time range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are spatially close (based on GPS coordinates)",
+      "implementation": "pow(abs(v1.latitude - v2.latitude), 2) + pow(abs(v1.longitude - v2.longitude), 2) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.0025"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute difference in instantaneous speeds between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

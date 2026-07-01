@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a low speed, the heading change to the next context is bounded.",
+    "goal": "Detect implausible heading changes when the vehicle is moving slowly.",
+    "design_rationale": "When a vehicle is moving slowly, the heading should remain relatively stable at low speed."
+  },
+  "semantics": "For any context v1, if the speed of v1 is below a certain threshold, then the absolute heading difference between v1 and its next context v2 does not exceed a certain reasonable range."
+}

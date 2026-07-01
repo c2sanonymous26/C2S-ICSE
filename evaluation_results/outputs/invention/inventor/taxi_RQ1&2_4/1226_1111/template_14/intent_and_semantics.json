@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The product of the average speed and the absolute direction difference between two consecutive contexts of the same vehicle is within a reasonable range.",
+    "goal": "Detect consecutive contexts where a large direction change occurs simultaneously with a high average speed.",
+    "design_rationale": "A high-speed vehicle cannot execute a sharp turn between consecutive samples; the product of average speed and direction change captures this combined implausibility."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the product of the average of their instantaneous speeds and the absolute direction difference should not exceed a certain reasonable range."
+}

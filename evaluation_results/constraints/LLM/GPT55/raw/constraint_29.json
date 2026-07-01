@@ -1,0 +1,106 @@
+{
+  "constraint_id": 29,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 129.60822701454163
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The GPS displacement between two temporally ordered contexts of the same taxi must be physically feasible for the elapsed time between them.",
+      "goal": "Detect impossible long-distance jumps in the recorded trajectory of a taxi, including jumps that may occur across non-consecutive records rather than only between adjacent group sequence numbers.",
+      "design_rationale": "A taxi cannot travel farther than a physically reasonable maximum distance during a given time interval. If two contexts from the same vehicle have timestamps in increasing order but their GPS locations imply travel beyond any plausible driving capability, the data likely contains GPS errors, timestamp corruption, or record association mistakes."
+    },
+    "semantics": "For any two contexts v1 and v2, if v1 and v2 belong to the same vehicle and the timestamp recorded in v2 is greater than the timestamp recorded in v1 by a sufficiently reliable positive amount, then the GPS displacement between v1 and v2 does not exceed a physically feasible distance determined by their timestamp difference and a certain reasonable maximum travel-rate threshold, allowing a small tolerance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1 by a sufficiently reliable positive amount.",
+        "implementation": "v2.timestamp - v1.timestamp >= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement between v1 and v2 does not exceed a physically feasible distance determined by their timestamp difference and a certain reasonable maximum travel-rate threshold, allowing a small tolerance.",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2 × ((v2.timestamp - v1.timestamp) ÷ (60 × 60)) + NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 15.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 120.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 0.2
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The GPS displacement between two temporally ordered contexts of the same taxi must be physically feasible for the elapsed time between them.",
+      "goal": "Detect impossible long-distance jumps in the recorded trajectory of a taxi, including jumps that may occur across non-consecutive records rather than only between adjacent group sequence numbers.",
+      "design_rationale": "A taxi cannot travel farther than a physically reasonable maximum distance during a given time interval. If two contexts from the same vehicle have timestamps in increasing order but their GPS locations imply travel beyond any plausible driving capability, the data likely contains GPS errors, timestamp corruption, or record association mistakes."
+    },
+    "semantics": "For any two contexts v1 and v2, if v1 and v2 belong to the same vehicle and the timestamp recorded in v2 is greater than the timestamp recorded in v1 by a sufficiently reliable positive amount, then the GPS displacement between v1 and v2 does not exceed a physically feasible distance determined by their timestamp difference and a certain reasonable maximum travel-rate threshold, allowing a small tolerance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle.",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The timestamp recorded in v2 is greater than the timestamp recorded in v1 by a sufficiently reliable positive amount.",
+        "implementation": "(v2.timestamp - v1.timestamp) >= 15.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "The GPS displacement between v1 and v2 does not exceed a physically feasible distance determined by their timestamp difference and a certain reasonable maximum travel-rate threshold, allowing a small tolerance.",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= ((120.0 × ((v2.timestamp - v1.timestamp) ÷ (60 × 60))) + 0.2)",
+        "restrictions": []
+      }
+    ]
+  }
+}

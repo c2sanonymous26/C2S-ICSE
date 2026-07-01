@@ -1,0 +1,62 @@
+2025-12-15 08:03:32,835 - INFO - ======================================================================
+2025-12-15 08:03:32,835 - INFO - Starting run 11/50
+2025-12-15 08:03:32,835 - INFO - Mode: carid_diff, Comparison: ge
+2025-12-15 08:03:32,835 - INFO - **********************************************************************
+2025-12-15 08:03:32,840 - INFO - Starting to create different carid data pairing, original data shape: (5042, 7)
+2025-12-15 08:03:46,768 - INFO - Different carid pairing completed, new data shape: (25220822, 14)
+2025-12-15 08:03:47,838 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 08:03:47,839 - INFO - Assertion mining DataFrame shape: (25220822, 10)
+2025-12-15 08:03:49,588 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 08:03:49,588 - INFO - Precondition mining DataFrame shape: (25220822, 14)
+2025-12-15 08:03:49,695 - INFO - **********************************************************************
+2025-12-15 08:03:49,695 - INFO - **********************************************************************
+2025-12-15 08:03:49,695 - INFO - Target field: longitude_1 (selected from 10 candidates)
+2025-12-15 08:03:49,695 - INFO - **********************************************************************
+2025-12-15 08:03:49,695 - INFO - Timeout: 3600 seconds
+2025-12-15 08:03:49,695 - INFO - **********************************************************************
+2025-12-15 08:03:49,695 - INFO - Starting assertion mining...
+2025-12-15 08:03:50,189 - INFO - Target: longitude_1 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 08:03:50,189 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-15 08:03:50,190 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-15 08:12:07,086 - INFO - Batch 0 training completed, current best fitness: 0.011597883
+2025-12-15 08:12:07,086 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-15 08:20:21,773 - INFO - Batch 1 training completed, current best fitness: 0.002682402
+2025-12-15 08:20:21,773 - INFO - Target 'longitude_1' constraint discovery completed normally
+2025-12-15 08:20:21,773 - INFO - Generations completed: 2
+2025-12-15 08:20:21,781 - INFO - Assertion mining completed, assertion: sqrt(add(-11868.862, speed_2)) (fitness: 0.002682402)
+2025-12-15 08:20:21,782 - INFO - **********************************************************************
+2025-12-15 08:20:21,782 - INFO - **********************************************************************
+2025-12-15 08:20:21,782 - INFO - Starting assertion validation...
+2025-12-15 08:20:22,283 - INFO - Assertion: sqrt(add(-11868.862, speed_2)), Comparison: ge
+2025-12-15 08:20:22,848 - INFO - Assertion validation completed, fit rate: 1.0000 (25220822/25220822)
+2025-12-15 08:20:22,848 - INFO - **********************************************************************
+2025-12-15 08:20:22,848 - INFO - **********************************************************************
+2025-12-15 08:20:22,848 - INFO - Starting precondition mining...
+2025-12-15 08:20:22,848 - INFO - Starting to prepare data for precondition mining phase
+2025-12-15 08:20:24,850 - INFO - Binning 10 assertion mining fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 08:20:25,710 - INFO - timestamp_1 bin_edges: [1.30219380e+09 1.30219416e+09 1.30219452e+09 1.30219488e+09
+ 1.30219524e+09 1.30219560e+09]
+2025-12-15 08:20:28,432 - INFO - timestamp_2 bin_edges: [1.30219380e+09 1.30219416e+09 1.30219452e+09 1.30219488e+09
+ 1.30219524e+09 1.30219560e+09]
+2025-12-15 08:20:31,484 - INFO - speed_1 bin_edges: [  0.   22.8  45.6  68.4  91.2 114. ]
+2025-12-15 08:20:34,984 - INFO - speed_2 bin_edges: [  0.   22.8  45.6  68.4  91.2 114. ]
+2025-12-15 08:20:38,692 - INFO - latitude_1 bin_edges: [22.50502  22.556866 22.608712 22.660558 22.712404 22.76425 ]
+2025-12-15 08:20:42,884 - INFO - latitude_2 bin_edges: [22.50502  22.556866 22.608712 22.660558 22.712404 22.76425 ]
+2025-12-15 08:20:47,233 - INFO - longitude_1 bin_edges: [113.79545 113.96713 114.13881 114.31049 114.48217 114.65385]
+2025-12-15 08:20:52,032 - INFO - longitude_2 bin_edges: [113.79545 113.96713 114.13881 114.31049 114.48217 114.65385]
+2025-12-15 08:20:57,017 - INFO - direction_1 bin_edges: [  0.  63. 126. 189. 252. 315.]
+2025-12-15 08:21:02,571 - INFO - direction_2 bin_edges: [  0.  63. 126. 189. 252. 315.]
+2025-12-15 08:21:07,351 - INFO - Empty DataFrame
+Columns: [carid_1, carid_2, grpid_1, grpid_2, fit, timestamp_1_bin_1302193800.000000000_1302194159.799999952, timestamp_1_bin_1302194159.799999952_1302194519.599999905, timestamp_1_bin_1302194519.599999905_1302194879.400000095, timestamp_1_bin_1302194879.400000095_1302195239.200000048, timestamp_1_bin_1302195239.200000048_1302195599.000000000, timestamp_2_bin_1302193800.000000000_1302194159.799999952, timestamp_2_bin_1302194159.799999952_1302194519.599999905, timestamp_2_bin_1302194519.599999905_1302194879.400000095, timestamp_2_bin_1302194879.400000095_1302195239.200000048, timestamp_2_bin_1302195239.200000048_1302195599.000000000, speed_1_bin_0.000000000_22.800000000, speed_1_bin_22.800000000_45.600000000, speed_1_bin_45.600000000_68.400000000, speed_1_bin_68.400000000_91.200000000, speed_1_bin_91.200000000_114.000000000, speed_2_bin_0.000000000_22.800000000, speed_2_bin_22.800000000_45.600000000, speed_2_bin_45.600000000_68.400000000, speed_2_bin_68.400000000_91.200000000, speed_2_bin_91.200000000_114.000000000, latitude_1_bin_22.505020000_22.556866000, latitude_1_bin_22.556866000_22.608712000, latitude_1_bin_22.608712000_22.660558000, latitude_1_bin_22.660558000_22.712404000, latitude_1_bin_22.712404000_22.764250000, latitude_2_bin_22.505020000_22.556866000, latitude_2_bin_22.556866000_22.608712000, latitude_2_bin_22.608712000_22.660558000, latitude_2_bin_22.660558000_22.712404000, latitude_2_bin_22.712404000_22.764250000, longitude_1_bin_113.795450000_113.967130000, longitude_1_bin_113.967130000_114.138810000, longitude_1_bin_114.138810000_114.310490000, longitude_1_bin_114.310490000_114.482170000, longitude_1_bin_114.482170000_114.653850000, longitude_2_bin_113.795450000_113.967130000, longitude_2_bin_113.967130000_114.138810000, longitude_2_bin_114.138810000_114.310490000, longitude_2_bin_114.310490000_114.482170000, longitude_2_bin_114.482170000_114.653850000, direction_1_bin_0.000000000_63.000000000, direction_1_bin_63.000000000_126.000000000, direction_1_bin_126.000000000_189.000000000, direction_1_bin_189.000000000_252.000000000, direction_1_bin_252.000000000_315.000000000, direction_2_bin_0.000000000_63.000000000, direction_2_bin_63.000000000_126.000000000, direction_2_bin_126.000000000_189.000000000, direction_2_bin_189.000000000_252.000000000, direction_2_bin_252.000000000_315.000000000]
+Index: []
+2025-12-15 08:21:09,401 - INFO - Direct one-hot encoding completed, number of features: 55
+2025-12-15 08:21:09,402 - INFO - Empty DataFrame
+Columns: [grpid_eq, grpid_lt, grpid_gt, fit_0, fit_1, timestamp_1_bin_1302193800.000000000_1302194159.799999952, timestamp_1_bin_1302194159.799999952_1302194519.599999905, timestamp_1_bin_1302194519.599999905_1302194879.400000095, timestamp_1_bin_1302194879.400000095_1302195239.200000048, timestamp_1_bin_1302195239.200000048_1302195599.000000000, timestamp_2_bin_1302193800.000000000_1302194159.799999952, timestamp_2_bin_1302194159.799999952_1302194519.599999905, timestamp_2_bin_1302194519.599999905_1302194879.400000095, timestamp_2_bin_1302194879.400000095_1302195239.200000048, timestamp_2_bin_1302195239.200000048_1302195599.000000000, speed_1_bin_0.000000000_22.800000000, speed_1_bin_22.800000000_45.600000000, speed_1_bin_45.600000000_68.400000000, speed_1_bin_68.400000000_91.200000000, speed_1_bin_91.200000000_114.000000000, speed_2_bin_0.000000000_22.800000000, speed_2_bin_22.800000000_45.600000000, speed_2_bin_45.600000000_68.400000000, speed_2_bin_68.400000000_91.200000000, speed_2_bin_91.200000000_114.000000000, latitude_1_bin_22.505020000_22.556866000, latitude_1_bin_22.556866000_22.608712000, latitude_1_bin_22.608712000_22.660558000, latitude_1_bin_22.660558000_22.712404000, latitude_1_bin_22.712404000_22.764250000, latitude_2_bin_22.505020000_22.556866000, latitude_2_bin_22.556866000_22.608712000, latitude_2_bin_22.608712000_22.660558000, latitude_2_bin_22.660558000_22.712404000, latitude_2_bin_22.712404000_22.764250000, longitude_1_bin_113.795450000_113.967130000, longitude_1_bin_113.967130000_114.138810000, longitude_1_bin_114.138810000_114.310490000, longitude_1_bin_114.310490000_114.482170000, longitude_1_bin_114.482170000_114.653850000, longitude_2_bin_113.795450000_113.967130000, longitude_2_bin_113.967130000_114.138810000, longitude_2_bin_114.138810000_114.310490000, longitude_2_bin_114.310490000_114.482170000, longitude_2_bin_114.482170000_114.653850000, direction_1_bin_0.000000000_63.000000000, direction_1_bin_63.000000000_126.000000000, direction_1_bin_126.000000000_189.000000000, direction_1_bin_189.000000000_252.000000000, direction_1_bin_252.000000000_315.000000000, direction_2_bin_0.000000000_63.000000000, direction_2_bin_63.000000000_126.000000000, direction_2_bin_126.000000000_189.000000000, direction_2_bin_189.000000000_252.000000000, direction_2_bin_252.000000000_315.000000000]
+Index: []
+2025-12-15 08:21:09,402 - INFO - Precondition mining phase data preparation completed, shape: (25220822, 55)
+2025-12-15 08:21:09,647 - INFO - Starting association rule mining
+2025-12-15 08:21:09,647 - INFO - Assertion holds for over 99.5% of samples, skipping precondition mining
+2025-12-15 08:21:09,658 - INFO - No precondition, reason: skip_perfect_fit
+2025-12-15 08:21:09,658 - INFO - **********************************************************************
+2025-12-15 08:21:09,772 - INFO - Run 11 successfully generated constraint
+2025-12-15 08:21:09,772 - INFO - ======================================================================

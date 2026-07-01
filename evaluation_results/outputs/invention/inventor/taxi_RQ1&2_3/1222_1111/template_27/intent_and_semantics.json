@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple share high speed, the middle context's speed should not be significantly lower than their average.",
+    "goal": "Detect three consecutive contexts where a transient speed drop occurs between two high-speed records.",
+    "design_rationale": "A vehicle sustaining high speed should not exhibit a sudden transient drop in the middle of two high-speed samples; such a pattern suggests a noise spike in the speed sensor."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold, then v2's speed should not be significantly lower than the average of v1 and v3's speeds."
+}

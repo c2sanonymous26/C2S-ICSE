@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have a previous same-vehicle one-step context whose speed is also zero.",
+    "goal": "Detect isolated zero-speed contexts that are inconsistent with the immediately previous context of the same vehicle.",
+    "design_rationale": "If a vehicle is stopped at one local step, the preceding one-step context should often reflect the same stopped state under this rule design."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the speed of v2 is also zero.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and the grpid value of v2 is 1 smaller than that of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed of v2 is also zero.",
+      "implementation": "v2.speed == 0",
+      "restrictions": []
+    }
+  ]
+}

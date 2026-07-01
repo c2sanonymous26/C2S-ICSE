@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep a bounded instantaneous-speed difference.",
+    "goal": "Detect adjacent same-vehicle contexts whose instantaneous speeds differ implausibly.",
+    "design_rationale": "A realistic adjacent transition should not involve an excessive difference between the two instantaneous-speed values."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the instantaneous speeds of v1 and v2 should not exceed a certain reasonable range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is stationary, its coordinates should be the same as the previous context and the timestamp difference should be within a reasonable range.",
+    "goal": "Detect stationary contexts where either the coordinates differ from the previous record or the time gap is implausibly large.",
+    "design_rationale": "A stopped vehicle should remain at the same position relative to the previous record and be sampled at a regular interval; violations in either dimension indicate erroneous data."
+  },
+  "semantics": "For any context v1, if v1's speed is zero, then there exists a previous context v2 of the same vehicle such that the coordinates of v1 and v2 are the same and the absolute timestamp difference between v1 and v2 does not exceed a certain reasonable range."
+}

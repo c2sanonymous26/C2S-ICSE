@@ -1,0 +1,39 @@
+===================================================== 1027_0001/template_14 (5000_01_solve) instantiation starts =====================================================
+- scenario: taxi
+- template: 1027_0001/template_14
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+************************************************************************** Preparation starts **************************************************************************
+Decomposed template in 0.0026640892028808594 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005118846893310547 seconds
+************************************************************************ Preparation completes *************************************************************************
+************************************************************************ Solving process starts ************************************************************************
+Parsed template in 0.0018410682678222656 seconds
+Set solve data in 0.0008642673492431641 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005624294281005859 seconds
+Constructed main constraint in 58.413644790649414 seconds
+Constructed VE constraints in 1.0251998901367188e-05 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2916311760943289, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.001203775405883789 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2925107853965497, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0010137557983398438 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2920709807454393, 8796093022208)}
+        - objective value: 0 out of 0
+        - solved in 0.0008869171142578125 seconds
+1027_0001/template_14 (5000_01_solve) has 3 valid models
+********************************************************************** Solving process completes ***********************************************************************
+=================================================== 1027_0001/template_14 (5000_01_solve) instantiation completes ====================================================
+Total instantiation time: 58.46 seconds

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Within the same vehicle, a context with a smaller grpid should have a greater speed than a later-grpid context under this rule.",
+    "goal": "Detect same-vehicle context pairs whose speed ordering contradicts the expected grpid ordering.",
+    "design_rationale": "This rule encodes a monotonic relation between sequence order and speed, so violations reveal inconsistency between grpid and speed behavior."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is smaller than that of v2, then the speed of v1 should be greater than the speed of v2."
+}

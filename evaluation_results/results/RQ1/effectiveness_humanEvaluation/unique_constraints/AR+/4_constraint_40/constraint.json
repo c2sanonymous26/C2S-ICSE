@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is less than or equal to add(tan(v1.latitude), sqrt(v1.timestamp)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is less than or equal to add(tan(v1.latitude), sqrt(v1.timestamp))",
+      "implementation": "var_bindings['v1']['longitude'] <= (tan(var_bindings['v1']['latitude']) + sqrt(abs(var_bindings['v1']['timestamp'])))"
+    }
+  ]
+}

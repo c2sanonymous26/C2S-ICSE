@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "If the earlier context in an adjacent same-vehicle pair is stationary, the later context should stay close in space.",
+    "goal": "Detect adjacent same-vehicle contexts that break local spatial continuity when the earlier context is stopped.",
+    "design_rationale": "When the earlier local context is stationary, the next context should remain within a very limited spatial neighborhood."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are two adjacent contexts of that vehicle, and the speed of v1 is zero, then the distance between the coordinates of v2 and those of v1 should not exceed a certain reasonable upper bound."
+}

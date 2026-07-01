@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Three consecutive contexts of the same vehicle should not imply an excessive change rate in displacement direction.",
+    "goal": "Detect same-vehicle context triples whose turning behavior changes too abruptly across consecutive steps.",
+    "design_rationale": "A locally consistent trajectory should not exhibit an implausibly large rate of change in displacement direction across three consecutive contexts."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are consecutive in grpid order, then the rate of change of the angle between the displacement direction computed from v1 and v2 and that computed from v2 and v3, calculated based on the time difference, should not exceed a certain reasonable upper bound."
+}

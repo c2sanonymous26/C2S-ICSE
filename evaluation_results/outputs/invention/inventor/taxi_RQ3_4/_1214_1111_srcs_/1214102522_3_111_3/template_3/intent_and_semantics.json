@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should keep the cosine magnitude of the angle between their speed difference and the connecting-line direction within a bound.",
+    "goal": "Detect cross-vehicle context pairs whose speed-difference relation is geometrically inconsistent with their relative-position direction.",
+    "design_rationale": "A cosine-based directional consistency quantity derived from speed difference and relative position should remain bounded for nearby observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the absolute value of the cosine of the angle between their speed difference and the direction of the line connecting their positions computed from the coordinates should not exceed a certain value."
+}

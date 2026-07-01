@@ -1,0 +1,59 @@
+=============================== 1229_1111/template_15 (5000_11_solve) instantiation starts ===============================
+- scenario: taxi
+- template: 1229_1111/template_15
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0036907196044921875 seconds
+Constructed ctx data in 4.076957702636719e-05 seconds
+Loaded data field types in 0.0005617141723632812 seconds
+************************************************** Preparation completes ***************************************************
+******************************************* Symbol basic ranges computing starts *******************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression 12742.0*cos(pi*Abs(v1_direction - v2_direction)/180)*atan2(sqrt(sin(pi*(-0.00277777777777778*v1_latitude + 0.00277777777777778*v2_latitude))**2 + sin(pi*(-0.00277777777777778*v1_longitude + 0.00277777777777778*v2_longitude))**2*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180)), sqrt(-sin(pi*(-0.00277777777777778*v1_latitude + 0.00277777777777778*v2_latitude))**2 - sin(pi*(-0.00277777777777778*v1_longitude + 0.00277777777777778*v2_longitude))**2*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180) + 1.0)) → range [-20015.086796020507, 20014.554891076394]
+        - final range for threshold symbol 'NTHRESHOLD1': [-20015.086796020507, 20014.554891076394]
+Approximate computed ranges for 1 threshold symbols in 0.46 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression 12742.0*cos(pi*Abs(v1_direction - v2_direction)/180)*atan2(sqrt(sin(pi*(-0.00277777777777778*v1_latitude + 0.00277777777777778*v2_latitude))**2 + sin(pi*(-0.00277777777777778*v1_longitude + 0.00277777777777778*v2_longitude))**2*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180)), sqrt(-sin(pi*(-0.00277777777777778*v1_latitude + 0.00277777777777778*v2_latitude))**2 - sin(pi*(-0.00277777777777778*v1_longitude + 0.00277777777777778*v2_longitude))**2*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180) + 1.0)) → range [0.0, 20015.086796020572]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 20015.086796020572]
+Theoretical computed ranges for 1 threshold symbols in 0.30 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-20015.086796020507, 20015.086796020572)}
+***************************************** Symbol basic ranges computing completes ******************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.002210855484008789 seconds
+Set solve data in 0.0008988380432128906 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.00058746337890625 seconds
+Constructed main constraint in 60.56023120880127 seconds
+Constructed VE constraints in 0.0012204647064208984 seconds
+Constructed symbol domain constraints in 0.23637700080871582 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 3001
+    - symbol domains:
+        - _N_THRESHOLD_1: 3002
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-11721931, 1000000)}
+        - objective value: 4 out of 4
+        - solved in 0.39850926399230957 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.7934155464172363 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.7848365306854248 seconds
+1229_1111/template_15 (5000_11_solve) has 1 valid models
+************************************************ Solving process completes *************************************************
+============================= 1229_1111/template_15 (5000_11_solve) instantiation completes ==============================
+Total instantiation time: 63.60 seconds

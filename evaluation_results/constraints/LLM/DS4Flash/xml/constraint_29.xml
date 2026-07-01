@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are within a certain time window (absolute time difference within a certain range), and the distance between their GPS locations is within a certain distance, then the absolute circular heading difference between v1 and v2 does not exceed a certain bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1"/>
+            <bfunc id="2"/>
+          </and>
+          <bfunc id="3"/>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

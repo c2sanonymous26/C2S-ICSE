@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is travelling at a significantly low speed, the speed change in the next context should be small.",
+    "goal": "Detect consecutive contexts where a large speed change occurs from an already low speed, which is implausible.",
+    "design_rationale": "A slow-moving vehicle is unlikely to undergo a sudden large speed change; a large speed difference from a low baseline indicates a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly lower than a certain threshold, then the absolute speed difference between v2 and v1 should be within a certain smaller reasonable range."
+}

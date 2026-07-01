@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are temporally and spatially close should have a small direction difference.",
+    "goal": "Detect spatially and temporally proximate contexts from different vehicles with implausibly large direction discrepancies.",
+    "design_rationale": "Vehicles at the same location at the same time are likely travelling along the same road in the same direction; a large direction difference between nearby, simultaneous records suggests at least one contains erroneous direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, and their timestamps are close (absolute difference does not exceed a certain value), and their positions are close (based on coordinate calculation), then the direction difference between them should not exceed a certain value."
+}

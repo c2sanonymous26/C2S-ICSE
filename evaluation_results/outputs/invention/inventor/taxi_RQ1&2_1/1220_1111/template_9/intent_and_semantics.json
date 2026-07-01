@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The time gap between two consecutive contexts of the same vehicle is above a minimum threshold.",
+    "goal": "Detect duplicate or near-duplicate records with identical or near-identical timestamps.",
+    "design_rationale": "GPS records of a taxi are sampled at a fixed frequency; timestamps that are too close between consecutive records indicate duplicate entries or recording errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must be greater than a certain reasonable minimum time interval."
+}

@@ -1,0 +1,31 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep its coordinate-change direction consistent with its recorded direction.",
+    "goal": "Detect high-speed contexts whose geometric movement direction is inconsistent with their reported heading.",
+    "design_rationale": "At high speed, the coordinate-derived movement direction should remain aligned with the recorded heading."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the coordinate-change direction of v1 and the direction of v1 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies bfunc2(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The absolute difference between the coordinate-change direction of v1 and the direction of v1 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.direction - degrees(atan2(sin(radians(v1.longitude - v1.longitude)), cos(radians(v1.latitude)) - sin(radians(v1.latitude)) × tan(radians(v1.direction))))) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

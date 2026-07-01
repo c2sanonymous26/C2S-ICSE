@@ -1,0 +1,58 @@
+{
+  "intent": {
+    "content": "When the first and third contexts of a triple show high speed while the middle context shows low speed, the direction change between the first and third contexts should be small.",
+    "goal": "Detect three consecutive contexts where a transient speed drop occurs between two high-speed records while showing a large direction change between the bounding records.",
+    "design_rationale": "Two high-speed records surrounding a transient low-speed sample should maintain a consistent heading; a large direction change between the bounding high-speed records suggests that the middle low-speed record is a noise artifact."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, and both v1 and v3 have speeds significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the absolute direction difference between v1 and v3 should be within a certain smaller reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid && v2.carid == v3.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 are three consecutive contexts",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1 && abs(v2.grpid - v3.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "both v1 and v3 have speeds significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1 && v3.speed > NTHRESHOLD1 && v2.speed < NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60",
+        "NTHRESHOLD2 <= 20"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the absolute direction difference between v1 and v3 is within a certain smaller reasonable range",
+      "implementation": "abs(v1.direction - v3.direction) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

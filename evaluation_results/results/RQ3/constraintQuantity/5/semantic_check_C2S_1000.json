@@ -1,0 +1,1222 @@
+{
+  "summary": {
+    "total_constraints": 50,
+    "passed_constraints": 40,
+    "failed_constraints": 10,
+    "pass_rate": 80.0,
+    "failed_constraint_names": [
+      "constraint_9",
+      "constraint_13",
+      "constraint_14",
+      "constraint_20",
+      "constraint_24",
+      "constraint_33",
+      "constraint_35",
+      "constraint_41",
+      "constraint_44",
+      "constraint_50"
+    ]
+  },
+  "details": [
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) and bfunc2(v1))",
+      "semantics": "For any context v1, the speed value of v1 should be non-negative and should not exceed a certain reasonable upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_1"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the direction value of v1 should be between 0 degrees and 360 degrees.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_2"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_3"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the grpid value of v1 should be greater than or equal to 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_4"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the timestamp value of v1 should be greater than or equal to a certain reasonable minimum timestamp.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_5"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the speed-change rate computed from their speed values should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_6"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their movement directions computed from direction angles should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_7"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction of v1 and that of its previous context v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_8"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the straight-line distance computed from the coordinates of v1 and v2 and the timestamp difference should not exceed a certain reasonable upper bound on speed.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([length] * [time], kilometer * radian * second) and ([length] / [time], kilometer / hour) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_term_single\n        prod_num_mul\n          prod_num_factor_literal\t6371.0\n          prod_num_mul\n            prod_num_factor_literal\t2\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_add\n                            prod_num_mul\n                              prod_num_factor_math_func\n                                prod_math_func_sin\n                                  prod_num_term_single\n                                    prod_num_div\n                                      prod_num_factor_math_func\n                                        prod_math_func_radians\n                                          prod_num_sub\n                                            prod_num_factor_single\n                                              prod_num_factor_field\n                                                prod_num_field\n                                                  2\n                                                  latitude\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                      prod_num_factor_single\n                                        prod_num_factor_literal\t2\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_sin\n                                    prod_num_term_single\n                                      prod_num_div\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_sub\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    2\n                                                    latitude\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      1\n                                                      latitude\n                                        prod_num_factor_single\n                                          prod_num_factor_literal\t2\n                            prod_num_term_single\n                              prod_num_mul\n                                prod_num_factor_math_func\n                                  prod_math_func_cos\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_radians\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_field\n                                                  prod_num_field\n                                                    1\n                                                    latitude\n                                prod_num_mul\n                                  prod_num_factor_math_func\n                                    prod_math_func_cos\n                                      prod_num_term_single\n                                        prod_num_factor_single\n                                          prod_num_factor_math_func\n                                            prod_math_func_radians\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_field\n                                                    prod_num_field\n                                                      2\n                                                      latitude\n                                  prod_num_mul\n                                    prod_num_factor_math_func\n                                      prod_math_func_sin\n                                        prod_num_term_single\n                                          prod_num_div\n                                            prod_num_factor_math_func\n                                              prod_math_func_radians\n                                                prod_num_sub\n                                                  prod_num_factor_single\n                                                    prod_num_factor_field\n                                                      prod_num_field\n                                                        2\n                                                        longitude\n                                                  prod_num_term_single\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          1\n                                                          longitude\n                                            prod_num_factor_single\n                                              prod_num_factor_literal\t2\n                                    prod_num_factor_single\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          longitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            longitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sqrt\n                          prod_num_sub\n                            prod_num_factor_single\n                              prod_num_factor_literal\t1\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_paren\n                                  prod_num_add\n                                    prod_num_mul\n                                      prod_num_factor_math_func\n                                        prod_math_func_sin\n                                          prod_num_term_single\n                                            prod_num_div\n                                              prod_num_factor_math_func\n                                                prod_math_func_radians\n                                                  prod_num_sub\n                                                    prod_num_factor_single\n                                                      prod_num_factor_field\n                                                        prod_num_field\n                                                          2\n                                                          latitude\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                              prod_num_factor_single\n                                                prod_num_factor_literal\t2\n                                      prod_num_factor_single\n                                        prod_num_factor_math_func\n                                          prod_math_func_sin\n                                            prod_num_term_single\n                                              prod_num_div\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_sub\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            2\n                                                            latitude\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              1\n                                                              latitude\n                                                prod_num_factor_single\n                                                  prod_num_factor_literal\t2\n                                    prod_num_term_single\n                                      prod_num_mul\n                                        prod_num_factor_math_func\n                                          prod_math_func_cos\n                                            prod_num_term_single\n                                              prod_num_factor_single\n                                                prod_num_factor_math_func\n                                                  prod_math_func_radians\n                                                    prod_num_term_single\n                                                      prod_num_factor_single\n                                                        prod_num_factor_field\n                                                          prod_num_field\n                                                            1\n                                                            latitude\n                                        prod_num_mul\n                                          prod_num_factor_math_func\n                                            prod_math_func_cos\n                                              prod_num_term_single\n                                                prod_num_factor_single\n                                                  prod_num_factor_math_func\n                                                    prod_math_func_radians\n                                                      prod_num_term_single\n                                                        prod_num_factor_single\n                                                          prod_num_factor_field\n                                                            prod_num_field\n                                                              2\n                                                              latitude\n                                          prod_num_mul\n                                            prod_num_factor_math_func\n                                              prod_math_func_sin\n                                                prod_num_term_single\n                                                  prod_num_div\n                                                    prod_num_factor_math_func\n                                                      prod_math_func_radians\n                                                        prod_num_sub\n                                                          prod_num_factor_single\n                                                            prod_num_factor_field\n                                                              prod_num_field\n                                                                2\n                                                                longitude\n                                                          prod_num_term_single\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  1\n                                                                  longitude\n                                                    prod_num_factor_single\n                                                      prod_num_factor_literal\t2\n                                            prod_num_factor_single\n                                              prod_num_factor_math_func\n                                                prod_math_func_sin\n                                                  prod_num_term_single\n                                                    prod_num_div\n                                                      prod_num_factor_math_func\n                                                        prod_math_func_radians\n                                                          prod_num_sub\n                                                            prod_num_factor_single\n                                                              prod_num_factor_field\n                                                                prod_num_field\n                                                                  2\n                                                                  longitude\n                                                            prod_num_term_single\n                                                              prod_num_factor_single\n                                                                prod_num_factor_field\n                                                                  prod_num_field\n                                                                    1\n                                                                    longitude\n                                                      prod_num_factor_single\n                                                        prod_num_factor_literal\t2\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_sub\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      2\n                      timestamp\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        1\n                        timestamp\n            prod_num_factor_single\n              prod_num_factor_paren\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_literal\t60\n                    prod_num_factor_single\n                      prod_num_factor_literal\t60\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_9"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute direction difference between v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_10"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute speed difference between v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_11"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the straight-line distance computed from the coordinates of v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_12"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the direction difference of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in subtraction: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 5\nContext: prod_num_sub\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_atan2\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                latitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  latitude\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                longitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  longitude\n  prod_num_term_single\n    prod_num_factor_single\n      prod_num_factor_field\n        prod_num_field\n          1\n          direction\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_13"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the average of the directions of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in subtraction: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 5\nContext: prod_num_sub\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_atan2\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                latitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  latitude\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                longitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  longitude\n  prod_num_term_single\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_div\n            prod_num_factor_paren\n              prod_num_add\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      1\n                      direction\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        2\n                        direction\n            prod_num_factor_single\n              prod_num_factor_literal\t2\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_14"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies bfunc2(v1))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the coordinate-change direction of v1 and the direction of v1 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_15"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the timestamp difference between v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_16"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction of v1 and that of its previous context v2 should be zero.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_17"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is zero, then the coordinates of v1 should be the same as those of its previous context v2.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_18"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the grpid difference between v1 and v2 should be 1.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_19"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the timestamp difference of v1 and v2 and the grpid difference of v1 and v2 should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([time] / [group_id], second / group_id) and ([time], second) are not compatible\nLocation: Line 1, Column 76\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_sub\n        prod_num_factor_single\n          prod_num_factor_field\n            prod_num_field\n              2\n              timestamp\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                1\n                timestamp\n    prod_num_factor_single\n      prod_num_factor_math_func\n        prod_math_func_abs\n          prod_num_sub\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  2\n                  grpid\n            prod_num_term_single\n              prod_num_factor_single\n                prod_num_factor_field\n                  prod_num_field\n                    1\n                    grpid\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      2\n\nImplementation Semantic Error for bfunc3:\nUnit compatibility error in comparison: ([time] / [group_id], second / group_id) and ([time], second) are not compatible\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_div\n    prod_num_factor_paren\n      prod_num_sub\n        prod_num_factor_single\n          prod_num_factor_field\n            prod_num_field\n              2\n              timestamp\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                1\n                timestamp\n    prod_num_factor_single\n      prod_num_factor_math_func\n        prod_math_func_abs\n          prod_num_sub\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  2\n                  grpid\n            prod_num_term_single\n              prod_num_factor_single\n                prod_num_factor_field\n                  prod_num_field\n                    1\n                    grpid\n >= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      1\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_20"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then their position distance computed from the coordinates should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_21"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then their travel directions should be similar, meaning that the absolute direction difference does not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_22"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then their instantaneous speeds should be similar, meaning that the absolute speed difference does not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_23"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their travel direction and the line connecting their positions should not exceed a certain value.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc4: Implementation Semantic Error for bfunc4:\nModulo operation error: Right operand must be dimensionless without unit, but got (dimensionless, degree)\nLocation: Line 1, Column 125\nContext: prod_num_mod\n  prod_num_factor_math_func\n    prod_math_func_abs\n      prod_num_sub\n        prod_num_factor_single\n          prod_num_factor_field\n            prod_num_field\n              1\n              direction\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_math_func\n              prod_math_func_degrees\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_math_func\n                      prod_math_func_atan2\n                        prod_num_sub\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                2\n                                longitude\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  longitude\n                        prod_num_sub\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                2\n                                latitude\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  latitude\n  prod_num_factor_single\n    prod_num_factor_literal\t360\n\nImplementation Semantic Error for bfunc4:\nModulo operation error: Right operand must be dimensionless without unit, but got (dimensionless, degree)\nLocation: Line 1, Column 5\nContext: prod_num_mod\n  prod_num_factor_math_func\n    prod_math_func_abs\n      prod_num_sub\n        prod_num_factor_single\n          prod_num_factor_field\n            prod_num_field\n              1\n              direction\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_math_func\n              prod_math_func_degrees\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_math_func\n                      prod_math_func_atan2\n                        prod_num_sub\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                2\n                                longitude\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  longitude\n                        prod_num_sub\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                2\n                                latitude\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  latitude\n  prod_num_factor_single\n    prod_num_factor_literal\t360\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_24"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close to each other, then the speed difference between them should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_25"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) implies bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is exactly 1 greater than that of v2, then when the difference between the timestamp values of v1 and v2 lies within a certain range, the positional change between v1 and v2 computed from the coordinates should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_26"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 2 greater than that of v2, then when the time difference between v1 and v2 is smaller than a certain value, the distance between v1 and v2 should lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_27"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1))",
+      "semantics": "For any context v1, the id of v1 must lie within a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_28"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the straight-line distance computed from the coordinates of v1 and v2 and the timestamp difference of v1 and v2 should not exceed a certain reasonable multiple of the average speed of v1 and v2.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_29"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute difference between the direction of the coordinate change of v1 computed from its previous context v2 and the direction of v1 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_30"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the ratio between the absolute direction difference of v1 and v2 and the timestamp difference of v1 and v2 does not exceed a certain upper bound.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_31"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next context of v1, and the absolute speed difference of v1 and v2 does not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_32"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the angle between their coordinate-change directions computed from their respective previous contexts should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": false,
+          "error": "Parameters mismatch for bfunc4.\nUsed but not declared parameters: ['v3', 'v4']"
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": ""
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_33"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the ratio of the straight-line distance computed from the coordinates of v1 and v2 to the timestamp difference of v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_34"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the absolute difference between the angles formed by the direction of the line connecting their positions and their respective travel directions should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in subtraction: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 5\nContext: prod_num_sub\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_atan2\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                latitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  latitude\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                longitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  longitude\n  prod_num_term_single\n    prod_num_factor_single\n      prod_num_factor_paren\n        prod_num_term_single\n          prod_num_mul\n            prod_num_factor_paren\n              prod_num_add\n                prod_num_factor_single\n                  prod_num_factor_field\n                    prod_num_field\n                      1\n                      direction\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_field\n                      prod_num_field\n                        2\n                        direction\n            prod_num_factor_single\n              prod_num_factor_literal\t0.5\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_35"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the absolute difference between the coordinate-change direction of v1 and v2 and the direction of v1 does not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_36"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the angle between the direction of the line connecting their positions and the direction of major city roads should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_37"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is zero, then the timestamp difference between v1 and its previous context v2 should not exceed a certain reasonable upper bound on parking time.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_38"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the angle between the coordinate-change direction of v1 and v2 and the direction of major city roads does not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_39"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the absolute value of the angle difference between the direction of the line connecting their positions and the direction of major city roads should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_40"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the average of the angles between the direction of the line connecting their positions and their respective travel directions should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in subtraction: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 6\nContext: prod_num_sub\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_atan2\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                latitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  latitude\n        prod_num_sub\n          prod_num_factor_single\n            prod_num_factor_field\n              prod_num_field\n                2\n                longitude\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_field\n                prod_num_field\n                  1\n                  longitude\n  prod_num_term_single\n    prod_num_factor_single\n      prod_num_factor_field\n        prod_num_field\n          1\n          direction\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_41"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, and the speed of v1 is zero while the speed of v2 is not zero, then the timestamp difference between v2 and v1 should not exceed a certain reasonable upper bound on start-up time.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_42"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the angle between the coordinate-change direction of v1 and v2 and the direction of major city roads should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_43"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute value of the angle between the coordinate-change direction of v1 computed from its previous context v2 and the direction of major city roads should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in subtraction: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 5\nContext: prod_num_sub\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_atan2\n        prod_num_term_single\n          prod_num_mul\n            prod_num_factor_math_func\n              prod_math_func_sin\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_math_func\n                      prod_math_func_radians\n                        prod_num_sub\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                1\n                                longitude\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  2\n                                  longitude\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_cos\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_radians\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  latitude\n        prod_num_sub\n          prod_num_mul\n            prod_num_factor_math_func\n              prod_math_func_cos\n                prod_num_term_single\n                  prod_num_factor_single\n                    prod_num_factor_math_func\n                      prod_math_func_radians\n                        prod_num_term_single\n                          prod_num_factor_single\n                            prod_num_factor_field\n                              prod_num_field\n                                2\n                                latitude\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_sin\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_radians\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  1\n                                  latitude\n          prod_num_term_single\n            prod_num_mul\n              prod_num_factor_math_func\n                prod_math_func_sin\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_radians\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_field\n                                prod_num_field\n                                  2\n                                  latitude\n              prod_num_mul\n                prod_num_factor_math_func\n                  prod_math_func_cos\n                    prod_num_term_single\n                      prod_num_factor_single\n                        prod_num_factor_math_func\n                          prod_math_func_radians\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_field\n                                  prod_num_field\n                                    1\n                                    latitude\n                prod_num_factor_single\n                  prod_num_factor_math_func\n                    prod_math_func_cos\n                      prod_num_term_single\n                        prod_num_factor_single\n                          prod_num_factor_math_func\n                            prod_math_func_radians\n                              prod_num_sub\n                                prod_num_factor_single\n                                  prod_num_factor_field\n                                    prod_num_field\n                                      1\n                                      longitude\n                                prod_num_term_single\n                                  prod_num_factor_single\n                                    prod_num_factor_field\n                                      prod_num_field\n                                        2\n                                        longitude\n  prod_num_term_single\n    prod_num_factor_single\n      prod_num_factor_math_func\n        prod_math_func_degrees\n          prod_num_term_single\n            prod_num_factor_single\n              prod_num_factor_math_func\n                prod_math_func_atan2\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_literal\t0.5\n                  prod_num_term_single\n                    prod_num_factor_single\n                      prod_num_factor_literal\t0.5\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_44"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction of v1 and that of its next context v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_45"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the angle between the direction of the line connecting their positions and the direction of major city roads should not exceed a certain reasonable range, and the absolute speed difference of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_46"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the product of the straight-line distance computed from the coordinates of v1 and v2 and the average of their speeds should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_47"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then when the speed difference between v1 and v2 exceeds a certain threshold, the absolute direction difference of v1 and v2 should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_48"
+    },
+    {
+      "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+      "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the difference between the angle of the coordinate-change direction of v1 and v2 and the angle of the major city road direction should not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": true,
+          "error": ""
+        }
+      },
+      "overall_passed": true,
+      "constraint_name": "constraint_49"
+    },
+    {
+      "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+      "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the absolute value of the difference between the angle of the coordinate-change direction of v1 and v2 and the angle of the major city road direction does not exceed a certain reasonable range.",
+      "checks": {
+        "1.1_param_scope": {
+          "passed": true,
+          "error": ""
+        },
+        "1.2_signature_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.1_impl_consistency": {
+          "passed": true,
+          "error": ""
+        },
+        "2.2_unit_compatibility": {
+          "passed": false,
+          "error": "Unit check failed for bfunc3: Implementation Semantic Error for bfunc3:\nAngle unit mismatch in comparison: mixing degree and radian (radian vs degree). Consider explicit unit conversion.\nLocation: Line 1, Column 1\nContext: prod_num_term_single\n  prod_num_factor_single\n    prod_num_factor_math_func\n      prod_math_func_abs\n        prod_num_term_single\n          prod_num_factor_single\n            prod_num_factor_math_func\n              prod_math_func_atan2\n                prod_num_term_single\n                  prod_num_mul\n                    prod_num_factor_math_func\n                      prod_math_func_sin\n                        prod_num_term_single\n                          prod_num_factor_single\n                            prod_num_factor_math_func\n                              prod_math_func_radians\n                                prod_num_sub\n                                  prod_num_factor_single\n                                    prod_num_factor_field\n                                      prod_num_field\n                                        1\n                                        direction\n                                  prod_num_term_single\n                                    prod_num_factor_single\n                                      prod_num_factor_field\n                                        prod_num_field\n                                          2\n                                          direction\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_cos\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_math_func\n                                prod_math_func_radians\n                                  prod_num_term_single\n                                    prod_num_factor_single\n                                      prod_num_factor_field\n                                        prod_num_field\n                                          1\n                                          latitude\n                prod_num_sub\n                  prod_num_mul\n                    prod_num_factor_math_func\n                      prod_math_func_cos\n                        prod_num_term_single\n                          prod_num_factor_single\n                            prod_num_factor_math_func\n                              prod_math_func_radians\n                                prod_num_term_single\n                                  prod_num_factor_single\n                                    prod_num_factor_field\n                                      prod_num_field\n                                        2\n                                        latitude\n                    prod_num_factor_single\n                      prod_num_factor_math_func\n                        prod_math_func_sin\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_math_func\n                                prod_math_func_radians\n                                  prod_num_term_single\n                                    prod_num_factor_single\n                                      prod_num_factor_field\n                                        prod_num_field\n                                          1\n                                          latitude\n                  prod_num_term_single\n                    prod_num_mul\n                      prod_num_factor_math_func\n                        prod_math_func_sin\n                          prod_num_term_single\n                            prod_num_factor_single\n                              prod_num_factor_math_func\n                                prod_math_func_radians\n                                  prod_num_term_single\n                                    prod_num_factor_single\n                                      prod_num_factor_field\n                                        prod_num_field\n                                          2\n                                          latitude\n                      prod_num_mul\n                        prod_num_factor_math_func\n                          prod_math_func_cos\n                            prod_num_term_single\n                              prod_num_factor_single\n                                prod_num_factor_math_func\n                                  prod_math_func_radians\n                                    prod_num_term_single\n                                      prod_num_factor_single\n                                        prod_num_factor_field\n                                          prod_num_field\n                                            1\n                                            latitude\n                        prod_num_factor_single\n                          prod_num_factor_math_func\n                            prod_math_func_cos\n                              prod_num_term_single\n                                prod_num_factor_single\n                                  prod_num_factor_math_func\n                                    prod_math_func_radians\n                                      prod_num_sub\n                                        prod_num_factor_single\n                                          prod_num_factor_field\n                                            prod_num_field\n                                              1\n                                              direction\n                                        prod_num_term_single\n                                          prod_num_factor_single\n                                            prod_num_factor_field\n                                              prod_num_field\n                                                2\n                                                direction\n <= prod_num_target_term\n  prod_num_target_factor\n    prod_num_target_threshold\n      NTHRESHOLD\n      2\n"
+        }
+      },
+      "overall_passed": false,
+      "constraint_name": "constraint_50"
+    }
+  ]
+}

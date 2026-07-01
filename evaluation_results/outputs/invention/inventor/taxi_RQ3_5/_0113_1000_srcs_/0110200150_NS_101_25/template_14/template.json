@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at similar times should keep a bounded average misalignment between their headings and the line connecting them.",
+    "goal": "Detect temporally nearby cross-vehicle contexts whose average directional alignment is implausible.",
+    "design_rationale": "If the two observations are plausible under this rule, the average angular mismatch between each heading and the connecting line should remain small enough."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the average of the angles between the direction of the line connecting their positions and their respective travel directions should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 10"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The average of the angles between the direction of the line connecting the positions of v1 and v2 and their respective travel directions does not exceed a certain reasonable range.",
+      "implementation": "(abs(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude) - v1.direction) + abs(atan2(v1.latitude - v2.latitude, v1.longitude - v2.longitude) - v2.direction)) ÷ 2 <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

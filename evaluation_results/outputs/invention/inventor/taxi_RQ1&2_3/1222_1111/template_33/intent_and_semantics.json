@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle transitions from stopped to moving between two consecutive contexts, the direction change should be small.",
+    "goal": "Detect consecutive contexts where a vehicle resumes movement with an implausibly large direction change.",
+    "design_rationale": "At the moment of starting from rest, a vehicle's heading should remain close to its previous direction; a large direction change during a stop-to-move transition suggests an erroneous direction value."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is zero while v2's speed is non-zero, then the absolute direction difference between v1 and v2 should be within a certain smaller reasonable range."
+}

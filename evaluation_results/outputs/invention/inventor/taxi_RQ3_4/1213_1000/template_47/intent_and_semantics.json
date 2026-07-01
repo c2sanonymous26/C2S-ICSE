@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should satisfy a bounded directional relation with respect to their connecting line.",
+    "goal": "Detect cross-vehicle context pairs whose motion directions and relative-position geometry are implausibly inconsistent.",
+    "design_rationale": "This rule constrains how the motion directions of two closely timed observations relate to the direction of the line connecting them."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the sum of the angle between their motion directions computed from direction and the angle related to the direction of the line connecting their positions computed from coordinates should not exceed a certain value."
+}

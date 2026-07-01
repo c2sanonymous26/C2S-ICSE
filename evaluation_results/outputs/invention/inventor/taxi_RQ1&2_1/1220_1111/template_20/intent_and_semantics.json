@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time do not simultaneously show large heading and speed differences.",
+    "goal": "Detect records from different vehicles at the same time that exhibit joint anomalies in both heading and speed.",
+    "design_rationale": "Vehicles operating at the same time should be in comparable traffic conditions; joint large differences in both heading and speed between simultaneous records from different vehicles are implausible and suggest data errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute time difference within a certain range), then the product of the absolute heading difference and the absolute speed difference between v1 and v2 does not exceed a certain reasonable range."
+}

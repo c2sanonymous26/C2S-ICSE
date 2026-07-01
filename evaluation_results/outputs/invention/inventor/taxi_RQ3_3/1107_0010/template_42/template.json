@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should remain within the reasonable geographic area of the city.",
+    "goal": "Detect contexts whose coordinates fall outside the plausible city range.",
+    "design_rationale": "Taxi trajectory data should stay inside the relevant urban region rather than drift to impossible coordinates."
+  },
+  "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The longitude and latitude values of v1 lie within a certain reasonable geographic range of the city.",
+      "implementation": "v1.latitude >= NTHRESHOLD1 && v1.latitude <= NTHRESHOLD2 && v1.longitude >= NTHRESHOLD3 && v1.longitude <= NTHRESHOLD4",
+      "restrictions": []
+    }
+  ]
+}

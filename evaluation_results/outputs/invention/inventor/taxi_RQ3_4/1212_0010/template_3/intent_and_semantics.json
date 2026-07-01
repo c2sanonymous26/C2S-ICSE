@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded average travel speed.",
+    "goal": "Detect adjacent same-vehicle contexts whose implied travel speed is implausibly high.",
+    "design_rationale": "The displacement-to-time ratio between adjacent contexts should remain within a realistic speed bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the displacement distance computed from the coordinates of v1 and v2 and the timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

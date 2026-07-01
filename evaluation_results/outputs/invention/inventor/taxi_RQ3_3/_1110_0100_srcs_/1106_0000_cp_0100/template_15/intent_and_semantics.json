@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have both a bounded spatial distance and a bounded speed difference.",
+    "goal": "Detect cross-vehicle context pairs that are jointly implausible in location and speed.",
+    "design_rationale": "This rule constrains both spatial separation and speed discrepancy for closely timed observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the coordinate distance between them should not exceed a certain value, and the speed difference between them should not exceed a certain reasonable range."
+}

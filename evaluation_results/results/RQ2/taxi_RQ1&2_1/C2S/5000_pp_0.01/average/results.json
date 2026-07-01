@@ -1,0 +1,470 @@
+{
+  "metadata": {
+    "scenario": "taxi",
+    "constraint_dir": "constraints/taxi_RQ1&2_1/C2S",
+    "check_dir": "outputs/check/taxi_RQ1&2_1/C2S",
+    "perturbation_data_prob": "5000_pp_0.01"
+  },
+  "overall_average_results": {
+    "total_samples": 5,
+    "involved_constraint_count": {
+      "mean": 16.6,
+      "std": 2.701851
+    },
+    "incs": {
+      "mean": 287.2,
+      "std": 38.583675
+    },
+    "AUPRC": {
+      "mean": 0.656219,
+      "std": 0.062005
+    },
+    "actual_perturbation_count": {
+      "mean": 46.4,
+      "std": 6.348228
+    },
+    "suspicious_count": {
+      "mean": 82.6,
+      "std": 12.992305
+    }
+  },
+  "per_constraint_averages": {
+    "constraint_10": {
+      "incs": {
+        "mean": 24.0,
+        "std": 10.86278
+      },
+      "AUPRC": {
+        "mean": 0.499704,
+        "std": 0.092716
+      },
+      "actual_perturbation_count": {
+        "mean": 12.6,
+        "std": 5.029911
+      },
+      "suspicious_count": {
+        "mean": 19.0,
+        "std": 8.944272
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_12": {
+      "incs": {
+        "mean": 3.6,
+        "std": 2.966479
+      },
+      "AUPRC": {
+        "mean": 0.031876,
+        "std": 0.019313
+      },
+      "actual_perturbation_count": {
+        "mean": 28.8,
+        "std": 16.392071
+      },
+      "suspicious_count": {
+        "mean": 3.4,
+        "std": 2.607681
+      },
+      "occurrence/total_samples": "4/5"
+    },
+    "constraint_13": {
+      "incs": {
+        "mean": 41.0,
+        "std": 11.789826
+      },
+      "AUPRC": {
+        "mean": 0.692541,
+        "std": 0.080177
+      },
+      "actual_perturbation_count": {
+        "mean": 33.8,
+        "std": 10.034939
+      },
+      "suspicious_count": {
+        "mean": 58.2,
+        "std": 16.664333
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_16": {
+      "incs": {
+        "mean": 3.6,
+        "std": 4.09878
+      },
+      "AUPRC": {
+        "mean": 0.063089,
+        "std": 0.065972
+      },
+      "actual_perturbation_count": {
+        "mean": 14.2,
+        "std": 13.236314
+      },
+      "suspicious_count": {
+        "mean": 3.2,
+        "std": 3.563706
+      },
+      "occurrence/total_samples": "3/5"
+    },
+    "constraint_17": {
+      "incs": {
+        "mean": 0.2,
+        "std": 0.447214
+      },
+      "AUPRC": {
+        "mean": 0.015576,
+        "std": 0.014251
+      },
+      "actual_perturbation_count": {
+        "mean": 5.6,
+        "std": 12.521981
+      },
+      "suspicious_count": {
+        "mean": 0.2,
+        "std": 0.447214
+      },
+      "occurrence/total_samples": "1/5"
+    },
+    "constraint_19": {
+      "incs": {
+        "mean": 1.0,
+        "std": 1.224745
+      },
+      "AUPRC": {
+        "mean": 0.159371,
+        "std": 0.152006
+      },
+      "actual_perturbation_count": {
+        "mean": 7.6,
+        "std": 7.95613
+      },
+      "suspicious_count": {
+        "mean": 2.0,
+        "std": 2.44949
+      },
+      "occurrence/total_samples": "3/5"
+    },
+    "constraint_2": {
+      "incs": {
+        "mean": 7.8,
+        "std": 3.420526
+      },
+      "AUPRC": {
+        "mean": 0.611377,
+        "std": 0.116018
+      },
+      "actual_perturbation_count": {
+        "mean": 12.6,
+        "std": 5.029911
+      },
+      "suspicious_count": {
+        "mean": 7.8,
+        "std": 3.420526
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_21": {
+      "incs": {
+        "mean": 3.6,
+        "std": 1.67332
+      },
+      "AUPRC": {
+        "mean": 0.30473,
+        "std": 0.132074
+      },
+      "actual_perturbation_count": {
+        "mean": 12.6,
+        "std": 5.029911
+      },
+      "suspicious_count": {
+        "mean": 3.6,
+        "std": 1.67332
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_22": {
+      "incs": {
+        "mean": 47.2,
+        "std": 12.132601
+      },
+      "AUPRC": {
+        "mean": 0.371918,
+        "std": 0.073104
+      },
+      "actual_perturbation_count": {
+        "mean": 36.2,
+        "std": 3.114482
+      },
+      "suspicious_count": {
+        "mean": 35.6,
+        "std": 9.813256
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_24": {
+      "incs": {
+        "mean": 0.6,
+        "std": 0.547723
+      },
+      "AUPRC": {
+        "mean": 0.031144,
+        "std": 0.023082
+      },
+      "actual_perturbation_count": {
+        "mean": 7.6,
+        "std": 7.635444
+      },
+      "suspicious_count": {
+        "mean": 1.2,
+        "std": 1.095445
+      },
+      "occurrence/total_samples": "3/5"
+    },
+    "constraint_25": {
+      "incs": {
+        "mean": 30.8,
+        "std": 7.155418
+      },
+      "AUPRC": {
+        "mean": 0.280591,
+        "std": 0.072461
+      },
+      "actual_perturbation_count": {
+        "mean": 33.8,
+        "std": 10.034939
+      },
+      "suspicious_count": {
+        "mean": 25.2,
+        "std": 6.220932
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_29": {
+      "incs": {
+        "mean": 1.8,
+        "std": 1.643168
+      },
+      "AUPRC": {
+        "mean": 0.077921,
+        "std": 0.062253
+      },
+      "actual_perturbation_count": {
+        "mean": 19.8,
+        "std": 11.54123
+      },
+      "suspicious_count": {
+        "mean": 1.8,
+        "std": 1.643168
+      },
+      "occurrence/total_samples": "4/5"
+    },
+    "constraint_3": {
+      "incs": {
+        "mean": 23.6,
+        "std": 7.668116
+      },
+      "AUPRC": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "actual_perturbation_count": {
+        "mean": 23.6,
+        "std": 7.668116
+      },
+      "suspicious_count": {
+        "mean": 23.6,
+        "std": 7.668116
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_32": {
+      "incs": {
+        "mean": 0.8,
+        "std": 1.788854
+      },
+      "AUPRC": {
+        "mean": 0.015536,
+        "std": 0.014162
+      },
+      "actual_perturbation_count": {
+        "mean": 5.6,
+        "std": 12.521981
+      },
+      "suspicious_count": {
+        "mean": 0.8,
+        "std": 1.788854
+      },
+      "occurrence/total_samples": "1/5"
+    },
+    "constraint_33": {
+      "incs": {
+        "mean": 0.2,
+        "std": 0.447214
+      },
+      "AUPRC": {
+        "mean": 0.011493,
+        "std": 0.005121
+      },
+      "actual_perturbation_count": {
+        "mean": 7.4,
+        "std": 16.546903
+      },
+      "suspicious_count": {
+        "mean": 0.4,
+        "std": 0.894427
+      },
+      "occurrence/total_samples": "1/5"
+    },
+    "constraint_34": {
+      "incs": {
+        "mean": 3.8,
+        "std": 3.03315
+      },
+      "AUPRC": {
+        "mean": 0.116113,
+        "std": 0.0916
+      },
+      "actual_perturbation_count": {
+        "mean": 29.0,
+        "std": 16.507574
+      },
+      "suspicious_count": {
+        "mean": 3.8,
+        "std": 3.03315
+      },
+      "occurrence/total_samples": "4/5"
+    },
+    "constraint_36": {
+      "incs": {
+        "mean": 2.2,
+        "std": 1.923538
+      },
+      "AUPRC": {
+        "mean": 0.079606,
+        "std": 0.07448
+      },
+      "actual_perturbation_count": {
+        "mean": 19.8,
+        "std": 11.54123
+      },
+      "suspicious_count": {
+        "mean": 4.4,
+        "std": 3.847077
+      },
+      "occurrence/total_samples": "4/5"
+    },
+    "constraint_38": {
+      "incs": {
+        "mean": 40.0,
+        "std": 15.033296
+      },
+      "AUPRC": {
+        "mean": 0.378876,
+        "std": 0.129214
+      },
+      "actual_perturbation_count": {
+        "mean": 36.2,
+        "std": 3.114482
+      },
+      "suspicious_count": {
+        "mean": 35.8,
+        "std": 11.903781
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_39": {
+      "incs": {
+        "mean": 2.4,
+        "std": 2.19089
+      },
+      "AUPRC": {
+        "mean": 0.032057,
+        "std": 0.021219
+      },
+      "actual_perturbation_count": {
+        "mean": 14.2,
+        "std": 13.236314
+      },
+      "suspicious_count": {
+        "mean": 2.2,
+        "std": 2.04939
+      },
+      "occurrence/total_samples": "3/5"
+    },
+    "constraint_43": {
+      "incs": {
+        "mean": 0.2,
+        "std": 0.447214
+      },
+      "AUPRC": {
+        "mean": 0.014692,
+        "std": 0.012275
+      },
+      "actual_perturbation_count": {
+        "mean": 6.6,
+        "std": 14.758049
+      },
+      "suspicious_count": {
+        "mean": 0.2,
+        "std": 0.447214
+      },
+      "occurrence/total_samples": "1/5"
+    },
+    "constraint_46": {
+      "incs": {
+        "mean": 7.8,
+        "std": 2.280351
+      },
+      "AUPRC": {
+        "mean": 0.099734,
+        "std": 0.038127
+      },
+      "actual_perturbation_count": {
+        "mean": 46.4,
+        "std": 6.348228
+      },
+      "suspicious_count": {
+        "mean": 10.2,
+        "std": 3.563706
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_6": {
+      "incs": {
+        "mean": 40.2,
+        "std": 11.584472
+      },
+      "AUPRC": {
+        "mean": 0.989239,
+        "std": 0.015395
+      },
+      "actual_perturbation_count": {
+        "mean": 23.6,
+        "std": 7.668116
+      },
+      "suspicious_count": {
+        "mean": 57.4,
+        "std": 16.531788
+      },
+      "occurrence/total_samples": "5/5"
+    },
+    "constraint_7": {
+      "incs": {
+        "mean": 0.8,
+        "std": 1.788854
+      },
+      "AUPRC": {
+        "mean": 0.021211,
+        "std": 0.026852
+      },
+      "actual_perturbation_count": {
+        "mean": 3.0,
+        "std": 6.708204
+      },
+      "suspicious_count": {
+        "mean": 0.8,
+        "std": 1.788854
+      },
+      "occurrence/total_samples": "1/5"
+    }
+  }
+}

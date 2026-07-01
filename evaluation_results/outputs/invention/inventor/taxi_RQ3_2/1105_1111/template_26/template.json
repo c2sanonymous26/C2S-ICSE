@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at nearly the same time should satisfy a reasonable ratio between geographic distance and timestamp difference.",
+    "goal": "Detect different-vehicle pairs whose spatial separation evolves implausibly relative to the time gap considered by this rule.",
+    "design_rationale": "This rule constrains the spatial-distance-over-time relation for near-synchronous observations of different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (the difference does not exceed a certain value), then the ratio between their geographic distance (computed from coordinates) and their timestamp difference should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close (the difference does not exceed a certain value).",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The geographic distance between v1 and v2 (computed from coordinates).",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "0 <= NTHRESHOLD2 <= 0.02"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the geographic distance between v1 and v2 and their timestamp difference lies within a certain reasonable range.",
+      "implementation": "(sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) ÷ abs(v1.timestamp - v2.timestamp)) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

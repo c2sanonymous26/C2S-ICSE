@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should have both a previous and a next local interval that stay within a reasonable stationary-time bound.",
+    "goal": "Detect zero-speed contexts whose neighboring temporal gaps are implausibly large.",
+    "design_rationale": "A stopped context should not be isolated by excessively long time gaps on either side under this rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the timestamp difference between v1 and its previous context v2 should not exceed a certain reasonable upper bound on stationary time, and the timestamp difference between v1 and its next context v3 should not exceed a certain reasonable upper bound on stationary time."
+}

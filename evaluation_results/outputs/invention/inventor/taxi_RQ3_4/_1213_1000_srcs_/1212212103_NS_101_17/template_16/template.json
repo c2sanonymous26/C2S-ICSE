@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the sign of the acceleration-like quantity consistent with the sign of the direction difference.",
+    "goal": "Detect adjacent same-vehicle contexts whose directional change and acceleration-like behavior are sign-inconsistent.",
+    "design_rationale": "This rule enforces a specific consistency relation between direction change and the acceleration-like quantity across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the sign of the ratio between the absolute speed difference and the timestamp difference of v1 and v2, that is, the acceleration-like quantity, should be consistent with the sign of their direction difference.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The sign of the ratio between the absolute speed difference and the timestamp difference of v1 and v2, that is, the acceleration-like quantity, should be consistent with the sign of their direction difference.",
+      "implementation": "((v2.speed - v1.speed) ÷ (v2.timestamp - v1.timestamp) > 0) -> ((v2.direction - v1.direction) > 0)",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "intent": {
+    "content": "The direction change trend across three consecutive contexts of the same vehicle is consistent, unless a significant speed change occurs.",
+    "goal": "Detect three consecutive contexts where the direction trend reverses abruptly without a corresponding speed change.",
+    "design_rationale": "A vehicle typically maintains a consistent turning direction over short intervals; a sudden reversal in direction trend without a speed change suggests erroneous direction data."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, then the direction change trend from v1 to v2 (increasing/decreasing) should be consistent with the direction change trend from v2 to v3, unless a significant speed change occurs.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies (bfunc4(v1, v2, v3) or bfunc5(v1, v2, v3)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, v3 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid && v2.carid == v3.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, v3 are three consecutive contexts",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1 && abs(v2.grpid - v3.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the direction change trend from v1 to v2 (increasing or decreasing)",
+      "implementation": "((v2.direction - v1.direction > 0) && (v3.direction - v2.direction > 0)) || ((v2.direction - v1.direction < 0) && (v3.direction - v2.direction < 0))",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "the direction change trend from v2 to v3 is consistent with the direction change trend from v1 to v2",
+      "implementation": "((v2.direction - v1.direction > 0) && (v3.direction - v2.direction > 0)) || ((v2.direction - v1.direction < 0) && (v3.direction - v2.direction < 0))",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "a significant speed change occurs between v1 and v2",
+      "implementation": "abs(v2.speed - v1.speed) > NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

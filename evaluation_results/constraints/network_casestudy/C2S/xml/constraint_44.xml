@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <and>
+            <bfunc id="1_c1"/>
+            <and>
+              <bfunc id="1_c2"/>
+              <and>
+                <bfunc id="1_c3"/>
+                <and>
+                  <bfunc id="1_c4"/>
+                  <and>
+                    <bfunc id="1_c5"/>
+                    <bfunc id="1_c6"/>
+                  </and>
+                </and>
+              </and>
+            </and>
+          </and>
+          <and>
+            <and>
+              <bfunc id="2_c1"/>
+              <and>
+                <bfunc id="2_c2"/>
+                <and>
+                  <bfunc id="2_c3"/>
+                  <and>
+                    <bfunc id="2_c4"/>
+                    <and>
+                      <bfunc id="2_c5"/>
+                      <bfunc id="2_c6"/>
+                    </and>
+                  </and>
+                </and>
+              </and>
+            </and>
+            <and>
+              <bfunc id="3_c1"/>
+              <bfunc id="3_c2"/>
+            </and>
+          </and>
+        </and>
+        <bfunc id="4_c1"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A stationary context should have only a limited timestamp gap from its previous context.",
+    "goal": "Detect zero-speed contexts whose elapsed time from the previous context is implausibly large.",
+    "design_rationale": "If a vehicle remains stationary, the time gap from the previous context should stay within a reasonable bound."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is zero, then the difference between the timestamp value of v1 and that of the previous context v2 should not exceed a certain reasonable upper bound on time.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable upper bound on time.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+================================== 1107_0001/template_13 (5000_01_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0001/template_13
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0014486312866210938 seconds
+Constructed ctx data in 3.0994415283203125e-05 seconds
+Loaded data field types in 0.0005130767822265625 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0012352466583251953 seconds
+Set solve data in 0.0009186267852783203 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_1', 'bfunc_3_c1')
+Found Eformulas in 0.001270294189453125 seconds
+Constructed main constraint in 144.1832914352417 seconds
+Constructed VE constraints in 28.708504676818848 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(97, 1), '_N_THRESHOLD_2': Fraction(105, 1)}
+        - objective value: 8 out of 9
+        - solved in 23.775551080703735 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(195, 2), '_N_THRESHOLD_2': Fraction(105, 1)}
+        - objective value: 8 out of 9
+        - solved in 24.230950355529785 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(389, 4), '_N_THRESHOLD_2': Fraction(105, 1)}
+        - objective value: 8 out of 9
+        - solved in 24.232921600341797 seconds
+1107_0001/template_13 (5000_01_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0001/template_13 (5000_01_solve) instantiation completes =================================
+Total instantiation time: 245.39 seconds

@@ -1,0 +1,42 @@
+The Phase 3 is to implement the body of every bfunc based on its signature. Each bfunc must evaluate to true or false based on its input parameters and should accurately reflect the constraint semantics.
+
+The body of a bfunc is defined by the following grammar:
+```lark
+{{bg_logic_prods}}
+```
+In short, the body of a bfunc can be a single comparison expression or multiple expressions connected by '&&' (AND), '||' (OR), '->' (IMPLIES), and '!' (NOT).
+
+A str_cmp_expr is defined by the following grammar:
+```lark
+{{bg_str_cmp_prods}}
+
+{{bg_str_cmp_terminals}}
+```
+The `STR_SYMBOL NATURAL` (e.g., `STHRESHOLD1`) is to define a string symbol for a string fuzzy threshold that will be automatically instantiated later.
+
+A num_cmp_expr is defined by the following grammar:
+```lark
+{{bg_num_cmp_prods}}
+
+{{bg_num_cmp_terminals}}
+```
+The `NUM_SYMBOL NATURAL` (e.g., `NTHRESHOLD1`) is to define a numeric symbol for a numeric fuzzy threshold that will be automatically instantiated later.
+
+Attention to the following points when you do implementing:
+
+1. Make sure the body of a bfunc strictly follows the BNF grammar.
+
+2. When accessing the fields of a context referenced by a parameter, you can only use the fields defined in the <context_definitions> tag. Any derived concepts or properties must be computed using these fields from one or more contexts (referenced by the parameters). Do not assume the existence of fields or properties that are not explicitly defined in the context schema.
+
+3. Think carefully and deeply about how to implement the bfunc bodies. Make sure the implementation is rigorous and accurate.
+
+4. {{response_prompt}}
+
+{% if few_shots %}
+Here are the bodies of bfuncs that correspond to the structures and lists of bfunc signatures in previous examples:
+{% for shot in few_shots %}
+- {{ shot.bfunc_implementations }}
+{% endfor %}
+
+Note: While these examples provide guidance, you should not limit yourself to similar patterns.
+{% endif %}

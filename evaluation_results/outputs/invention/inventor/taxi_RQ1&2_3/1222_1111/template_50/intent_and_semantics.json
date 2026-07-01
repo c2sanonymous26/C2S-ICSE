@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle show significantly high speed, the rate of direction change relative to elapsed time should be bounded.",
+    "goal": "Detect consecutive high-speed contexts where the angular velocity is implausibly large.",
+    "design_rationale": "A vehicle travelling at high speed cannot turn sharply; a high angular velocity between two high-speed consecutive records indicates erroneous direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have speeds significantly higher than a certain threshold, then the ratio of the absolute direction difference to the timestamp difference between v1 and v2 should be within a certain reasonable range."
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "ge",
+  "target_col": "longitude",
+  "status": "success_simple_constraint",
+  "assertion": "log(mul(log(mul(direction, direction)), sqrt(abs(timestamp))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.588125467300415,
+  "asrtm_time": 0.5282106399536133,
+  "predm_time": 0.05829620361328125,
+  "asrt_info": {
+    "fitness": 0.0009000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

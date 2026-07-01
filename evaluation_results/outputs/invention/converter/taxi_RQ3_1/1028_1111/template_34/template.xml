@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any three contexts v1, v2, and v3, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), the geographic distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable upper bound for distance, and the geographic distance between v2 and v3 does not exceed a certain reasonable upper bound for distance, then the geographic distance between v1 and v3 should not exceed a larger reasonable upper bound for distance.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <forall var="v3" in="ctx1">
+        <implies>
+          <and>
+            <and>
+              <and>
+                <bfunc id="1"/>
+                <bfunc id="2"/>
+              </and>
+              <bfunc id="3"/>
+            </and>
+            <bfunc id="4"/>
+          </and>
+          <bfunc id="5"/>
+        </implies>
+      </forall>
+    </forall>
+  </forall>
+</formula>

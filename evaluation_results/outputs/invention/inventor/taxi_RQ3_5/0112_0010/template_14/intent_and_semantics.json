@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep this distance-speed product within a reasonable range.",
+    "goal": "Detect adjacent same-vehicle contexts whose combined displacement and average-speed quantity is implausible under this rule.",
+    "design_rationale": "This rule constrains a derived quantity built from local displacement and average speed across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the straight-line distance computed from the coordinates of v1 and v2 and the average speed of v1 and v2 should not exceed a certain reasonable range."
+}

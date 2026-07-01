@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "timestamp",
+  "status": "success_simple_constraint",
+  "assertion": "add(mul(mul(-34115.753, abs(42127.481)), sub(cos(speed), latitude)), abs(log(tan(longitude))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.588369369506836,
+  "asrtm_time": 1.5268518924713135,
+  "predm_time": 0.05963921546936035,
+  "asrt_info": {
+    "fitness": 0.0014,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether a stopped vehicle stays near the position of its immediately previous record.",
+    "goal": "Identify zero-speed records whose location deviates too much from the previous adjacent record of the same vehicle.",
+    "design_rationale": "When a vehicle is stopped, its position should remain broadly consistent with the position recorded immediately before stopping; a large shift suggests an abnormal reading."
+  },
+  "semantics": "For any vehicle record v1, if the speed of v1 is 0, then the latitude-longitude distance between v1 and the previous record v2 (where v2 belongs to the same vehicle and the grpid of v2 is smaller than that of v1 by 1) does not exceed some upper bound (i.e., when the vehicle stops, its position should remain basically consistent with its position before stopping)."
+}

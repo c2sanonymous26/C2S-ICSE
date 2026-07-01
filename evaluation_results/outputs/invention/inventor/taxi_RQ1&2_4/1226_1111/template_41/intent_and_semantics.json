@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any two consecutive contexts of the same vehicle, the absolute difference in speed should not exceed a certain upper limit.",
+    "goal": "Detect consecutive contexts of the same vehicle where the speed changes abruptly beyond a plausible range.",
+    "design_rationale": "A vehicle cannot change its speed arbitrarily between consecutive records; an excessive speed difference between adjacent contexts indicates a likely erroneous or anomalous record."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the absolute speed difference between v1 and v2 does not exceed a certain upper limit."
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "le",
+  "target_col": "timestamp_1",
+  "status": "success_simple_constraint",
+  "assertion": "sub(sub(sub(add(speed_2, timestamp_2), div(latitude_2, longitude_2)), abs(max(-20974.037, direction_1))), min(sin(max(latitude_1, speed_1)), neg(sub(59485.027, longitude_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 232.92965579032898,
+  "asrtm_time": 230.88614320755005,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.002202274697770739,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

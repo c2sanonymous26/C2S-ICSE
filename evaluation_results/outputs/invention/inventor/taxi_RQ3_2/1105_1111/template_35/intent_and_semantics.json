@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should preserve both coordinates and heading from the previous context.",
+    "goal": "Detect stopped contexts whose previous context suggests unexpected movement or heading change.",
+    "design_rationale": "If a vehicle is truly stationary, the immediately previous local context should agree in both location and heading under this rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the coordinates of v1 should be identical to those of the previous context v2, and the direction angle of v1 should also be identical to that of v2."
+}

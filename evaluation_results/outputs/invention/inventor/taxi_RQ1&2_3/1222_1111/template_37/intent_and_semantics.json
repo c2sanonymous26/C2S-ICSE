@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at high speed, the timestamp of the next consecutive context should be strictly greater than that of the current context.",
+    "goal": "Detect consecutive contexts where the timestamp does not increase while the vehicle is at high speed.",
+    "design_rationale": "Timestamps must be strictly monotonically increasing within a trip; a non-increasing timestamp at high speed indicates a timestamp recording error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then v2's timestamp should be greater than v1's timestamp."
+}

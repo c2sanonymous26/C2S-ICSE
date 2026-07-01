@@ -1,0 +1,68 @@
+{
+  "constraint_id": 23,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 79.19453024864197
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The GPS location of each taxi context lies within the SmartCity service area.",
+      "goal": "Detect contexts whose recorded longitude and latitude place the taxi outside the expected operating region of the SmartCity system, suggesting GPS drift, sensor malfunction, or corrupted location data.",
+      "design_rationale": "The SmartCity system monitors taxis operating within a specific urban service region. While coordinates may be globally valid, a taxi record located far outside the city’s operational area is inconsistent with the expected deployment environment and should be flagged as anomalous."
+    },
+    "semantics": "For any context v1, the GPS location recorded in v1, determined by its latitude and longitude, lies within the expected SmartCity taxi service area.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The GPS location recorded in context v1, determined by its latitude and longitude, lies within the expected SmartCity taxi service area.",
+        "implementation": "v1.latitude >= NTHRESHOLD1 && v1.latitude <= NTHRESHOLD2 && v1.longitude >= NTHRESHOLD3 && v1.longitude <= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 22.505028
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 22.76425
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 113.79545
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 114.33787
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The GPS location of each taxi context lies within the SmartCity service area.",
+      "goal": "Detect contexts whose recorded longitude and latitude place the taxi outside the expected operating region of the SmartCity system, suggesting GPS drift, sensor malfunction, or corrupted location data.",
+      "design_rationale": "The SmartCity system monitors taxis operating within a specific urban service region. While coordinates may be globally valid, a taxi record located far outside the city’s operational area is inconsistent with the expected deployment environment and should be flagged as anomalous."
+    },
+    "semantics": "For any context v1, the GPS location recorded in v1, determined by its latitude and longitude, lies within the expected SmartCity taxi service area.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "The GPS location recorded in context v1, determined by its latitude and longitude, lies within the expected SmartCity taxi service area.",
+        "implementation": "(v1.latitude >= 22.505028) && ((v1.latitude <= 22.76425) && ((v1.longitude >= 113.79545) && (v1.longitude <= 114.33787)))",
+        "restrictions": []
+      }
+    ]
+  }
+}

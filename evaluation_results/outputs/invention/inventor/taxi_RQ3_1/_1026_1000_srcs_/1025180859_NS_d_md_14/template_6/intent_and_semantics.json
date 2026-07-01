@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A vehicle should not remain stopped for an implausibly long time immediately before it starts moving in the next consecutive context.",
+    "goal": "Detect consecutive same-vehicle contexts where a zero-speed context is followed by a moving context after an excessive delay.",
+    "design_rationale": "The transition from stationary to moving should happen within a reasonable start-up interval rather than after an abnormally long gap."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are two consecutive contexts of that vehicle, and the speed of v1 is 0 while the speed of v2 is not 0, then the timestamp difference between v1 and v2 should not exceed a certain reasonable upper bound for start-up time."
+}

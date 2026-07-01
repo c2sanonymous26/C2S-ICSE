@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive same-vehicle contexts should imply a nonzero displacement-over-time ratio.",
+    "goal": "Detect adjacent contexts whose implied average movement speed collapses to exactly zero.",
+    "design_rationale": "A consecutive movement transition is expected to produce at least some nonzero displacement-over-time signal rather than an exact zero ratio."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the geographic difference of v1 and v2 computed using the haversine formula and their timestamp difference must not be 0."
+}

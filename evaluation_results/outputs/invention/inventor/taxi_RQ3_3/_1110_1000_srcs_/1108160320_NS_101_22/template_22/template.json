@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "A zero-speed context should keep both the next-step heading difference and the next-step timestamp gap within reasonable stationary bounds.",
+    "goal": "Detect stopped contexts whose next local transition is implausible in either heading continuity or temporal spacing.",
+    "design_rationale": "If a vehicle is stopped, the immediately following local context should remain close in both heading and time under this rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction angle of v1 and that of its next context v2 does not exceed a certain reasonable angular range, and the timestamp difference between v1 and v2 does not exceed a certain reasonable upper bound on stationary time.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1.",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the direction angle of v1 and that of v2 does not exceed a certain reasonable angular range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable upper bound on stationary time.",
+      "implementation": "v2.timestamp - v1.timestamp <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

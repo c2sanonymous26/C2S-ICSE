@@ -1,0 +1,40 @@
+================================== 1107_0010/template_50 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_50
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.002832651138305664 seconds
+Constructed ctx data in 4.673004150390625e-05 seconds
+Loaded data field types in 0.0005304813385009766 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.001967906951904297 seconds
+Set solve data in 0.0009462833404541016 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006172657012939453 seconds
+Constructed main constraint in 9.161986589431763 seconds
+Constructed symbol domain constraints in 0.05429816246032715 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 43
+        - (>=, _N_THRESHOLD_2): 507
+    - symbol domains:
+        - _N_THRESHOLD_1: 44
+        - _N_THRESHOLD_2: 508
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(114, 1), '_N_THRESHOLD_2': Fraction(298195096977829, 4398046511104)}
+        - solved in 0.027047395706176758 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.05535888671875 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.054439544677734375 seconds
+1107_0010/template_50 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_50 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 9.40 seconds

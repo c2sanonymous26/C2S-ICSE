@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should still remain physically consistent with the immediately preceding grpid context of the same vehicle.",
+    "goal": "Detect high-speed contexts that cannot be reconciled with a plausible displacement-over-time ratio relative to the previous group context.",
+    "design_rationale": "Even when speed is high, a context should still form a realistic transition from the previous grpid step of the same vehicle."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid of v2 is smaller than that of v1 by 1, and the ratio between the geographic difference of v1 and v2, computed using the haversine formula, and their timestamp difference should not exceed a certain reasonable upper bound for speed."
+}

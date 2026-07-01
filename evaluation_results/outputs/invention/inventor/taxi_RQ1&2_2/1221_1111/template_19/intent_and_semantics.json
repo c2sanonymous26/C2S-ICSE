@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the GPS distance to the previous consecutive context exceeds a minimum lower bound.",
+    "goal": "Detect high-speed contexts whose GPS displacement from the previous context is implausibly small.",
+    "design_rationale": "A vehicle moving at high speed must have traveled a minimum GPS distance since the previous sample; an implausibly small displacement indicates a GPS positioning error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, the haversine GPS distance between v1 and its previous consecutive context v2 must be greater than a certain reasonable minimum lower bound."
+}

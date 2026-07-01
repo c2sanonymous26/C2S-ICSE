@@ -1,0 +1,29 @@
+{
+  "intent": {
+    "content": "Each context should have a non-negative speed within a reasonable upper bound.",
+    "goal": "Detect contexts whose speed values are negative or implausibly large.",
+    "design_rationale": "Vehicle speed should remain within physically and operationally valid limits."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be non-negative and should not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) and bfunc2(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is non-negative.",
+      "implementation": "v1.speed >= 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 does not exceed a certain reasonable upper bound.",
+      "implementation": "v1.speed <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

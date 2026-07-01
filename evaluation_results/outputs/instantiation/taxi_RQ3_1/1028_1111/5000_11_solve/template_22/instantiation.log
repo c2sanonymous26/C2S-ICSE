@@ -1,0 +1,95 @@
+============================================================ 1028_1111/template_22 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1028_1111/template_22
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.004605770111083984 seconds
+Constructed ctx data in 3.838539123535156e-05 seconds
+Loaded data field types in 0.0005342960357666016 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 999185432.2709677]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 999185432.2709677]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression 12742.0*asin(sqrt(sin(0.00277777777777778*pi*v1_latitude - 0.00277777777777778*pi*v2_latitude)**2.0 + sin(0.00277777777777778*pi*v1_longitude - 0.00277777777777778*pi*v2_longitude)**2.0*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180))) → range [6.122089713935109e-09, 20015.069631886727]
+        - final range for threshold symbol 'NTHRESHOLD2': [6.122089713935109e-09, 20015.069631886727]
+    - computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed) → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 250.0]
+Approximate computed ranges for 3 threshold symbols in 0.86 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 3 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_timestamp) + I*im(v2_timestamp).
+        - field expression Abs(v1_timestamp - v2_timestamp) → range [0.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 1000000000.0]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+Function '_solve_gradient' [thread] timed out (10s), main thread has given up waiting. Background thread is still running.
+Function '_solve_critical_expr' [thread] timed out (5s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_critical_expr' [thread] timed out (5s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+        - field expression 12742.0*asin(sqrt(sin(0.00277777777777778*pi*v1_latitude - 0.00277777777777778*pi*v2_latitude)**2.0 + sin(0.00277777777777778*pi*v1_longitude - 0.00277777777777778*pi*v2_longitude)**2.0*cos(pi*v1_latitude/180)*cos(pi*v2_latitude/180))) → range [0.0, 20015.086796020572]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 20015.086796020572]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD3' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_speed) + I*im(v2_speed).
+        - field expression Abs(v1_speed - v2_speed) → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD3': [0.0, 250.0]
+Theoretical computed ranges for 3 threshold symbols in 54.11 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 1000000000.0), '_N_THRESHOLD_2': (0.0, 20015.086796020572), '_N_THRESHOLD_3': (0.0, 250.0)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.003964900970458984 seconds
+Set solve data in 0.0008759498596191406 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+        - ('implies_1', 2, 1): ('and_2', 'bfunc_4_c1')
+Found Eformulas in 0.001293182373046875 seconds
+Constructed main constraint in 583.9407045841217 seconds
+Constructed VE constraints in 15.238771438598633 seconds
+Constructed symbol domain constraints in 4.052581787109375 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 21
+        - (>=, _N_THRESHOLD_2): 48959
+        - (>=, _N_THRESHOLD_3): 111
+    - symbol domains:
+        - _N_THRESHOLD_1: 22
+        - _N_THRESHOLD_2: 48960
+        - _N_THRESHOLD_3: 112
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(4850118634332985, 9007199254740992), '_N_THRESHOLD_1': Fraction(4, 1), '_N_THRESHOLD_3': Fraction(79, 1)}
+        - objective value: 21 out of 21
+        - solved in 213.52927780151367 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(5329524166549993, 36028797018963968), '_N_THRESHOLD_1': Fraction(20, 1), '_N_THRESHOLD_3': Fraction(84, 1)}
+        - objective value: 21 out of 21
+        - solved in 278.6567440032959 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_2': Fraction(3509336776108973, 9007199254740992), '_N_THRESHOLD_1': Fraction(12, 1), '_N_THRESHOLD_3': Fraction(84, 1)}
+        - objective value: 21 out of 21
+        - solved in 176.5128788948059 seconds
+1028_1111/template_22 (5000_11_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1028_1111/template_22 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 1328.30 seconds

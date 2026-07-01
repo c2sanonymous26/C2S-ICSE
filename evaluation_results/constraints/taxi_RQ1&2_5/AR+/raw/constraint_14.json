@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "lt",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "abs(sqrt(mul(min(abs(longitude), log(longitude)), abs(abs(longitude)))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 0.6207320690155029,
+  "asrtm_time": 0.5612025260925293,
+  "predm_time": 0.05795025825500488,
+  "asrt_info": {
+    "fitness": 0.002567567549680015,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

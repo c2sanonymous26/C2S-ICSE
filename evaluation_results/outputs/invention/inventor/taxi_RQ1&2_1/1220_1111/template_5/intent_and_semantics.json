@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The timestamp of each context is above a minimum valid threshold.",
+    "goal": "Detect contexts with timestamps that precede the valid data collection period.",
+    "design_rationale": "GPS data collection started at a specific point in time; timestamps below the minimum threshold indicate corrupted or misformatted records."
+  },
+  "semantics": "For any context v1, the timestamp of v1 is greater than or equal to a certain reasonable minimum timestamp."
+}

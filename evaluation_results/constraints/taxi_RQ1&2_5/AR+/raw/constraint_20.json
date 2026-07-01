@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "latitude",
+  "status": "success_simple_constraint",
+  "assertion": "add(sqrt(sqrt(log(timestamp))), log(neg(timestamp)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 13.040398836135864,
+  "asrtm_time": 12.955424785614014,
+  "predm_time": 0.08099770545959473,
+  "asrt_info": {
+    "fitness": 0.0020109559263863045,
+    "was_early_stopped": false,
+    "generations_completed": 2
+  }
+}

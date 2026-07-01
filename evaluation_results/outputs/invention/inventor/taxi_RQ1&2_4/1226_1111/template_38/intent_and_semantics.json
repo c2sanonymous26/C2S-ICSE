@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The grpid values of two consecutive contexts of the same vehicle differ by exactly 1.",
+    "goal": "Detect pairs of contexts that are labelled as consecutive within the same vehicle but have a grpid gap other than 1.",
+    "design_rationale": "The grpid field is a monotonically increasing index; consecutive records within a trip must have adjacent grpid values, and any deviation indicates a data ordering or indexing error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the absolute difference between the grpid values of v1 and v2 should equal 1."
+}

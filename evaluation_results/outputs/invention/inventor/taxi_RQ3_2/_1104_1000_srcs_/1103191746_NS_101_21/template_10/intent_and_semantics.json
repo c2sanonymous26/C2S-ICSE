@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle one-step context whose heading transition to v1 remains reasonable.",
+    "goal": "Detect unusually high-speed contexts that are unsupported by a plausible local change in direction angle.",
+    "design_rationale": "Even when speed is high, the transition from the previous one-step context should preserve a realistic heading change."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, the grpid value of v2 is 1 smaller than that of v1, and the direction-angle change between v1 and v2 computed from direction should lie within a certain reasonable range."
+}

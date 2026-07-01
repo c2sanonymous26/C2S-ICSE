@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle transitions from high speed to low speed between two consecutive contexts, the direction change should be large.",
+    "goal": "Detect consecutive contexts where a vehicle decelerates sharply but shows little direction change, which is implausible.",
+    "design_rationale": "A sudden deceleration from high speed to low speed typically implies a turn or maneuver; a negligible direction change under such conditions suggests inconsistent speed and direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the absolute direction difference between v1 and v2 should be greater than a certain reasonable range."
+}

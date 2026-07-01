@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is less than sub(add(div(v1.latitude, v1.timestamp), sqrt(20062.754)), v1.latitude).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is less than sub(add(div(v1.latitude, v1.timestamp), sqrt(20062.754)), v1.latitude)",
+      "implementation": "var_bindings['v1']['longitude'] < (((1 if -1/1000 <= (var_bindings['v1']['timestamp']) <= 1/1000 else (var_bindings['v1']['latitude']) / (var_bindings['v1']['timestamp'])) + sqrt(abs(10031377/500))) - var_bindings['v1']['latitude'])"
+    }
+  ]
+}

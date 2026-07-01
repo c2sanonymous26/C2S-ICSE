@@ -1,0 +1,35 @@
+======================================================= 1213_1000/template_39 (5000_00_solve) instantiation starts ======================================================
+- scenario: taxi
+- template: 1213_1000/template_39
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002863645553588867 seconds
+Constructed ctx data in 3.933906555175781e-05 seconds
+Loaded data field types in 0.0005309581756591797 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0019752979278564453 seconds
+Set solve data in 0.0008668899536132812 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.000568389892578125 seconds
+Constructed main constraint in 67.35584735870361 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(114, 1), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 0.0012929439544677734 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(65724964937884055537, 576460752303423488), '_N_THRESHOLD_2': Fraction(8439175293777905, 576460752303423488)}
+        - solved in 0.001312255859375 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(131458369051061888979, 1152921504606846976), '_N_THRESHOLD_2': Fraction(8439175293777905, 1152921504606846976)}
+        - solved in 0.0009839534759521484 seconds
+1213_1000/template_39 (5000_00_solve) has 3 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+===================================================== 1213_1000/template_39 (5000_00_solve) instantiation completes =====================================================
+Total instantiation time: 67.40 seconds

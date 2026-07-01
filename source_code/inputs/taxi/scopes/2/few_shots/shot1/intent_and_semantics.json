@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The average speed implied by two consecutive contexts of the same vehicle does not exceed an upper bound.",
+    "goal": "Detect physically impossible transitions between consecutive records of the same vehicle.",
+    "design_rationale": "Even if individual speed readings are within range, the displacement between two consecutive GPS points of the same taxi should not imply an impossibly high average speed; such cases indicate GPS jumps or timestamp errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, then the average speed computed from v1 and v2 based on haversine distance does not exceed a certain upper bound."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any two consecutive contexts of the same vehicle, the absolute timestamp difference should not exceed a certain upper limit.",
+    "goal": "Detect consecutive contexts of the same vehicle where the time gap is implausibly large.",
+    "design_rationale": "Consecutive records from the same vehicle should be sampled at a regular and bounded interval; an excessively large timestamp difference between adjacent records suggests a missing or anomalous data sample."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the absolute timestamp difference between v1 and v2 does not exceed a certain upper limit."
+}

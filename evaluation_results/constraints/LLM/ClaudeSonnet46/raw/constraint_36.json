@@ -1,0 +1,142 @@
+{
+  "constraint_id": 36,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 6,
+    "generation_seconds": 71.37904500961304
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "Two contexts from different taxis that report exactly the same location at nearly the same time should not both indicate substantial motion.",
+      "goal": "Detect implausible co-louted motion records that suggest GPS snapping, duplicated coordinates, or reporting anomalies across vehicles.",
+      "design_rationale": "In a city-scale taxi fleet, two different taxis can occasionally be very close, but two independent vehicles reporting the exact same latitude and longitude at nearly the same moment is suspicious if both are also said to be moving fast. Treating such exact spatial coincidence as compatible only with at least one low-speed record helps flag coordinate reuse or localization artifacts without forbidding ordinary traffic proximity."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, the time difference between v1 and v2 is sufficiently small, the longitude recorded in v1 equals the longitude recorded in v2, and the latitude recorded in v1 equals the latitude recorded in v2, then at least one of the speeds recorded in v1 and v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference between v1 and v2 is sufficiently small",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v1 equals the longitude recorded in v2",
+        "implementation": "v1.longitude == v2.longitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v1 equals the latitude recorded in v2",
+        "implementation": "v1.latitude == v2.latitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "at least one of the speeds recorded in v1 and v2 is sufficiently low",
+        "implementation": "v1.speed <= NTHRESHOLD2 || v2.speed <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 5.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "Two contexts from different taxis that report exactly the same location at nearly the same time should not both indicate substantial motion.",
+      "goal": "Detect implausible co-louted motion records that suggest GPS snapping, duplicated coordinates, or reporting anomalies across vehicles.",
+      "design_rationale": "In a city-scale taxi fleet, two different taxis can occasionally be very close, but two independent vehicles reporting the exact same latitude and longitude at nearly the same moment is suspicious if both are also said to be moving fast. Treating such exact spatial coincidence as compatible only with at least one low-speed record helps flag coordinate reuse or localization artifacts without forbidding ordinary traffic proximity."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, the time difference between v1 and v2 is sufficiently small, the longitude recorded in v1 equals the longitude recorded in v2, and the latitude recorded in v1 equals the latitude recorded in v2, then at least one of the speeds recorded in v1 and v2 is sufficiently low.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) implies bfunc5(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to different vehicles",
+        "implementation": "v1.carid != v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference between v1 and v2 is sufficiently small",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the longitude recorded in v1 equals the longitude recorded in v2",
+        "implementation": "v1.longitude == v2.longitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the latitude recorded in v1 equals the latitude recorded in v2",
+        "implementation": "v1.latitude == v2.latitude",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "at least one of the speeds recorded in v1 and v2 is sufficiently low",
+        "implementation": "(v1.speed <= 5.0) || (v2.speed <= 5.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

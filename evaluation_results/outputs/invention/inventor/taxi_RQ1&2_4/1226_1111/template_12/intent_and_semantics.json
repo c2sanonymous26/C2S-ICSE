@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When two consecutive contexts of the same vehicle both show zero speed, the coordinates should be identical.",
+    "goal": "Detect two consecutive stationary contexts of the same vehicle where the coordinates differ.",
+    "design_rationale": "A vehicle that is stationary in both consecutive records cannot have moved; any coordinate change between them indicates a GPS positioning error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v1 is the immediately preceding context of v2, and both v1 and v2 have zero speed, then the coordinates of v1 and v2 should be the same."
+}

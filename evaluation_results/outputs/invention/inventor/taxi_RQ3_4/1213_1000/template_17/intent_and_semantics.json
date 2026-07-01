@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should not have an excessively large angle between their motion directions under this rule.",
+    "goal": "Detect cross-vehicle context pairs whose motion directions are implausibly inconsistent.",
+    "design_rationale": "This rule bounds the directional discrepancy between closely timed observations from different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their motion directions computed from direction should not exceed a certain value."
+}

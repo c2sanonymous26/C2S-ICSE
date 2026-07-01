@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Non-adjacent contexts of the same vehicle should not imply an average speed above the allowed maximum over the interval.",
+    "goal": "Detect non-adjacent same-vehicle context pairs whose interval-level average speed is implausibly high.",
+    "design_rationale": "Even across a longer sequence gap, the average speed inferred from coordinates and elapsed time should remain within the vehicle's allowed speed range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are not adjacent contexts, that is, their grpid difference is greater than 1, then the average speed computed from the coordinate distance and time difference of v1 and v2 should not exceed the maximum allowed speed of that vehicle over this period."
+}

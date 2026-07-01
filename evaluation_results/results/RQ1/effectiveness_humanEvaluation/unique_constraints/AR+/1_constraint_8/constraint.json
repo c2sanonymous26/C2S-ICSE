@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is less than or equal to max(sin(v1.speed), sqrt(-13228.913)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is less than or equal to max(sin(v1.speed), sqrt(-13228.913))",
+      "implementation": "var_bindings['v1']['longitude'] <= max(sin(var_bindings['v1']['speed']), sqrt(abs(-13228913/1000)))"
+    }
+  ]
+}

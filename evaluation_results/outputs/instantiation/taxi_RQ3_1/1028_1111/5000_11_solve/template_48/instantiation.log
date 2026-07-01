@@ -1,0 +1,45 @@
+===================================================================== 1028_1111/template_48 (5000_11_solve) instantiation starts ====================================================================
+- scenario: taxi
+- template: 1028_1111/template_48
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+****************************************************************************************** Preparation starts *****************************************************************************************
+Decomposed template in 0.0020437240600585938 seconds
+Constructed ctx data in 3.743171691894531e-05 seconds
+Loaded data field types in 0.0005614757537841797 seconds
+**************************************************************************************** Preparation completes ****************************************************************************************
+********************************************************************************* Symbol basic ranges computing starts ********************************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_speed - 2*v2_speed + v3_speed) → range [0.0, 500.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 500.0]
+Approximate computed ranges for 1 threshold symbols in 0.31 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v3_speed) + I*im(v3_speed).
+        - field expression Abs(v1_speed - 2*v2_speed + v3_speed) → range [0.0, 500.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 500.0]
+Theoretical computed ranges for 1 threshold symbols in 0.29 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 500.0)}
+******************************************************************************* Symbol basic ranges computing completes *******************************************************************************
+**************************************************************************************** Solving process starts ***************************************************************************************
+Parsed template in 0.0019371509552001953 seconds
+Set solve data in 0.0012867450714111328 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005855560302734375 seconds
+Function 'solve' [process] timed out (3600.0s), terminating the whole process group...
+Sent SIGTERM to process group 1605697.
+Solving process timeout in 3600.0 seconds
+************************************************************************************** Solving process completes **************************************************************************************
+=================================================================== 1028_1111/template_48 (5000_11_solve) instantiation completes ===================================================================
+Total instantiation time: 3600.82 seconds

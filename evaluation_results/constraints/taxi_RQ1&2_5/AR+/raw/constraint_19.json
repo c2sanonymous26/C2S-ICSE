@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "le",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "abs(abs(sub(tan(abs(-35078.421)), abs(longitude_2))))",
+  "rule_fit_rate": 0.9990108475556614,
+  "overall_time": 1303.6748819351196,
+  "asrtm_time": 1302.3286044597626,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0020413837128000567,
+    "was_early_stopped": false,
+    "generations_completed": 6
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should be consistent with a monotonic relationship between grpid and timestamp.",
+    "goal": "Detect sequence identifiers that do not align with temporal order.",
+    "design_rationale": "If grpid captures within-vehicle progression, it should increase consistently with time rather than contradict it."
+  },
+  "semantics": "For any context v1, there should be a monotonically increasing relationship between the grpid value of v1 and its timestamp value."
+}

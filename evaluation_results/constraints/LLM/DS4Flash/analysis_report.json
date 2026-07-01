@@ -1,0 +1,741 @@
+{
+  "method": "LLM",
+  "scenario": "taxi",
+  "scope": "NS",
+  "data_file": "inputs/taxi/data/5000.csv",
+  "similarity_check": true,
+  "target_count": 50,
+  "successful_constraints": 50,
+  "effective_data_row_limit": 5042,
+  "merged_from": [
+    {
+      "run": "DS4Flash",
+      "constraint_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        28,
+        29,
+        30,
+        32,
+        35
+      ]
+    },
+    {
+      "run": "DS4Flash_1",
+      "id_mapping": {
+        "1": 36,
+        "2": 37,
+        "5": 38,
+        "6": 39,
+        "7": 40,
+        "8": 41,
+        "9": 42,
+        "10": 43,
+        "11": 44,
+        "12": 45,
+        "14": 46,
+        "15": 47,
+        "17": 48,
+        "18": 49,
+        "19": 50,
+        "21": 51,
+        "22": 52,
+        "23": 53,
+        "25": 54,
+        "26": 55,
+        "28": 56,
+        "30": 57,
+        "31": 58
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": 1,
+      "status": "converted",
+      "raw_file": "raw/constraint_1.json",
+      "files": {
+        "xml": "constraint_1.xml",
+        "py": "bfuncs_1.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 1
+    },
+    {
+      "constraint_id": 2,
+      "status": "converted",
+      "raw_file": "raw/constraint_2.json",
+      "files": {
+        "xml": "constraint_2.xml",
+        "py": "bfuncs_2.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 2
+    },
+    {
+      "constraint_id": 3,
+      "status": "converted",
+      "raw_file": "raw/constraint_3.json",
+      "files": {
+        "xml": "constraint_3.xml",
+        "py": "bfuncs_3.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 3
+    },
+    {
+      "constraint_id": 4,
+      "status": "converted",
+      "raw_file": "raw/constraint_4.json",
+      "files": {
+        "xml": "constraint_4.xml",
+        "py": "bfuncs_4.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 4
+    },
+    {
+      "constraint_id": 5,
+      "status": "converted",
+      "raw_file": "raw/constraint_5.json",
+      "files": {
+        "xml": "constraint_5.xml",
+        "py": "bfuncs_5.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 5
+    },
+    {
+      "constraint_id": 6,
+      "status": "converted",
+      "raw_file": "raw/constraint_6.json",
+      "files": {
+        "xml": "constraint_6.xml",
+        "py": "bfuncs_6.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 6
+    },
+    {
+      "constraint_id": 7,
+      "status": "converted",
+      "raw_file": "raw/constraint_7.json",
+      "files": {
+        "xml": "constraint_7.xml",
+        "py": "bfuncs_7.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 7
+    },
+    {
+      "constraint_id": 9,
+      "status": "converted",
+      "raw_file": "raw/constraint_9.json",
+      "files": {
+        "xml": "constraint_9.xml",
+        "py": "bfuncs_9.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 9
+    },
+    {
+      "constraint_id": 10,
+      "status": "converted",
+      "raw_file": "raw/constraint_10.json",
+      "files": {
+        "xml": "constraint_10.xml",
+        "py": "bfuncs_10.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 10
+    },
+    {
+      "constraint_id": 11,
+      "status": "converted",
+      "raw_file": "raw/constraint_11.json",
+      "files": {
+        "xml": "constraint_11.xml",
+        "py": "bfuncs_11.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 11
+    },
+    {
+      "constraint_id": 12,
+      "status": "converted",
+      "raw_file": "raw/constraint_12.json",
+      "files": {
+        "xml": "constraint_12.xml",
+        "py": "bfuncs_12.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 12
+    },
+    {
+      "constraint_id": 13,
+      "status": "converted",
+      "raw_file": "raw/constraint_13.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 67.64754104614258,
+      "files": {
+        "xml": "constraint_13.xml",
+        "py": "bfuncs_13.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 13
+    },
+    {
+      "constraint_id": 14,
+      "status": "converted",
+      "raw_file": "raw/constraint_14.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 40.50477194786072,
+      "files": {
+        "xml": "constraint_14.xml",
+        "py": "bfuncs_14.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 14
+    },
+    {
+      "constraint_id": 16,
+      "status": "converted",
+      "raw_file": "raw/constraint_16.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 220.03025794029236,
+      "files": {
+        "xml": "constraint_16.xml",
+        "py": "bfuncs_16.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 16
+    },
+    {
+      "constraint_id": 17,
+      "status": "converted",
+      "raw_file": "raw/constraint_17.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 143.11108303070068,
+      "files": {
+        "xml": "constraint_17.xml",
+        "py": "bfuncs_17.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 17
+    },
+    {
+      "constraint_id": 18,
+      "status": "converted",
+      "raw_file": "raw/constraint_18.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 115.9843807220459,
+      "files": {
+        "xml": "constraint_18.xml",
+        "py": "bfuncs_18.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 18
+    },
+    {
+      "constraint_id": 20,
+      "status": "converted",
+      "raw_file": "raw/constraint_20.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 138.92491602897644,
+      "files": {
+        "xml": "constraint_20.xml",
+        "py": "bfuncs_20.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 20
+    },
+    {
+      "constraint_id": 21,
+      "status": "converted",
+      "raw_file": "raw/constraint_21.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 133.2851619720459,
+      "files": {
+        "xml": "constraint_21.xml",
+        "py": "bfuncs_21.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 21
+    },
+    {
+      "constraint_id": 22,
+      "status": "converted",
+      "raw_file": "raw/constraint_22.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 93.82610201835632,
+      "files": {
+        "xml": "constraint_22.xml",
+        "py": "bfuncs_22.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 22
+    },
+    {
+      "constraint_id": 23,
+      "status": "converted",
+      "raw_file": "raw/constraint_23.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 129.64440298080444,
+      "files": {
+        "xml": "constraint_23.xml",
+        "py": "bfuncs_23.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 23
+    },
+    {
+      "constraint_id": 25,
+      "status": "converted",
+      "raw_file": "raw/constraint_25.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 162.03991603851318,
+      "files": {
+        "xml": "constraint_25.xml",
+        "py": "bfuncs_25.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 25
+    },
+    {
+      "constraint_id": 26,
+      "status": "converted",
+      "raw_file": "raw/constraint_26.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 199.89065384864807,
+      "files": {
+        "xml": "constraint_26.xml",
+        "py": "bfuncs_26.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 26
+    },
+    {
+      "constraint_id": 28,
+      "status": "converted",
+      "raw_file": "raw/constraint_28.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 205.44041180610657,
+      "files": {
+        "xml": "constraint_28.xml",
+        "py": "bfuncs_28.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 28
+    },
+    {
+      "constraint_id": 29,
+      "status": "converted",
+      "raw_file": "raw/constraint_29.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 119.50104022026062,
+      "files": {
+        "xml": "constraint_29.xml",
+        "py": "bfuncs_29.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 29
+    },
+    {
+      "constraint_id": 30,
+      "status": "converted",
+      "raw_file": "raw/constraint_30.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 3,
+      "generation_seconds": 38.409868001937866,
+      "files": {
+        "xml": "constraint_30.xml",
+        "py": "bfuncs_30.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 30
+    },
+    {
+      "constraint_id": 32,
+      "status": "converted",
+      "raw_file": "raw/constraint_32.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 84.29983687400818,
+      "files": {
+        "xml": "constraint_32.xml",
+        "py": "bfuncs_32.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 32
+    },
+    {
+      "constraint_id": 35,
+      "status": "converted",
+      "raw_file": "raw/constraint_35.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 377.4528250694275,
+      "files": {
+        "xml": "constraint_35.xml",
+        "py": "bfuncs_35.py"
+      },
+      "source_run": "DS4Flash",
+      "source_constraint_id": 35
+    },
+    {
+      "constraint_id": 36,
+      "status": "converted",
+      "raw_file": "raw/constraint_36.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 65.4660439491272,
+      "files": {
+        "xml": "constraint_36.xml",
+        "py": "bfuncs_36.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 1
+    },
+    {
+      "constraint_id": 37,
+      "status": "converted",
+      "raw_file": "raw/constraint_37.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 168.94666171073914,
+      "files": {
+        "xml": "constraint_37.xml",
+        "py": "bfuncs_37.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 2
+    },
+    {
+      "constraint_id": 38,
+      "status": "converted",
+      "raw_file": "raw/constraint_38.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 602.362370967865,
+      "files": {
+        "xml": "constraint_38.xml",
+        "py": "bfuncs_38.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 5
+    },
+    {
+      "constraint_id": 39,
+      "status": "converted",
+      "raw_file": "raw/constraint_39.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 61.87733292579651,
+      "files": {
+        "xml": "constraint_39.xml",
+        "py": "bfuncs_39.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 6
+    },
+    {
+      "constraint_id": 40,
+      "status": "converted",
+      "raw_file": "raw/constraint_40.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 72.86131191253662,
+      "files": {
+        "xml": "constraint_40.xml",
+        "py": "bfuncs_40.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 7
+    },
+    {
+      "constraint_id": 41,
+      "status": "converted",
+      "raw_file": "raw/constraint_41.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 108.65920400619507,
+      "files": {
+        "xml": "constraint_41.xml",
+        "py": "bfuncs_41.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 8
+    },
+    {
+      "constraint_id": 42,
+      "status": "converted",
+      "raw_file": "raw/constraint_42.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 245.3673710823059,
+      "files": {
+        "xml": "constraint_42.xml",
+        "py": "bfuncs_42.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 9
+    },
+    {
+      "constraint_id": 43,
+      "status": "converted",
+      "raw_file": "raw/constraint_43.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 151.7346270084381,
+      "files": {
+        "xml": "constraint_43.xml",
+        "py": "bfuncs_43.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 10
+    },
+    {
+      "constraint_id": 44,
+      "status": "converted",
+      "raw_file": "raw/constraint_44.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 130.482008934021,
+      "files": {
+        "xml": "constraint_44.xml",
+        "py": "bfuncs_44.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 11
+    },
+    {
+      "constraint_id": 45,
+      "status": "converted",
+      "raw_file": "raw/constraint_45.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 81.1687970161438,
+      "files": {
+        "xml": "constraint_45.xml",
+        "py": "bfuncs_45.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 12
+    },
+    {
+      "constraint_id": 46,
+      "status": "converted",
+      "raw_file": "raw/constraint_46.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 134.95538115501404,
+      "files": {
+        "xml": "constraint_46.xml",
+        "py": "bfuncs_46.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 14
+    },
+    {
+      "constraint_id": 47,
+      "status": "converted",
+      "raw_file": "raw/constraint_47.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 132.56913900375366,
+      "files": {
+        "xml": "constraint_47.xml",
+        "py": "bfuncs_47.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 15
+    },
+    {
+      "constraint_id": 48,
+      "status": "converted",
+      "raw_file": "raw/constraint_48.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 76.7019419670105,
+      "files": {
+        "xml": "constraint_48.xml",
+        "py": "bfuncs_48.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 17
+    },
+    {
+      "constraint_id": 49,
+      "status": "converted",
+      "raw_file": "raw/constraint_49.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 168.42423701286316,
+      "files": {
+        "xml": "constraint_49.xml",
+        "py": "bfuncs_49.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 18
+    },
+    {
+      "constraint_id": 50,
+      "status": "converted",
+      "raw_file": "raw/constraint_50.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 105.49382781982422,
+      "files": {
+        "xml": "constraint_50.xml",
+        "py": "bfuncs_50.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 19
+    },
+    {
+      "constraint_id": 51,
+      "status": "converted",
+      "raw_file": "raw/constraint_51.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 106.95723295211792,
+      "files": {
+        "xml": "constraint_51.xml",
+        "py": "bfuncs_51.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 21
+    },
+    {
+      "constraint_id": 52,
+      "status": "converted",
+      "raw_file": "raw/constraint_52.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 313.57351517677307,
+      "files": {
+        "xml": "constraint_52.xml",
+        "py": "bfuncs_52.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 22
+    },
+    {
+      "constraint_id": 53,
+      "status": "converted",
+      "raw_file": "raw/constraint_53.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 200.29934787750244,
+      "files": {
+        "xml": "constraint_53.xml",
+        "py": "bfuncs_53.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 23
+    },
+    {
+      "constraint_id": 54,
+      "status": "converted",
+      "raw_file": "raw/constraint_54.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 262.87364411354065,
+      "files": {
+        "xml": "constraint_54.xml",
+        "py": "bfuncs_54.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 25
+    },
+    {
+      "constraint_id": 55,
+      "status": "converted",
+      "raw_file": "raw/constraint_55.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 107.52893805503845,
+      "files": {
+        "xml": "constraint_55.xml",
+        "py": "bfuncs_55.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 26
+    },
+    {
+      "constraint_id": 56,
+      "status": "converted",
+      "raw_file": "raw/constraint_56.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 104.7435851097107,
+      "files": {
+        "xml": "constraint_56.xml",
+        "py": "bfuncs_56.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 28
+    },
+    {
+      "constraint_id": 57,
+      "status": "converted",
+      "raw_file": "raw/constraint_57.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 4,
+      "generation_seconds": 168.05853080749512,
+      "files": {
+        "xml": "constraint_57.xml",
+        "py": "bfuncs_57.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 30
+    },
+    {
+      "constraint_id": 58,
+      "status": "converted",
+      "raw_file": "raw/constraint_58.json",
+      "data_rows_provided": 5042,
+      "llm_attempts": 5,
+      "generation_seconds": 301.9819960594177,
+      "files": {
+        "xml": "constraint_58.xml",
+        "py": "bfuncs_58.py"
+      },
+      "source_run": "DS4Flash_1",
+      "source_constraint_id": 31
+    }
+  ]
+}

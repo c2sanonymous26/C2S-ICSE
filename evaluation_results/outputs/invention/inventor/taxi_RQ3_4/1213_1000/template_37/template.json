@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should have a previous same-vehicle context with a bounded heading-change rate.",
+    "goal": "Detect high-speed contexts that cannot be supported by a plausible previous-step heading evolution.",
+    "design_rationale": "When a vehicle is moving fast, its previous local transition should still respect a realistic turning-rate bound."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle, is the previous context of v1, and the ratio between the absolute direction difference of v1 and v2 and the timestamp difference between them does not exceed a certain upper bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the previous context of v1.",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute direction difference of v1 and v2 and the timestamp difference between them does not exceed a certain upper bound.",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

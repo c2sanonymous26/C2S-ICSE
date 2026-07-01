@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should keep the coordinate-derived displacement direction reasonably aligned with the heading of v1.",
+    "goal": "Detect cross-vehicle context pairs whose relative direction is inconsistent with the heading recorded in v1.",
+    "design_rationale": "For closely timed observations, the direction implied by the two coordinates should not diverge excessively from the heading of v1 under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other with a difference not exceeding a certain value, then the absolute difference between the displacement direction computed from the coordinates of v1 and v2 and the direction angle of v1 should lie within a certain reasonable range."
+}

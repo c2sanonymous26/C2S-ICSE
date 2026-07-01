@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable speed-change rate to a same-vehicle context two grpid steps earlier.",
+    "goal": "Detect high-speed contexts whose two-step speed-change rate is implausible.",
+    "design_rationale": "Even across a two-step backward link, the speed change over time should remain realistic."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold and there exists a context v2 such that v2 belongs to the same vehicle and the grpid value of v2 is 2 smaller than that of v1, then the speed-change rate between v1 and v2, computed from speed difference and time difference, should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v2 is 2 smaller than that of v1.",
+      "implementation": "v2.grpid == v1.grpid - 2",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed-change rate between v1 and v2, computed from speed difference and time difference, should lie within a certain reasonable range.",
+      "implementation": "abs((v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

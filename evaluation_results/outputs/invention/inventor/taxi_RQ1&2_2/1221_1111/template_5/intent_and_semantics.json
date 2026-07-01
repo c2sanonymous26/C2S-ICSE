@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The joint product of speed difference and heading change between two consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect consecutive contexts that simultaneously exhibit large speed change and large heading change.",
+    "design_rationale": "A vehicle cannot simultaneously undergo extreme changes in both speed and direction; joint large changes in both suggest sensor errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the product of the absolute speed difference and the absolute heading difference between v1 and v2 does not exceed a certain reasonable upper bound."
+}

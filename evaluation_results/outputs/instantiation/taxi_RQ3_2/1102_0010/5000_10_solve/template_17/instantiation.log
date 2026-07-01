@@ -1,0 +1,40 @@
+============================================================ 1102_0010/template_17 (5000_10_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1102_0010/template_17
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.00574040412902832 seconds
+Constructed ctx data in 6.580352783203125e-05 seconds
+Loaded data field types in 0.0008442401885986328 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.002553701400756836 seconds
+Set solve data in 0.0009126663208007812 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006120204925537109 seconds
+Constructed main constraint in 64.11729526519775 seconds
+Constructed symbol domain constraints in 0.380979061126709 seconds
+    - symbol inequalities:
+        - (<=, _N_THRESHOLD_1): 2688
+        - (>=, _N_THRESHOLD_2): 2688
+    - symbol domains:
+        - _N_THRESHOLD_1: 2689
+        - _N_THRESHOLD_2: 2689
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(0, 1), '_N_THRESHOLD_2': Fraction(1284039442296217, 68719476736)}
+        - solved in 0.6229562759399414 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.2222354412078857 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.2256855964660645 seconds
+1102_0010/template_17 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1102_0010/template_17 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 67.63 seconds

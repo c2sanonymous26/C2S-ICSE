@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle decelerates from high speed to low speed between two consecutive contexts, the time gap between them should be small.",
+    "goal": "Detect deceleration contexts where the timestamp difference is implausibly large.",
+    "design_rationale": "A sharp deceleration from high speed to near-zero speed should occur within a short time interval; a large timestamp difference during such deceleration indicates a data gap or timing error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold while v2's speed is significantly lower than a certain threshold, then the timestamp difference between v1 and v2 should be within a certain smaller reasonable range."
+}

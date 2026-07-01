@@ -1,0 +1,38 @@
+================================== 1107_0010/template_44 (5000_10_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1107_0010/template_44
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0027341842651367188 seconds
+Constructed ctx data in 3.886222839355469e-05 seconds
+Loaded data field types in 0.0005242824554443359 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0018570423126220703 seconds
+Set solve data in 0.0008716583251953125 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005598068237304688 seconds
+Constructed main constraint in 57.49328923225403 seconds
+Constructed symbol domain constraints in 0.5676887035369873 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 7251
+    - symbol domains:
+        - _N_THRESHOLD_1: 7252
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2916311760943289, 8796093022208)}
+        - solved in 2.0365030765533447 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 4.018359422683716 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 4.037292718887329 seconds
+1107_0010/template_44 (5000_10_solve) has 1 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1107_0010/template_44 (5000_10_solve) instantiation completes =================================
+Total instantiation time: 68.22 seconds

@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is less than add(tan(mul(min(sub(v1.timestamp, v1.longitude), log(v1.timestamp)), abs(v1.speed))), v1.timestamp).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is less than add(tan(mul(min(sub(v1.timestamp, v1.longitude), log(v1.timestamp)), abs(v1.speed))), v1.timestamp)",
+      "implementation": "var_bindings['v1']['latitude'] < (tan((min((var_bindings['v1']['timestamp'] - var_bindings['v1']['longitude']), (0 if abs(var_bindings['v1']['timestamp']) < 1/1000 else log(abs(var_bindings['v1']['timestamp'])))) * abs(var_bindings['v1']['speed']))) + var_bindings['v1']['timestamp'])"
+    }
+  ]
+}

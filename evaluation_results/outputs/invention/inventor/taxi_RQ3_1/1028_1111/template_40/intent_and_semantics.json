@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "After a stopped context, the next consecutive context should either remain stopped or occur within a bounded parking interval.",
+    "goal": "Detect adjacent same-vehicle contexts where a stopped context is followed by an implausibly delayed restart.",
+    "design_rationale": "A stationary vehicle may remain stopped or start moving again, but the waiting time before the next change should stay within a realistic parking-duration bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then when the speed of v1 is 0, the speed of v2 must also be 0, or the timestamp difference between v1 and v2 should not exceed a certain reasonable upper bound for parking time."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The haversine-implied average speed between two consecutive contexts of the same vehicle is consistent with the average of their reported speeds.",
+    "goal": "Detect consecutive contexts where the GPS-implied average speed deviates significantly from the average reported speed.",
+    "design_rationale": "The GPS-implied average speed should match the average reported instantaneous speed; significant discrepancies indicate inconsistency between the GPS and speed sensors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the absolute difference between the average of their instantaneous speeds and the ratio of their haversine GPS distance to their timestamp difference does not exceed a certain reasonable range."
+}

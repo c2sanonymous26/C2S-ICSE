@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts whose grpid values differ by one forward step should imply a coordinate-derived speed below a reasonable upper bound.",
+    "goal": "Detect one-step same-vehicle context pairs whose implied movement speed is implausibly high.",
+    "design_rationale": "A local one-step transition in sequence order should remain compatible with a realistic speed bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is equal to the grpid value of v2 minus 1, then the ratio between the coordinate distance between v1 and v2 computed using the haversine formula and their timestamp difference should not exceed a certain reasonable upper bound on speed."
+}

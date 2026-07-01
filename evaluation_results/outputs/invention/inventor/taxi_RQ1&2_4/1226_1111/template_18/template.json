@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle are moving, the angle between the coordinate displacement direction and the direction angle change direction is within a reasonable range.",
+    "goal": "Detect moving consecutive contexts where the GPS displacement direction and the heading change direction are mutually inconsistent.",
+    "design_rationale": "For a moving vehicle, the direction in which coordinates shift and the direction in which the heading changes should be aligned; a large angular discrepancy between the two indicates erroneous data in either the coordinates or the direction field."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and both v1 and v2 have non-zero speed, then the angle between the coordinate displacement direction and the direction angle change direction should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "both v1 and v2 have non-zero speed",
+      "implementation": "v1.speed != 0 && v2.speed != 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the angle between the coordinate displacement direction and the direction angle change direction does not exceed a certain reasonable range",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.direction - v1.direction)), cos(radians(v1.direction)) × cos(radians(v2.direction)) + sin(radians(v1.direction)) × sin(radians(v2.direction)))) - degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

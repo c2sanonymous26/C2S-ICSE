@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.direction is greater than or equal to min(v1.speed, cos(add(max(v1.speed, v1.longitude), sqrt(v1.timestamp)))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.direction is greater than or equal to min(v1.speed, cos(add(max(v1.speed, v1.longitude), sqrt(v1.timestamp))))",
+      "implementation": "var_bindings['v1']['direction'] >= min(var_bindings['v1']['speed'], cos((max(var_bindings['v1']['speed'], var_bindings['v1']['longitude']) + sqrt(abs(var_bindings['v1']['timestamp'])))))"
+    }
+  ]
+}

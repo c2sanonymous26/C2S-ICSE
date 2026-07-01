@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep its recent movement direction aligned with the major road direction.",
+    "goal": "Detect high-speed contexts whose recent movement direction deviates implausibly from major roads.",
+    "design_rationale": "At high speed, the movement direction inferred from the previous transition should stay close to the road direction."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then the absolute value of the angle between the coordinate-change direction of v1 computed from its previous context v2 and the direction of major city roads should not exceed a certain reasonable range."
+}

@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Timestamp values should increase consistently with grpid values.",
+    "goal": "Detect contexts whose sequence-group identifiers are inconsistent with temporal progression.",
+    "design_rationale": "If grpid represents local progression, larger grpid values should correspond to later timestamps rather than break temporal order."
+  },
+  "semantics": "For any context v1, there should be a reasonable relationship between the timestamp value and the grpid value of v1, meaning that a record with a larger grpid value should also have a larger timestamp value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 have the same carid.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is greater than that of v2.",
+      "implementation": "v1.grpid > v2.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp value of v1 is greater than that of v2.",
+      "implementation": "v1.timestamp > v2.timestamp",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <and>
+        <and>
+          <bfunc id="1_c1"/>
+          <bfunc id="1_c2"/>
+        </and>
+        <or>
+          <and>
+            <bfunc id="1_c3"/>
+            <and>
+              <bfunc id="1_c4"/>
+              <and>
+                <bfunc id="1_c5"/>
+                <bfunc id="1_c6"/>
+              </and>
+            </and>
+          </and>
+          <or>
+            <and>
+              <bfunc id="1_c7"/>
+              <and>
+                <bfunc id="1_c8"/>
+                <and>
+                  <bfunc id="1_c9"/>
+                  <bfunc id="1_c10"/>
+                </and>
+              </and>
+            </and>
+            <or>
+              <and>
+                <bfunc id="1_c11"/>
+                <and>
+                  <bfunc id="1_c12"/>
+                  <and>
+                    <bfunc id="1_c13"/>
+                    <bfunc id="1_c14"/>
+                  </and>
+                </and>
+              </and>
+              <or>
+                <and>
+                  <bfunc id="1_c15"/>
+                  <and>
+                    <bfunc id="1_c16"/>
+                    <and>
+                      <bfunc id="1_c17"/>
+                      <bfunc id="1_c18"/>
+                    </and>
+                  </and>
+                </and>
+                <or>
+                  <and>
+                    <bfunc id="1_c19"/>
+                    <and>
+                      <bfunc id="1_c20"/>
+                      <and>
+                        <bfunc id="1_c21"/>
+                        <bfunc id="1_c22"/>
+                      </and>
+                    </and>
+                  </and>
+                  <or>
+                    <and>
+                      <bfunc id="1_c23"/>
+                      <and>
+                        <bfunc id="1_c24"/>
+                        <and>
+                          <bfunc id="1_c25"/>
+                          <bfunc id="1_c26"/>
+                        </and>
+                      </and>
+                    </and>
+                    <or>
+                      <and>
+                        <bfunc id="1_c27"/>
+                        <and>
+                          <bfunc id="1_c28"/>
+                          <and>
+                            <bfunc id="1_c29"/>
+                            <bfunc id="1_c30"/>
+                          </and>
+                        </and>
+                      </and>
+                      <and>
+                        <bfunc id="1_c31"/>
+                        <and>
+                          <bfunc id="1_c32"/>
+                          <and>
+                            <bfunc id="1_c33"/>
+                            <bfunc id="1_c34"/>
+                          </and>
+                        </and>
+                      </and>
+                    </or>
+                  </or>
+                </or>
+              </or>
+            </or>
+          </or>
+        </or>
+      </and>
+      <bfunc id="2_c1"/>
+    </implies>
+  </forall>
+</formula>

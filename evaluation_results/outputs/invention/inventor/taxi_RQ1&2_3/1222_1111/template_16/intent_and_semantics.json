@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is already travelling at a significantly high speed, the direction change in the next context should be small.",
+    "goal": "Detect consecutive contexts where a large direction change occurs while the vehicle is at high speed.",
+    "design_rationale": "A high-speed vehicle cannot make a sharp turn; a large directional change combined with a high prior speed is physically implausible."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly higher than a certain threshold, then the absolute direction difference between v2 and v1 should be within a certain reasonable range."
+}

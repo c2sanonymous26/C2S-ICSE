@@ -1,0 +1,190 @@
+{
+  "constraint_id": 42,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 74.57137513160706
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "When a taxi remains at nearly the same moderate speed across two consecutive records over a short time interval, its direction should not change abruptly.",
+      "goal": "Detect implausible heading jumps in otherwise smooth motion segments.",
+      "design_rationale": "For a taxi in ordinary continuous movement, consecutive records that indicate similar nontrivial speeds usually correspond to stable motion rather than a sudden sharp turn. A large heading change without a substantial speed change is more likely to reflect compass noise, sensor inconsistency, or data synchronization issues than real driving behavior."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, the speed recorded in v2 is sufficiently large, and the absolute difference between the speeds recorded in v1 and v2 is within a certain small range, then the change in direction between v1 and v2 is not sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and (bfunc5(v1, v2) and bfunc6(v1, v2))) implies (not bfunc7(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0 && v2.timestamp - v1.timestamp <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large",
+        "implementation": "v1.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently large",
+        "implementation": "v2.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the speeds recorded in v1 and v2 is within a certain small range",
+        "implementation": "abs(v1.speed - v2.speed) <= NTHRESHOLD3",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc7",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change in direction between v1 and v2 is sufficiently large",
+        "implementation": "min(abs(v2.direction - v1.direction), 360 - abs(v2.direction - v1.direction)) >= NTHRESHOLD4",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 15.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 50.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 10.0
+      },
+      {
+        "symbol": "NTHRESHOLD4",
+        "value": 45.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "When a taxi remains at nearly the same moderate speed across two consecutive records over a short time interval, its direction should not change abruptly.",
+      "goal": "Detect implausible heading jumps in otherwise smooth motion segments.",
+      "design_rationale": "For a taxi in ordinary continuous movement, consecutive records that indicate similar nontrivial speeds usually correspond to stable motion rather than a sudden sharp turn. A large heading change without a substantial speed change is more likely to reflect compass noise, sensor inconsistency, or data synchronization issues than real driving behavior."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, v2 is the consecutive next record after v1 for that vehicle, the time difference from v1 to v2 is sufficiently small and positive, the speed recorded in v1 is sufficiently large, the speed recorded in v2 is sufficiently large, and the absolute difference between the speeds recorded in v1 and v2 is within a certain small range, then the change in direction between v1 and v2 is not sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and (bfunc5(v1, v2) and bfunc6(v1, v2))) implies (not bfunc7(v1, v2))))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the consecutive next record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference from v1 to v2 is sufficiently small and positive",
+        "implementation": "((v2.timestamp - v1.timestamp) > 0) && ((v2.timestamp - v1.timestamp) <= 15.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v1 is sufficiently large",
+        "implementation": "v1.speed >= 50.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speed recorded in v2 is sufficiently large",
+        "implementation": "v2.speed >= 50.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the speeds recorded in v1 and v2 is within a certain small range",
+        "implementation": "abs((v1.speed - v2.speed)) <= 10.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc7",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the change in direction between v1 and v2 is sufficiently large",
+        "implementation": "min(abs((v2.direction - v1.direction)), (360 - abs((v2.direction - v1.direction)))) >= 45.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are close in time do not simultaneously exhibit a large speed difference and a large heading difference.",
+    "goal": "Detect co-occurring outliers where both speed and heading diverge significantly between records from different vehicles at the same time.",
+    "design_rationale": "In normal traffic, vehicles at the same time that differ significantly in both speed and heading are implausible; such joint anomalies suggest erroneous records."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamp difference is within a certain reasonable time range, then it is not the case that both the absolute speed difference and the absolute heading difference are simultaneously large.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (bfunc3(v1, v2) or bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamp difference between v1 and v2 is within a certain reasonable time range",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute speed difference between v1 and v2 exceeds a certain threshold",
+      "implementation": "abs(v1.speed - v2.speed) > NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 >= 20"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute heading difference between v1 and v2 exceeds a certain threshold",
+      "implementation": "abs(v1.direction - v2.direction) > NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

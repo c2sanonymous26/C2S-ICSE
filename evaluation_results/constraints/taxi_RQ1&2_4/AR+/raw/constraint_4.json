@@ -1,0 +1,16 @@
+{
+  "mode": "carid_join",
+  "cmp": "gt",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(add(div(sub(direction_1, timestamp_1), div(timestamp_2, speed_2)), mul(div(direction_2, timestamp_1), tan(direction_1))), abs(min(sqrt(speed_1), sqrt(direction_1))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 8.6566162109375,
+  "asrtm_time": 8.049912214279175,
+  "predm_time": 0.5968501567840576,
+  "asrt_info": {
+    "fitness": 0.0021000000000000003,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

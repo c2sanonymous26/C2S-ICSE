@@ -1,0 +1,31 @@
+{
+  "intent": {
+    "content": "The combined rate of speed and direction change between a context and its next consecutive context is bounded.",
+    "goal": "Detect physically implausible simultaneous changes in both speed and heading between consecutive contexts.",
+    "design_rationale": "A vehicle cannot simultaneously undergo extreme changes in both speed and direction; correlated anomalous changes suggest sensor errors."
+  },
+  "semantics": "For any context v1, the rate of change of speed and direction between v1 and its next consecutive context v2 is within a reasonable range.",
+  "structure": "forall v1 in dataset (exists v2 in dataset (bfunc1(v1, v2) implies bfunc2(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle and v2 is the next consecutive context after v1",
+      "implementation": "v1.carid == v2.carid && v1.grpid + 1 == v2.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed difference and direction change between v1 and v2 are within a reasonable range",
+      "implementation": "abs(v2.speed - v1.speed) <= NTHRESHOLD1 && abs(v2.direction - v1.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

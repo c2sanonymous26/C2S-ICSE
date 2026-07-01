@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should satisfy both a reasonable speed bound and a reasonable turning-rate bound.",
+    "goal": "Detect adjacent contexts whose local motion is implausible in either displacement speed or heading-change rate.",
+    "design_rationale": "A realistic local trajectory should remain smooth in both translational and directional dynamics across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the coordinate distance between v1 and v2 computed using the haversine formula and their timestamp difference should not exceed a certain reasonable upper bound on speed, and the ratio between the absolute difference in their direction angles and their timestamp difference should not exceed a certain reasonable upper bound on turning rate."
+}

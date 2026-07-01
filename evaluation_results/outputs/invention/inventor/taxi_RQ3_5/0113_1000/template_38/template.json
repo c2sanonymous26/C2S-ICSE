@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context should not remain stopped for longer than a reasonable upper bound relative to its previous context.",
+    "goal": "Detect parked contexts whose stationary duration appears implausibly long.",
+    "design_rationale": "If the vehicle is stopped, the elapsed time since the previous context should remain within a reasonable parking-time bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the timestamp difference between v1 and its previous context v2 should not exceed a certain reasonable upper bound on parking time.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is zero.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable upper bound on parking time.",
+      "implementation": "v1.timestamp - v2.timestamp <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

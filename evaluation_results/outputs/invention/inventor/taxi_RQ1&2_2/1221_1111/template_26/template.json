@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "When a context has zero speed and a non-zero heading, the next consecutive context either also has zero speed or maintains the same heading.",
+    "goal": "Detect stationary contexts with non-zero heading that are followed by an implausible heading change.",
+    "design_rationale": "A stationary vehicle with a recorded heading should either remain stationary with the same heading or transition consistently; a heading change while stationary indicates a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and its heading is non-zero, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and either v2's speed is zero or v2's heading is the same as v1's.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and (bfunc3(v1, v2) or bfunc4(v1, v2)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is zero and its heading is non-zero",
+      "implementation": "v1.speed == 0 && v1.direction != 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the next consecutive context after v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed of v2 is zero",
+      "implementation": "v2.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the heading of v2 is the same as the heading of v1",
+      "implementation": "v2.direction == v1.direction",
+      "restrictions": []
+    }
+  ]
+}

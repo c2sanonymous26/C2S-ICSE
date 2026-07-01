@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should maintain both a minimum spatial separation and a reasonable maximum time gap.",
+    "goal": "Detect adjacent contexts that are too close in space or too far apart in time.",
+    "design_rationale": "A plausible consecutive transition should avoid both suspiciously overlapping positions and excessively delayed follow-up contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the geographic difference between v1 and v2 (computed using the haversine formula) should not be lower than a certain reasonable minimum distance, and the timestamp difference between v1 and v2 should not exceed a certain reasonable maximum time interval."
+}

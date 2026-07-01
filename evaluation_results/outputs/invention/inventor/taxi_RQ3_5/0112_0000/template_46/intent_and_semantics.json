@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should keep similar instantaneous speeds.",
+    "goal": "Detect cross-vehicle context pairs whose speed values are implausibly different under this rule.",
+    "design_rationale": "This rule constrains speed similarity for observations from different vehicles that are close in time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then their instantaneous speeds should be similar, meaning that the absolute speed difference does not exceed a certain value."
+}

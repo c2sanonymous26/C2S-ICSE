@@ -1,0 +1,53 @@
+{
+  "intent": {
+    "content": "Near-consecutive contexts of the same vehicle with a large speed gap should still keep a bounded heading difference.",
+    "goal": "Detect same-vehicle near-consecutive contexts whose combined speed and direction change is implausible.",
+    "design_rationale": "Even when speed changes markedly across a near-consecutive transition, the heading difference should remain within a reasonable bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then when the speed difference between v1 and v2 exceeds a certain threshold, the absolute direction difference of v1 and v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid of v1 is greater than that of v2 by 1.",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed difference between v1 and v2 exceeds a certain threshold.",
+      "implementation": "abs(v1.speed - v2.speed) > NTHRESHOLD1",
+      "restrictions": [
+        "10 <= NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute direction difference of v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

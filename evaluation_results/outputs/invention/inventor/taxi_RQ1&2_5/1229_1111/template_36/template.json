@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Detect whether each record has a non-negative timestamp value.",
+    "goal": "Identify records with invalid negative timestamps.",
+    "design_rationale": "Timestamps should not be negative in this dataset, so any negative value indicates invalid temporal data."
+  },
+  "semantics": "For any vehicle record v1, the timestamp value of v1 is greater than or equal to 0.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the timestamp value of v1 is greater than or equal to 0",
+      "implementation": "v1.timestamp >= 0",
+      "restrictions": []
+    }
+  ]
+}

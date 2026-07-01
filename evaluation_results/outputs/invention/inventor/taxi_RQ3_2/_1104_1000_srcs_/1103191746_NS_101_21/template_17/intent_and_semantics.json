@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have a reasonable joint magnitude of speed difference and heading difference.",
+    "goal": "Detect cross-vehicle context pairs whose speed discrepancy and heading discrepancy are jointly implausible.",
+    "design_rationale": "For closely timed observations from different vehicles, the combined extremeness of speed and heading differences should remain bounded under this rule."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other with a difference not exceeding a certain value, then the product of the absolute speed difference between them and the absolute difference in direction angle between them should lie within a certain reasonable range."
+}

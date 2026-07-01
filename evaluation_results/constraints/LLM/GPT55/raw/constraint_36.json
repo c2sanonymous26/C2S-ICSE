@@ -1,0 +1,166 @@
+{
+  "constraint_id": 36,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 123.38476181030273
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A taxi reporting sustained non-negligible movement should show a corresponding change in GPS position between consecutive contexts.",
+      "goal": "Detect cases where a taxi's speed readings indicate it is moving, but its consecutive GPS positions remain nearly unchanged, suggesting a stuck GPS sensor, stale location report, or inconsistent telemetry fusion.",
+      "design_rationale": "In SmartCity taxi monitoring, speed and location are produced by vehicle collectors and should be physically coherent. If the same taxi has consecutive records separated by a meaningful time interval and both records report sufficiently large speeds, then the taxi should have moved a detectable geographic distance during that interval."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are consecutive records of that vehicle, v2 occurs after v1 in time, the timestamp difference between v2 and v1 is sufficiently large to observe movement, and both contexts have speeds that are sufficiently large, then the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle",
+        "implementation": "abs(v1.grpid - v2.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 occurs after v1 in time",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp difference between v2 and v1 is sufficiently large to observe movement",
+        "implementation": "v2.timestamp - v1.timestamp >= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "both v1 and v2 have speeds that are sufficiently large",
+        "implementation": "v1.speed >= NTHRESHOLD2 && v2.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently large",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) >= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 10.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 20.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 0.05
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A taxi reporting sustained non-negligible movement should show a corresponding change in GPS position between consecutive contexts.",
+      "goal": "Detect cases where a taxi's speed readings indicate it is moving, but its consecutive GPS positions remain nearly unchanged, suggesting a stuck GPS sensor, stale location report, or inconsistent telemetry fusion.",
+      "design_rationale": "In SmartCity taxi monitoring, speed and location are produced by vehicle collectors and should be physically coherent. If the same taxi has consecutive records separated by a meaningful time interval and both records report sufficiently large speeds, then the taxi should have moved a detectable geographic distance during that interval."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are consecutive records of that vehicle, v2 occurs after v1 in time, the timestamp difference between v2 and v1 is sufficiently large to observe movement, and both contexts have speeds that are sufficiently large, then the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently large.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) and bfunc4(v1, v2)) and bfunc5(v1, v2)) implies bfunc6(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle",
+        "implementation": "abs((v1.grpid - v2.grpid)) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 occurs after v1 in time",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp difference between v2 and v1 is sufficiently large to observe movement",
+        "implementation": "(v2.timestamp - v1.timestamp) >= 10.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc5",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "both v1 and v2 have speeds that are sufficiently large",
+        "implementation": "(v1.speed >= 20.0) && (v2.speed >= 20.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc6",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the geographic distance between the GPS locations recorded in v1 and v2 is sufficiently large",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) >= 0.05",
+        "restrictions": []
+      }
+    ]
+  }
+}

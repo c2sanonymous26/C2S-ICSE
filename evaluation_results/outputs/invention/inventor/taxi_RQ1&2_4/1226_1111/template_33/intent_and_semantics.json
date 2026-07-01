@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles with close timestamps should be spatially close.",
+    "goal": "Detect temporally close contexts from different vehicles that are implausibly far apart.",
+    "design_rationale": "In a dense urban environment, taxis recorded at nearly the same time tend to share road space; a large spatial distance between temporally proximate records from different vehicles suggests at least one is erroneous or mislocated."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close (absolute difference does not exceed a certain value), then their position distance does not exceed a certain value."
+}

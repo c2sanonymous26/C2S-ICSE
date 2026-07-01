@@ -1,0 +1,126 @@
+{
+  "constraint_id": 31,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 145.48854279518127
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The heading readings of the same moving taxi should be stable across contexts recorded within a very short time window.",
+      "goal": "Detect abrupt and implausible direction changes for a taxi when two of its records are nearly simultaneous and both indicate meaningful movement.",
+      "design_rationale": "When a taxi is moving at a sufficiently high speed, its recorded direction should reflect its actual travel heading. If two contexts from the same taxi occur within a very short time period, the vehicle cannot physically rotate to a substantially different heading, so a large normalized direction difference suggests sensor noise, GPS-heading error, or data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if v1 and v2 belong to the same vehicle, the absolute difference between their timestamps is within a very short time window, and the speeds recorded in both v1 and v2 are sufficiently high for direction readings to be reliable, then the absolute normalized difference between the directions recorded in v1 and v2 does not exceed a certain reasonable angular bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the timestamps recorded in v1 and v2 is within a very short time window",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speeds recorded in both v1 and v2 are sufficiently high for direction readings to be reliable",
+        "implementation": "v1.speed >= NTHRESHOLD2 && v2.speed >= NTHRESHOLD2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute normalized difference between the directions recorded in v1 and v2 does not exceed a certain reasonable angular bound",
+        "implementation": "min(abs(v1.direction - v2.direction), 360 - abs(v1.direction - v2.direction)) <= NTHRESHOLD3",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 2.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 30.0
+      },
+      {
+        "symbol": "NTHRESHOLD3",
+        "value": 45.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The heading readings of the same moving taxi should be stable across contexts recorded within a very short time window.",
+      "goal": "Detect abrupt and implausible direction changes for a taxi when two of its records are nearly simultaneous and both indicate meaningful movement.",
+      "design_rationale": "When a taxi is moving at a sufficiently high speed, its recorded direction should reflect its actual travel heading. If two contexts from the same taxi occur within a very short time period, the vehicle cannot physically rotate to a substantially different heading, so a large normalized direction difference suggests sensor noise, GPS-heading error, or data corruption."
+    },
+    "semantics": "For any two contexts v1 and v2, if v1 and v2 belong to the same vehicle, the absolute difference between their timestamps is within a very short time window, and the speeds recorded in both v1 and v2 are sufficiently high for direction readings to be reliable, then the absolute normalized difference between the directions recorded in v1 and v2 does not exceed a certain reasonable angular bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the timestamps recorded in v1 and v2 is within a very short time window",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 2.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the speeds recorded in both v1 and v2 are sufficiently high for direction readings to be reliable",
+        "implementation": "(v1.speed >= 30.0) && (v2.speed >= 30.0)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute normalized difference between the directions recorded in v1 and v2 does not exceed a certain reasonable angular bound",
+        "implementation": "min(abs((v1.direction - v2.direction)), (360 - abs((v1.direction - v2.direction)))) <= 45.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

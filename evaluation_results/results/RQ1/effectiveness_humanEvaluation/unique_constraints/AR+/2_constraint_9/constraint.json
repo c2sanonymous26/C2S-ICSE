@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.timestamp is less than mul(add(cos(cos(sin(v1.longitude))), max(abs(add(v1.latitude, 47225.525)), max(cos(21518.318), cos(v1.longitude)))), add(sin(log(mul(42094.010, v1.latitude))), abs(sub(max(56641.424, v1.latitude), max(v1.latitude, 2615.879))))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.timestamp is less than mul(add(cos(cos(sin(v1.longitude))), max(abs(add(v1.latitude, 47225.525)), max(cos(21518.318), cos(v1.longitude)))), add(sin(log(mul(42094.010, v1.latitude))), abs(sub(max(56641.424, v1.latitude), max(v1.latitude, 2615.879)))))",
+      "implementation": "var_bindings['v1']['timestamp'] < ((cos(cos(sin(var_bindings['v1']['longitude']))) + max(abs((var_bindings['v1']['latitude'] + 1889021/40)), max(cos(10759159/500), cos(var_bindings['v1']['longitude'])))) * (sin((0 if abs((4209401/100 * var_bindings['v1']['latitude'])) < 1/1000 else log(abs((4209401/100 * var_bindings['v1']['latitude']))))) + abs((max(7080178/125, var_bindings['v1']['latitude']) - max(var_bindings['v1']['latitude'], 2615879/1000)))))"
+    }
+  ]
+}

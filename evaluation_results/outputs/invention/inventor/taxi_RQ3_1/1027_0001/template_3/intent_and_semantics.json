@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should remain within the reasonable geographic area of the city.",
+    "goal": "Detect contexts whose coordinates fall outside the plausible urban service area.",
+    "design_rationale": "Taxi trajectory data should be collected inside the relevant city region, so coordinates outside that region indicate invalid or corrupted location data."
+  },
+  "semantics": "For any context v1, the longitude and latitude values of v1 should lie within a certain reasonable geographic range of the city."
+}

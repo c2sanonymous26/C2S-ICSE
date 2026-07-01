@@ -1,0 +1,35 @@
+================================== 1213_1000/template_23 (5000_00_solve) instantiation starts ==================================
+- scenario: taxi
+- template: 1213_1000/template_23
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0011758804321289062 seconds
+Constructed ctx data in 3.8623809814453125e-05 seconds
+Loaded data field types in 0.0005345344543457031 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0011103153228759766 seconds
+Set solve data in 0.00046896934509277344 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005924701690673828 seconds
+Constructed main constraint in 0.732682466506958 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(0, 1), '_N_THRESHOLD_2': Fraction(114, 1)}
+        - solved in 0.0011878013610839844 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-1, 1), '_N_THRESHOLD_2': Fraction(115, 1)}
+        - solved in 0.0009586811065673828 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-3, 2), '_N_THRESHOLD_2': Fraction(229, 2)}
+        - solved in 0.0008997917175292969 seconds
+1213_1000/template_23 (5000_00_solve) has 3 valid models
+*************************************************** Solving process completes ****************************************************
+================================ 1213_1000/template_23 (5000_00_solve) instantiation completes =================================
+Total instantiation time: 0.77 seconds

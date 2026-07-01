@@ -1,0 +1,56 @@
+{
+  "constraint_id": 35,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 77.03923678398132
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The instantaneous speed recorded in each taxi context does not exceed a plausible upper bound for city taxi operation.",
+      "goal": "Detect contexts whose speed readings are unrealistically high for an urban taxi, indicating possible sensor malfunction, data corruption, or unit/conversion errors.",
+      "design_rationale": "Taxis operating in a city have practical physical and traffic-regulated speed limits. A context reporting a speed far above what a taxi could plausibly reach in urban driving is behaviorally inconsistent with the SmartCity scenario and should be treated as anomalous."
+    },
+    "semantics": "For any context v1, the instantaneous speed recorded in v1 does not exceed a certain upper bound for plausible city taxi operation.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the instantaneous speed recorded in v1 does not exceed a certain upper bound for plausible city taxi operation",
+        "implementation": "v1.speed <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 100.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The instantaneous speed recorded in each taxi context does not exceed a plausible upper bound for city taxi operation.",
+      "goal": "Detect contexts whose speed readings are unrealistically high for an urban taxi, indicating possible sensor malfunction, data corruption, or unit/conversion errors.",
+      "design_rationale": "Taxis operating in a city have practical physical and traffic-regulated speed limits. A context reporting a speed far above what a taxi could plausibly reach in urban driving is behaviorally inconsistent with the SmartCity scenario and should be treated as anomalous."
+    },
+    "semantics": "For any context v1, the instantaneous speed recorded in v1 does not exceed a certain upper bound for plausible city taxi operation.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the instantaneous speed recorded in v1 does not exceed a certain upper bound for plausible city taxi operation",
+        "implementation": "v1.speed <= 100.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

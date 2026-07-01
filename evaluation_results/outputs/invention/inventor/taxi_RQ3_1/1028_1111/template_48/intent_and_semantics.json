@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Three consecutive contexts of the same vehicle should exhibit smoothly changing speed transitions.",
+    "goal": "Detect triples of consecutive contexts whose acceleration pattern changes too abruptly from one step to the next.",
+    "design_rationale": "Vehicle acceleration should evolve smoothly across consecutive observations rather than showing a sharp swing in speed-change behavior between adjacent segments."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are three consecutive contexts, meaning v1.grpid + 1 = v2.grpid and v2.grpid + 1 = v3.grpid, then the absolute difference between the speed change from v1 to v2 and the speed change from v2 to v3 should not exceed a certain reasonable upper bound for acceleration-change smoothness."
+}

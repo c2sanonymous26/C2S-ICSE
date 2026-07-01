@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a movement speed below a reasonable upper bound.",
+    "goal": "Detect adjacent contexts whose coordinate-derived speed is implausibly high.",
+    "design_rationale": "The displacement between adjacent contexts, relative to elapsed time, should stay within a realistic speed limit."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the coordinate distance between v1 and v2 computed using the haversine formula and the timestamp difference between them should not exceed a certain reasonable upper bound on speed."
+}

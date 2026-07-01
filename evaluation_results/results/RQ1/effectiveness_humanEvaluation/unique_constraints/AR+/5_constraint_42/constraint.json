@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v1.longitude is less than or equal to mul(log(v2.longitude), sqrt(mul(log(v2.longitude), mul(log(v2.longitude), sqrt(mul(log(v2.longitude), sqrt(-27461.682))))))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1.longitude is less than or equal to mul(log(v2.longitude), sqrt(mul(log(v2.longitude), mul(log(v2.longitude), sqrt(mul(log(v2.longitude), sqrt(-27461.682)))))))",
+      "implementation": "var_bindings['v1']['longitude'] <= ((0 if abs(var_bindings['v2']['longitude']) < 1/1000 else log(abs(var_bindings['v2']['longitude']))) * sqrt(abs(((0 if abs(var_bindings['v2']['longitude']) < 1/1000 else log(abs(var_bindings['v2']['longitude']))) * ((0 if abs(var_bindings['v2']['longitude']) < 1/1000 else log(abs(var_bindings['v2']['longitude']))) * sqrt(abs(((0 if abs(var_bindings['v2']['longitude']) < 1/1000 else log(abs(var_bindings['v2']['longitude']))) * sqrt(abs(-13730841/500))))))))))"
+    }
+  ]
+}

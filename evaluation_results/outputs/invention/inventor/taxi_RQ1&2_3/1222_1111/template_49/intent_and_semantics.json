@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle transitions from stopped to moving between two consecutive contexts, the coordinate displacement should be small and the direction should remain exactly the same.",
+    "goal": "Detect consecutive contexts where a vehicle starts moving from rest but shows an implausibly large coordinate displacement or an inconsistent direction.",
+    "design_rationale": "A vehicle just starting from rest should not have moved far and its heading should be unchanged; a large coordinate displacement or a different direction at this transition indicates GPS or sensor errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is zero while v2's speed is non-zero, then the coordinate differences between v1 and v2 should be within a certain smaller reasonable range, and v2's direction should be the same as v1's direction."
+}

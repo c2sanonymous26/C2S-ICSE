@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Detect whether each record has a speed value within a reasonable range.",
+    "goal": "Identify records with implausibly low or high speed values.",
+    "design_rationale": "Vehicle speed should stay within a plausible interval; values outside that range indicate abnormal motion or data quality issues."
+  },
+  "semantics": "For any vehicle record v1, the speed value of v1 is within some reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed value of v1 is within some reasonable range",
+      "implementation": "v1.speed >= NTHRESHOLD1 && v1.speed <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+============================================================ 1226_1111/template_32 (5000_11_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1226_1111/template_32
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts *********************************************************************************
+Decomposed template in 0.0012984275817871094 seconds
+Constructed ctx data in 3.790855407714844e-05 seconds
+Loaded data field types in 0.0006432533264160156 seconds
+******************************************************************************* Preparation completes ********************************************************************************
+************************************************************************ Symbol basic ranges computing starts ************************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 1 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - failed to compute range for field expression v1_grpid: No range info for field grpid (from field symbol v1_grpid)
+        - no valid ranges computed for threshold symbol 'NTHRESHOLD1'
+Approximate computed ranges for 0 threshold symbols in 0.08 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 1 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - failed to compute range for field expression v1_grpid: No range info for field grpid (from field symbol v1_grpid)
+        - no valid ranges computed for threshold symbol 'NTHRESHOLD1'
+Theoretical computed ranges for 0 threshold symbols in 0.05 seconds
+Symbol basic ranges: {}
+********************************************************************** Symbol basic ranges computing completes ***********************************************************************
+******************************************************************************* Solving process starts *******************************************************************************
+Parsed template in 0.0011680126190185547 seconds
+Set solve data in 0.0005054473876953125 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005736351013183594 seconds
+Constructed main constraint in 0.6632037162780762 seconds
+Constructed VE constraints in 1.049041748046875e-05 seconds
+Constructed symbol domain constraints in 0.033586978912353516 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 193
+    - symbol domains:
+        - _N_THRESHOLD_1: 194
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(205, 1)}
+        - objective value: 0 out of 0
+        - solved in 0.0052492618560791016 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.008544683456420898 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.008484840393066406 seconds
+1226_1111/template_32 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes ******************************************************************************
+========================================================== 1226_1111/template_32 (5000_11_solve) instantiation completes ===========================================================
+Total instantiation time: 0.90 seconds

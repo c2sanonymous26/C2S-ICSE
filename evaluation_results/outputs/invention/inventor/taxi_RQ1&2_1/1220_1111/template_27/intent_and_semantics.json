@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The angular velocity (rate of heading change) between consecutive contexts of the same vehicle does not exceed a physical upper bound.",
+    "goal": "Detect physically impossible rates of heading change between consecutive records.",
+    "design_rationale": "A vehicle cannot change its heading arbitrarily fast; the rate of heading change is bounded by vehicle dynamics, and excessive angular velocity indicates a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute heading difference to the timestamp difference between v1 and v2 does not exceed a certain reasonable angular velocity upper bound."
+}

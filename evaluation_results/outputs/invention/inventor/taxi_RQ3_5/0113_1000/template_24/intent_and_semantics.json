@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should keep a bounded angle relative to the line connecting their positions.",
+    "goal": "Detect cross-vehicle context pairs whose travel direction is implausibly inconsistent with their relative-position direction.",
+    "design_rationale": "This rule constrains how the travel direction of nearby-time observations relates to the line connecting their positions."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their travel direction and the line connecting their positions should not exceed a certain value."
+}

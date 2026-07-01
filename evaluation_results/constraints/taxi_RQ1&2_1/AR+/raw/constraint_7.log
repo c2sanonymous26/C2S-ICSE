@@ -1,0 +1,68 @@
+2025-12-15 06:56:15,615 - INFO - ======================================================================
+2025-12-15 06:56:15,615 - INFO - Starting run 7/50
+2025-12-15 06:56:15,615 - INFO - Mode: pairwise, Comparison: eq
+2025-12-15 06:56:15,615 - INFO - **********************************************************************
+2025-12-15 06:56:15,621 - INFO - Starting to create Cartesian product dataset, original data shape: (5042, 7)
+2025-12-15 06:56:26,458 - INFO - Cartesian product completed, new data shape: (25421764, 14)
+2025-12-15 06:56:27,534 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 06:56:27,534 - INFO - Assertion mining DataFrame shape: (25421764, 10)
+2025-12-15 06:56:29,317 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-15 06:56:29,317 - INFO - Precondition mining DataFrame shape: (25421764, 14)
+2025-12-15 06:56:29,428 - INFO - **********************************************************************
+2025-12-15 06:56:29,428 - INFO - **********************************************************************
+2025-12-15 06:56:29,428 - INFO - Target field: direction_2 (selected from 10 candidates)
+2025-12-15 06:56:29,428 - INFO - **********************************************************************
+2025-12-15 06:56:29,428 - INFO - Timeout: 3600 seconds
+2025-12-15 06:56:29,428 - INFO - **********************************************************************
+2025-12-15 06:56:29,428 - INFO - Starting assertion mining...
+2025-12-15 06:56:29,935 - INFO - Target: direction_2 - Features: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1']
+2025-12-15 06:56:29,935 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-15 06:56:29,935 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-15 07:00:12,172 - INFO - Batch 0 training completed, current best fitness: 0.876414013
+2025-12-15 07:00:12,173 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-15 07:03:49,570 - INFO - Batch 1 training completed, current best fitness: 0.868139272
+2025-12-15 07:03:49,570 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-15 07:07:43,726 - INFO - Batch 2 training completed, current best fitness: 0.869439272
+2025-12-15 07:07:43,726 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-15 07:07:43,726 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-15 07:11:45,419 - INFO - Batch 3 training completed, current best fitness: 0.865320948
+2025-12-15 07:11:45,419 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-15 07:15:32,755 - INFO - Batch 4 training completed, current best fitness: 0.865020948
+2025-12-15 07:15:32,755 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-15 07:19:11,912 - INFO - Batch 5 training completed, current best fitness: 0.868120948
+2025-12-15 07:19:11,912 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-15 07:19:11,912 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-15 07:22:40,968 - INFO - Batch 6 training completed, current best fitness: 0.865019285
+2025-12-15 07:22:40,969 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-15 07:26:06,991 - INFO - Batch 7 training completed, current best fitness: 0.865019285
+2025-12-15 07:26:06,991 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-15 07:26:06,991 - INFO - Starting batch 8 training, will train to generation 8
+2025-12-15 07:29:42,416 - INFO - Batch 8 training completed, current best fitness: 0.865019285
+2025-12-15 07:29:42,417 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-15 07:29:42,417 - INFO - Starting batch 9 training, will train to generation 9
+2025-12-15 07:33:08,957 - INFO - Batch 9 training completed, current best fitness: 0.865019285
+2025-12-15 07:33:08,958 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-15 07:33:08,958 - INFO - Starting batch 10 training, will train to generation 10
+2025-12-15 07:36:41,682 - INFO - Batch 10 training completed, current best fitness: 0.865019285
+2025-12-15 07:36:41,682 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-15 07:36:41,683 - INFO - Starting batch 11 training, will train to generation 11
+2025-12-15 07:40:08,643 - INFO - Batch 11 training completed, current best fitness: 0.865019285
+2025-12-15 07:40:08,643 - INFO - Current fitness not improved, consecutive no improvement count: 5
+2025-12-15 07:40:08,643 - INFO - Starting batch 12 training, will train to generation 12
+2025-12-15 07:43:41,539 - INFO - Batch 12 training completed, current best fitness: 0.865019285
+2025-12-15 07:43:41,539 - INFO - Current fitness not improved, consecutive no improvement count: 6
+2025-12-15 07:43:41,539 - INFO - Starting batch 13 training, will train to generation 13
+2025-12-15 07:47:15,045 - INFO - Batch 13 training completed, current best fitness: 0.865019285
+2025-12-15 07:47:15,045 - INFO - Current fitness not improved, consecutive no improvement count: 7
+2025-12-15 07:47:15,045 - INFO - Starting batch 14 training, will train to generation 14
+2025-12-15 07:50:42,470 - INFO - Batch 14 training completed, current best fitness: 0.865019285
+2025-12-15 07:50:42,470 - INFO - Current fitness not improved, consecutive no improvement count: 8
+2025-12-15 07:50:42,470 - INFO - Starting batch 15 training, will train to generation 15
+2025-12-15 07:54:10,577 - INFO - Batch 15 training completed, current best fitness: 0.865019285
+2025-12-15 07:54:10,578 - INFO - Current fitness not improved, consecutive no improvement count: 9
+2025-12-15 07:54:10,578 - INFO - Starting batch 16 training, will train to generation 16
+2025-12-15 07:56:38,133 - ERROR - Assertion mining exception: Target processing timeout
+2025-12-15 07:56:38,141 - ERROR - Assertion mining failed
+2025-12-15 07:56:38,141 - INFO - **********************************************************************
+2025-12-15 07:56:38,256 - WARNING - Run 7 failed to generate constraint
+2025-12-15 07:56:38,256 - INFO - ======================================================================

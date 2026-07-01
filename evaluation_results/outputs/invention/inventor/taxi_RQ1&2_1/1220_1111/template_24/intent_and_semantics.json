@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The acceleration (rate of speed change) between consecutive contexts of the same vehicle does not exceed a physical upper bound.",
+    "goal": "Detect physically impossible acceleration values between consecutive records.",
+    "design_rationale": "A vehicle cannot accelerate or decelerate beyond physical limits; the rate of speed change between consecutive records provides a direct measure of acceleration."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute speed difference to the timestamp difference between v1 and v2 does not exceed a certain reasonable acceleration upper bound."
+}

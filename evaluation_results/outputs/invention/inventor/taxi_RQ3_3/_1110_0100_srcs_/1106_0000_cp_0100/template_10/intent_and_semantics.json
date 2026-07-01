@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should exhibit a reasonable local coordinate-change rate.",
+    "goal": "Detect contexts with implausible changes in geographic position.",
+    "design_rationale": "Valid taxi movement should not imply an excessive rate of coordinate change."
+  },
+  "semantics": "For any context v1, the rate of change in the longitude and latitude values of v1 should lie within a certain reasonable range."
+}

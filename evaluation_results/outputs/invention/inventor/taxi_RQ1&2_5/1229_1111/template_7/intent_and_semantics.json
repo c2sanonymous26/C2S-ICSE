@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Detect whether two different vehicles observed at nearby times have an excessively large combined speed-and-heading difference.",
+    "goal": "Identify different-vehicle pairs whose joint speed and direction variation is too large within a short time interval.",
+    "design_rationale": "If two vehicles are observed close in time, the product of their speed difference and direction difference should stay within a reasonable upper bound; otherwise the combined discrepancy is implausibly large."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to different vehicles and their timestamps are close (the absolute time difference does not exceed some value), then the product of their speed difference and their direction difference must be significantly less than some upper bound (i.e., the combined indicator of speed and direction variation for the two vehicles within a nearby time interval should not be too large)."
+}

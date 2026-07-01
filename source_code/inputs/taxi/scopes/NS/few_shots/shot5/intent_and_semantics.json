@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two contexts from different vehicles that are spatially close within the same time period should have similar speeds.",
+    "goal": "Detect speed outliers in spatially dense traffic areas where nearby vehicles are expected to travel at comparable speeds.",
+    "design_rationale": "Vehicles in proximity under similar traffic conditions should have similar instantaneous speeds; a large speed discrepancy between nearby vehicles suggests a sensor error or GPS anomaly in one of the records."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, are within the same time period, and their GPS locations are spatially close, then their instantaneous speeds are close (the absolute speed difference does not exceed a certain value)."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive same-vehicle contexts should not exhibit too much direction change relative to the spatial distance they cover.",
+    "goal": "Detect adjacent contexts whose heading change is implausibly large when normalized by their displacement.",
+    "design_rationale": "A realistic movement segment should balance directional change and traveled distance instead of producing an extreme angle-change-per-distance ratio."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the absolute difference in direction angle between v1 and v2 and their geographic difference computed using the haversine formula should not exceed a certain reasonable upper bound."
+}

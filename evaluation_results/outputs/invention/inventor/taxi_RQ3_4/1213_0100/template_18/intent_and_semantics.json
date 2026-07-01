@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should satisfy a bounded joint displacement-speed relation.",
+    "goal": "Detect adjacent same-vehicle contexts whose combined displacement and speed statistics are implausibly large.",
+    "design_rationale": "The observed displacement and recorded speeds of adjacent contexts should remain jointly consistent with realistic motion."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the displacement distance computed from the coordinates of v1 and v2 and the average of the speed values of v1 and v2 should not exceed a certain upper bound."
+}

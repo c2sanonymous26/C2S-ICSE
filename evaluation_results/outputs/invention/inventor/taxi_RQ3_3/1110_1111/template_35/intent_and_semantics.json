@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "If a one-step previous context has zero speed, the next context should also have zero speed under this rule.",
+    "goal": "Detect one-step same-vehicle context pairs whose stopped-state continuity is broken.",
+    "design_rationale": "A stopped context should preserve stopped-state continuity to the next one-step context under this design."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is zero, then the speed of v2 should also be zero."
+}

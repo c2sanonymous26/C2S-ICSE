@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "For any two consecutive contexts of the same vehicle, the direction of coordinate change should be consistent with the direction of heading angle change.",
+    "goal": "Detect consecutive contexts where the physical movement direction (derived from coordinate changes) contradicts the recorded heading angle change direction.",
+    "design_rationale": "The direction computed from GPS coordinate displacement should align with the direction implied by the change in heading angle; a mismatch between these two indicates an inconsistent or erroneous record."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the direction of coordinate change between v1 and v2 is consistent with the direction of heading angle change between v1 and v2."
+}

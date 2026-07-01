@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "total_time": 69.15900802612305,
+  "reimagine_rollback_count": 0,
+  "reimagine_attempts": [
+    {
+      "attempt_number": 1,
+      "result": "success",
+      "duplicate_with": null,
+      "time_cost": 69.15751791000366,
+      "semantics": {
+        "time_cost": 9.9985032081604,
+        "semantic_duplicate_count": 1,
+        "llm_call_count": 2
+      },
+      "rewrites": [
+        {
+          "attempt_number": 1,
+          "result": "cannot_implement",
+          "time_cost": 27.802797079086304,
+          "sas_stats": {
+            "time_cost": 6.7506420612335205,
+            "syntax_error_count": 0,
+            "semantic_error_count": 0,
+            "llm_call_count": 1
+          },
+          "impl_stats": {
+            "time_cost": 21.047486066818237,
+            "syntax_error_count": 2,
+            "consistency_error_count": 0,
+            "unit_error_count": 0,
+            "llm_call_count": 3
+          }
+        },
+        {
+          "attempt_number": 2,
+          "result": "success",
+          "time_cost": 31.192023992538452,
+          "sas_stats": {
+            "time_cost": 12.800035953521729,
+            "syntax_error_count": 1,
+            "semantic_error_count": 0,
+            "llm_call_count": 2
+          },
+          "impl_stats": {
+            "time_cost": 18.391932249069214,
+            "syntax_error_count": 0,
+            "consistency_error_count": 0,
+            "unit_error_count": 0,
+            "llm_call_count": 1
+          }
+        }
+      ]
+    }
+  ]
+}

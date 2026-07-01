@@ -1,0 +1,59 @@
+============================================================ 1105_1111/template_7 (5000_11_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1105_1111/template_7
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0015888214111328125 seconds
+Constructed ctx data in 3.743171691894531e-05 seconds
+Loaded data field types in 0.0005648136138916016 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_timestamp - v2_timestamp → range [-997764821.7858205, 999914214.9916778]
+        - final range for threshold symbol 'NTHRESHOLD1': [-997764821.7858205, 999914214.9916778]
+Approximate computed ranges for 1 threshold symbols in 0.09 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression v1_timestamp - v2_timestamp → range [-1000000000.0, 1000000000.0]
+        - final range for threshold symbol 'NTHRESHOLD1': [-1000000000.0, 1000000000.0]
+Theoretical computed ranges for 1 threshold symbols in 0.07 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (-1000000000.0, 1000000000.0)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0013251304626464844 seconds
+Set solve data in 0.0008916854858398438 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005731582641601562 seconds
+Constructed main constraint in 61.810927391052246 seconds
+Constructed VE constraints in 0.0012493133544921875 seconds
+Constructed symbol domain constraints in 0.02295517921447754 seconds
+    - symbol inequalities:
+        - (<, _N_THRESHOLD_1): 101
+    - symbol domains:
+        - _N_THRESHOLD_1: 102
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(999999, 1000000)}
+        - objective value: 4 out of 4
+        - solved in 0.0037994384765625 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.005100250244140625 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.004906654357910156 seconds
+1105_1111/template_7 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1105_1111/template_7 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 62.07 seconds

@@ -1,0 +1,23 @@
+{
+  "mode": "single",
+  "cmp": "lt",
+  "target_col": "direction",
+  "status": "success_with_preconditions",
+  "assertion": "div(log(sqrt(tan(25505.093))), timestamp)",
+  "precondition": "frozenset({'direction_bin_0.000000000_15.750000000'})",
+  "rule_fit_rate": 1.0,
+  "overall_time": 436.9389314651489,
+  "asrtm_time": 436.6651976108551,
+  "predm_time": 0.27167177200317383,
+  "asrt_info": {
+    "fitness": 0.8407883011944723,
+    "was_early_stopped": true,
+    "generations_completed": 30
+  },
+  "pred_info": {
+    "rule_confidence": 1.0,
+    "rule_support": 0.1598571995239984,
+    "precondition_length": "1",
+    "description": "direction_bin_0.000000000_15.750000000"
+  }
+}

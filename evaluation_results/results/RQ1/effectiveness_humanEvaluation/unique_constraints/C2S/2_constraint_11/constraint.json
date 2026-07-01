@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "The joint product of speed difference and heading change between same-vehicle contexts that are close in time is bounded.",
+    "goal": "Detect same-vehicle context pairs that are close in time but simultaneously show large speed difference and large heading change.",
+    "design_rationale": "Within a short time window, large simultaneous changes in both speed and heading are physically implausible; their product being large indicates measurement anomalies."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close (absolute time difference within a certain range), the product of the absolute speed difference and the absolute heading difference does not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the timestamps of v1 and v2 are close (absolute time difference within a certain range)",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the absolute speed difference and the absolute heading difference between v1 and v2 does not exceed a certain reasonable upper bound",
+      "implementation": "abs(v1.speed - v2.speed) × abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

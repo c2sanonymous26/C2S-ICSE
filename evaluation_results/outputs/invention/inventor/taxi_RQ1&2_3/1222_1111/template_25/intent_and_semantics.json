@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle's speed is zero in a context, its coordinates in the next consecutive context should remain the same.",
+    "goal": "Detect consecutive contexts where a stationary vehicle shows a coordinate change in the following record.",
+    "design_rationale": "A stationary vehicle (speed = 0) should not move; any coordinate change in the subsequent record indicates a GPS positioning error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is zero, then the coordinates of v2 should be the same as those of v1."
+}

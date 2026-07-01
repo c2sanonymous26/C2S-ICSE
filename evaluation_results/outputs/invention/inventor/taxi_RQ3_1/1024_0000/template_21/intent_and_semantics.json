@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should not exhibit an implausibly high acceleration.",
+    "goal": "Detect consecutive contexts with unrealistically large acceleration or deceleration.",
+    "design_rationale": "The change in speed over time between adjacent contexts should remain within plausible dynamic limits for a taxi."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the ratio between the absolute difference in speed between v1 and v2 and their timestamp difference should not exceed a certain reasonable upper bound for acceleration."
+}

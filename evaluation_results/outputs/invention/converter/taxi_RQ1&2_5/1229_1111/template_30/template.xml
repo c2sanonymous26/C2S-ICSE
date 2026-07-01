@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly greater than some lower bound (i.e., the vehicle's movement speed is not lower than some lower bound), and the ratio of their latitude-longitude distance to their timestamp difference (i.e., speed) must be significantly less than some upper bound (i.e., the vehicle's movement speed does not exceed some upper bound).
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <and>
+          <bfunc id="3"/>
+          <bfunc id="4"/>
+        </and>
+      </implies>
+    </forall>
+  </forall>
+</formula>

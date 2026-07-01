@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has zero speed and a non-zero heading, the next consecutive context either also has zero speed or maintains the same heading.",
+    "goal": "Detect stationary contexts with non-zero heading that are followed by an implausible heading change.",
+    "design_rationale": "A stationary vehicle with a recorded heading should either remain stationary with the same heading or transition consistently; a heading change while stationary indicates a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and its heading is non-zero, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and either v2's speed is zero or v2's heading is the same as v1's."
+}

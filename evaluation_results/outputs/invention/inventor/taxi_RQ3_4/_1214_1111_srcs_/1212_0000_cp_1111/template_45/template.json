@@ -1,0 +1,20 @@
+{
+  "intent": {
+    "content": "Each context should have a non-negative speed value.",
+    "goal": "Detect contexts with physically impossible negative speeds.",
+    "design_rationale": "Vehicle speed should never be negative in a valid trajectory record."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be non-negative.",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is non-negative.",
+      "implementation": "v1.speed >= 0",
+      "restrictions": []
+    }
+  ]
+}

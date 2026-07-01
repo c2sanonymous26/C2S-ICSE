@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the combined coordinate distance and heading difference within a reasonable turning-radius bound.",
+    "goal": "Detect adjacent contexts whose joint geometric turning pattern is implausible.",
+    "design_rationale": "A valid local trajectory should preserve a realistic relationship between traveled distance and heading change across adjacent contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the product of the coordinate distance between v1 and v2 computed using the haversine formula and the absolute difference between their direction angles should not exceed a certain reasonable upper bound on turning radius."
+}

@@ -1,0 +1,43 @@
+===================================================== 1027_0010/template_29 (5000_10_solve) instantiation starts =====================================================
+- scenario: taxi
+- template: 1027_0010/template_29
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+************************************************************************** Preparation starts **************************************************************************
+Decomposed template in 0.0020873546600341797 seconds
+Constructed ctx data in 3.743171691894531e-05 seconds
+Loaded data field types in 0.0005342960357666016 seconds
+************************************************************************ Preparation completes *************************************************************************
+************************************************************************ Solving process starts ************************************************************************
+Parsed template in 0.0016262531280517578 seconds
+Set solve data in 0.0008859634399414062 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0006034374237060547 seconds
+Constructed main constraint in 499.6533224582672 seconds
+Constructed symbol domain constraints in 3.89028000831604 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 11
+        - (>=, _N_THRESHOLD_2): 2
+        - (>, _N_THRESHOLD_3): 48108
+    - symbol domains:
+        - _N_THRESHOLD_1: 12
+        - _N_THRESHOLD_2: 3
+        - _N_THRESHOLD_3: 48109
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-1, 1000000), '_N_THRESHOLD_3': Fraction(45101043, 500000), '_N_THRESHOLD_2': Fraction(45, 1)}
+        - solved in 158.54269313812256 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(-1, 1000000), '_N_THRESHOLD_3': Fraction(45101043, 500000), '_N_THRESHOLD_2': Fraction(0, 1)}
+        - solved in 158.1314079761505 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 317.4140202999115 seconds
+1027_0010/template_29 (5000_10_solve) has 2 valid models
+********************************************************************** Solving process completes ***********************************************************************
+=================================================== 1027_0010/template_29 (5000_10_solve) instantiation completes ====================================================
+Total instantiation time: 1137.81 seconds

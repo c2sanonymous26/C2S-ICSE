@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle are moving, the coordinate displacement direction and the direction angle change direction are consistent.",
+    "goal": "Detect moving consecutive contexts where the GPS displacement direction and the heading change direction are mutually inconsistent.",
+    "design_rationale": "The direction in which a vehicle's coordinates shift and the direction in which its heading changes should be aligned; a large angular discrepancy between the two indicates erroneous coordinate or direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v1 is the immediately preceding context of v2, and both v1 and v2 have non-zero speed, then the coordinate displacement direction and the direction angle change direction of v1 and v2 should be consistent."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded speed-change rate.",
+    "goal": "Detect adjacent same-vehicle contexts whose speed evolves implausibly quickly.",
+    "design_rationale": "The rate of speed change between adjacent contexts should remain within a realistic dynamic bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the speed-change rate computed from the speed difference and timestamp difference between v1 and v2 should not exceed a certain upper bound."
+}

@@ -1,0 +1,39 @@
+===================================================== 1027_0001/template_21 (5000_01_solve) instantiation starts =====================================================
+- scenario: taxi
+- template: 1027_0001/template_21
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: enabled
+************************************************************************** Preparation starts **************************************************************************
+Decomposed template in 0.00148773193359375 seconds
+Constructed ctx data in 3.886222839355469e-05 seconds
+Loaded data field types in 0.0005171298980712891 seconds
+************************************************************************ Preparation completes *************************************************************************
+************************************************************************ Solving process starts ************************************************************************
+Parsed template in 0.0013263225555419922 seconds
+Set solve data in 0.0008788108825683594 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005505084991455078 seconds
+Constructed main constraint in 59.19843578338623 seconds
+Constructed VE constraints in 1.0013580322265625e-05 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(42, 1)}
+        - objective value: 0 out of 0
+        - solved in 0.00138092041015625 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(43, 1)}
+        - objective value: 0 out of 0
+        - solved in 0.0010161399841308594 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(85, 2)}
+        - objective value: 0 out of 0
+        - solved in 0.0008845329284667969 seconds
+1027_0001/template_21 (5000_01_solve) has 3 valid models
+********************************************************************** Solving process completes ***********************************************************************
+=================================================== 1027_0001/template_21 (5000_01_solve) instantiation completes ====================================================
+Total instantiation time: 59.24 seconds

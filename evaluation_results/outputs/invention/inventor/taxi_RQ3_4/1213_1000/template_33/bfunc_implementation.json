@@ -1,0 +1,16 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid != v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "(abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1) && (sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2)"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "abs(atan2(sin(radians(atan2(v3.latitude - v2.latitude, v3.longitude - v2.longitude) - atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))), cos(radians(atan2(v3.latitude - v2.latitude, v3.longitude - v2.longitude) - atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))))) ÷ abs(v3.timestamp - v1.timestamp) <= NTHRESHOLD3"
+    }
+  ]
+}

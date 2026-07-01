@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The group ID (grpid) of each context is at least 1.",
+    "goal": "Detect contexts with an invalid or out-of-range group ID.",
+    "design_rationale": "Group IDs start from 1; a grpid value of 0 or below indicates an indexing error or data corruption in the sequence ordering."
+  },
+  "semantics": "For any context v1, the grpid value of v1 is greater than or equal to 1."
+}

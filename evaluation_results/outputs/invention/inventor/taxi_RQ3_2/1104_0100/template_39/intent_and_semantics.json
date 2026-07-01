@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A zero-speed context should stay close in heading to its previous context.",
+    "goal": "Detect stationary contexts whose direction changes too sharply relative to the previous context.",
+    "design_rationale": "When a vehicle is not moving, its heading should stay stable rather than changing abruptly from the previous observation."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute difference between the direction angle of v1 and that of the previous context v2 of v1 should lie within a certain reasonable range."
+}

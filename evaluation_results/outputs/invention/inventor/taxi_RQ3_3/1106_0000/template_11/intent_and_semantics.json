@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should not be too far apart geographically under this rule.",
+    "goal": "Detect cross-vehicle context pairs whose spatial separation is implausible given their near-synchronous timestamps.",
+    "design_rationale": "This rule constrains spatial distance for closely timed observations from different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the coordinate distance between them should not exceed a certain value."
+}

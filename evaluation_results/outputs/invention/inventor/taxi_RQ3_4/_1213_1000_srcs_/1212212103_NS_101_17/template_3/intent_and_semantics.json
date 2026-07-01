@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded direction-change rate.",
+    "goal": "Detect adjacent same-vehicle contexts whose heading changes too abruptly.",
+    "design_rationale": "The absolute direction difference over elapsed time between adjacent contexts should remain within a realistic turning-rate bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the absolute direction difference of v1 and v2 and their timestamp difference should not exceed a certain upper bound."
+}

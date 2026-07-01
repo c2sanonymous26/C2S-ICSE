@@ -1,0 +1,124 @@
+{
+  "constraint_id": 50,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 105.49382781982422
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "For consecutive contexts of the same taxi, if the speed in the first context is above a certain threshold, then the haversine distance between the two contexts is above a certain minimum distance.",
+      "goal": "Detect GPS location jumps that are too small relative to the speed, indicating that the GPS location did not update properly or the speed reading is erroneous.",
+      "design_rationale": "When a taxi is moving at a high speed, the GPS location should change by a significant distance over the time interval. If the distance is too small, it suggests a GPS location stuck or a speed sensor error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1), and the speed in v1 is above a certain threshold, then the haversine distance between the GPS locations (longitude, latitude) of v1 and v2 is above a certain minimum distance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that taxi (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed in v1 is above a certain threshold",
+        "implementation": "v1.speed > NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations (longitude, latitude) of v1 and v2 is above a certain minimum distance",
+        "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) > NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 40.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.01
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "For consecutive contexts of the same taxi, if the speed in the first context is above a certain threshold, then the haversine distance between the two contexts is above a certain minimum distance.",
+      "goal": "Detect GPS location jumps that are too small relative to the speed, indicating that the GPS location did not update properly or the speed reading is erroneous.",
+      "design_rationale": "When a taxi is moving at a high speed, the GPS location should change by a significant distance over the time interval. If the distance is too small, it suggests a GPS location stuck or a speed sensor error."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1), and the speed in v1 is above a certain threshold, then the haversine distance between the GPS locations (longitude, latitude) of v1 and v2 is above a certain minimum distance.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that taxi (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed in v1 is above a certain threshold",
+        "implementation": "v1.speed > 40.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations (longitude, latitude) of v1 and v2 is above a certain minimum distance",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) > 0.01",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 19
+  }
+}

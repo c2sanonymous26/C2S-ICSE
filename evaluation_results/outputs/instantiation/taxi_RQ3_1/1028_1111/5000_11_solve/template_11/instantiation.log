@@ -1,0 +1,71 @@
+===================================================================== 1028_1111/template_11 (5000_11_solve) instantiation starts ====================================================================
+- scenario: taxi
+- template: 1028_1111/template_11
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+****************************************************************************************** Preparation starts *****************************************************************************************
+Decomposed template in 0.002400636672973633 seconds
+Constructed ctx data in 4.220008850097656e-05 seconds
+Loaded data field types in 0.0006413459777832031 seconds
+**************************************************************************************** Preparation completes ****************************************************************************************
+********************************************************************************* Symbol basic ranges computing starts ********************************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction) → range [0.0, 359.999999999]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 359.999999999]
+    - computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - field expression Abs(v1_speed - v2_speed) → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 250.0]
+Approximate computed ranges for 2 threshold symbols in 0.30 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 2 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_direction) + I*im(v2_direction).
+        - field expression Abs(v1_direction - v2_direction) → range [0.0, 359.999999999]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 359.999999999]
+    - theoretical computing range for threshold symbol 'NTHRESHOLD2' with 1 field expressions
+        - try to use level1_calculus_analysis failed: 
+Can't calculate derivative wrt re(v2_speed) + I*im(v2_speed).
+        - field expression Abs(v1_speed - v2_speed) → range [0.0, 250.0]
+        - final range for threshold symbol 'NTHRESHOLD2': [0.0, 250.0]
+Theoretical computed ranges for 2 threshold symbols in 0.14 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 359.999999999), '_N_THRESHOLD_2': (0.0, 250.0)}
+******************************************************************************* Symbol basic ranges computing completes *******************************************************************************
+**************************************************************************************** Solving process starts ***************************************************************************************
+Parsed template in 0.0015659332275390625 seconds
+Set solve data in 0.0009014606475830078 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005848407745361328 seconds
+Constructed main constraint in 63.42872214317322 seconds
+Constructed VE constraints in 0.0013306140899658203 seconds
+Constructed symbol domain constraints in 0.009832382202148438 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 8
+        - (>=, _N_THRESHOLD_2): 82
+    - symbol domains:
+        - _N_THRESHOLD_1: 9
+        - _N_THRESHOLD_2: 83
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(315, 1), '_N_THRESHOLD_2': Fraction(94, 1)}
+        - objective value: 8 out of 8
+        - solved in 0.004055500030517578 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.004709720611572266 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.004362583160400391 seconds
+1028_1111/template_11 (5000_11_solve) has 1 valid models
+************************************************************************************** Solving process completes **************************************************************************************
+=================================================================== 1028_1111/template_11 (5000_11_solve) instantiation completes ===================================================================
+Total instantiation time: 63.95 seconds

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should satisfy the bounded relationship between displacement distance and the speed of v1 defined by this rule.",
+    "goal": "Detect near-consecutive contexts whose displacement-distance and speed product is implausible.",
+    "design_rationale": "This rule constrains a composite motion quantity derived from local displacement and recorded speed to remain within a realistic range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the product of the displacement distance computed from the coordinates of v1 and v2 and the speed value of v1 should lie within a certain reasonable range."
+}

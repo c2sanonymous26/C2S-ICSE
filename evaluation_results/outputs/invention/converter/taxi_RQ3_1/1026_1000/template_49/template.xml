@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in opposite quadrants (such as 0-90° and 180-270°), then the ratio between the haversine distance computed from v1 and v2 and their timestamp difference, namely their average speed, must be significantly lower than the larger of the instantaneous speeds of v1 and v2.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

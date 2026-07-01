@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A long-duration zero-speed context should remain geographically close to the next context.",
+    "goal": "Detect stationary contexts whose location drifts implausibly over an extended stopped interval.",
+    "design_rationale": "If a vehicle remains stopped for a sufficiently long local interval, its position should not shift beyond a small stationary drift bound."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero and remains so beyond a certain time threshold, meaning that the timestamp difference between v1 and its next context v2 exceeds a certain value, then the coordinate distance between v1 and v2 computed using the haversine formula should not exceed a certain reasonable upper bound on stationary-position drift."
+}

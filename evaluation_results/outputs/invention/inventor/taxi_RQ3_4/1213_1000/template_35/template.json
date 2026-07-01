@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should imply a bounded speed-change rate.",
+    "goal": "Detect adjacent same-vehicle contexts whose speed evolves too abruptly.",
+    "design_rationale": "The absolute speed difference over elapsed time between adjacent contexts should remain within a realistic bound."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the absolute speed difference of v1 and v2 and their timestamp difference should not exceed a certain upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the absolute speed difference of v1 and v2 and their timestamp difference does not exceed a certain upper bound.",
+      "implementation": "abs(v1.speed - v2.speed) ÷ abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

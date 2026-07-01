@@ -1,0 +1,102 @@
+{
+  "constraint_id": 11,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 150.3256597518921
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "A single taxi must not appear at two widely separated GPS locations within an extremely short time window.",
+      "goal": "Detect near-simultaneous records for the same taxi whose locations are too far apart to be physically plausible, indicating GPS jumps, timestamp errors, or duplicated/misaligned reports.",
+      "design_rationale": "Because each context is an instantaneous driving state from one taxi collector, two contexts of the same taxi with nearly identical timestamps should correspond to nearly the same physical position. A large spatial separation within such a short time period cannot be explained by normal taxi motion and should be treated as anomalous."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the absolute difference between their timestamps is within a very short time period, then the GPS displacement between the locations recorded in v1 and v2 is sufficiently small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the timestamps recorded in v1 and v2 is within a very short time period",
+        "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the GPS displacement between the locations recorded in v1 and v2 is sufficiently small",
+        "implementation": "6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) <= NTHRESHOLD2",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 1.0
+      },
+      {
+        "symbol": "NTHRESHOLD2",
+        "value": 0.05
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "A single taxi must not appear at two widely separated GPS locations within an extremely short time window.",
+      "goal": "Detect near-simultaneous records for the same taxi whose locations are too far apart to be physically plausible, indicating GPS jumps, timestamp errors, or duplicated/misaligned reports.",
+      "design_rationale": "Because each context is an instantaneous driving state from one taxi collector, two contexts of the same taxi with nearly identical timestamps should correspond to nearly the same physical position. A large spatial separation within such a short time period cannot be explained by normal taxi motion and should be treated as anomalous."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the absolute difference between their timestamps is within a very short time period, then the GPS displacement between the locations recorded in v1 and v2 is sufficiently small.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the timestamps recorded in v1 and v2 is within a very short time period",
+        "implementation": "abs((v1.timestamp - v2.timestamp)) <= 1.0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the GPS displacement between the locations recorded in v1 and v2 is sufficiently small",
+        "implementation": "((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) <= 0.05",
+        "restrictions": []
+      }
+    ]
+  }
+}

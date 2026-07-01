@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The grpid of each context should increase consistently with its timestamp.",
+    "goal": "Detect within-vehicle ordering fields that are inconsistent with temporal progression.",
+    "design_rationale": "If grpid is used to represent the local sequence of contexts for a vehicle, it should move forward together with time rather than contradict the timestamp order."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be positively correlated with its timestamp value."
+}

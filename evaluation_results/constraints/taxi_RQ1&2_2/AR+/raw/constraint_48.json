@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "ge",
+  "target_col": "speed_2",
+  "status": "success_simple_constraint",
+  "assertion": "sub(tan(log(longitude_2)), sin(log(timestamp_2)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 223.45437145233154,
+  "asrtm_time": 221.72517275810242,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0007,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

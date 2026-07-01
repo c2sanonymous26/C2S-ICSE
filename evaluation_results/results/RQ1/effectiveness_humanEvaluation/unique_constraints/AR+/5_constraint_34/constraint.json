@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.latitude is greater than or equal to log(sub(tan(tan(v1.longitude)), neg(add(v1.timestamp, v1.direction)))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.latitude is greater than or equal to log(sub(tan(tan(v1.longitude)), neg(add(v1.timestamp, v1.direction))))",
+      "implementation": "var_bindings['v1']['latitude'] >= (0 if abs((tan(tan(var_bindings['v1']['longitude'])) - (-(var_bindings['v1']['timestamp'] + var_bindings['v1']['direction'])))) < 1/1000 else log(abs((tan(tan(var_bindings['v1']['longitude'])) - (-(var_bindings['v1']['timestamp'] + var_bindings['v1']['direction']))))))"
+    }
+  ]
+}

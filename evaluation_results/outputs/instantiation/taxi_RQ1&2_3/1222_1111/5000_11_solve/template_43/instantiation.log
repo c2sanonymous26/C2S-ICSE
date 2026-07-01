@@ -1,0 +1,59 @@
+============================================================ 1222_1111/template_43 (5000_11_solve) instantiation starts ===========================================================
+- scenario: taxi
+- template: 1222_1111/template_43
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.002049684524536133 seconds
+Constructed ctx data in 3.528594970703125e-05 seconds
+Loaded data field types in 0.0005517005920410156 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [1.7795939647045987e-12, 402.4922359490677]
+        - final range for threshold symbol 'NTHRESHOLD1': [1.7795939647045987e-12, 402.4922359490677]
+Approximate computed ranges for 1 threshold symbols in 0.51 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 4 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression sqrt((v1_latitude - v2_latitude)**2.0 + (v1_longitude - v2_longitude)**2.0) → range [0.0, 402.49223594906766]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 402.49223594906766]
+Theoretical computed ranges for 1 threshold symbols in 0.30 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 402.4922359490677)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0017189979553222656 seconds
+Set solve data in 0.0008800029754638672 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005495548248291016 seconds
+Constructed main constraint in 52.21191072463989 seconds
+Constructed VE constraints in 0.0011608600616455078 seconds
+Constructed symbol domain constraints in 0.06302118301391602 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 780
+    - symbol domains:
+        - _N_THRESHOLD_1: 781
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(2871021704018599, 18014398509481984)}
+        - objective value: 4 out of 4
+        - solved in 0.04486823081970215 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.08760952949523926 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.08781290054321289 seconds
+1222_1111/template_43 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+========================================================== 1222_1111/template_43 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 53.37 seconds

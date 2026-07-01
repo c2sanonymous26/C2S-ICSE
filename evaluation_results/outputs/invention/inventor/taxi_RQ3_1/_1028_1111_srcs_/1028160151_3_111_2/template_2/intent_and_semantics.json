@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Three nearby cross-vehicle contexts observed at similar times should satisfy a relaxed transitive upper bound on pairwise distance.",
+    "goal": "Detect triples of contexts whose pairwise spatial configuration violates a plausible distance-consistency relation.",
+    "design_rationale": "If v1 is close to v2 and v2 is close to v3 within the same time window, then v1 and v3 should remain within a correspondingly larger but still bounded distance."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), the geographic distance between v1 and v2 computed using the haversine formula does not exceed a certain reasonable upper bound for distance, and the geographic distance between v2 and v3 does not exceed a certain reasonable upper bound for distance, then the geographic distance between v1 and v3 should not exceed a larger reasonable upper bound for distance."
+}

@@ -1,0 +1,93 @@
+{
+  "constraint_id": 40,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 3,
+    "generation_seconds": 69.85194897651672
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The per-vehicle sequence order is consistent with chronological order.",
+      "goal": "Detect taxi records whose sequence number indicates that one context follows another, but whose timestamp does not advance accordingly.",
+      "design_rationale": "Each taxi collector sends driving states over time, and the grpid field orders contexts within the same taxi. For a physically meaningful driving trace, the next context in a taxi's sequence should represent a later observation time; otherwise, speed, trajectory, and dispatch analyses may be based on a temporally inconsistent vehicle history."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v2 is the next consecutive record after v1 for that vehicle, then the timestamp recorded in v2 is later than the timestamp recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the next consecutive record after v1 for that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp recorded in v2 is later than the timestamp recorded in v1",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": []
+  },
+  "constraint": {
+    "intent": {
+      "content": "The per-vehicle sequence order is consistent with chronological order.",
+      "goal": "Detect taxi records whose sequence number indicates that one context follows another, but whose timestamp does not advance accordingly.",
+      "design_rationale": "Each taxi collector sends driving states over time, and the grpid field orders contexts within the same taxi. For a physically meaningful driving trace, the next context in a taxi's sequence should represent a later observation time; otherwise, speed, trajectory, and dispatch analyses may be based on a temporally inconsistent vehicle history."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v2 is the next consecutive record after v1 for that vehicle, then the timestamp recorded in v2 is later than the timestamp recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v2 is the next consecutive record after v1 for that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the timestamp recorded in v2 is later than the timestamp recorded in v1",
+        "implementation": "v2.timestamp > v1.timestamp",
+        "restrictions": []
+      }
+    ]
+  }
+}

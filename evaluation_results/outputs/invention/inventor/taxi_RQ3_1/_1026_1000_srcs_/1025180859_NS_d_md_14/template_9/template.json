@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "A sustained zero-speed segment should remain geographically stable across consecutive contexts.",
+    "goal": "Detect prolonged stationary segments whose positions drift beyond a reasonable stationary tolerance.",
+    "design_rationale": "If a vehicle remains stopped across multiple consecutive observations, the accumulated location variation should stay small and reflect only stationary noise."
+  },
+  "semantics": "For any context v1, if the speed of v1 is 0 and this state persists for longer than a certain reasonable time threshold, meaning there exist multiple consecutive contexts with speed 0, then the geographic variation among these contexts, computed using the haversine formula, should not exceed a certain reasonable stationary error range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (exists v3 in dataset ((bfunc2(v1, v2) and bfunc3(v2, v3)) and bfunc4(v1, v2, v3)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is 0.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next context of v1.",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v2",
+        "v3"
+      ],
+      "semantics": "v3 is the next context of v2.",
+      "implementation": "v3.grpid == v2.grpid + 1 && v3.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The geographic variation among v1, v2, and v3, computed using the haversine formula, does not exceed a certain reasonable stationary error range.",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) <= NTHRESHOLD1 && (6371.0 × 2 × atan2(sqrt(sin(radians(v3.latitude - v2.latitude) ÷ 2) × sin(radians(v3.latitude - v2.latitude) ÷ 2) + cos(radians(v2.latitude)) × cos(radians(v3.latitude)) × sin(radians(v3.longitude - v2.longitude) ÷ 2) × sin(radians(v3.longitude - v2.longitude) ÷ 2)), sqrt(1 - (sin(radians(v3.latitude - v2.latitude) ÷ 2) × sin(radians(v3.latitude - v2.latitude) ÷ 2) + cos(radians(v2.latitude)) × cos(radians(v3.latitude)) × sin(radians(v3.longitude - v2.longitude) ÷ 2) × sin(radians(v3.longitude - v2.longitude) ÷ 2))))) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

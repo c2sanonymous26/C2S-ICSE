@@ -1,0 +1,56 @@
+{
+  "constraint_id": 5,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 39.1331901550293
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The speed recorded in each context is within a valid operational range (non-negative and not exceeding a certain upper bound).",
+      "goal": "Detect contexts with implausible speed values that are either negative or exceed the maximum possible speed for a taxi, indicating sensor errors or data corruption.",
+      "design_rationale": "Taxis operate within physical speed limits; any recorded speed outside the valid range (0 to a reasonable maximum) is physically impossible and should be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 is non-negative and does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 is non-negative and does not exceed a certain upper bound",
+        "implementation": "v1.speed >= 0 && v1.speed <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 114.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The speed recorded in each context is within a valid operational range (non-negative and not exceeding a certain upper bound).",
+      "goal": "Detect contexts with implausible speed values that are either negative or exceed the maximum possible speed for a taxi, indicating sensor errors or data corruption.",
+      "design_rationale": "Taxis operate within physical speed limits; any recorded speed outside the valid range (0 to a reasonable maximum) is physically impossible and should be flagged as an anomaly."
+    },
+    "semantics": "For any context v1, the speed recorded in v1 is non-negative and does not exceed a certain upper bound.",
+    "structure": "forall v1 in dataset (bfunc1(v1))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1"
+        ],
+        "semantics": "the speed recorded in v1 is non-negative and does not exceed a certain upper bound",
+        "implementation": "(v1.speed >= 0) && (v1.speed <= 114.0)",
+        "restrictions": []
+      }
+    ]
+  }
+}

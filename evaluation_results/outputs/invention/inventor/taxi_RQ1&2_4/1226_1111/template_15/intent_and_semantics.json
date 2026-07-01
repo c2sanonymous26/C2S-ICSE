@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When both consecutive contexts of the same vehicle are moving, the rate of direction change relative to elapsed time is bounded.",
+    "goal": "Detect moving consecutive contexts with an implausibly large angular velocity.",
+    "design_rationale": "A moving vehicle's turning rate is physically limited; a high ratio of direction change to time difference between two consecutive moving records indicates erroneous sensor data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and v1 is the immediately preceding context of v2, and both v1 and v2 have non-zero speed, then the ratio of the absolute direction difference to the timestamp difference should not exceed a certain reasonable range."
+}

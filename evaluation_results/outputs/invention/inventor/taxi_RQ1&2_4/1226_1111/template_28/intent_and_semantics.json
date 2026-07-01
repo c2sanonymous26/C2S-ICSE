@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a speed value that is non-negative and does not exceed a reasonable upper bound.",
+    "goal": "Detect contexts with a speed value that is negative or exceeds the physical maximum.",
+    "design_rationale": "Speed is a non-negative quantity; any negative value is physically impossible, and any value above the maximum plausible road speed indicates a sensor error or data corruption."
+  },
+  "semantics": "For any context v1, the speed value of v1 should be non-negative and should not exceed a certain reasonable upper bound."
+}

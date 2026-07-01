@@ -1,0 +1,51 @@
+{
+  "intent": {
+    "content": "A start-up transition from zero speed to non-zero speed should happen within a reasonable one-step time threshold.",
+    "goal": "Detect start-up one-step transitions whose temporal gap is implausibly large.",
+    "design_rationale": "When a vehicle starts moving from rest, the elapsed time to the next one-step context should remain bounded."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and the speed of v1 is zero while the speed of v2 is non-zero, then the timestamp difference between v1 and v2 should not exceed a certain reasonable start-up time threshold.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The grpid value of v1 is equal to the grpid value of v2 minus 1.",
+      "implementation": "v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The speed of v1 is zero while the speed of v2 is non-zero.",
+      "implementation": "v1.speed == 0 && v2.speed != 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable start-up time threshold.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

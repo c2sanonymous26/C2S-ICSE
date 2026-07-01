@@ -1,0 +1,16 @@
+{
+  "mode": "single",
+  "cmp": "le",
+  "target_col": "longitude",
+  "status": "success_simple_constraint",
+  "assertion": "max(sin(speed), sqrt(-13228.913))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1.606889009475708,
+  "asrtm_time": 1.5205786228179932,
+  "predm_time": 0.0823519229888916,
+  "asrt_info": {
+    "fitness": 0.0009200875807767225,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

@@ -1,0 +1,44 @@
+2025-12-28 07:56:43,886 - INFO - ======================================================================
+2025-12-28 07:56:43,886 - INFO - Starting run 4/50
+2025-12-28 07:56:43,886 - INFO - Mode: carid_diff, Comparison: eq
+2025-12-28 07:56:43,886 - INFO - **********************************************************************
+2025-12-28 07:56:43,893 - INFO - Starting to create different carid data pairing, original data shape: (5042, 7)
+2025-12-28 07:56:57,855 - INFO - Different carid pairing completed, new data shape: (25220822, 14)
+2025-12-28 07:56:58,936 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 07:56:58,936 - INFO - Assertion mining DataFrame shape: (25220822, 10)
+2025-12-28 07:57:00,703 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 07:57:00,703 - INFO - Precondition mining DataFrame shape: (25220822, 14)
+2025-12-28 07:57:00,809 - INFO - **********************************************************************
+2025-12-28 07:57:00,809 - INFO - **********************************************************************
+2025-12-28 07:57:00,809 - INFO - Target field: speed_1 (selected from 10 candidates)
+2025-12-28 07:57:00,809 - INFO - **********************************************************************
+2025-12-28 07:57:00,809 - INFO - Timeout: 3600 seconds
+2025-12-28 07:57:00,810 - INFO - **********************************************************************
+2025-12-28 07:57:00,810 - INFO - Starting assertion mining...
+2025-12-28 07:57:01,312 - INFO - Target: speed_1 - Features: ['timestamp_1', 'timestamp_2', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-28 07:57:01,312 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-28 07:57:01,312 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-28 08:04:48,898 - INFO - Batch 0 training completed, current best fitness: 0.640778662
+2025-12-28 08:04:48,899 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-28 08:12:31,872 - INFO - Batch 1 training completed, current best fitness: 0.631274661
+2025-12-28 08:12:31,872 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-28 08:20:14,084 - INFO - Batch 2 training completed, current best fitness: 0.631474661
+2025-12-28 08:20:14,085 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-28 08:20:14,085 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-28 08:27:56,918 - INFO - Batch 3 training completed, current best fitness: 0.631474661
+2025-12-28 08:27:56,919 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-28 08:27:56,919 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-28 08:35:36,519 - INFO - Batch 4 training completed, current best fitness: 0.631419838
+2025-12-28 08:35:36,520 - INFO - Current fitness not improved, consecutive no improvement count: 3
+2025-12-28 08:35:36,520 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-28 08:43:19,830 - INFO - Batch 5 training completed, current best fitness: 0.631319838
+2025-12-28 08:43:19,830 - INFO - Current fitness not improved, consecutive no improvement count: 4
+2025-12-28 08:43:19,830 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-28 08:51:03,688 - INFO - Batch 6 training completed, current best fitness: 0.631319838
+2025-12-28 08:51:03,689 - INFO - Current fitness not improved, consecutive no improvement count: 5
+2025-12-28 08:51:03,689 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-28 08:57:09,592 - ERROR - Assertion mining exception: Target processing timeout
+2025-12-28 08:57:09,600 - ERROR - Assertion mining failed
+2025-12-28 08:57:09,601 - INFO - **********************************************************************
+2025-12-28 08:57:09,713 - WARNING - Run 4 failed to generate constraint
+2025-12-28 08:57:09,713 - INFO - ======================================================================

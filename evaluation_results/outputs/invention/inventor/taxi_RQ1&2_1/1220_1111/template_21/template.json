@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "When a context has a significantly high speed, the next consecutive context of the same vehicle maintains a reasonably high speed.",
+    "goal": "Detect implausible sudden speed drops from high-speed records to very low-speed records.",
+    "design_rationale": "A vehicle moving at high speed cannot decelerate instantaneously to near-zero; abrupt speed drops from high to low in consecutive records indicate erroneous measurements."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the next consecutive context after v1, and the ratio of v2's speed to v1's speed is not less than a certain reasonable lower bound.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the next consecutive context after v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the ratio of v2's speed to v1's speed is not less than a certain reasonable lower bound",
+      "implementation": "v2.speed ÷ v1.speed >= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

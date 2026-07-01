@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The GPS-derived displacement bearing between two consecutive contexts of the same vehicle is consistent with the average of their reported directions.",
+    "goal": "Detect consecutive contexts where the GPS-derived bearing disagrees with the average of the two recorded direction values.",
+    "design_rationale": "The displacement bearing computed from coordinates should align with the average of the direction fields across consecutive samples; a large discrepancy indicates inconsistency between the coordinate and direction data."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the displacement bearing derived from the coordinate differences of v1 and v2 should be close to the average of the directions of v1 and v2 within a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "v1.grpid + 1 == v2.grpid || v2.grpid + 1 == v1.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the displacement bearing derived from the coordinate differences of v1 and v2 is close to the average of the directions of v1 and v2 within a certain reasonable range",
+      "implementation": "abs(degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))) - ((v1.direction + v2.direction) ÷ 2)) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

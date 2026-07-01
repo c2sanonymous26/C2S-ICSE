@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should preserve forward timestamp order.",
+    "goal": "Detect local sequence inconsistencies where the later grpid context does not have a later timestamp.",
+    "design_rationale": "A one-step increase in grpid should correspond to temporal progression rather than reversal."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the timestamp of v1 must be greater than that of v2."
+}

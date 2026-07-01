@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have an id value within a reasonable range.",
+    "goal": "Detect records whose id value falls outside the expected range.",
+    "design_rationale": "The id field should stay within a valid range under this rule."
+  },
+  "semantics": "For any context v1, the id of v1 must lie within a certain reasonable range."
+}

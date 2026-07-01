@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two consecutive zero-speed same-vehicle contexts should remain almost at the same location.",
+    "goal": "Detect stopped one-step transitions whose spatial drift is too large.",
+    "design_rationale": "If both contexts are stopped, the local displacement should be nearly zero."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, the grpid value of v1 is equal to the grpid value of v2 minus 1, and both v1 and v2 have zero speed, then the coordinate distance between v1 and v2 computed using the haversine formula should not exceed a certain extremely small threshold."
+}

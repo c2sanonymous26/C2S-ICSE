@@ -1,0 +1,60 @@
+============================================================ 1221_1111/template_5 (5000_11_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1221_1111/template_5
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0016560554504394531 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005860328674316406 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+************************************************************************ Symbol basic ranges computing starts ***********************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(v1_direction - v2_direction)*Abs(v1_speed - v2_speed) → range [3.343463524234425e-16, 89999.99999975]
+        - final range for threshold symbol 'NTHRESHOLD1': [3.343463524234425e-16, 89999.99999975]
+Approximate computed ranges for 1 threshold symbols in 0.50 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - try to use level1_calculus_analysis failed: solving Abs(v1_speed - v2_speed) when the argument is not real or imaginary.
+        - field expression Abs(v1_direction - v2_direction)*Abs(v1_speed - v2_speed) → range [0.0, 89999.99999975]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 89999.99999975]
+Theoretical computed ranges for 1 threshold symbols in 0.14 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 89999.99999975)}
+********************************************************************** Symbol basic ranges computing completes **********************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0014750957489013672 seconds
+Set solve data in 0.0009381771087646484 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005385875701904297 seconds
+Constructed main constraint in 57.8706111907959 seconds
+Constructed VE constraints in 0.0012180805206298828 seconds
+Constructed symbol domain constraints in 0.01589202880859375 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 183
+    - symbol domains:
+        - _N_THRESHOLD_1: 184
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(21735, 1)}
+        - objective value: 4 out of 4
+        - solved in 0.0066335201263427734 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.008429288864135742 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.008244991302490234 seconds
+1221_1111/template_5 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1221_1111/template_5 (5000_11_solve) instantiation completes ==========================================================
+Total instantiation time: 58.61 seconds

@@ -1,0 +1,57 @@
+{
+  "intent": {
+    "content": "Three consecutive contexts of the same vehicle should not imply an excessive change rate in displacement direction.",
+    "goal": "Detect same-vehicle context triples whose turning behavior changes too abruptly across consecutive steps.",
+    "design_rationale": "A locally consistent trajectory should not exhibit an implausibly large rate of change in displacement direction across three consecutive contexts."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to the same vehicle and are consecutive in grpid order, then the rate of change of the angle between the displacement direction computed from v1 and v2 and that computed from v2 and v3, calculated based on the time difference, should not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset (((bfunc1(v1, v2, v3) and bfunc2(v1, v2, v3)) and bfunc3(v1, v2, v3)) implies bfunc4(v1, v2, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid && v2.carid == v3.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "v1, v2, and v3 are consecutive in grpid order.",
+      "implementation": "v1.grpid + 1 == v2.grpid && v2.grpid + 1 == v3.grpid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The angle between the displacement direction computed from v1 and v2 and that computed from v2 and v3.",
+      "implementation": "abs(atan2(sin(degrees(v2.direction - v1.direction)), cos(degrees(v2.direction - v1.direction))) - atan2(sin(degrees(v3.direction - v2.direction)), cos(degrees(v3.direction - v2.direction)))) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The rate of change of that angle, computed based on the time difference, does not exceed a certain reasonable upper bound.",
+      "implementation": "(abs(atan2(sin(degrees(v2.direction - v1.direction)), cos(degrees(v2.direction - v1.direction))) - atan2(sin(degrees(v3.direction - v2.direction)), cos(degrees(v3.direction - v2.direction)))) ÷ abs(v3.timestamp - v1.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

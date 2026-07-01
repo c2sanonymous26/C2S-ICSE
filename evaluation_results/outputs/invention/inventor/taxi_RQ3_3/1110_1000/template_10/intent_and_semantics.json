@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Near-synchronous contexts of the same vehicle should not have an excessively large speed difference.",
+    "goal": "Detect within-vehicle context pairs whose speed discrepancy is implausible over a short time span.",
+    "design_rationale": "A vehicle should not show an abrupt unreasonable speed gap across closely timed contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and their timestamps are close to each other, with the absolute time difference not exceeding a certain value, then the speed difference between them should not exceed a certain reasonable range."
+}

@@ -1,0 +1,35 @@
+=============================== 0112_0100/template_14 (5000_00_solve) instantiation starts ===============================
+- scenario: taxi
+- template: 0112_0100/template_14
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+**************************************************** Preparation starts ****************************************************
+Decomposed template in 0.0021393299102783203 seconds
+Constructed ctx data in 4.887580871582031e-05 seconds
+Loaded data field types in 0.0005526542663574219 seconds
+************************************************** Preparation completes ***************************************************
+************************************************** Solving process starts **************************************************
+Parsed template in 0.0016198158264160156 seconds
+Set solve data in 0.0008847713470458984 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005755424499511719 seconds
+Constructed main constraint in 59.67974781990051 seconds
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8695291898809165, 17592186044416)}
+        - solved in 0.0011320114135742188 seconds
+Solving iteration 2:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8712884084853581, 17592186044416)}
+        - solved in 0.0008378028869628906 seconds
+Solving iteration 3:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(8704087991831373, 17592186044416)}
+        - solved in 0.0007228851318359375 seconds
+0112_0100/template_14 (5000_00_solve) has 3 valid models
+************************************************ Solving process completes *************************************************
+============================= 0112_0100/template_14 (5000_00_solve) instantiation completes ==============================
+Total instantiation time: 59.72 seconds

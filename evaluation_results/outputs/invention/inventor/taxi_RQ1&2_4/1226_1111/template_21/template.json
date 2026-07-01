@@ -1,0 +1,52 @@
+{
+  "intent": {
+    "content": "When a vehicle is at significantly high speed, there should exist a preceding context of the same vehicle where the coordinate displacement direction and the heading change direction are consistent.",
+    "goal": "Detect high-speed contexts with no preceding context showing consistent coordinate displacement and heading change directions.",
+    "design_rationale": "A vehicle travelling at high speed must have arrived from a consistent direction; the absence of a preceding context with aligned displacement and heading change directions indicates an erroneous high-speed record."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists a context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the coordinate displacement direction and the direction angle change direction of v1 and v2 are consistent.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2) and bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1's speed is significantly higher than a certain threshold",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 80"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 belongs to the same vehicle and is the previous context of v1",
+      "implementation": "v2.carid == v1.carid && v2.grpid == v1.grpid - 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the coordinate displacement direction of v1 and v2 is consistent",
+      "implementation": "atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude) == atan2(sin(radians(v2.direction)) - sin(radians(v1.direction)), cos(radians(v2.direction)) - cos(radians(v1.direction)))",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the direction angle change direction of v1 and v2 is consistent",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

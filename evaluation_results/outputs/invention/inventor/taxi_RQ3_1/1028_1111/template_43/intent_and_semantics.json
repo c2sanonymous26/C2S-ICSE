@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should imply jointly reasonable rates of change in both speed and direction.",
+    "goal": "Detect contexts whose consecutive-motion dynamics indicate implausible variation in speed or heading.",
+    "design_rationale": "Vehicle motion should evolve smoothly enough that both speed-change rate and direction-change rate remain within realistic dynamic bounds."
+  },
+  "semantics": "For any context v1, the recorded rates of change in speed and direction associated with v1 should lie within a reasonable range."
+}

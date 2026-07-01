@@ -1,0 +1,45 @@
+{
+  "intent": {
+    "content": "Three nearby, near-synchronous contexts from different vehicles should not imply an excessive change rate in the directions of their connecting lines.",
+    "goal": "Detect cross-vehicle context triples whose local spatial geometry changes too abruptly.",
+    "design_rationale": "For nearby observations that are close in time, the geometry formed by their connecting lines should evolve smoothly rather than show an implausible angular-rate jump."
+  },
+  "semantics": "For any three contexts v1, v2, and v3, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the rate of change of the angle between the direction of the line connecting v1 and v2 and the direction of the line connecting v2 and v3 should not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (forall v3 in dataset ((((bfunc1(v1, v2) and bfunc1(v2, v3)) and bfunc2(v1, v2)) and bfunc2(v2, v3)) implies bfunc3(v1, v2, v3))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are close in time and position, meaning that their absolute time difference does not exceed a certain value and their coordinate-based distance does not exceed a certain value.",
+      "implementation": "(abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1) && (sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2)",
+      "restrictions": [
+        "NTHRESHOLD1 <= 10",
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "semantics": "The rate of change of the angle between the direction of the line connecting v1 and v2 and the direction of the line connecting v2 and v3 does not exceed a certain reasonable upper bound.",
+      "implementation": "abs(atan2(sin(radians(atan2(v3.latitude - v2.latitude, v3.longitude - v2.longitude) - atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))), cos(radians(atan2(v3.latitude - v2.latitude, v3.longitude - v2.longitude) - atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))))) ÷ abs(v3.timestamp - v1.timestamp) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

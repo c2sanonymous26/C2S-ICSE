@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The speed change between two consecutive contexts of the same vehicle is bounded.",
+    "goal": "Detect consecutive contexts with an implausibly large speed change.",
+    "design_rationale": "A vehicle's speed cannot change arbitrarily between consecutive samples; an excessively large speed difference indicates a speed sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, the absolute speed difference does not exceed a certain reasonable upper bound."
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "ge",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "neg(log(tan(add(-24318.082, longitude_1))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 231.30087327957153,
+  "asrtm_time": 229.94813418388367,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0006000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

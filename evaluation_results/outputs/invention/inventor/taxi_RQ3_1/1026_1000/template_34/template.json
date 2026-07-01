@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Nearby contexts from different vehicles observed at similar times should not combine large heading divergence with large total speed.",
+    "goal": "Detect cross-vehicle context pairs whose summed speed and angular mismatch together exceed a plausible limit.",
+    "design_rationale": "When two vehicles are close in space and time, a very large direction discrepancy together with a high combined speed suggests an implausible motion relationship."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the product of the absolute difference between their direction angles and the sum of their instantaneous speeds should not exceed a certain reasonable upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their difference does not exceed a certain reasonable time interval.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The geographic distance between v1 and v2, computed using the haversine formula, does not exceed a certain reasonable upper bound for distance.",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "NTHRESHOLD2 <= 0.01"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The product of the absolute difference between the direction angles of v1 and v2 and the sum of their instantaneous speeds does not exceed a certain reasonable upper bound.",
+      "implementation": "abs(v1.direction - v2.direction) × (v1.speed + v2.speed) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

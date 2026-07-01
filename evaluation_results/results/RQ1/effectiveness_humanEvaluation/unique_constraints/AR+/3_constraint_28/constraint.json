@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is less than abs(sqrt(14453.193)).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is less than abs(sqrt(14453.193))",
+      "implementation": "var_bindings['v1']['longitude'] < abs(sqrt(abs(14453193/1000)))"
+    }
+  ]
+}

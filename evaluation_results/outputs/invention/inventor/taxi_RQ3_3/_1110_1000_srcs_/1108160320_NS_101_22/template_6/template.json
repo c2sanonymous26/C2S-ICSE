@@ -1,0 +1,43 @@
+{
+  "intent": {
+    "content": "Two same-vehicle contexts within a bounded timestamp gap should keep the relationship between direction-change rate and speed-change rate within a reasonable range.",
+    "goal": "Detect context pairs whose joint turning and speed-change dynamics are implausible.",
+    "design_rationale": "A realistic local motion window should preserve a plausible balance between how fast heading changes and how fast speed changes."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the timestamp difference between them lies within a certain range, then the ratio between the direction-angle change rate computed from their direction-angle difference and timestamp difference and the speed-change rate computed from their speed difference and timestamp difference should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 lies within a certain range.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The ratio between the direction-angle change rate and the speed-change rate computed from v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "(abs(v1.direction - v2.direction) ÷ (v1.timestamp - v2.timestamp)) ÷ (abs(v1.speed - v2.speed) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

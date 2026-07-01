@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a vehicle is at significantly high speed, there should exist a preceding context of the same vehicle whose Haversine distance to timestamp ratio with the current context is within a reasonable range.",
+    "goal": "Detect high-speed contexts with no preceding context showing a plausible movement rate (distance per unit time).",
+    "design_rationale": "A high-speed vehicle's movement rate between consecutive records should remain physically plausible; if no such preceding context exists whose distance-to-time ratio is bounded, the high-speed record likely reflects a GPS anomaly."
+  },
+  "semantics": "For any context v1, if v1's speed is significantly higher than a certain threshold, then there exists another context v2 such that v2 belongs to the same vehicle and is the previous context of v1, and the ratio of the Haversine distance between v1 and v2 to their timestamp difference does not exceed a certain reasonable range."
+}

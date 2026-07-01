@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Consecutive contexts of the same vehicle should not be separated by an excessively large time gap.",
+    "goal": "Detect broken continuity or suspiciously large temporal gaps in a vehicle trajectory.",
+    "design_rationale": "Adjacent contexts for the same vehicle should be reported within a reasonable interval; an unusually large gap suggests missing data, delayed reporting, or sequence errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 should not exceed a certain reasonable maximum time interval.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2) and bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two consecutive contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamp difference between v1 and v2 does not exceed a certain reasonable maximum time interval.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

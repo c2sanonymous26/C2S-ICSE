@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "The GPS-implied average speed between consecutive contexts of the same vehicle is consistent with the reported average speed.",
+    "goal": "Detect inconsistencies between the GPS-implied speed and the reported speed field in consecutive records.",
+    "design_rationale": "The GPS-implied speed (displacement divided by time) should be proportional to the average of the reported speed values; large discrepancies indicate either GPS errors or speed sensor errors."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the haversine GPS displacement to the timestamp difference between v1 and v2 does not exceed a certain reasonable multiple of the average speed of v1 and v2."
+}

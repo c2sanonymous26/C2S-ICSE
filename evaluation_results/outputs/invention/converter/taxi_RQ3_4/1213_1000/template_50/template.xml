@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed value of v1 is zero, then the distance between the coordinates of v1 and those of the next context v2 computed using the haversine formula should not exceed a certain reasonable upper bound.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <exists var="v2" in="ctx1">
+      <implies>
+        <bfunc id="1"/>
+        <bfunc id="2"/>
+      </implies>
+    </exists>
+  </forall>
+</formula>

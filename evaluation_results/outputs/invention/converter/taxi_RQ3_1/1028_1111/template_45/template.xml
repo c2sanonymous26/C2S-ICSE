@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, there exists a context v2 such that v1 and v2 belong to different vehicles, lie within the same time period, and the distance between v1 and v2 does not exceed a certain value.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <exists var="v2" in="ctx1">
+      <and>
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+        <bfunc id="3"/>
+      </and>
+    </exists>
+  </forall>
+</formula>

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep both the relationship between turning-rate change and speed-change rate, and the resulting turning-radius quantity, within reasonable bounds.",
+    "goal": "Detect adjacent contexts whose combined local turning dynamics and speed dynamics are implausible.",
+    "design_rationale": "A realistic local transition should maintain compatible directional and speed evolution instead of producing an unrealistic compound turning pattern."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the ratio between the direction-angle change rate computed from their direction-angle difference and timestamp difference and the speed-change rate computed from their speed difference and timestamp difference should not exceed a certain reasonable range, and the product of that ratio and the average speed of v1 and v2 should not exceed a certain reasonable turning-radius limit."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Every context has a direction value within the valid compass range.",
+    "goal": "Detect contexts with a direction value outside the physically valid range of 0° to 360°.",
+    "design_rationale": "Direction is a compass bearing; any value outside [0, 360] is inherently invalid and indicates a data encoding error."
+  },
+  "semantics": "For any context v1, the direction value of v1 should be between 0° and 360°."
+}

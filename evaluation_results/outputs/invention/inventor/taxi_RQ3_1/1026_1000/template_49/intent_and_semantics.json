@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent same-vehicle contexts with opposite-quadrant headings should imply a much lower average movement speed than the larger reported instantaneous speed.",
+    "goal": "Detect consecutive contexts whose opposite-direction relationship is inconsistent with the average speed implied by their displacement and elapsed time.",
+    "design_rationale": "If consecutive headings point into opposite quadrants, the net movement between the two contexts should be relatively limited compared with the larger instantaneous speed, otherwise the transition is implausible."
+  },
+  "semantics": "For any two consecutive contexts v1 and v2 of the same vehicle, if the travel directions of v1 and v2, as given by the direction field, lie in opposite quadrants (such as 0-90° and 180-270°), then the ratio between the haversine distance computed from v1 and v2 and their timestamp difference, namely their average speed, must be significantly lower than the larger of the instantaneous speeds of v1 and v2."
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if there exists a context v3 such that v3 belongs to the same vehicle as v1 and the grpid recorded in v3 is greater than the grpid recorded in v1, then there exists a context v2 such that v2 belongs to the same vehicle as v1 and the grpid recorded in v2 immediately follows the grpid recorded in v1.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <exists var="v3" in="ctx1">
+        <and>
+          <bfunc id="1"/>
+          <bfunc id="2"/>
+        </and>
+      </exists>
+      <exists var="v2" in="ctx1">
+        <and>
+          <bfunc id="3"/>
+          <bfunc id="4"/>
+        </and>
+      </exists>
+    </implies>
+  </forall>
+</formula>

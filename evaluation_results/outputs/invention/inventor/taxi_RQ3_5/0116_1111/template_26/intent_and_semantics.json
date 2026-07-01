@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts of the same vehicle separated by four grpid steps should keep a reasonable direction-change rate.",
+    "goal": "Detect same-vehicle contexts whose multi-step direction-change rate is implausible.",
+    "design_rationale": "Even across a four-step gap, the direction change over time should remain within a realistic range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 4 greater than that of v2, then the direction-change rate between v1 and v2, computed from direction and time difference, should lie within a certain reasonable range."
+}

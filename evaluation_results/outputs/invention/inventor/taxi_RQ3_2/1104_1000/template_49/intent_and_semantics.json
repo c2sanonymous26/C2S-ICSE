@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have a reasonable joint value formed by speed difference and the cosine of heading difference.",
+    "goal": "Detect cross-vehicle context pairs whose speed discrepancy and relative heading are jointly implausible.",
+    "design_rationale": "This rule bounds a composite quantity combining speed contrast and directional alignment for closely timed observations from different vehicles."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other with a difference not exceeding a certain value, then the product of the absolute speed difference between them and the cosine of their direction-angle difference should lie within a certain reasonable range."
+}

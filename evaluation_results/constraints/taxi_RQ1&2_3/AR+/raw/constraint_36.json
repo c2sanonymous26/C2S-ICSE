@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "gt",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "div(log(timestamp_2), max(div(latitude_1, longitude_2), neg(add(latitude_1, timestamp_1))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 228.27356576919556,
+  "asrtm_time": 226.64065623283386,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0018056755534841622,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

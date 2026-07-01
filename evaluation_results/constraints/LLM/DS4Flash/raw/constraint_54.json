@@ -1,0 +1,102 @@
+{
+  "constraint_id": 54,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 5,
+    "generation_seconds": 262.87364411354065
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "For any three consecutive contexts of the same taxi, the haversine distance between the first and third contexts is bounded by the sum of the distances between consecutive pairs.",
+      "goal": "Detect GPS jumps or measurement errors that violate the triangle inequality, indicating anomalous positioning data.",
+      "design_rationale": "Taxis follow continuous paths, so the direct distance between two non-consecutive GPS points should not exceed the sum of the distances through an intermediate point. Violations suggest GPS outliers or data corruption."
+    },
+    "semantics": "For any three contexts v1, v2, and v3, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1 and grpid of v3 equals grpid of v2 plus 1), then the haversine distance between the GPS locations (longitude, latitude) of v1 and v3 is within a certain tolerance of the sum of the haversine distances between v1 and v2 and between v2 and v3.",
+    "structure": "forall v1 in dataset (forall v3 in dataset ((bfunc1(v1,v3) and bfunc2(v1,v3)) implies bfunc3(v1,v3)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v1 and v3 belong to the same taxi (same carid).",
+        "implementation": "v1.carid == v3.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v3 is the second consecutive record after v1 (grpid of v3 equals grpid of v1 plus 2).",
+        "implementation": "v3.grpid - v1.grpid == 2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "The haversine distance between the GPS locations (longitude, latitude) of v1 and v3 is within a certain tolerance of the sum of the haversine distances from v1 to the context with grpid = v1.grpid+1 and same carid, and from that context to v3.",
+        "implementation": "abs((6371.0 × 2 × atan2(sqrt(sin(radians(v3.latitude - v1.latitude) ÷ 2) × sin(radians(v3.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v3.latitude)) × sin(radians(v3.longitude - v1.longitude) ÷ 2) × sin(radians(v3.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v3.latitude - v1.latitude) ÷ 2) × sin(radians(v3.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v3.latitude)) × sin(radians(v3.longitude - v1.longitude) ÷ 2) × sin(radians(v3.longitude - v1.longitude) ÷ 2)))) × 3600 ÷ (v3.timestamp - v1.timestamp)) - v1.speed) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 50.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "For any three consecutive contexts of the same taxi, the haversine distance between the first and third contexts is bounded by the sum of the distances between consecutive pairs.",
+      "goal": "Detect GPS jumps or measurement errors that violate the triangle inequality, indicating anomalous positioning data.",
+      "design_rationale": "Taxis follow continuous paths, so the direct distance between two non-consecutive GPS points should not exceed the sum of the distances through an intermediate point. Violations suggest GPS outliers or data corruption."
+    },
+    "semantics": "For any three contexts v1, v2, and v3, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1 and grpid of v3 equals grpid of v2 plus 1), then the haversine distance between the GPS locations (longitude, latitude) of v1 and v3 is within a certain tolerance of the sum of the haversine distances between v1 and v2 and between v2 and v3.",
+    "structure": "forall v1 in dataset (forall v3 in dataset ((bfunc1(v1,v3) and bfunc2(v1,v3)) implies bfunc3(v1,v3)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v1 and v3 belong to the same taxi (same carid).",
+        "implementation": "v1.carid == v3.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "v3 is the second consecutive record after v1 (grpid of v3 equals grpid of v1 plus 2).",
+        "implementation": "(v3.grpid - v1.grpid) == 2",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v3"
+        ],
+        "semantics": "The haversine distance between the GPS locations (longitude, latitude) of v1 and v3 is within a certain tolerance of the sum of the haversine distances from v1 to the context with grpid = v1.grpid+1 and same carid, and from that context to v3.",
+        "implementation": "abs((((((6371.0 × 2) × atan2(sqrt(((sin((radians((v3.latitude - v1.latitude)) ÷ 2)) × sin((radians((v3.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v3.latitude))) × sin((radians((v3.longitude - v1.longitude)) ÷ 2))) × sin((radians((v3.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v3.latitude - v1.latitude)) ÷ 2)) × sin((radians((v3.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v3.latitude))) × sin((radians((v3.longitude - v1.longitude)) ÷ 2))) × sin((radians((v3.longitude - v1.longitude)) ÷ 2)))))))) × 3600) ÷ (v3.timestamp - v1.timestamp)) - v1.speed)) <= 50.0",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 25
+  }
+}

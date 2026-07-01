@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "gt",
+  "target_col": "timestamp_2",
+  "status": "success_simple_constraint",
+  "assertion": "max(sin(max(33240.487, timestamp_1)), tan(div(longitude_1, direction_1)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 230.0474452972412,
+  "asrtm_time": 227.70302963256836,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0009000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

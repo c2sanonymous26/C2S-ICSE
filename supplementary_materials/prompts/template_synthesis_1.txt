@@ -1,0 +1,37 @@
+The Phase 2 is to decompose the semantics into a structure and a list of bfunc signatures.
+
+The structure is defined by the following grammar, which corresponds to common first-order logic constructs:
+```lark
+{{structure_grammar}}
+```
+Here are the key concepts to understand:
+- "forall" corresponds to universal quantification ("for any...")
+- "exists" corresponds to existential quantification ("there exists... such that")
+- "implies" corresponds to logical implication ("if... then...")
+- "and" corresponds to logical conjunction ("and")
+- "or" corresponds to logical disjunction ("or")
+- "not" corresponds to logical negation ("not")
+- "bfunc" represents boolean expressions that will be defined in Phase 3
+
+The list of bfunc signatures is declared using the `bfunc_signature` productions in the structure. Each bfunc signature consists of:
+1. An ID number (starting from 1)
+2. A list of parameters (variables) it operates on
+
+Attention to the following points when you do converting:
+
+1. Make sure the structure strictly follows the BNF grammar. (PAY ATTENTION TO PARENTHESIS!)
+
+2. When converting the semantics into the structure, do not mechanically translate each part. Instead, carefully consider the global semantics and ensure that the resulting structure accurately captures the overall meaning and relationships expressed in the original semantics.
+
+3. When decomposing the semantics into bfuncs, ensure that each bfunc's semantics can be computed using ONLY the contexts that have been introduced by quantifiers in the constraint structure. Do not create bfuncs that would require additional contexts beyond those already introduced.
+
+4. When considering using "exists" quantifiers, carefully verify that such contexts are guaranteed to exist in the context sequence. If uncertain about existence, structure the formula so that existential quantification appears as the antecedent of an implication.
+
+5. If you cannot decompose the semantics, you need to return an empty JSON object.
+
+{% if few_shots %}
+Here are the structures and lists of bfunc signatures that correspond to the semantics in previous examples:
+{% for shot in few_shots %}
+- {{ shot.structure_and_signatures }}
+{% endfor %}
+{% endif %}

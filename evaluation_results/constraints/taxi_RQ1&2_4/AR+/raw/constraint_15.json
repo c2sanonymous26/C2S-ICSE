@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "lt",
+  "target_col": "speed_1",
+  "status": "success_simple_constraint",
+  "assertion": "add(min(add(speed_2, timestamp_2), longitude_1), mul(latitude_1, div(latitude_2, latitude_2)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 221.60653424263,
+  "asrtm_time": 220.25480270385742,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0011,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

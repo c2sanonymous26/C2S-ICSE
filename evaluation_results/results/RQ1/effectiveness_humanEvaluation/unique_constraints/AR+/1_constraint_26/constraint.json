@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to the same vehicle (same carid), v2.timestamp is less than or equal to abs(add(max(max(v2.direction, v1.speed), v1.timestamp), 53832.797)).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle (they have the same carid)",
+      "implementation": "var_bindings['v1']['carid'] == var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.timestamp is less than or equal to abs(add(max(max(v2.direction, v1.speed), v1.timestamp), 53832.797))",
+      "implementation": "var_bindings['v2']['timestamp'] <= abs((max(max(var_bindings['v2']['direction'], var_bindings['v1']['speed']), var_bindings['v1']['timestamp']) + 53832797/1000))"
+    }
+  ]
+}

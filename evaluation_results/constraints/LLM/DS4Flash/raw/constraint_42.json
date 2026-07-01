@@ -1,0 +1,122 @@
+{
+  "constraint_id": 42,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 245.3673710823059
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The distance traveled between consecutive records of the same taxi should be consistent with the recorded speed and time interval.",
+      "goal": "Detect GPS location jumps that are inconsistent with the speed readings, indicating possible GPS errors or timestamp errors.",
+      "design_rationale": "The speed recorded at the beginning of a time interval should be indicative of the distance traveled over that interval. If the distance implied by the GPS coordinates is much larger or smaller than what the speed suggests, it indicates an anomaly in the data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1), and the time difference (timestamp of v2 minus timestamp of v1) is positive, then the haversine distance between the GPS locations of v1 and v2 divided by the time difference is within a certain range of the speed recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "v2.grpid == v1.grpid + 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference (timestamp of v2 minus timestamp of v1) is positive",
+        "implementation": "v2.timestamp - v1.timestamp > 0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations of v1 and v2 divided by the time difference is within a certain range of the speed recorded in v1",
+        "implementation": "abs((6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)))) × 3600 ÷ (v2.timestamp - v1.timestamp)) - v1.speed) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 61.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The distance traveled between consecutive records of the same taxi should be consistent with the recorded speed and time interval.",
+      "goal": "Detect GPS location jumps that are inconsistent with the speed readings, indicating possible GPS errors or timestamp errors.",
+      "design_rationale": "The speed recorded at the beginning of a time interval should be indicative of the distance traveled over that interval. If the distance implied by the GPS coordinates is much larger or smaller than what the speed suggests, it indicates an anomaly in the data."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1), and the time difference (timestamp of v2 minus timestamp of v1) is positive, then the haversine distance between the GPS locations of v1 and v2 divided by the time difference is within a certain range of the speed recorded in v1.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2) and bfunc3(v1,v2)) implies bfunc4(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same taxi (same carid)",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records (grpid of v2 equals grpid of v1 plus 1)",
+        "implementation": "v2.grpid == (v1.grpid + 1)",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the time difference (timestamp of v2 minus timestamp of v1) is positive",
+        "implementation": "(v2.timestamp - v1.timestamp) > 0",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc4",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the haversine distance between the GPS locations of v1 and v2 divided by the time difference is within a certain range of the speed recorded in v1",
+        "implementation": "abs((((((6371.0 × 2) × atan2(sqrt(((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))))), sqrt((1 - ((sin((radians((v2.latitude - v1.latitude)) ÷ 2)) × sin((radians((v2.latitude - v1.latitude)) ÷ 2))) + (((cos(radians(v1.latitude)) × cos(radians(v2.latitude))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2))) × sin((radians((v2.longitude - v1.longitude)) ÷ 2)))))))) × 3600) ÷ (v2.timestamp - v1.timestamp)) - v1.speed)) <= 61.0",
+        "restrictions": []
+      }
+    ]
+  },
+  "source": {
+    "run": "DS4Flash_1",
+    "constraint_id": 9
+  }
+}

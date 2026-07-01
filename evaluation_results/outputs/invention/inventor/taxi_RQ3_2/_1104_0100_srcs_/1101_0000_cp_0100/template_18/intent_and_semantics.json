@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should have a reasonable absolute difference in speed values.",
+    "goal": "Detect implausible speed-value discrepancies between near-consecutive contexts of the same vehicle.",
+    "design_rationale": "A small local step in the vehicle sequence should not create an excessive difference between recorded speed values."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the absolute difference between the speed value of v1 and that of v2 should lie within a certain reasonable range."
+}

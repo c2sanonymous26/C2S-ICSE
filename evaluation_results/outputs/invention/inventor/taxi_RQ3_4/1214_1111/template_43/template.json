@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "content": "A high-speed context should remain within a reasonable timestamp gap relative to the previous context.",
+    "goal": "Detect high-speed contexts whose elapsed time from the previous context is implausibly large.",
+    "design_rationale": "A valid local transition around a high-speed context should still preserve a realistic time gap to the previous context."
+  },
+  "semantics": "For any context v1, if the speed value of v1 is significantly higher than a certain threshold, then the difference between the timestamp value of v1 and that of its previous context v2 should not exceed a certain reasonable upper bound on time.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and bfunc3(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed value of v1 is significantly higher than a certain threshold.",
+      "implementation": "v1.speed > NTHRESHOLD1",
+      "restrictions": [
+        "NTHRESHOLD1 >= 60"
+      ]
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the previous context of v1.",
+      "implementation": "v2.grpid == v1.grpid - 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The difference between the timestamp value of v1 and that of v2 does not exceed a certain reasonable upper bound on time.",
+      "implementation": "v1.timestamp - v2.timestamp <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

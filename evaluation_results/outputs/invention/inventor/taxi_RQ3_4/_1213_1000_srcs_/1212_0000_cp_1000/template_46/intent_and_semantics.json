@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Each context should have a valid grpid value of at least 1.",
+    "goal": "Detect contexts with invalid sequence-group identifiers.",
+    "design_rationale": "The local trajectory group identifier should stay within its valid positive range."
+  },
+  "semantics": "For any context v1, the grpid value of v1 should be greater than or equal to 1."
+}

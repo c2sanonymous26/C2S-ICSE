@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Detect whether position change and heading change remain reasonably aligned across consecutive records of the same vehicle.",
+    "goal": "Identify adjacent same-vehicle records whose spatial movement is not sufficiently consistent with their direction change.",
+    "design_rationale": "For consecutive records of one vehicle, the product of distance and the cosine of heading difference should stay above a reasonable lower bound to reflect coherent movement along the direction of travel."
+  },
+  "semantics": "For any two vehicle records v1 and v2, if they belong to the same vehicle and the grpid of v1 is greater than that of v2 by 1, then the product of their latitude-longitude distance and the cosine value of their direction difference must be significantly greater than some lower bound (i.e., vehicle position change should maintain reasonable consistency with direction change).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the grpid of v1 is greater than that of v2 by 1",
+      "implementation": "v1.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the product of the latitude-longitude distance between v1 and v2 and the cosine value of their direction difference is significantly greater than some lower bound",
+      "implementation": "(6371.0 × 2 × atan2(sqrt(sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2)), sqrt(1 - (sin(radians(v2.latitude - v1.latitude) ÷ 2) × sin(radians(v2.latitude - v1.latitude) ÷ 2) + cos(radians(v1.latitude)) × cos(radians(v2.latitude)) × sin(radians(v2.longitude - v1.longitude) ÷ 2) × sin(radians(v2.longitude - v1.longitude) ÷ 2))))) × cos(radians(abs(v1.direction - v2.direction))) > NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

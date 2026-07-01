@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "le",
+  "target_col": "latitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "div(max(add(direction_2, 40011.111), abs(direction_2)), abs(sqrt(longitude_2)))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 216.89718890190125,
+  "asrtm_time": 215.36936593055725,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

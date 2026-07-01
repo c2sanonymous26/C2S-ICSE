@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should not have an excessively large motion-direction angle.",
+    "goal": "Detect cross-vehicle context pairs whose movement directions are implausibly inconsistent under this rule.",
+    "design_rationale": "This rule constrains directional discrepancy for observations from different vehicles that are close in time."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other, then the angle between their movement directions computed from direction angles should not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies bfunc4(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The angle between the movement directions of v1 and v2 computed from direction angles does not exceed a certain value.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD2 || abs(v1.direction - v2.direction) >= 360 - NTHRESHOLD2",
+      "restrictions": [
+        "0 <= NTHRESHOLD2 <= 30"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The angle between the movement directions of v1 and v2 computed from direction angles does not exceed a certain value.",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD3 || abs(v1.direction - v2.direction) >= 360 - NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+============================= 1026_1000/template_46 (5000_solve) instantiation starts ==============================
+- scenario: taxi
+- template: 1026_1000/template_46
+- data: 5000
+- concurrent: True
+- parameter domain discretization: disabled
+- predicate sensitivity promotion: disabled
+******************************************************* Preparation starts *******************************************************
+Decomposed template in 0.0023059844970703125 seconds
+Constructed ctx data in 3.7670135498046875e-05 seconds
+Loaded data field types in 0.0005290508270263672 seconds
+***************************************************** Preparation completes ******************************************************
+***************************************************** Solving process starts *****************************************************
+Parsed template in 0.0021049976348876953 seconds
+Set solve data in 0.0012748241424560547 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005712509155273438 seconds
+1026_1000/template_46 (5000_solve) has 0 valid models
+*************************************************** Solving process completes ****************************************************
+============================ 1026_1000/template_46 (5000_solve) instantiation completes ============================
+Total instantiation time: 0.38 seconds

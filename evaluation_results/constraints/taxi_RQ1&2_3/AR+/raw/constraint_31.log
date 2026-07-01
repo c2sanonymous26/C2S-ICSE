@@ -1,0 +1,41 @@
+2025-12-16 19:57:12,429 - INFO - ======================================================================
+2025-12-16 19:57:12,429 - INFO - Starting run 31/50
+2025-12-16 19:57:12,429 - INFO - Mode: carid_diff, Comparison: ge
+2025-12-16 19:57:12,429 - INFO - **********************************************************************
+2025-12-16 19:57:12,435 - INFO - Starting to create different carid data pairing, original data shape: (5042, 7)
+2025-12-16 19:57:26,258 - INFO - Different carid pairing completed, new data shape: (25220822, 14)
+2025-12-16 19:57:27,292 - INFO - Assertion mining DataFrame fields: ['timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 19:57:27,292 - INFO - Assertion mining DataFrame shape: (25220822, 10)
+2025-12-16 19:57:29,042 - INFO - Precondition mining DataFrame fields: ['carid_1', 'carid_2', 'grpid_1', 'grpid_2', 'timestamp_1', 'timestamp_2', 'speed_1', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 19:57:29,042 - INFO - Precondition mining DataFrame shape: (25220822, 14)
+2025-12-16 19:57:29,150 - INFO - **********************************************************************
+2025-12-16 19:57:29,150 - INFO - **********************************************************************
+2025-12-16 19:57:29,150 - INFO - Target field: speed_1 (selected from 10 candidates)
+2025-12-16 19:57:29,150 - INFO - **********************************************************************
+2025-12-16 19:57:29,150 - INFO - Timeout: 3600 seconds
+2025-12-16 19:57:29,151 - INFO - **********************************************************************
+2025-12-16 19:57:29,151 - INFO - Starting assertion mining...
+2025-12-16 19:57:29,645 - INFO - Target: speed_1 - Features: ['timestamp_1', 'timestamp_2', 'speed_2', 'latitude_1', 'latitude_2', 'longitude_1', 'longitude_2', 'direction_1', 'direction_2']
+2025-12-16 19:57:29,645 - INFO - Early stopping strategy: stop after 20 consecutive batches without improvement, minimum improvement: 1e-06
+2025-12-16 19:57:29,645 - INFO - Starting batch 0 training, will train to generation 0
+2025-12-16 20:05:35,998 - INFO - Batch 0 training completed, current best fitness: 0.013400000
+2025-12-16 20:05:35,999 - INFO - Starting batch 1 training, will train to generation 1
+2025-12-16 20:13:42,967 - INFO - Batch 1 training completed, current best fitness: 0.011263076
+2025-12-16 20:13:42,968 - INFO - Starting batch 2 training, will train to generation 2
+2025-12-16 20:21:50,462 - INFO - Batch 2 training completed, current best fitness: 0.009636378
+2025-12-16 20:21:50,463 - INFO - Starting batch 3 training, will train to generation 3
+2025-12-16 20:29:54,125 - INFO - Batch 3 training completed, current best fitness: 0.009030258
+2025-12-16 20:29:54,125 - INFO - Starting batch 4 training, will train to generation 4
+2025-12-16 20:37:56,049 - INFO - Batch 4 training completed, current best fitness: 0.009030258
+2025-12-16 20:37:56,050 - INFO - Current fitness not improved, consecutive no improvement count: 1
+2025-12-16 20:37:56,050 - INFO - Starting batch 5 training, will train to generation 5
+2025-12-16 20:45:55,617 - INFO - Batch 5 training completed, current best fitness: 0.009346877
+2025-12-16 20:45:55,617 - INFO - Current fitness not improved, consecutive no improvement count: 2
+2025-12-16 20:45:55,618 - INFO - Starting batch 6 training, will train to generation 6
+2025-12-16 20:53:54,129 - INFO - Batch 6 training completed, current best fitness: 0.008805572
+2025-12-16 20:53:54,129 - INFO - Starting batch 7 training, will train to generation 7
+2025-12-16 20:57:39,611 - ERROR - Assertion mining exception: Target processing timeout
+2025-12-16 20:57:39,619 - ERROR - Assertion mining failed
+2025-12-16 20:57:39,619 - INFO - **********************************************************************
+2025-12-16 20:57:39,733 - WARNING - Run 31 failed to generate constraint
+2025-12-16 20:57:39,733 - INFO - ======================================================================

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Different nearby vehicles observed at nearly the same time should not have an implausibly large speed difference.",
+    "goal": "Detect nearby cross-vehicle observations with inconsistent speed values.",
+    "design_rationale": "If two vehicles are close in both space and time under this rule, an extreme speed discrepancy may indicate anomalous or mismatched observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close (the difference does not exceed a certain reasonable time interval), and their geographic distance (computed using the haversine formula) does not exceed a certain reasonable upper bound for distance, then the absolute difference in their speed values should not exceed a certain reasonable upper bound for speed difference."
+}

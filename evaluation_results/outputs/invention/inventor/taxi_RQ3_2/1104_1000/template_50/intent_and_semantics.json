@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two near-synchronous contexts from different vehicles should have a reasonable relationship between coordinate-derived displacement direction and combined speed.",
+    "goal": "Detect cross-vehicle context pairs whose directional relationship and total speed are jointly implausible.",
+    "design_rationale": "This rule bounds a composite quantity that mixes coordinate-derived direction information with the total motion magnitude of the two contexts."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close to each other with a difference not exceeding a certain value, then the ratio between the displacement direction computed from the coordinates of v1 and v2 and the sum of their speeds should lie within a certain reasonable range."
+}

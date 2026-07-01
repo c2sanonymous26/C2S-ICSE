@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any context v1, if the speed of v1 is zero, then the absolute difference between the direction angle of v1 and that of its next context v2 should not exceed a certain reasonable angular range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <implies>
+      <bfunc id="1"/>
+      <exists var="v2" in="ctx1">
+        <and>
+          <bfunc id="2"/>
+          <bfunc id="3"/>
+        </and>
+      </exists>
+    </implies>
+  </forall>
+</formula>

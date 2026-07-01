@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then when the speeds of both v1 and v2 are 0, the geographic difference between them computed using the haversine formula should not exceed a certain reasonable parking-position fluctuation range.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="3"/>
+          </and>
+        </and>
+        <bfunc id="4"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "A high-speed context should keep a reasonable speed-change rate to a same-vehicle context two grpid steps earlier.",
+    "goal": "Detect high-speed contexts whose two-step speed-change rate is implausible.",
+    "design_rationale": "Even across a two-step backward link, the speed change over time should remain realistic."
+  },
+  "semantics": "For any context v1, if the speed of v1 is significantly higher than a certain threshold and there exists a context v2 such that v2 belongs to the same vehicle and the grpid value of v2 is 2 smaller than that of v1, then the speed-change rate between v1 and v2, computed from speed difference and time difference, should lie within a certain reasonable range."
+}

@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts of the same vehicle separated by three grpid steps should keep a reasonable speed-change rate.",
+    "goal": "Detect same-vehicle contexts with a multi-step speed-change rate that is implausible.",
+    "design_rationale": "Even across a three-step gap, the speed change over time should remain within a realistic range."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 3 greater than that of v2, then the speed-change rate between v1 and v2, computed from speed and time difference, should lie within a certain reasonable range."
+}

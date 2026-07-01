@@ -1,0 +1,55 @@
+{
+  "intent": {
+    "content": "Two nearby, near-synchronous contexts from different vehicles should satisfy a bounded joint directional relation with respect to their connecting line.",
+    "goal": "Detect cross-vehicle context pairs whose motion directions and relative position geometry are jointly implausible.",
+    "design_rationale": "This rule couples motion-direction consistency with the geometry of the line connecting two nearby observations."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles, their timestamps are close to each other, and their positions are close to each other, then the sum of the angle between their motion directions computed from direction and the angle related to the direction of the line connecting their positions computed from coordinates should not exceed a certain value.",
+  "structure": "forall v1 in dataset (forall v2 in dataset (((bfunc1(v1, v2) and bfunc2(v1, v2)) and bfunc3(v1, v2)) implies (bfunc4(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close to each other, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 60"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The positions of v1 and v2 are close to each other, and the distance computed from their coordinates does not exceed a certain value.",
+      "implementation": "sqrt(pow(v1.latitude - v2.latitude, 2) + pow(v1.longitude - v2.longitude, 2)) <= NTHRESHOLD2",
+      "restrictions": [
+        "0 <= NTHRESHOLD2 <= 0.5"
+      ]
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The sum of the angle between the motion directions of v1 and v2 and the angle related to the direction of the line connecting their positions does not exceed a certain value.",
+      "implementation": "abs(degrees(atan2(sin(v1.direction - v2.direction), cos(v1.direction - v2.direction))) - degrees(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude))) <= NTHRESHOLD3",
+      "restrictions": []
+    }
+  ]
+}

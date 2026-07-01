@@ -1,0 +1,17 @@
+{
+  "bodies": [
+    {
+      "id": "bfunc1",
+      "implementation": "v1.carid == v2.carid"
+    },
+    {
+      "id": "bfunc2",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1"
+    },
+    {
+      "id": "bfunc3",
+      "implementation": "atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude) == atan2(sin(radians(v2.direction - v1.direction)), cos(radians(v2.direction - v1.direction)))"
+    }
+  ],
+  "reason": null
+}

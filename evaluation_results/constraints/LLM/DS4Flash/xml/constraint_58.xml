@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--Template semantics
+For any three contexts v1, v2, and v3, if they belong to the same taxi (same carid) and are consecutive records (grpid of v2 equals grpid of v1 plus 1 and grpid of v3 equals grpid of v2 plus 1), and the speed in v1 is above a certain threshold, then the absolute angular difference between the direction change from v1 to v2 and the bearing change from the location of v1 to the location of v2 to the location of v3 is within a certain angle.
+-->
+<formula>
+  <forall var="v1" in="ctx1">
+    <forall var="v2" in="ctx1">
+      <implies>
+        <and>
+          <bfunc id="1"/>
+          <and>
+            <bfunc id="2"/>
+            <bfunc id="4"/>
+          </and>
+        </and>
+        <bfunc id="3"/>
+      </implies>
+    </forall>
+  </forall>
+</formula>

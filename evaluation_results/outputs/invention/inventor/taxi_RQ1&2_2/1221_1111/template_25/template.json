@@ -1,0 +1,50 @@
+{
+  "intent": {
+    "content": "When a context has zero speed, the heading change to the next consecutive context is bounded or the next context also has zero speed.",
+    "goal": "Detect stationary contexts followed by either an implausible heading change while still stationary or an invalid transition.",
+    "design_rationale": "A stationary vehicle's heading should remain stable; a large heading change while the vehicle is still stationary suggests a sensor error."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then the absolute heading difference between v1 and the next consecutive context v2 does not exceed a certain reasonable range, or v2 also has zero speed.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies (exists v2 in dataset (bfunc2(v1, v2) and (bfunc3(v1, v2) or bfunc4(v1, v2)))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "the speed of v1 is zero",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2 is the next consecutive context after v1 (same vehicle)",
+      "implementation": "v2.grpid == v1.grpid + 1 && v2.carid == v1.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the absolute heading difference between v1 and v2 does not exceed a certain reasonable range",
+      "implementation": "abs(v1.direction - v2.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the speed of v2 is zero",
+      "implementation": "v2.speed == 0",
+      "restrictions": []
+    }
+  ]
+}

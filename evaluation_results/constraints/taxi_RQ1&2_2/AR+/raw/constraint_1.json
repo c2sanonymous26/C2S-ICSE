@@ -1,0 +1,16 @@
+{
+  "mode": "carid_diff",
+  "cmp": "gt",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "min(neg(sub(add(speed_1, latitude_2), log(timestamp_2))), abs(tan(sqrt(longitude_2))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 551.8244471549988,
+  "asrtm_time": 503.2158193588257,
+  "predm_time": 46.9923939704895,
+  "asrt_info": {
+    "fitness": 0.0012000000000000001,
+    "was_early_stopped": false,
+    "generations_completed": 1
+  }
+}

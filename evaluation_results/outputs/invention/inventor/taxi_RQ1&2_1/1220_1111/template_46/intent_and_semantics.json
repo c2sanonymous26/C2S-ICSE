@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "When a context has a significantly low speed, the joint product of GPS displacement and heading change to the next consecutive context is bounded.",
+    "goal": "Detect joint GPS displacement and heading anomalies in low-speed contexts.",
+    "design_rationale": "At very low speed, both GPS displacement and heading changes should be small; large joint products indicate GPS errors or sensor errors in low-speed segments."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, and v1's speed is significantly below a certain threshold, then the product of the haversine GPS displacement and the absolute heading difference between v1 and v2 does not exceed a certain reasonable range."
+}

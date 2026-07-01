@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Contexts from the same vehicle that are one grpid step apart should keep the relationship between heading change and traveled distance within a reasonable range.",
+    "goal": "Detect near-consecutive contexts whose direction-angle change is inconsistent with the displacement implied by their coordinates.",
+    "design_rationale": "A plausible local transition should not combine an abnormal heading change with an incompatible traveled distance."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and the grpid value of v1 is 1 greater than that of v2, then the ratio between the absolute difference in direction angle between v1 and v2 and the displacement distance computed from the coordinates of v1 and v2 should lie within a certain reasonable range."
+}

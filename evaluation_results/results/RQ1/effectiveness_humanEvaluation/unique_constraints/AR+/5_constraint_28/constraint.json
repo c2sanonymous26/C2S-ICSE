@@ -1,0 +1,14 @@
+{
+  "semantics": "For any record v1 in the dataset, v1.longitude is greater than or equal to mul(max(sqrt(v1.latitude), sqrt(v1.latitude)), max(v1.latitude, neg(v1.latitude))).",
+  "structure": "forall v1 in dataset (bfunc1(v1))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "v1.longitude is greater than or equal to mul(max(sqrt(v1.latitude), sqrt(v1.latitude)), max(v1.latitude, neg(v1.latitude)))",
+      "implementation": "var_bindings['v1']['longitude'] >= (max(sqrt(abs(var_bindings['v1']['latitude'])), sqrt(abs(var_bindings['v1']['latitude']))) * max(var_bindings['v1']['latitude'], (-var_bindings['v1']['latitude'])))"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the coordinate-change direction consistent with the change in recorded direction.",
+    "goal": "Detect adjacent same-vehicle contexts whose coordinate-change direction is inconsistent with their direction difference.",
+    "design_rationale": "A realistic adjacent transition should show consistency between geometric direction change and the reported heading change."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute difference between the coordinate-change direction of v1 and v2 and the direction difference of v1 and v2 should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle.",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are two adjacent contexts of that vehicle.",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The absolute difference between the coordinate-change direction of v1 and v2 and the direction difference of v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs(atan2(v2.latitude - v1.latitude, v2.longitude - v1.longitude) - v1.direction) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}

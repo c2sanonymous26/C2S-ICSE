@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Adjacent contexts of the same vehicle should keep the difference between their movement-direction angle and the road-direction angle within a reasonable range.",
+    "goal": "Detect adjacent same-vehicle contexts whose movement direction deviates implausibly from the road-angle reference.",
+    "design_rationale": "A realistic adjacent transition should not produce an excessive angular difference relative to the major road direction."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two adjacent contexts of that vehicle, then the absolute value of the difference between the angle of the coordinate-change direction of v1 and v2 and the angle of the major city road direction should not exceed a certain reasonable range."
+}

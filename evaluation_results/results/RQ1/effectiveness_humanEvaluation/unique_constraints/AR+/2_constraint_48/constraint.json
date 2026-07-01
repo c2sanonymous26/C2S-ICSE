@@ -1,0 +1,15 @@
+{
+  "semantics": "For any two records v1 and v2 in the dataset, v2.speed is greater than or equal to sub(tan(log(v2.longitude)), sin(log(v2.timestamp))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset (bfunc1(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.speed is greater than or equal to sub(tan(log(v2.longitude)), sin(log(v2.timestamp)))",
+      "implementation": "var_bindings['v2']['speed'] >= (tan((0 if abs(var_bindings['v2']['longitude']) < 1/1000 else log(abs(var_bindings['v2']['longitude'])))) - sin((0 if abs(var_bindings['v2']['timestamp']) < 1/1000 else log(abs(var_bindings['v2']['timestamp'])))))"
+    }
+  ]
+}

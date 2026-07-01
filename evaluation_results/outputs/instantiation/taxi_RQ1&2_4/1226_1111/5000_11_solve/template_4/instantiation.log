@@ -1,0 +1,65 @@
+============================================================ 1226_1111/template_4 (5000_11_solve) instantiation starts =============================================================
+- scenario: taxi
+- template: 1226_1111/template_4
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: enabled
+********************************************************************************* Preparation starts *********************************************************************************
+Decomposed template in 0.0030231475830078125 seconds
+Constructed ctx data in 4.315376281738281e-05 seconds
+Loaded data field types in 0.0006284713745117188 seconds
+******************************************************************************* Preparation completes ********************************************************************************
+************************************************************************ Symbol basic ranges computing starts ************************************************************************
+Approximate computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+        - field expression Abs(180*atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude)/pi - 180*atan2(-sin(pi*(v1_direction/180 - v2_direction/180)), sin(pi*v1_direction/180)*sin(pi*v2_direction/180) + cos(pi*v1_direction/180)*cos(pi*v2_direction/180))/pi) → range [1.3353229633139563e-09, 359.72188553537063]
+        - final range for threshold symbol 'NTHRESHOLD1': [1.3353229633139563e-09, 359.72188553537063]
+Approximate computed ranges for 1 threshold symbols in 0.89 seconds
+Theoretical computing basic ranges
+    - loaded field ranges for 5 fields
+    - loaded 3 bfunc implementations
+    - processed comparison expressions for 1 threshold symbols
+    - theoretical computing range for threshold symbol 'NTHRESHOLD1' with 1 field expressions
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+Function '_solve_single_var' [thread] timed out (3s), main thread has given up waiting. Background thread is still running.
+        - field expression Abs(180*atan2(-v1_latitude + v2_latitude, -v1_longitude + v2_longitude)/pi - 180*atan2(-sin(pi*(v1_direction/180 - v2_direction/180)), sin(pi*v1_direction/180)*sin(pi*v2_direction/180) + cos(pi*v1_direction/180)*cos(pi*v2_direction/180))/pi) → range [0.0, 180.00000000099996]
+        - final range for threshold symbol 'NTHRESHOLD1': [0.0, 180.00000000099996]
+Theoretical computed ranges for 1 threshold symbols in 27.83 seconds
+Symbol basic ranges: {'_N_THRESHOLD_1': (0.0, 359.72188553537063)}
+********************************************************************** Symbol basic ranges computing completes ***********************************************************************
+******************************************************************************* Solving process starts *******************************************************************************
+Parsed template in 0.0019519329071044922 seconds
+Set solve data in 0.0009236335754394531 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas:
+Found Eformulas in 0.0005877017974853516 seconds
+Constructed main constraint in 59.19111466407776 seconds
+Constructed VE constraints in 0.0007040500640869141 seconds
+Constructed symbol domain constraints in 0.2613403797149658 seconds
+    - symbol inequalities:
+        - (>=, _N_THRESHOLD_1): 3482
+    - symbol domains:
+        - _N_THRESHOLD_1: 3483
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(6280934126556597, 17592186044416)}
+        - objective value: 4 out of 4
+        - solved in 0.5057663917541504 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 1.040384292602539 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 1.0356624126434326 seconds
+1226_1111/template_4 (5000_11_solve) has 1 valid models
+***************************************************************************** Solving process completes ******************************************************************************
+=========================================================== 1226_1111/template_4 (5000_11_solve) instantiation completes ===========================================================
+Total instantiation time: 91.68 seconds

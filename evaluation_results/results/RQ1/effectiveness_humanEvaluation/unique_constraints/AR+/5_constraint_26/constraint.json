@@ -1,0 +1,24 @@
+{
+  "semantics": "For any two records v1 and v2 that belong to different vehicles (different carid values), v2.timestamp is greater than or equal to sub(v1.latitude, min(sub(add(max(abs(v1.latitude), tan(v2.longitude)), sqrt(abs(v1.latitude))), add(abs(max(v1.latitude, v2.speed)), tan(sub(v2.direction, v1.longitude)))), sub(min(log(min(v1.timestamp, v2.latitude)), log(div(v1.speed, v2.speed))), max(max(min(v2.speed, v1.direction), add(-41070.172, v1.timestamp)), max(abs(v1.direction), neg(v2.speed)))))).",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) implies bfunc2(v1, v2))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles (they have different carid values)",
+      "implementation": "var_bindings['v1']['carid'] != var_bindings['v2']['carid']"
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v2.timestamp is greater than or equal to sub(v1.latitude, min(sub(add(max(abs(v1.latitude), tan(v2.longitude)), sqrt(abs(v1.latitude))), add(abs(max(v1.latitude, v2.speed)), tan(sub(v2.direction, v1.longitude)))), sub(min(log(min(v1.timestamp, v2.latitude)), log(div(v1.speed, v2.speed))), max(max(min(v2.speed, v1.direction), add(-41070.172, v1.timestamp)), max(abs(v1.direction), neg(v2.speed))))))",
+      "implementation": "var_bindings['v2']['timestamp'] >= (var_bindings['v1']['latitude'] - min(((max(abs(var_bindings['v1']['latitude']), tan(var_bindings['v2']['longitude'])) + sqrt(abs(abs(var_bindings['v1']['latitude'])))) - (abs(max(var_bindings['v1']['latitude'], var_bindings['v2']['speed'])) + tan((var_bindings['v2']['direction'] - var_bindings['v1']['longitude'])))), (min((0 if abs(min(var_bindings['v1']['timestamp'], var_bindings['v2']['latitude'])) < 1/1000 else log(abs(min(var_bindings['v1']['timestamp'], var_bindings['v2']['latitude'])))), (0 if abs((1 if -1/1000 <= (var_bindings['v2']['speed']) <= 1/1000 else (var_bindings['v1']['speed']) / (var_bindings['v2']['speed']))) < 1/1000 else log(abs((1 if -1/1000 <= (var_bindings['v2']['speed']) <= 1/1000 else (var_bindings['v1']['speed']) / (var_bindings['v2']['speed'])))))) - max(max(min(var_bindings['v2']['speed'], var_bindings['v1']['direction']), (-10267543/250 + var_bindings['v1']['timestamp'])), max(abs(var_bindings['v1']['direction']), (-var_bindings['v2']['speed']))))))"
+    }
+  ]
+}

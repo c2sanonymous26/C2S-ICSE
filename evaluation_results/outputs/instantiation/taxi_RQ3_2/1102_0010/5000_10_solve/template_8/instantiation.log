@@ -1,0 +1,40 @@
+============================================================ 1102_0010/template_8 (5000_10_solve) instantiation starts ============================================================
+- scenario: taxi
+- template: 1102_0010/template_8
+- data: 5000
+- concurrent: True
+- parameter domain discretization: enabled
+- predicate sensitivity promotion: disabled
+********************************************************************************* Preparation starts ********************************************************************************
+Decomposed template in 0.0016293525695800781 seconds
+Constructed ctx data in 3.838539123535156e-05 seconds
+Loaded data field types in 0.0005402565002441406 seconds
+******************************************************************************* Preparation completes *******************************************************************************
+******************************************************************************* Solving process starts ******************************************************************************
+Parsed template in 0.0014231204986572266 seconds
+Set solve data in 0.0008685588836669922 seconds
+    - solve data num info: {'ctx1': 5042}
+    - Eformulas: {}
+Found Eformulas in 0.0005869865417480469 seconds
+Constructed main constraint in 62.876788854599 seconds
+Constructed symbol domain constraints in 0.030396461486816406 seconds
+    - symbol inequalities:
+        - (<=, _N_THRESHOLD_1): 101
+        - (>=, _N_THRESHOLD_2): 101
+    - symbol domains:
+        - _N_THRESHOLD_1: 102
+        - _N_THRESHOLD_2: 102
+Solving iteration 1:
+    - solver results:
+        - model: {'_N_THRESHOLD_1': Fraction(1, 1), '_N_THRESHOLD_2': Fraction(497, 1)}
+        - solved in 0.0049190521240234375 seconds
+Solving iteration 2:
+        - unsat
+        - solved in 0.00745391845703125 seconds
+Solving iteration 3:
+        - unsat
+        - solved in 0.0073435306549072266 seconds
+1102_0010/template_8 (5000_10_solve) has 1 valid models
+***************************************************************************** Solving process completes *****************************************************************************
+=========================================================== 1102_0010/template_8 (5000_10_solve) instantiation completes ==========================================================
+Total instantiation time: 62.97 seconds

@@ -1,0 +1,16 @@
+{
+  "mode": "pairwise",
+  "cmp": "le",
+  "target_col": "longitude_1",
+  "status": "success_simple_constraint",
+  "assertion": "mul(log(longitude_2), sqrt(mul(log(longitude_2), mul(log(longitude_2), sqrt(mul(log(longitude_2), sqrt(-27461.682)))))))",
+  "rule_fit_rate": 1.0,
+  "overall_time": 1290.3715901374817,
+  "asrtm_time": 1287.8967320919037,
+  "predm_time": 0,
+  "asrt_info": {
+    "fitness": 0.0036602200887294817,
+    "was_early_stopped": false,
+    "generations_completed": 6
+  }
+}

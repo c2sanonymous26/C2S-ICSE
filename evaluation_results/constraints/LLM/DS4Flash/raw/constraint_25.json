@@ -1,0 +1,98 @@
+{
+  "constraint_id": 25,
+  "generation": {
+    "data_rows_provided": 5042,
+    "llm_attempts": 4,
+    "generation_seconds": 162.03991603851318
+  },
+  "symbolic_constraint": {
+    "intent": {
+      "content": "The direction recorded in a context should be consistent with the bearing to the next context of the same vehicle.",
+      "goal": "Detect contexts where the recorded direction does not align with the actual movement direction indicated by the GPS trajectory, which may indicate sensor misalignment or data errors.",
+      "design_rationale": "The direction at a given moment should approximately point towards the next recorded position of the same vehicle, as the vehicle continues moving in that direction. A large discrepancy suggests the direction sensor is faulty or the GPS positions are inconsistent."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, then the absolute difference between the direction recorded in v1 and the bearing angle calculated from v1's GPS location (v1.latitude, v1.longitude) to v2's GPS location (v2.latitude, v2.longitude) does not exceed a certain bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle",
+        "implementation": "v2.grpid - v1.grpid == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the direction recorded in v1 and the bearing angle calculated from v1's GPS location (v1.latitude, v1.longitude) to v2's GPS location (v2.latitude, v2.longitude) does not exceed a certain bound",
+        "implementation": "min(abs(v1.direction - degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude))))), 360 - abs(v1.direction - degrees(atan2(sin(radians(v2.longitude - v1.longitude)) × cos(radians(v2.latitude)), cos(radians(v1.latitude)) × sin(radians(v2.latitude)) - sin(radians(v1.latitude)) × cos(radians(v2.latitude)) × cos(radians(v2.longitude - v1.longitude)))))) <= NTHRESHOLD1",
+        "restrictions": []
+      }
+    ]
+  },
+  "instantiations": {
+    "instantiations": [
+      {
+        "symbol": "NTHRESHOLD1",
+        "value": 135.0
+      }
+    ]
+  },
+  "constraint": {
+    "intent": {
+      "content": "The direction recorded in a context should be consistent with the bearing to the next context of the same vehicle.",
+      "goal": "Detect contexts where the recorded direction does not align with the actual movement direction indicated by the GPS trajectory, which may indicate sensor misalignment or data errors.",
+      "design_rationale": "The direction at a given moment should approximately point towards the next recorded position of the same vehicle, as the vehicle continues moving in that direction. A large discrepancy suggests the direction sensor is faulty or the GPS positions are inconsistent."
+    },
+    "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive records of that vehicle, then the absolute difference between the direction recorded in v1 and the bearing angle calculated from v1's GPS location (v1.latitude, v1.longitude) to v2's GPS location (v2.latitude, v2.longitude) does not exceed a certain bound.",
+    "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1,v2) and bfunc2(v1,v2)) implies bfunc3(v1,v2)))",
+    "bfuncs": [
+      {
+        "id": "bfunc1",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 belong to the same vehicle",
+        "implementation": "v1.carid == v2.carid",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc2",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "v1 and v2 are consecutive records of that vehicle",
+        "implementation": "(v2.grpid - v1.grpid) == 1",
+        "restrictions": []
+      },
+      {
+        "id": "bfunc3",
+        "parameters": [
+          "v1",
+          "v2"
+        ],
+        "semantics": "the absolute difference between the direction recorded in v1 and the bearing angle calculated from v1's GPS location (v1.latitude, v1.longitude) to v2's GPS location (v2.latitude, v2.longitude) does not exceed a certain bound",
+        "implementation": "min(abs((v1.direction - degrees(atan2((sin(radians((v2.longitude - v1.longitude))) × cos(radians(v2.latitude))), ((cos(radians(v1.latitude)) × sin(radians(v2.latitude))) - ((sin(radians(v1.latitude)) × cos(radians(v2.latitude))) × cos(radians((v2.longitude - v1.longitude))))))))), (360 - abs((v1.direction - degrees(atan2((sin(radians((v2.longitude - v1.longitude))) × cos(radians(v2.latitude))), ((cos(radians(v1.latitude)) × sin(radians(v2.latitude))) - ((sin(radians(v1.latitude)) × cos(radians(v2.latitude))) × cos(radians((v2.longitude - v1.longitude))))))))))) <= 135.0",
+        "restrictions": []
+      }
+    ]
+  }
+}

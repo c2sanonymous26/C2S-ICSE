@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "Two consecutive contexts of the same vehicle should advance in both time and group index without gaps or zero elapsed time.",
+    "goal": "Detect adjacent same-vehicle contexts whose timestamp difference is zero or whose grpid difference is not exactly 1.",
+    "design_rationale": "Adjacent observations of the same vehicle should reflect a proper next-step transition with a positive temporal gap and a unit increase in group index."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are two consecutive contexts of that vehicle, then the timestamp difference between v1 and v2 must not be 0, and the grpid difference between v1 and v2 must equal 1."
+}

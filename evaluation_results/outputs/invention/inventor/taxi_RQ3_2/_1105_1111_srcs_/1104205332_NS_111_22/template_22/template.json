@@ -1,0 +1,40 @@
+{
+  "intent": {
+    "content": "A zero-speed context and its next same-vehicle context should have a reasonable joint magnitude of speed difference and heading difference.",
+    "goal": "Detect stopped contexts whose immediate next context creates an implausible combination of speed change and direction change.",
+    "design_rationale": "If the current context is stationary, the following one-step context should not jointly deviate too much in speed and heading under this composite rule."
+  },
+  "semantics": "For any context v1, if the speed of v1 is zero, then for any context v2, if v1 and v2 belong to the same vehicle and v2 is the next context of v1, the product of the absolute speed difference between them and the absolute difference in direction angle between them should lie within a certain reasonable range.",
+  "structure": "forall v1 in dataset (bfunc1(v1) implies forall v2 in dataset (bfunc2(v1, v2) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1"
+      ],
+      "semantics": "The speed of v1 is 0.",
+      "implementation": "v1.speed == 0",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle, and v2 is the next context of v1.",
+      "implementation": "v1.carid == v2.carid && v2.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The product of the absolute speed difference between v1 and v2 and the absolute difference in direction angle between them should lie within a certain reasonable range.",
+      "implementation": "abs(v1.speed - v2.speed) × abs(v1.direction - v2.direction) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

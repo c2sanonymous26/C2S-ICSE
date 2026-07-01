@@ -1,0 +1,69 @@
+{
+  "intent": {
+    "content": "Different vehicles observed at similar times should not have an implausibly large discrepancy between their locally inferred direction-change rates.",
+    "goal": "Detect temporally nearby cross-vehicle contexts whose local turning dynamics are inconsistent.",
+    "design_rationale": "Under this rule, the direction-change rates inferred from each context's local neighborhood should remain within a reasonable gap."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to different vehicles and their timestamps are close, with the absolute time difference not exceeding a certain value, then the absolute difference between their direction-change rates, computed from their respective surrounding records, should not exceed a certain reasonable range.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies (exists v3 in dataset (exists v4 in dataset (exists v5 in dataset (exists v6 in dataset (bfunc3(v1, v3, v4) and bfunc4(v2, v5, v6) and bfunc5(v1, v2, v3, v4, v5, v6))))))))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to different vehicles.",
+      "implementation": "v1.carid != v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "The timestamps of v1 and v2 are close, and their absolute time difference does not exceed a certain value.",
+      "implementation": "abs(v1.timestamp - v2.timestamp) <= NTHRESHOLD1",
+      "restrictions": [
+        "0 <= NTHRESHOLD1 <= 300"
+      ]
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v3",
+        "v4"
+      ],
+      "semantics": "v3 and v4 are the previous and next contexts of v1.",
+      "implementation": "v3.carid == v1.carid && v3.grpid == v1.grpid - 1 && v4.carid == v1.carid && v4.grpid == v1.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc4",
+      "parameters": [
+        "v2",
+        "v5",
+        "v6"
+      ],
+      "semantics": "v5 and v6 are the previous and next contexts of v2.",
+      "implementation": "v5.carid == v2.carid && v5.grpid == v2.grpid - 1 && v6.carid == v2.carid && v6.grpid == v2.grpid + 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc5",
+      "parameters": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ],
+      "semantics": "The absolute difference between the direction-change rates of v1 and v2 does not exceed a certain reasonable range.",
+      "implementation": "abs((atan2(sin(radians(v1.direction - v3.direction)), cos(radians(v1.direction - v3.direction))) - atan2(sin(radians(v2.direction - v5.direction)), cos(radians(v2.direction - v5.direction)))) ÷ (v1.timestamp - v2.timestamp)) <= NTHRESHOLD2",
+      "restrictions": []
+    }
+  ]
+}

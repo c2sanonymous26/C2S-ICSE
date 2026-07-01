@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "content": "If the earlier context in an adjacent same-vehicle pair has zero speed, the later context should also have zero speed under this rule.",
+    "goal": "Detect adjacent same-vehicle contexts that break stopped-state continuity.",
+    "design_rationale": "A stopped local state should remain stable to the next adjacent context under this design."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle, are two adjacent contexts of that vehicle, and the speed value of v1 is zero, then the speed value of v2 should also be zero."
+}

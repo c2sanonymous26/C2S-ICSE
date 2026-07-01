@@ -1,0 +1,41 @@
+{
+  "intent": {
+    "content": "The angular velocity (rate of heading change) between consecutive contexts of the same vehicle does not exceed a physical upper bound.",
+    "goal": "Detect physically impossible rates of heading change between consecutive records.",
+    "design_rationale": "A vehicle cannot change its heading arbitrarily fast; the rate of heading change is bounded by vehicle dynamics, and excessive angular velocity indicates a sensor error."
+  },
+  "semantics": "For any two contexts v1 and v2, if they belong to the same vehicle and are consecutive contexts of that vehicle, then the ratio of the absolute heading difference to the timestamp difference between v1 and v2 does not exceed a certain reasonable angular velocity upper bound.",
+  "structure": "forall v1 in dataset (forall v2 in dataset ((bfunc1(v1, v2) and bfunc2(v1, v2)) implies bfunc3(v1, v2)))",
+  "bfuncs": [
+    {
+      "id": "bfunc1",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 belong to the same vehicle",
+      "implementation": "v1.carid == v2.carid",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc2",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "v1 and v2 are consecutive contexts of that vehicle",
+      "implementation": "abs(v1.grpid - v2.grpid) == 1",
+      "restrictions": []
+    },
+    {
+      "id": "bfunc3",
+      "parameters": [
+        "v1",
+        "v2"
+      ],
+      "semantics": "the ratio of the absolute heading difference between v1 and v2 to their timestamp difference does not exceed a certain reasonable angular velocity upper bound",
+      "implementation": "abs(v1.direction - v2.direction) ÷ (v2.timestamp - v1.timestamp) <= NTHRESHOLD1",
+      "restrictions": []
+    }
+  ]
+}
